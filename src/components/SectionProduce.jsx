@@ -9,6 +9,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
   Stat,
 } from "./primitives";
 
@@ -47,6 +48,7 @@ export default function SectionProduce() {
   return (
     <Section id="produce" surface="mist">
       <Reveal>
+        <SectionKicker>Produce</SectionKicker>
         <SectionHeading>
           Grow <Accent>what the market needs</Accent>
         </SectionHeading>

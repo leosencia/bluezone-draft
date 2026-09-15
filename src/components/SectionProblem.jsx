@@ -9,6 +9,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
   Stat,
 } from "./primitives";
 
@@ -53,6 +54,7 @@ export default function SectionProblem() {
     <Section id="problem" surface="white">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <Reveal>
+          <SectionKicker>The Problem</SectionKicker>
           <SectionHeading>
             Food supply chains were built <Accent>for distance</Accent>
           </SectionHeading>

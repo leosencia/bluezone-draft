@@ -158,7 +158,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#why-zero-mile"
-              className="inline-flex items-center gap-2 border border-white/40 text-white rounded-full px-7 py-3 text-sm font-medium hover:bg-white/10 hover:border-white/60 transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/40 text-white rounded-full px-7 py-3 text-sm font-medium hover:bg-black/55 hover:border-white/60 transition-colors duration-200"
             >
               <Play size={16} />
               Explore Zero-Mile

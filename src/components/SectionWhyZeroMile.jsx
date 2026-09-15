@@ -16,6 +16,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const PILLARS = [
@@ -62,6 +63,7 @@ export default function SectionWhyZeroMile() {
     <Section id="why-zero-mile" surface="mist">
       <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-12 lg:gap-16 items-start">
         <Reveal>
+          <SectionKicker>Why Zero-Mile</SectionKicker>
           <SectionHeading>
             Production as close as commercially practical to{" "}
             <Accent>the point of demand</Accent>

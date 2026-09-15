@@ -9,6 +9,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
   SecondaryButton,
 } from "./primitives";
 
@@ -81,6 +82,7 @@ export default function SectionBioCube() {
     <Section id="biocube" surface="navy">
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
         <Reveal>
+          <SectionKicker onNavy>BioCube</SectionKicker>
           <SectionHeading dark>
             Meet <Accent dark>BioCube</Accent>
           </SectionHeading>

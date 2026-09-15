@@ -189,6 +189,20 @@ export function Marquee({
   );
 }
 
+// Eyebrow label sitting above a SectionHeading — a dark, hard-cornered chip
+// carrying the same liquid-glass + noise texture as the footer card.
+export function SectionKicker({ children, onNavy = false, className = "" }) {
+  return (
+    <span
+      className={`liquid-glass noise-overlay relative inline-block ${
+        onNavy ? "bg-white/10" : "bg-bz-navy"
+      } text-white text-xs font-medium uppercase tracking-[0.18em] px-4 py-1.5 mb-4 md:mb-5 ${className}`}
+    >
+      <span className="relative z-10">{children}</span>
+    </span>
+  );
+}
+
 export function SectionHeading({ children, dark = false, className = "" }) {
   return (
     <h2
