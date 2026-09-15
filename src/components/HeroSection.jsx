@@ -1,9 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
 
-import heroJpg from "../assets/hero-biocube.jpg";
-import heroWebp from "../assets/hero-biocube.webp";
 import logo from "../assets/bluezone.png";
+
+// Frame sequence for the scroll-scrubbed hero background, in file order.
+const FRAME_MODULES = import.meta.glob("../assets/hero-video-frames/*.jpg", {
+  eager: true,
+  import: "default",
+});
+const FRAMES = Object.keys(FRAME_MODULES)
+  .sort()
+  .map((key) => FRAME_MODULES[key]);
+const TOTAL_FRAMES = FRAMES.length;
+
+// Scroll distance spent scrubbing the sequence, then a hold where the last
+// frame stays pinned before the section releases to the next one.
+const SCRUB_VH = 400;
+const HOLD_VH = 100;
 
 // Primary navigation per the Final Website Structure (16 / Navigation & Footer).
 const NAV_LINKS = [
@@ -26,6 +39,118 @@ export default function HeroSection() {
   // Once the staggered entrance has finished, drop the transition delays so
   // hover states on the menu links respond immediately.
   const [hasEntered, setHasEntered] = useState(false);
+
+  const wrapperRef = useRef(null);
+  const stickyRef = useRef(null);
+  const canvasRef = useRef(null);
+
+  // Sticky positioning does the pinning; this maps scroll progress through
+  // the tall wrapper to a frame and paints it. Canvas rather than swapping an
+  // <img src>: mobile browsers paint nothing while the next image decodes, so
+  // an <img> flashes blank on every step, while a canvas holds the last frame.
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const images = FRAMES.map((src) => {
+      const img = new Image();
+      img.src = src;
+      return img;
+    });
+
+    let painted = -1;
+    let wanted = 0;
+
+    const paint = (index) => {
+      const img = images[index];
+      if (!img.naturalWidth) return;
+
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const w = img.naturalWidth * scale;
+      const h = img.naturalHeight * scale;
+      // Mirrors the old object-position: 70% 58% on phones, centred above sm.
+      const focusX = window.innerWidth >= 640 ? 0.5 : 0.7;
+      const focusY = window.innerWidth >= 640 ? 0.5 : 0.58;
+
+      ctx.drawImage(img, (cw - w) * focusX, (ch - h) * focusY, w, h);
+      painted = index;
+    };
+
+    const show = (index) => {
+      wanted = index;
+      const img = images[index];
+      if (img.complete) {
+        paint(index);
+        return;
+      }
+      img.addEventListener(
+        "load",
+        () => {
+          if (wanted === index) paint(index);
+        },
+        { once: true },
+      );
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = Math.round(stickyRef.current.clientWidth * dpr);
+      const h = Math.round(stickyRef.current.clientHeight * dpr);
+      // Mobile fires resize every time the browser chrome slides; bail unless
+      // the size really changed, since assigning width/height clears the canvas.
+      if (canvas.width === w && canvas.height === h) return;
+
+      canvas.width = w;
+      canvas.height = h;
+      painted = -1;
+      show(wanted);
+    };
+
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const wrapper = wrapperRef.current;
+      const sticky = stickyRef.current;
+      if (!wrapper || !sticky) return;
+
+      // Sticky pins for exactly (wrapper height - sticky height). Both are
+      // measured, because on mobile 100vh and the visible viewport height are
+      // different numbers and assuming they match skews the whole range.
+      const stickyHeight = sticky.offsetHeight;
+      const hold = stickyHeight * (HOLD_VH / 100);
+      const scrubbable = wrapper.offsetHeight - stickyHeight - hold;
+      const progress =
+        scrubbable > 0
+          ? Math.min(
+              1,
+              Math.max(0, -wrapper.getBoundingClientRect().top / scrubbable),
+            )
+          : 0;
+
+      const index = Math.min(
+        TOTAL_FRAMES - 1,
+        Math.floor(progress * TOTAL_FRAMES),
+      );
+      if (index !== painted) show(index);
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(update);
+    };
+
+    resize();
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -53,22 +178,26 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
-      {/* Background image */}
-      <picture>
-        <source srcSet={heroWebp} type="image/webp" />
-        <img
-          src={heroJpg}
-          alt=""
+    <section
+      ref={wrapperRef}
+      className="relative w-full"
+      style={{ height: `${SCRUB_VH + HOLD_VH}vh` }}
+    >
+      <div
+        ref={stickyRef}
+        className="sticky top-0 h-screen w-full overflow-hidden bg-bz-navy"
+      >
+        {/* Background frame */}
+        <canvas
+          ref={canvasRef}
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_58%] sm:object-center"
+          className="absolute inset-0 w-full h-full"
         />
-      </picture>
 
-      {/* Content layer */}
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Navbar */}
-        <header className="flex items-center justify-between px-6 md:px-12 lg:px-16 pb-5">
+        {/* Content layer */}
+        <div className="relative z-10 flex flex-col h-full">
+          {/* Navbar */}
+        <header className="flex items-center justify-between px-6 md:px-12 lg:px-16">
           <div className="flex items-center gap-10">
             <a
               href="/"
@@ -255,6 +384,7 @@ export default function HeroSection() {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

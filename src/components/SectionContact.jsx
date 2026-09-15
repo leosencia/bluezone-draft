@@ -12,6 +12,7 @@ import {
   SectionHeading,
   SectionKicker,
 } from "./primitives";
+import { Send, SendHorizonal } from "lucide-react";
 
 const ORG_TYPES = [
   "Airport / airline catering",
@@ -106,119 +107,117 @@ export default function SectionContact() {
                 e.preventDefault();
               }}
             >
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label className={LABEL} htmlFor="contact-name">
-                  Full name
-                </label>
-                <input
-                  id="contact-name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="Your name"
-                  className={FIELD}
-                />
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className={LABEL} htmlFor="contact-name">
+                    Full name
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    className={FIELD}
+                  />
+                </div>
+                <div>
+                  <label className={LABEL} htmlFor="contact-email">
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="you@company.com"
+                    className={FIELD}
+                  />
+                </div>
+                <div>
+                  <label className={LABEL} htmlFor="contact-org">
+                    Organisation
+                  </label>
+                  <input
+                    id="contact-org"
+                    name="organisation"
+                    type="text"
+                    placeholder="Company or institution"
+                    className={FIELD}
+                  />
+                </div>
+                <div>
+                  <label className={LABEL} htmlFor="contact-title">
+                    Job title
+                  </label>
+                  <input
+                    id="contact-title"
+                    name="jobTitle"
+                    type="text"
+                    placeholder="Your role"
+                    className={FIELD}
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className={LABEL} htmlFor="contact-location">
+                    Country or location
+                  </label>
+                  <input
+                    id="contact-location"
+                    name="location"
+                    type="text"
+                    placeholder="Where production would be sited"
+                    className={FIELD}
+                  />
+                </div>
               </div>
-              <div>
-                <label className={LABEL} htmlFor="contact-email">
-                  Email
-                </label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@company.com"
-                  className={FIELD}
-                />
-              </div>
-              <div>
-                <label className={LABEL} htmlFor="contact-org">
-                  Organisation
-                </label>
-                <input
-                  id="contact-org"
-                  name="organisation"
-                  type="text"
-                  placeholder="Company or institution"
-                  className={FIELD}
-                />
-              </div>
-              <div>
-                <label className={LABEL} htmlFor="contact-title">
-                  Job title
-                </label>
-                <input
-                  id="contact-title"
-                  name="jobTitle"
-                  type="text"
-                  placeholder="Your role"
-                  className={FIELD}
-                />
-              </div>
-              <div className="sm:col-span-2">
-                <label className={LABEL} htmlFor="contact-location">
-                  Country or location
-                </label>
-                <input
-                  id="contact-location"
-                  name="location"
-                  type="text"
-                  placeholder="Where production would be sited"
-                  className={FIELD}
-                />
-              </div>
-            </div>
 
-            <div className="mt-8">
-              <span className={LABEL}>Organisation type</span>
-              <ChipGroup
-                name="organisationType"
-                options={ORG_TYPES}
-                value={orgType}
-                onChange={setOrgType}
-              />
-            </div>
+              <div className="mt-8">
+                <span className={LABEL}>Organisation type</span>
+                <ChipGroup
+                  name="organisationType"
+                  options={ORG_TYPES}
+                  value={orgType}
+                  onChange={setOrgType}
+                />
+              </div>
 
-            <div className="mt-8">
-              <span className={LABEL}>Project stage</span>
-              <ChipGroup
-                name="projectStage"
-                options={STAGES}
-                value={stage}
-                onChange={setStage}
-              />
-            </div>
+              <div className="mt-8">
+                <span className={LABEL}>Project stage</span>
+                <ChipGroup
+                  name="projectStage"
+                  options={STAGES}
+                  value={stage}
+                  onChange={setStage}
+                />
+              </div>
 
-            <div className="mt-8">
-              <label className={LABEL} htmlFor="contact-brief">
-                What are you looking to produce or solve?
-              </label>
-              <textarea
-                id="contact-brief"
-                name="brief"
-                rows={4}
-                placeholder="Crops, volumes, current supply problem, timeline"
-                className="w-full rounded-2xl border border-bz-navy/15 bg-white px-5 py-4 text-sm text-bz-navy font-light placeholder:text-bz-navy/40 focus:outline-none focus:border-bz-blue focus:ring-1 focus:ring-bz-blue transition-colors duration-200 resize-y"
-              />
-            </div>
+              <div className="mt-8">
+                <label className={LABEL} htmlFor="contact-brief">
+                  What are you looking to produce or solve?
+                </label>
+                <textarea
+                  id="contact-brief"
+                  name="brief"
+                  rows={4}
+                  placeholder="Crops, volumes, current supply problem, timeline"
+                  className="w-full rounded-2xl border border-bz-navy/15 bg-white px-5 py-4 text-sm text-bz-navy font-light placeholder:text-bz-navy/40 focus:outline-none focus:border-bz-blue focus:ring-1 focus:ring-bz-blue transition-colors duration-200 resize-y"
+                />
+              </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-5">
-              <button
-                type="submit"
-                className="group inline-flex items-center gap-3 bg-bz-navy text-white rounded-full pl-6 pr-2 py-2 text-sm font-medium hover:bg-bz-ocean transition-colors duration-200"
-              >
-                Send enquiry
-                <span className="flex items-center justify-center w-7 h-7 rounded-full bg-bz-blue text-white text-xs">
-                  &rarr;
-                </span>
-              </button>
-              <Footnote className="flex-1">
-                We reply to qualified enquiries with a site and crop
-                assessment.
-              </Footnote>
-            </div>
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-5">
+                <button
+                  type="submit"
+                  className="flex flex-row justify-center items-center gap-2 bg-bz-navy text-white rounded-full py-2 px-6 text-sm font-medium hover:bg-bz-ocean transition-colors duration-200"
+                >
+                  <span>Send enquiry</span>
+                  <SendHorizonal size={18} />
+                </button>
+                <Footnote className="flex-1">
+                  We reply to qualified enquiries with a site and crop
+                  assessment.
+                </Footnote>
+              </div>
             </form>
           </BentoTile>
         </Reveal>

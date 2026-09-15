@@ -8,13 +8,11 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
+/* Nothing here sets overflow or a fixed height. Both are traps: `height: 100%`
+   plus `overflow-x` turns body/#root into their own scroll containers, so the
+   window stops scrolling and scroll listeners go silent, and `overflow-x: clip`
+   on the root computes overflow-y to `hidden`, which kills vertical scrolling
+   outright. Wide content is clipped where it originates instead. */
 
 /* In-page nav anchors glide instead of jumping. */
 html {
