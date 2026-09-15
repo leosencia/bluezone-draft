@@ -1,0 +1,79 @@
+/* Montserrat (display) + Inter (body/UI) — brand kit §04.
+   The Motion-Sites prompt asked for Inter only; the kit requires the
+   Montserrat/Inter pair, capped at two families. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------
+   Animations — keyframes exactly as specified by the Motion-Sites prompt.
+   Durations sit inside the brand kit's §08 motion window (600–900ms
+   ease-out for hero transitions, short fade/translate for text).
+   ------------------------------------------------------------------ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDialog {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-overlay {
+  animation: fadeInOverlay 0.4s ease-out forwards;
+}
+
+/* Prompt specified 0.5s; nudged to 0.6s to land inside the kit's
+   600–900ms hero-transition range. */
+.animate-slide-up-overlay {
+  animation: fadeInDialog 0.6s ease-out forwards;
+  transform: translate(-50%, -50%);
+}
+
+/* Every animated block carries inline `opacity: 0` so the animation fills it
+   in. If a viewer has animations turned off, that inline value would leave
+   the page blank — so force everything visible here. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in-overlay,
+  .animate-slide-up-overlay {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .animate-slide-up-overlay {
+    transform: translate(-50%, -50%) !important;
+  }
+}

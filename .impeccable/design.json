@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-15T00:00:00.000Z",
+  "title": "Design System: BlueZone Hero",
+  "extensions": {
+    "colorMeta": {
+      "white-100": {
+        "role": "primary",
+        "displayName": "Signal White",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(87% 0 0)", "oklch(95% 0 0)"]
+      },
+      "white-90": { "role": "neutral", "displayName": "Signal 90", "canonical": "oklch(100% 0 0 / 0.9)" },
+      "white-80": { "role": "neutral", "displayName": "Signal 80", "canonical": "oklch(100% 0 0 / 0.8)" },
+      "white-70": { "role": "neutral", "displayName": "Signal 70", "canonical": "oklch(100% 0 0 / 0.7)" },
+      "white-60": { "role": "neutral", "displayName": "Signal 60", "canonical": "oklch(100% 0 0 / 0.6)" },
+      "white-40": { "role": "neutral", "displayName": "Signal 40", "canonical": "oklch(100% 0 0 / 0.4)" },
+      "white-10": { "role": "neutral", "displayName": "Signal 10", "canonical": "oklch(100% 0 0 / 0.1)" },
+      "black-100": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0% 0 0)",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(87% 0 0)", "oklch(95% 0 0)"]
+      },
+      "black-90": { "role": "neutral", "displayName": "Scrim Black", "canonical": "oklch(0% 0 0 / 0.9)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only. Italic opening line, upright rest." },
+      "headline": { "displayName": "Headline", "purpose": "Full-screen mobile menu links only." },
+      "body": { "displayName": "Body", "purpose": "Hero subheading paragraph, capped ~28ch." },
+      "title": { "displayName": "Title", "purpose": "Navbar links and navbar tagline." },
+      "label": { "displayName": "Label", "purpose": "Button and pill text — the only medium-weight usage." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-signal", "value": "cubic-bezier(0.76, 0, 0.24, 1)", "purpose": "Default ease for chrome open/close: hamburger morph, mobile overlay fade, menu-link stagger." },
+      { "name": "duration-immediate", "value": "200ms", "purpose": "Hover/press feedback on buttons and nav links — touch response stays instant." },
+      { "name": "duration-deliberate", "value": "500ms", "purpose": "Hamburger bar morph into an X." },
+      { "name": "duration-overlay", "value": "700ms", "purpose": "Mobile menu overlay fade and staggered link entrance." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Solid white pill CTA (\"Get in Touch\"). The only solid-fill element in the system.",
+      "html": "<button class=\"ds-btn-primary\">Get in Touch</button>",
+      "css": ".ds-btn-primary { background: #FFFFFF; color: #000000; font-family: Inter, system-ui, sans-serif; font-weight: 500; font-size: 0.875rem; padding: 12px 28px; border-radius: 9999px; border: none; cursor: pointer; transition: background-color 200ms; } .ds-btn-primary:hover { background: #FFFFFFE6; } .ds-btn-primary:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ghost pill CTA with a play icon (\"Explore Zero-Mile\"). Transparent at rest, never mistaken for primary.",
+      "html": "<button class=\"ds-btn-secondary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M4 2.5v11l10-5.5-10-5.5z\"/></svg><span>Explore Zero-Mile</span></button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #FFFFFF; font-family: Inter, system-ui, sans-serif; font-weight: 500; font-size: 0.875rem; padding: 12px 28px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.4); cursor: pointer; transition: background-color 200ms, border-color 200ms; } .ds-btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); } .ds-btn-secondary:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Quiet wayfinding text at white-80, brightening to full white on hover/focus.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">Technology</a>",
+      "css": ".ds-nav-link { color: rgba(255,255,255,0.8); font-family: Inter, system-ui, sans-serif; font-weight: 300; font-size: 0.875rem; text-decoration: none; white-space: nowrap; transition: color 200ms; } .ds-nav-link:hover, .ds-nav-link:focus-visible { color: #FFFFFF; } .ds-nav-link:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 2px; }"
+    },
+    {
+      "name": "Hamburger Toggle",
+      "kind": "custom",
+      "refersTo": "hamburger-bar",
+      "description": "Three white pill bars that morph into an X on open (transform/opacity only, no icon swap). Shown here at rest.",
+      "html": "<button class=\"ds-hamburger\" aria-label=\"Open menu\"><span class=\"ds-hamburger-bar ds-hamburger-bar--top\"></span><span class=\"ds-hamburger-bar ds-hamburger-bar--mid\"></span><span class=\"ds-hamburger-bar ds-hamburger-bar--bot\"></span></button>",
+      "css": ".ds-hamburger { position: relative; width: 24px; height: 20px; background: transparent; border: none; cursor: pointer; padding: 0; } .ds-hamburger-bar { position: absolute; left: 0; height: 2px; background: #FFFFFF; border-radius: 9999px; transition: transform 500ms cubic-bezier(0.76,0,0.24,1), opacity 500ms cubic-bezier(0.76,0,0.24,1); } .ds-hamburger-bar--top { top: 0; width: 24px; } .ds-hamburger-bar--mid { top: 50%; margin-top: -1px; width: 16px; } .ds-hamburger-bar--bot { bottom: 0; width: 24px; } .ds-hamburger:hover .ds-hamburger-bar { background: #FFFFFFE6; }"
+    },
+    {
+      "name": "Mobile Menu Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Full-screen overlay link: Instrument Serif at headline scale, hairline divider, hover nudges right instead of changing color.",
+      "html": "<a class=\"ds-menu-link\" href=\"#\">Technology</a>",
+      "css": ".ds-menu-link { display: block; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 16px 0; color: #FFFFFF; font-family: 'Instrument Serif', serif; font-size: 2.25rem; line-height: 1.1; text-decoration: none; transition: padding-left 700ms cubic-bezier(0.76,0,0.24,1); } .ds-menu-link:hover { padding-left: 16px; } .ds-menu-link:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Signal in the Dark",
+    "overview": "The BioCube's interior grow-light is the one bright, warm thing in an otherwise still, dark frame: open ocean, open sky, one engineered object. Every UI element on top of that photograph is a signal, not a surface: white text, a white pill, a thin white line, nothing more. Signals don't compete with what they're pointing at.\n\nThis system carries zero brand color of its own. Every hue in the frame belongs to the photograph. The chrome (navbar, hamburger, CTAs, mobile-menu overlay) exists only in white and black, at varying opacity, so it reads as instrument-panel signal rather than decoration. This is a deliberate gap in the system today, not a named prohibition: a future brand accent could be introduced without contradicting this spec, but nothing here currently earns that color.\n\nThe system explicitly rejects generic SaaS/AI-tool marketing tells: gradient-text headlines, glassmorphism panels, hero-metric stat cards, dashboard-carousel narratives. src/components/BlueZoneHero.jsx, sitting unused in this repo, is a live example of that failure mode (navy/blue gradient headline, tab-carousel hero) and should not be mined for tokens or patterns.",
+    "keyCharacteristics": [
+      "Full-bleed photography is the only color source; UI chrome is pure white/black at varying opacity.",
+      "Pill shape (rounded-full) is the only corner treatment in the system — no other radius exists.",
+      "Depth comes from opacity and backdrop-blur, never from box-shadow.",
+      "Motion is precise and unhurried: a single custom cubic-bezier, deliberate 500–700ms durations, no bounce."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Instrument Serif is reserved for the two largest moments (hero H1, mobile-menu links) and never appears at body or label size. Inter never appears above headline size. The two fonts don't blend at the same scale.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "If a component needs to look \"above\" the photo, reach for opacity or blur, never box-shadow. A shadow on this surface would read as a UI-kit default, not an engineered instrument.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every UI color at pure white or pure black, at a deliberate opacity — no third hue, no tint, unless a real brand-accent decision is made and documented here first.",
+      "Do use rounded-full for every interactive shape (buttons, pills, hamburger bars). No other radius exists in this system.",
+      "Do reserve Instrument Serif for the two largest type roles (display, headline) only.",
+      "Do run chrome transitions on cubic-bezier(0.76, 0, 0.24, 1) at 500–700ms for anything that opens/closes (menu, hamburger); keep hover/press feedback at ~200ms so touch still feels immediate.",
+      "Do keep the BioCube's branded face in frame at every breakpoint — the background photo's crop point is a design decision, not an afterthought (object-position, not bare object-center, once the viewport gets narrow enough to crop the unit out)."
+    ],
+    "donts": [
+      "Don't use gradient-text hero headlines, glassmorphism panels, hero-metric stat-card templates, or dashboard-carousel narratives — the generic SaaS/AI-tool tells this system explicitly rejects. src/components/BlueZoneHero.jsx is the anti-pattern already sitting in this repo; don't extend it or pull tokens from it.",
+      "Don't add box-shadow anywhere. Depth comes from opacity and blur only.",
+      "Don't introduce a second accent color casually. The achromatic palette is a current gap, not a locked rule — but any color addition needs a deliberate decision recorded here, not a one-off utility class.",
+      "Don't let Instrument Serif appear at body or label size, or Inter appear above headline size — the two-voice pairing breaks if they blend."
+    ]
+  }
+}
