@@ -6,6 +6,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
   StatCard,
 } from "./primitives";
 
@@ -39,6 +40,7 @@ export default function SectionAbout() {
     <Section id="about" surface="mist" fade>
       <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-20">
         <Reveal>
+          <SectionKicker>About</SectionKicker>
           <SectionHeading>
             We&rsquo;re building the infrastructure for{" "}
             <Accent>

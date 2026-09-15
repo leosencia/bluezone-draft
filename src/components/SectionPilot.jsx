@@ -8,6 +8,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const STEPS = [
@@ -48,6 +49,7 @@ export default function SectionPilot() {
     <Section id="pilot" surface="white">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <Reveal>
+          <SectionKicker>Pilot Programme</SectionKicker>
           <SectionHeading>
             Don&rsquo;t take the leap. <Accent>Test the model</Accent>
           </SectionHeading>

@@ -9,6 +9,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const SPECS = [
@@ -32,6 +33,7 @@ export default function SectionSpecifications() {
 
         <div>
           <Reveal delay={80}>
+            <SectionKicker>Specifications</SectionKicker>
             <SectionHeading>
               Engineered <Accent>for density</Accent>
             </SectionHeading>

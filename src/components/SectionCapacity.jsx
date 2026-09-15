@@ -6,6 +6,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
   Stat,
 } from "./primitives";
 
@@ -46,6 +47,7 @@ export default function SectionCapacity() {
       <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] gap-12 lg:gap-16 items-start">
         <div>
           <Reveal>
+            <SectionKicker>Capacity</SectionKicker>
             <SectionHeading>
               Built for <Accent>commercial production</Accent>
             </SectionHeading>

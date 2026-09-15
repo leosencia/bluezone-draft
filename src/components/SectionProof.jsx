@@ -7,6 +7,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const CATEGORIES = [
@@ -50,6 +51,7 @@ export default function SectionProof() {
   return (
     <Section id="proof" surface="mist">
       <Reveal>
+        <SectionKicker>Proof</SectionKicker>
         <SectionHeading>
           Measure <Accent>what matters</Accent>
         </SectionHeading>

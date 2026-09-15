@@ -16,6 +16,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 // The client's priority sectors lead the grid and carry the images.
@@ -112,6 +113,7 @@ export default function SectionApplications() {
   return (
     <Section id="applications" surface="white">
       <Reveal>
+        <SectionKicker>Applications</SectionKicker>
         <SectionHeading>
           Where could production <Accent>move closer?</Accent>
         </SectionHeading>

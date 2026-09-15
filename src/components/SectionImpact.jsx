@@ -10,6 +10,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
   Stat,
   usePrefersReducedMotion,
 } from "./primitives";
@@ -102,6 +103,7 @@ export default function SectionImpact() {
   return (
     <Section id="impact" surface="white">
       <Reveal>
+        <SectionKicker>Impact</SectionKicker>
         <SectionHeading>
           The goal isn&rsquo;t to replace the global food system. It&rsquo;s to
           make it <Accent>more resilient</Accent>

@@ -9,6 +9,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const CAPABILITIES = [
@@ -38,6 +39,7 @@ export default function SectionTechnology() {
   return (
     <Section id="technology" surface="white">
       <Reveal>
+        <SectionKicker>Technology</SectionKicker>
         <SectionHeading>
           Control the environment. <Accent>Not the weather</Accent>
         </SectionHeading>

@@ -7,6 +7,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const TRADITIONAL = [
@@ -27,6 +28,7 @@ export default function SectionShift() {
   return (
     <Section id="shift" surface="mist">
       <Reveal>
+        <SectionKicker>The Shift</SectionKicker>
         <SectionHeading>
           Production doesn&rsquo;t have to follow{" "}
           <Accent>the supply chain</Accent>

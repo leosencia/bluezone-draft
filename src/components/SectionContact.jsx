@@ -10,6 +10,7 @@ import {
   Reveal,
   Section,
   SectionHeading,
+  SectionKicker,
 } from "./primitives";
 
 const ORG_TYPES = [
@@ -66,6 +67,7 @@ export default function SectionContact() {
       <div className="grid lg:grid-cols-[minmax(0,420px)_1fr] gap-12 lg:gap-16 items-start">
         <div>
           <Reveal>
+            <SectionKicker>Get In Touch</SectionKicker>
             <SectionHeading>
               Grow <Accent>where it&rsquo;s needed</Accent>
             </SectionHeading>
