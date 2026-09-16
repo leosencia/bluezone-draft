@@ -1,4 +1,5 @@
 import { Flower2, Leaf, Salad, Sprout } from "lucide-react";
+import fiveXUrl from "../assets/5x.png";
 
 import {
   Accent,
@@ -92,7 +93,7 @@ export default function SectionProduce() {
           innerClassName="p-8 md:p-12 grid lg:grid-cols-[minmax(0,240px)_1fr] gap-2 lg:gap-4 items-center"
         >
           <div>
-            <img src="/src/assets/5x.png" width={200} />
+            <img src={fiveXUrl} width={200} alt="5x" />
           </div>
           <div>
             <h3 className="text-bz-navy text-lg md:text-xl font-sans font-medium">
