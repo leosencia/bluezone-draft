@@ -25,7 +25,10 @@ const CROPS = [
     icon: Leaf,
     name: "Micro herbs",
     body: "High-value garnish and flavour, consistent year-round.",
-    image: { label: "Micro herbs", hint: "Close crop, shallow depth of field." },
+    image: {
+      label: "Micro herbs",
+      hint: "Close crop, shallow depth of field.",
+    },
     span: "",
   },
   {
@@ -86,16 +89,14 @@ export default function SectionProduce() {
       <Reveal>
         <BentoTile
           className="mt-4 md:mt-5"
-          innerClassName="p-8 md:p-12 grid lg:grid-cols-[minmax(0,240px)_1fr] gap-8 lg:gap-12 items-center"
+          innerClassName="p-8 md:p-12 grid lg:grid-cols-[minmax(0,240px)_1fr] gap-2 lg:gap-4 items-center"
         >
           <div>
-            <p className="text-6xl md:text-7xl lg:text-8xl">
-              <Stat>5&times;</Stat>
-            </p>
+            <img src="/src/assets/5x.png" width={200} />
           </div>
           <div>
             <h3 className="text-bz-navy text-lg md:text-xl font-sans font-medium">
-              the vitamin and carotenoid levels of mature leaves
+              5x more nutrients in the fraction of the space
             </h3>
             <Body className="mt-3 max-w-2xl">
               USDA researchers measured 25 microgreen varieties for vitamin C,
