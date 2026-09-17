@@ -6,7 +6,6 @@ import {
   Chip,
   EASE,
   Footnote,
-  ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
@@ -14,6 +13,17 @@ import {
   Stat,
   usePrefersReducedMotion,
 } from "./primitives";
+
+// One photo per tab, filenames numbered "1-water.png" .. "4-food-security.png"
+// — already in TABS order, so sorting by source path lines them up with TABS
+// by index instead of needing a name-to-file mapping.
+const IMPACT_IMAGE_MODULES = import.meta.glob("../assets/impact/*.png", {
+  eager: true,
+  import: "default",
+});
+const IMPACT_IMAGES = Object.keys(IMPACT_IMAGE_MODULES)
+  .sort((a, b) => a.localeCompare(b))
+  .map((key) => IMPACT_IMAGE_MODULES[key]);
 
 const TABS = [
   {
@@ -175,11 +185,13 @@ export default function SectionImpact() {
             <Footnote className="mt-6">{panel.source}</Footnote>
           </div>
 
-          <ImagePlaceholder
-            ratio="aspect-[4/3]"
-            label={panel.image.label}
-            hint={panel.image.hint}
-          />
+          <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">
+            <img
+              src={IMPACT_IMAGES[shown]}
+              alt={panel.image.label}
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
     </Section>

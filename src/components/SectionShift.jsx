@@ -1,6 +1,9 @@
+import { Fragment } from "react";
+import { Globe, Leaf } from "lucide-react";
+import sitingImgUrl from "../assets/siting.png";
+
 import {
   Accent,
-  BentoTile,
   Body,
   IconBadge,
   ImagePlaceholder,
@@ -24,6 +27,15 @@ const ZERO_MILE = [
   "Freshness delivered on the day",
 ];
 
+// Row labels for the comparison table. Indexes line up with TRADITIONAL and
+// ZERO_MILE above — those two stay the single source of truth for values.
+const COMPARISON_LABELS = [
+  "Supply chain flow",
+  "Location",
+  "Seasonality",
+  "Freshness",
+];
+
 export default function SectionShift() {
   return (
     <Section id="shift" surface="mist">
@@ -39,49 +51,111 @@ export default function SectionShift() {
         </Body>
       </Reveal>
 
-      <div className="grid lg:grid-cols-2 gap-6 mt-14">
-        <Reveal className="h-full">
-          <BentoTile innerClassName="p-8 md:p-10">
-            <p className="text-bz-navy/50 text-xs uppercase tracking-[0.2em] mb-8">
+      <Reveal delay={60} className="mt-12 md:mt-14">
+        {/* Desktop / tablet: one CSS grid so the label, Traditional value and
+            Zero-Mile value for a row are literally the same grid row — that's
+            what keeps them aligned even when a value wraps. Each Traditional
+            cell carries its own bg-white + side borders, each Zero-Mile cell
+            its own bg-bz-navy, with rounding only on the header/last cell of
+            each column — five cells sharing identical flat styling and no
+            vertical gap read as one continuous panel per column. (A single
+            div spanning every row via `grid-row: 1 / -1` was tried first, but
+            an explicitly-positioned item occupying a whole column across
+            every row makes CSS Grid auto-placement treat that column as full
+            for every row, so it pushed all the auto-placed cells into column
+            one — that was the "Traditional/Zero-Mile/Labels" reorder bug.) */}
+        <div className="hidden lg:grid grid-cols-[minmax(180px,0.75fr)_minmax(0,1fr)_minmax(0,1fr)]">
+          {/* Header row */}
+          <div />
+          <div className="min-h-[120px] p-7 md:p-8 bg-white border-t border-x border-bz-navy/10 rounded-tl-2xl">
+            <Globe size={18} className="text-bz-navy/50" aria-hidden="true" />
+            <p className="font-instrument-serif text-bz-navy text-xl md:text-2xl mt-3">
               Traditional
             </p>
-            <ul className="space-y-5">
-              {TRADITIONAL.map((line) => (
-                <li
-                  key={line}
-                  className="text-bz-navy/60 text-sm md:text-base font-light leading-relaxed border-b border-bz-navy/10 pb-5 last:border-b-0 last:pb-0"
-                >
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </BentoTile>
-        </Reveal>
-
-        <Reveal delay={80} className="h-full">
-          <BentoTile dark noise innerClassName="p-8 md:p-10">
-            <p className="text-bz-lime text-xs uppercase tracking-[0.2em] mb-8">
+            <p className="text-bz-navy/45 text-[11px] uppercase tracking-[0.18em] mt-1">
+              Follows the supply chain
+            </p>
+          </div>
+          <div className="min-h-[120px] p-7 md:p-8 bg-bz-ocean rounded-tr-2xl">
+            <Leaf size={18} className="text-bz-lime" aria-hidden="true" />
+            <p className="font-instrument-serif text-white text-xl md:text-2xl mt-3">
               Zero-Mile
             </p>
-            <ul className="space-y-5">
-              {ZERO_MILE.map((line) => (
-                <li
-                  key={line}
-                  className="text-white text-sm md:text-base font-light leading-relaxed border-b border-white/10 pb-5 last:border-b-0 last:pb-0"
-                >
-                  {line}
-                </li>
-              ))}
-            </ul>
-          </BentoTile>
-        </Reveal>
-      </div>
+            <p className="text-white/45 text-[11px] uppercase tracking-[0.18em] mt-1">
+              Sited by demand
+            </p>
+          </div>
 
-      <div className="grid lg:grid-cols-[1fr_minmax(0,420px)] gap-10 lg:gap-16 items-center mt-14">
-        <Reveal>
+          {/* Data rows — rendered row-by-row so alignment can't drift. */}
+          {COMPARISON_LABELS.map((label, i) => {
+            const isLast = i === COMPARISON_LABELS.length - 1;
+            return (
+              <Fragment key={label}>
+                <div className="flex items-center border-t border-bz-navy/10 py-5 md:py-6 pr-6 md:pr-10">
+                  <span className="text-bz-navy text-sm md:text-[15px] font-medium">
+                    {label}
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center bg-white border-t border-x border-bz-navy/10 px-7 md:px-8 py-5 md:py-6 ${
+                    isLast ? "border-b rounded-bl-2xl" : ""
+                  }`}
+                >
+                  <span className="text-bz-navy/60 text-sm md:text-base font-light leading-relaxed">
+                    {TRADITIONAL[i]}
+                  </span>
+                </div>
+                <div
+                  className={`flex items-center bg-bz-ocean border-t border-white/10 px-7 md:px-8 py-5 md:py-6 ${
+                    isLast ? "rounded-br-2xl" : ""
+                  }`}
+                >
+                  <span className="text-white/90 text-sm  md:text-base font-light leading-relaxed">
+                    {ZERO_MILE[i]}
+                  </span>
+                </div>
+              </Fragment>
+            );
+          })}
+        </div>
+
+        {/* Mobile: a stacked Traditional-vs-Zero-Mile group per criterion —
+            same three arrays, no horizontal scroll or compressed columns. */}
+        <div className="lg:hidden">
+          {COMPARISON_LABELS.map((label, i) => (
+            <div
+              key={label}
+              className="border-b border-bz-navy/10 py-6 first:pt-0 last:border-b-0 last:pb-0"
+            >
+              <p className="text-bz-navy text-sm font-medium">{label}</p>
+              <div className="mt-4 space-y-3">
+                <div>
+                  <p className="text-bz-navy/40 text-[11px] uppercase tracking-[0.15em]">
+                    Traditional
+                  </p>
+                  <p className="mt-1 text-bz-navy/60 text-sm font-light leading-relaxed">
+                    {TRADITIONAL[i]}
+                  </p>
+                </div>
+                <div className="rounded-xl bg-bz-navy px-4 py-3">
+                  <p className="text-white/45 text-[11px] uppercase tracking-[0.15em]">
+                    Zero-Mile
+                  </p>
+                  <p className="mt-1 text-white/90 text-sm font-light leading-relaxed">
+                    {ZERO_MILE[i]}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+
+      <div className="flex flex-row gap-10 lg:gap-16 items-center justify-between mt-14 bg-white rounded-2xl p-4">
+        <Reveal className="ml-8">
           <p className="font-instrument-serif text-bz-navy text-2xl md:text-3xl lg:text-4xl leading-[1.15]">
-            Same crop. <Accent>Shorter</Accent> distance. Fewer things that can
-            go wrong.
+            Same crop. <Accent>Shorter</Accent> distance.
+            <br /> Fewer things that can go wrong.
           </p>
           <a
             href="#why-zero-mile"
@@ -93,11 +167,7 @@ export default function SectionShift() {
         </Reveal>
 
         <Reveal delay={80}>
-          <ImagePlaceholder
-            ratio="aspect-[16/10]"
-            label="Siting diagram or photo"
-            hint="A unit installed beside the building it supplies."
-          />
+          <img src={sitingImgUrl} className="rounded-xl" width={600} />
         </Reveal>
       </div>
     </Section>

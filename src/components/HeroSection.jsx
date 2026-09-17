@@ -185,7 +185,7 @@ export default function HeroSection() {
     >
       <div
         ref={stickyRef}
-        className="sticky top-0 h-screen w-full overflow-hidden bg-bz-navy"
+        className="sticky top-0 h-screen w-full overflow-hidden bg-white"
       >
         {/* Background frame */}
         <canvas
@@ -269,7 +269,7 @@ export default function HeroSection() {
               Fresh Greens Grown <br /> Where They're Needed Most
             </h1>
 
-            <p className="mt-4 md:mt-5 text-white/70 text-sm md:text-base font-light max-w-md leading-relaxed">
+            <p className="mt-4 md:mt-5 text-white/90 text-base md:text-lg font-light max-w-md leading-relaxed [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
               BlueZone Aeroponics brings modular, water-efficient vertical farms
               to islands, remote communities, and beyond
             </p>

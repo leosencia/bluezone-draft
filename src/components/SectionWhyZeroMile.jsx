@@ -12,12 +12,13 @@ import {
   BentoTile,
   Body,
   Footnote,
-  ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
 } from "./primitives";
+
+import planeImg from "../assets/plane-final.png";
 
 const PILLARS = [
   {
@@ -61,7 +62,7 @@ const PILLARS = [
 export default function SectionWhyZeroMile() {
   return (
     <Section id="why-zero-mile" surface="mist">
-      <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] gap-12 lg:gap-16 items-start">
+      <div className="flex flex-col w-full">
         <Reveal>
           <SectionKicker>Why Zero-Mile</SectionKicker>
           <SectionHeading>
@@ -75,11 +76,11 @@ export default function SectionWhyZeroMile() {
           </Body>
         </Reveal>
 
-        <Reveal delay={100}>
-          <ImagePlaceholder
-            ratio="aspect-[4/5]"
-            label="Sited unit photo"
-            hint="A BioCube in context: rooftop, resort grounds, airport apron."
+        <Reveal delay={100} className="relative mt-10 md:mt-12 self-center">
+          <img
+            src={planeImg}
+            alt="A BlueZone BioCube unit on an airport apron, sited next to the point of demand."
+            className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-2xl"
           />
         </Reveal>
       </div>
