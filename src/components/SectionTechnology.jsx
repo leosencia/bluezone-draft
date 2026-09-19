@@ -89,9 +89,17 @@ export default function SectionTechnology() {
       <Reveal>
         <Footnote className="mt-10 max-w-2xl">
           Water and fertiliser efficiency figures for BlueZone systems are
-          pending pilot measurement. Published aeroponic efficiency claims come
-          from suppliers rather than independent measurement, so they are not
-          presented here as BlueZone performance.
+          pending pilot measurement. Supplier efficiency claims are excluded
+          entirely; the peer-reviewed research on aeroponics as a method is
+          set out, labeled and attributed to the method rather than to
+          BlueZone{" "}
+          <a
+            href="#method"
+            className="underline underline-offset-2 hover:text-bz-blue transition-colors duration-200"
+          >
+            in Method
+          </a>
+          .
         </Footnote>
       </Reveal>
     </Section>

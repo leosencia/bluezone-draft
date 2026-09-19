@@ -5,36 +5,74 @@ import sitingImgUrl from "../assets/siting.png";
 import {
   Accent,
   Body,
+  Footnote,
   IconBadge,
-  ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
+  Stat,
 } from "./primitives";
 
-const TRADITIONAL = [
-  "Produce → Move → Store → Distribute → Consume",
-  "Sited where the climate allows",
-  "Seasonal, weather-dependent",
-  "Freshness spent in transit",
+// One row per criterion, each side a figure + the line under it. This was
+// three index-aligned arrays; pairing a figure with its text made the
+// alignment too easy to break by editing one array and not the others, so
+// the row is now the unit. Desktop grid and mobile stack both render from
+// here — it stays the single source of truth for both.
+const COMPARISON = [
+  {
+    label: "Supply chain flow",
+    // Six stages, matching the CHAIN array in SectionProblem.jsx. If that
+    // chain gains or loses a stage, this figure and text change with it.
+    traditional: {
+      figure: "6 stages",
+      text: "Farm → Processing → Transport → Cold chain → Distribution → Kitchen",
+    },
+    zeroMile: { figure: "2 stages", text: "Harvest → Point of use" },
+  },
+  {
+    label: "Distance to market",
+    traditional: {
+      // TODO(source): 80%+ imported — awaiting source + date from client, per brand kit §11
+      figure: "80%+ imported",
+      text: "Sited where the climate allows",
+    },
+    zeroMile: { figure: "On site", text: "Sited where the demand is" },
+  },
+  {
+    label: "Seasonality",
+    traditional: {
+      figure: "Weather-dependent",
+      text: "Output follows the growing season",
+    },
+    zeroMile: {
+      figure: "365 days",
+      text: "Output follows a controlled cycle",
+    },
+  },
+  {
+    label: "Loss before retail",
+    traditional: { figure: "25.4%", text: "Freshness spent in transit" },
+    zeroMile: {
+      figure: "Same-day",
+      text: "Harvested into the market it serves",
+    },
+  },
+  {
+    label: "Evidence",
+    traditional: {
+      figure: "Unstated",
+      text: "Sustainability claims made, rarely measured",
+    },
+    zeroMile: {
+      figure: "A–D labeled",
+      text: "Every figure classified by source",
+    },
+  },
 ];
 
-const ZERO_MILE = [
-  "Produce → Harvest → Distribute locally → Consume",
-  "Sited where the demand is",
-  "Year-round, controlled",
-  "Freshness delivered on the day",
-];
-
-// Row labels for the comparison table. Indexes line up with TRADITIONAL and
-// ZERO_MILE above — those two stay the single source of truth for values.
-const COMPARISON_LABELS = [
-  "Supply chain flow",
-  "Location",
-  "Seasonality",
-  "Freshness",
-];
+const FAO_FOOD_LOSS_URL =
+  "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/";
 
 export default function SectionShift() {
   return (
@@ -56,7 +94,7 @@ export default function SectionShift() {
             Zero-Mile value for a row are literally the same grid row — that's
             what keeps them aligned even when a value wraps. Each Traditional
             cell carries its own bg-white + side borders, each Zero-Mile cell
-            its own bg-bz-navy, with rounding only on the header/last cell of
+            its own bg-bz-ocean, with rounding only on the header/last cell of
             each column — five cells sharing identical flat styling and no
             vertical gap read as one continuous panel per column. (A single
             div spanning every row via `grid-row: 1 / -1` was tried first, but
@@ -87,8 +125,8 @@ export default function SectionShift() {
           </div>
 
           {/* Data rows — rendered row-by-row so alignment can't drift. */}
-          {COMPARISON_LABELS.map((label, i) => {
-            const isLast = i === COMPARISON_LABELS.length - 1;
+          {COMPARISON.map(({ label, traditional, zeroMile }, i) => {
+            const isLast = i === COMPARISON.length - 1;
             return (
               <Fragment key={label}>
                 <div className="flex items-center border-t border-bz-navy/10 py-5 md:py-6 pr-6 md:pr-10">
@@ -97,21 +135,27 @@ export default function SectionShift() {
                   </span>
                 </div>
                 <div
-                  className={`flex items-center bg-white border-t border-x border-bz-navy/10 px-7 md:px-8 py-5 md:py-6 ${
+                  className={`flex flex-col justify-center bg-white border-t border-x border-bz-navy/10 px-7 md:px-8 py-5 md:py-6 ${
                     isLast ? "border-b rounded-bl-2xl" : ""
                   }`}
                 >
-                  <span className="text-bz-navy/60 text-sm md:text-base font-light leading-relaxed">
-                    {TRADITIONAL[i]}
+                  <Stat className="text-2xl md:text-3xl">
+                    {traditional.figure}
+                  </Stat>
+                  <span className="mt-2 text-bz-navy/60 text-sm md:text-base font-light leading-relaxed">
+                    {traditional.text}
                   </span>
                 </div>
                 <div
-                  className={`flex items-center bg-bz-ocean border-t border-white/10 px-7 md:px-8 py-5 md:py-6 ${
+                  className={`flex flex-col justify-center bg-bz-ocean border-t border-white/10 px-7 md:px-8 py-5 md:py-6 ${
                     isLast ? "rounded-br-2xl" : ""
                   }`}
                 >
-                  <span className="text-white/90 text-sm  md:text-base font-light leading-relaxed">
-                    {ZERO_MILE[i]}
+                  <Stat dark className="text-2xl md:text-3xl">
+                    {zeroMile.figure}
+                  </Stat>
+                  <span className="mt-2 text-white/90 text-sm md:text-base font-light leading-relaxed">
+                    {zeroMile.text}
                   </span>
                 </div>
               </Fragment>
@@ -122,7 +166,7 @@ export default function SectionShift() {
         {/* Mobile: a stacked Traditional-vs-Zero-Mile group per criterion —
             same three arrays, no horizontal scroll or compressed columns. */}
         <div className="lg:hidden">
-          {COMPARISON_LABELS.map((label, i) => (
+          {COMPARISON.map(({ label, traditional, zeroMile }) => (
             <div
               key={label}
               className="border-b border-bz-navy/10 py-6 first:pt-0 last:border-b-0 last:pb-0"
@@ -133,26 +177,48 @@ export default function SectionShift() {
                   <p className="text-bz-navy/40 text-[11px] uppercase tracking-[0.15em]">
                     Traditional
                   </p>
+                  <Stat className="text-xl mt-1 block">
+                    {traditional.figure}
+                  </Stat>
                   <p className="mt-1 text-bz-navy/60 text-sm font-light leading-relaxed">
-                    {TRADITIONAL[i]}
+                    {traditional.text}
                   </p>
                 </div>
-                <div className="rounded-xl bg-bz-navy px-4 py-3">
-                  <p className="text-white/45 text-[11px] uppercase tracking-[0.15em]">
+                <div className="rounded-xl bg-bz-ocean px-4 py-3">
+                  <p className="text-white/70 text-[11px] uppercase tracking-[0.15em]">
                     Zero-Mile
                   </p>
+                  <Stat dark className="text-xl mt-1 block">
+                    {zeroMile.figure}
+                  </Stat>
                   <p className="mt-1 text-white/90 text-sm font-light leading-relaxed">
-                    {ZERO_MILE[i]}
+                    {zeroMile.text}
                   </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        <Footnote className="mt-6">
+          Loss before retail (25.4%):{" "}
+          <a
+            href={FAO_FOOD_LOSS_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="underline underline-offset-2 hover:text-bz-blue transition-colors duration-200"
+          >
+            FAO, SDG indicator 12.3.1a, 2023 data
+          </a>
+          . Stage counts follow the supply chain set out above.
+        </Footnote>
+        <Footnote className="mt-2">
+          Import dependency figure pending source confirmation.
+        </Footnote>
       </Reveal>
 
-      <div className="flex flex-row gap-10 lg:gap-16 items-center justify-between mt-14 bg-white rounded-2xl p-4">
-        <Reveal className="ml-8">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-10 lg:gap-16 md:items-center justify-between mt-14 bg-white rounded-2xl p-4">
+        <Reveal className="md:ml-8">
           <p className="font-instrument-serif text-bz-navy text-2xl md:text-3xl lg:text-4xl leading-[1.15]">
             Same crop. <Accent>Shorter</Accent> distance.
             <br /> Fewer things that can go wrong.

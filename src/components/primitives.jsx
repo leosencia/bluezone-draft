@@ -322,6 +322,116 @@ export function Chip({
 }
 
 /**
+ * The A–D evidence scale. Defined here rather than in SectionProof so the
+ * legend there and every EvidenceLabel chip elsewhere read the same names
+ * from one place — the scale is a promise the whole site has to keep.
+ */
+export const EVIDENCE_LEVELS = {
+  A: {
+    title: "BlueZone verified",
+    body: "Measured in a BlueZone system.",
+  },
+  B: {
+    title: "Current modelling",
+    body: "Calculated from the proposed configuration, not yet measured.",
+  },
+  C: {
+    title: "External science",
+    body: "Published peer-reviewed research.",
+  },
+  D: {
+    title: "Global or industry data",
+    body: "FAO, UN and comparable sources.",
+  },
+};
+
+/**
+ * Evidence-scale chip: the letter, then the level name, sat next to a figure
+ * so the reader can tell a measured number from a modelled one.
+ *
+ * The fill carries the teal; the text does not. `bz-teal` on any light
+ * surface tops out around 3:1 against white — it cannot reach the 4.5:1 AA
+ * needs at this size on light, whatever the fill opacity — so the light
+ * variant runs `bz-ocean` text on a teal fill (10.5:1) and the dark variant
+ * `bz-lime` (8:1 on navy), which is already the accent for dark surfaces.
+ */
+export function EvidenceLabel({ level, dark = false, className = "" }) {
+  const { title, body } = EVIDENCE_LEVELS[level];
+  return (
+    <span
+      title={`Evidence ${level} — ${title}: ${body}`}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] uppercase tracking-[0.14em] whitespace-nowrap ${
+        dark ? "bg-bz-teal/20 text-bz-lime" : "bg-bz-teal/10 text-bz-ocean"
+      } ${className}`}
+    >
+      <span className="font-semibold">{level}</span>
+      <span className="font-light">{title}</span>
+    </span>
+  );
+}
+
+/**
+ * Compact "see source" button — an external-link pill for a single citation.
+ * Stands in for EvidenceLabel + SourceNote while SectionProof is off (no
+ * #proof to link the A–D scale to right now); swap back once it returns.
+ * Renders nothing if `href` is missing, same reasoning as SourceNote: an
+ * unverified URL is worse than none, never guess one.
+ */
+export function SourceLink({
+  href,
+  label = "See source",
+  dark = false,
+  className = "",
+}) {
+  if (!href) return null;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className={`group inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-colors duration-200 ${
+        dark
+          ? "border-white/25 text-white/80 hover:border-white/40 hover:text-white"
+          : "border-bz-navy/15 text-bz-navy/70 hover:border-bz-blue/40 hover:text-bz-navy"
+      } ${className}`}
+    >
+      {label}
+      <ArrowUpRight
+        size={12}
+        aria-hidden="true"
+        className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      />
+    </a>
+  );
+}
+
+/**
+ * A source attribution. Renders as an underlined link when a URL is known
+ * and as plain text when it is not — an unverified URL is worse than none,
+ * so callers leave `href` undefined rather than guessing.
+ */
+export function SourceNote({ source, href, dark = false, className = "" }) {
+  return (
+    <Footnote dark={dark} className={className}>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className={`underline underline-offset-2 transition-colors duration-200 ${
+            dark ? "hover:text-white/80" : "hover:text-bz-blue"
+          }`}
+        >
+          {source}
+        </a>
+      ) : (
+        source
+      )}
+    </Footnote>
+  );
+}
+
+/**
  * Large figure in Instrument Serif, filled with the Blue → Teal gradient.
  * Plain colour is kept for anything under ~2rem, where a gradient fill
  * thins the serif strokes too far to stay legible.

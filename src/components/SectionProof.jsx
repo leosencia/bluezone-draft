@@ -3,6 +3,7 @@ import {
   BentoTile,
   Body,
   Chip,
+  EVIDENCE_LEVELS,
   Marquee,
   Reveal,
   Section,
@@ -20,32 +21,22 @@ const CATEGORIES = [
   "Operations",
 ];
 
-const KEY = [
-  {
-    level: "A",
-    title: "BlueZone verified",
-    body: "Measured in a BlueZone system.",
-    span: "lg:col-span-2",
-  },
-  {
-    level: "B",
-    title: "Current modelling",
-    body: "Calculated from the proposed configuration, not yet measured.",
-    span: "",
-  },
-  {
-    level: "C",
-    title: "External science",
-    body: "Published peer-reviewed research.",
-    span: "",
-  },
-  {
-    level: "D",
-    title: "Global or industry data",
-    body: "FAO, UN and comparable sources.",
-    span: "lg:col-span-2",
-  },
-];
+// Names and definitions come from EVIDENCE_LEVELS so this legend and the
+// EvidenceLabel chips rendered beside figures elsewhere can never drift
+// apart. Only the tile spans — a layout concern — live here.
+const KEY_SPANS = {
+  A: "lg:col-span-2",
+  B: "",
+  C: "",
+  D: "lg:col-span-2",
+};
+
+const KEY = Object.entries(EVIDENCE_LEVELS).map(([level, { title, body }]) => ({
+  level,
+  title,
+  body,
+  span: KEY_SPANS[level],
+}));
 
 export default function SectionProof() {
   return (

@@ -12,12 +12,12 @@ import {
   Accent,
   Body,
   EASE,
-  Footnote,
   ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
+  SourceLink,
   Stat,
   usePrefersReducedMotion,
 } from "./primitives";
@@ -351,6 +351,8 @@ const PRESSURES = [
     title: "Long supply chains",
     body: "A quarter of the world's fruit and vegetables are lost between harvest and the retail shelf. The longer the chain, the more of the crop never arrives.",
     source: "FAO, SDG indicator 12.3.1a, 2023 data",
+    sourceUrl:
+      "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/",
   },
   {
     icon: Droplets,
@@ -359,6 +361,7 @@ const PRESSURES = [
     title: "Water",
     body: "Agriculture accounts for roughly 70% of global freshwater withdrawals, and renewable water available per person has fallen 7% in a decade.",
     source: "FAO AQUASTAT",
+    sourceUrl: "https://www.fao.org/aquastat/en/",
   },
   {
     icon: Wind,
@@ -367,25 +370,36 @@ const PRESSURES = [
     title: "Transport",
     body: "Moving food generates about 19% of food-system greenhouse gas emissions, roughly 3 billion tonnes of CO₂e a year. Fruit and vegetables are over a third of that, because they travel refrigerated.",
     source: "Li et al., Nature Food, 2022",
+    sourceUrl: "https://www.nature.com/articles/s43016-022-00531-w",
   },
 ];
 
 function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
-  const { icon: Icon, figure, summary, title, body, source } = pressure;
+  const { icon: Icon, figure, summary, title, body, sourceUrl } = pressure;
   const duration = fast ? "duration-150" : "duration-400";
 
   return (
-    <button
-      type="button"
-      onClick={onToggle}
-      aria-expanded={isExpanded}
-      className={`group w-full text-left rounded-2xl border bg-white overflow-hidden transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bz-blue/40 ${
+    <div
+      className={`group relative rounded-2xl border bg-white overflow-hidden transition-colors duration-300 ${
         isExpanded
           ? "border-bz-navy/15"
           : "border-bz-navy/10 hover:border-bz-navy/20"
       }`}
     >
-      <div className="flex items-start gap-4 p-4 md:p-5">
+      {/* The toggle covers the tile but sits behind the content rather than
+          wrapping it: the expanded body now carries a source link, and an
+          <a> inside a <button> is invalid and unreachable by keyboard. The
+          content layer is pointer-events-none so clicks still fall through
+          to this button everywhere except the link itself. */}
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isExpanded}
+        aria-label={`${figure} — ${title}`}
+        className="absolute inset-0 z-0 w-full h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bz-blue/40"
+      />
+
+      <div className="relative z-10 flex items-start gap-4 p-4 md:p-5 pointer-events-none">
         <span className="shrink-0 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-bz-blue/10 mt-0.5">
           <Icon size={18} className="text-bz-blue" aria-hidden="true" />
         </span>
@@ -414,6 +428,10 @@ function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
             }`}
           >
             <div
+              // Collapsed, this content is clipped to zero height but still
+              // in the DOM — inert keeps the source link out of the tab
+              // order until the tile is actually open.
+              inert={!isExpanded}
               className={`overflow-hidden transition-opacity ${duration} ${
                 isExpanded ? "opacity-100" : "opacity-0"
               }`}
@@ -422,7 +440,9 @@ function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
                 {title}
               </h3>
               <Body className="mt-2 max-w-none">{body}</Body>
-              <Footnote className="mt-4">{source}</Footnote>
+              <div className="mt-4 pointer-events-auto">
+                <SourceLink href={sourceUrl} />
+              </div>
             </div>
           </div>
         </div>
@@ -435,7 +455,7 @@ function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
           }`}
         />
       </div>
-    </button>
+    </div>
   );
 }
 

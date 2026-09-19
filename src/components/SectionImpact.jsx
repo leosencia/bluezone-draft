@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   Accent,
   Body,
   Chip,
   EASE,
-  Footnote,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
+  SourceLink,
   Stat,
   usePrefersReducedMotion,
 } from "./primitives";
@@ -36,6 +36,7 @@ const TABS = [
       "An enclosed root zone changes what happens to the water that is not taken up. It is captured and recirculated instead of drained.",
     ],
     source: "FAO AQUASTAT, 2025 data release",
+    sourceUrl: "https://www.fao.org/aquastat/en/",
     image: {
       label: "Water / recirculation",
       hint: "Misted root zone or the recirculation loop, close up.",
@@ -51,6 +52,7 @@ const TABS = [
       "Vertical tiers multiply canopy area inside a fixed footprint, so capacity is added by stacking rather than by clearing.",
     ],
     source: "FAO, via Our World in Data, 2024",
+    sourceUrl: "https://ourworldindata.org/land-use",
     image: {
       label: "Footprint comparison",
       hint: "Vertical tiers against an equivalent field area.",
@@ -66,6 +68,7 @@ const TABS = [
       "Production sited next to demand removes the freight leg and the cold chain that goes with it.",
     ],
     source: "Li et al., Nature Food, 2022",
+    sourceUrl: "https://www.nature.com/articles/s43016-022-00531-w",
     image: {
       label: "Freight or cold chain",
       hint: "Air freight, reefer container, or a cold store.",
@@ -81,6 +84,8 @@ const TABS = [
       "Harvesting into the market that consumes it removes most of the journey where that loss happens.",
     ],
     source: "FAO, SDG indicator 12.3.1a, 2023 data",
+    sourceUrl:
+      "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/",
     image: {
       label: "Local supply",
       hint: "Fresh punnets at point of use: kitchen, galley or market.",
@@ -93,16 +98,24 @@ export default function SectionImpact() {
   const [shown, setShown] = useState(0);
   const [visible, setVisible] = useState(true);
   const reduced = usePrefersReducedMotion();
+  const pendingSwap = useRef(null);
+
+  useEffect(() => () => clearTimeout(pendingSwap.current), []);
 
   const select = (i) => {
     if (i === active) return;
     setActive(i);
     if (reduced) {
+      clearTimeout(pendingSwap.current);
       setShown(i);
       return;
     }
     setVisible(false);
-    setTimeout(() => {
+    // A tab clicked again before the fade-out finishes leaves the previous
+    // click's timeout live — it fires later and stomps `shown` back to a
+    // stale tab. Clearing it here means only the latest click ever lands.
+    clearTimeout(pendingSwap.current);
+    pendingSwap.current = setTimeout(() => {
       setShown(i);
       setVisible(true);
     }, 200);
@@ -182,7 +195,9 @@ export default function SectionImpact() {
                 </Body>
               ))}
             </div>
-            <Footnote className="mt-6">{panel.source}</Footnote>
+            <div className="mt-6">
+              <SourceLink href={panel.sourceUrl} />
+            </div>
           </div>
 
           <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden">

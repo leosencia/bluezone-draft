@@ -5,14 +5,16 @@ import {
   Accent,
   BentoTile,
   Body,
-  Footnote,
   ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
+  SourceLink,
   Stat,
 } from "./primitives";
+
+const MICROGREENS_SOURCE_URL = "https://pubs.acs.org/doi/10.1021/jf300459b";
 
 const CROPS = [
   {
@@ -106,9 +108,9 @@ export default function SectionProduce() {
               cilantro, garnet amaranth and green daikon radish led the
               individual nutrient measures.
             </Body>
-            <Footnote className="mt-4">
-              Xiao et al., Journal of Agricultural and Food Chemistry, 2012
-            </Footnote>
+            <div className="mt-4">
+              <SourceLink href={MICROGREENS_SOURCE_URL} />
+            </div>
           </div>
         </BentoTile>
       </Reveal>

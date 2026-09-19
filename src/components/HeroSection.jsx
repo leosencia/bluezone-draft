@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play } from "lucide-react";
+import { Accent } from "./primitives";
 
 import logo from "../assets/bluezone.png";
 
@@ -14,9 +15,15 @@ const FRAMES = Object.keys(FRAME_MODULES)
 const TOTAL_FRAMES = FRAMES.length;
 
 // Scroll distance spent scrubbing the sequence, then a hold where the last
-// frame stays pinned before the section releases to the next one.
+// frame stays pinned before the section releases to the next one. HOLD_VH
+// must stay >= 100 (one viewport height): App.jsx overlaps the next section
+// on top of this hold with a fixed -100vh margin (that's the physical scroll
+// distance for a full-height section to rise from off-screen to fully
+// covering — it can't be tuned smaller without breaking on the sticky
+// release point). Anything past that mandatory 100vh is a pure static pause
+// on the last frame before the bury starts — raise/lower it here.
 const SCRUB_VH = 400;
-const HOLD_VH = 100;
+const HOLD_VH = 145;
 
 // Primary navigation per the Final Website Structure (16 / Navigation & Footer).
 const NAV_LINKS = [
@@ -263,7 +270,7 @@ export default function HeroSection() {
           <div className="flex-1 flex flex-col items-center justify-start px-6 text-center">
             <h1 className="font-instrument-serif text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] max-w-5xl">
               <span className="italic font-instrument-serif">
-                Zero Mile Produce.
+                <Accent dark>Zero-Mile Produce.</Accent>
               </span>
               <br />
               Fresh Greens Grown <br /> Where They're Needed Most
