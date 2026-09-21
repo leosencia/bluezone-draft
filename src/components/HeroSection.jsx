@@ -3,6 +3,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { Accent } from "./primitives";
 
 import logo from "../assets/bluezone.png";
+import "./HeroSection.css";
 
 // Frame sequence for the scroll-scrubbed hero background, in file order.
 const FRAME_MODULES = import.meta.glob("../assets/hero-video-frames/*.png", {
@@ -58,6 +59,11 @@ export default function HeroSection() {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    const scene = document.createElement("canvas");
+    const sceneCtx = scene.getContext("2d");
+    const desktopLayout = window.matchMedia(
+      "(min-width: 1024px) and (min-aspect-ratio: 4/3)",
+    );
     const images = FRAMES.map((src) => {
       const img = new Image();
       img.src = src;
@@ -73,14 +79,48 @@ export default function HeroSection() {
 
       const cw = canvas.width;
       const ch = canvas.height;
-      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const isDesktop = desktopLayout.matches || cw / ch >= 1.5;
+      // One transform for the entire sequence, including the held final frame.
+      // Portrait layouts fit the whole unit below the copy instead of using a
+      // viewport-height cover crop, which cuts both ends off on phones.
+      const scale = isDesktop
+        ? Math.max(cw / img.naturalWidth, ch / img.naturalHeight) * 1.08
+        : (cw * (window.innerWidth >= 640 ? 1.7 : 1.6)) / img.naturalWidth;
       const w = img.naturalWidth * scale;
       const h = img.naturalHeight * scale;
-      // Mirrors the old object-position: 70% 58% on phones, centred above sm.
-      const focusX = window.innerWidth >= 640 ? 0.5 : 0.7;
-      const focusY = window.innerWidth >= 640 ? 0.5 : 0.58;
+      // Keep the desktop offset within the original image's coverage. Portrait
+      // frames meet the bottom edge naturally; all extra space belongs to sky.
+      const x = isDesktop
+        ? Math.max(cw - w, Math.min(0, cw * 0.95 - w * 0.77))
+        : (cw - w) * 0.52;
+      const y = isDesktop ? (ch - h) * 0.5 : ch - h;
 
-      ctx.drawImage(img, (cw - w) * focusX, (ch - h) * focusY, w, h);
+      ctx.clearRect(0, 0, cw, ch);
+      if (isDesktop) {
+        ctx.drawImage(img, x, y, w, h);
+      } else {
+        // Continue the open sky above the landscape, with a soft join. Keeping
+        // this in the renderer gives every animation frame identical framing.
+        const sky = ctx.createLinearGradient(0, 0, cw, ch * 0.75);
+        sky.addColorStop(0, "#045ba8");
+        sky.addColorStop(0.55, "#087ec9");
+        sky.addColorStop(1, "#238ed0");
+        ctx.fillStyle = sky;
+        ctx.fillRect(0, 0, cw, ch);
+
+        sceneCtx.clearRect(0, 0, cw, ch);
+        sceneCtx.drawImage(img, x, y, w, h);
+        sceneCtx.globalCompositeOperation = "destination-in";
+        // Blend only the upper sky edge; preserve the original foreground.
+        const fade = sceneCtx.createLinearGradient(0, y, 0, y + h * 0.24);
+        fade.addColorStop(0, "transparent");
+        fade.addColorStop(1, "#fff");
+        sceneCtx.fillStyle = fade;
+        sceneCtx.fillRect(0, 0, cw, ch);
+        sceneCtx.globalCompositeOperation = "source-over";
+        ctx.drawImage(scene, 0, 0);
+      }
+
       painted = index;
     };
 
@@ -110,6 +150,8 @@ export default function HeroSection() {
 
       canvas.width = w;
       canvas.height = h;
+      scene.width = w;
+      scene.height = h;
       painted = -1;
       show(wanted);
     };
@@ -192,7 +234,7 @@ export default function HeroSection() {
     >
       <div
         ref={stickyRef}
-        className="sticky top-0 h-screen w-full overflow-hidden bg-white"
+        className="hero-stage sticky top-0 h-screen w-full overflow-hidden bg-bz-blue"
       >
         {/* Background frame */}
         <canvas
@@ -204,13 +246,13 @@ export default function HeroSection() {
         {/* Content layer */}
         <div className="relative z-10 flex flex-col h-full">
           {/* Navbar */}
-          <header className="flex items-center justify-between px-6 md:px-12 lg:px-16">
+          <header className="hero-header flex items-center justify-between">
             <div className="flex items-center gap-10">
               <a
                 href="/"
                 className="text-white font-semibold text-lg tracking-tight font-sans"
               >
-                <img src={logo} alt="BlueZone Aeroponics" width={200} />
+                <img src={logo} alt="BlueZone Aeroponics" width={200} className="hero-logo" />
               </a>
               <nav className="hidden xl:flex items-center gap-8">
                 {NAV_LINKS.map(({ label, href }) => (
@@ -226,12 +268,13 @@ export default function HeroSection() {
             </div>
 
             <div className="flex items-center gap-6">
-              <h1 className="text-white/80 hidden md:block hover:text-white text-sm font-light transition-colors duration-200 whitespace-nowrap">
-                Sustainable Food. Anywhere
-              </h1>
+              {/* <h1 className="text-white/80 hidden md:block hover:text-white text-sm font-light transition-colors duration-200 whitespace-nowrap">
+                Sustainable Food.
+                <br /> Anywhere
+              </h1> */}
               <a
                 href={CTA.href}
-                className="hidden md:inline-flex items-center bg-white text-black rounded-full px-5 py-2 text-sm font-medium hover:bg-white/90 transition-colors duration-200 whitespace-nowrap"
+                className="hidden xl:inline-flex items-center bg-white text-black rounded-full px-5 py-2 text-sm font-medium hover:bg-white/90 transition-colors duration-200 whitespace-nowrap"
               >
                 {CTA.label}
               </a>
@@ -242,7 +285,7 @@ export default function HeroSection() {
                 onClick={() => setIsMenuOpen(true)}
                 aria-label="Open menu"
                 aria-expanded={isMenuOpen}
-                className="xl:hidden relative w-6 h-5 flex-shrink-0"
+                className="hero-menu-toggle xl:hidden relative w-6 h-5 flex-shrink-0"
               >
                 <span
                   style={{ transitionTimingFunction: EASE }}
@@ -252,7 +295,7 @@ export default function HeroSection() {
                 />
                 <span
                   style={{ transitionTimingFunction: EASE }}
-                  className={`absolute left-0 top-1/2 -mt-[1px] h-[2px] w-4 bg-white rounded-full transition-opacity duration-500 ${
+                  className={`absolute left-0 top-1/2 -mt-[1px] h-[2px] w-6 bg-white rounded-full transition-opacity duration-500 ${
                     isMenuOpen ? "opacity-0" : "opacity-100"
                   }`}
                 />
@@ -267,24 +310,24 @@ export default function HeroSection() {
           </header>
 
           {/* Hero content */}
-          <div className="flex-1 flex flex-col items-center justify-start px-6 text-center">
-            <h1 className="font-instrument-serif text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] max-w-5xl">
-              <span className="italic font-instrument-serif">
+          <div className="hero-content flex flex-col">
+            <h1 className="hero-heading font-instrument-serif text-white">
+              <span className="block italic font-instrument-serif">
                 <Accent dark>Zero-Mile Produce.</Accent>
               </span>
-              <br />
-              Fresh Greens Grown <br /> Where They're Needed Most
+              <span className="block">Fresh Greens Grown</span>
+              <span className="block">Where They’re Needed Most</span>
             </h1>
 
-            <p className="mt-4 md:mt-5 text-white/90 text-base md:text-lg font-light max-w-md leading-relaxed [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
+            <p className="hero-description text-white/90 font-light [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
               BlueZone Aeroponics brings modular, water-efficient vertical farms
-              to islands, remote communities, and beyond
+              to islands, remote communities, and beyond.
             </p>
 
-            <div className="mt-5 md:mt-6 flex flex-col sm:flex-row items-center gap-4">
+            <div className="hero-actions flex items-center">
               <a
                 href={CTA.href}
-                className="group inline-flex items-center gap-2 bg-white text-black rounded-full px-7 py-3 text-sm font-medium hover:bg-white/90 transition-colors duration-200"
+                className="group inline-flex justify-center items-center gap-3 bg-white text-black rounded-full px-7 py-3 text-sm font-medium hover:bg-white/90 transition-colors duration-200"
               >
                 {CTA.label}
                 <ArrowRight
@@ -294,7 +337,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="#why-zero-mile"
-                className="inline-flex items-center gap-2 bg-black/40 backdrop-blur-sm border border-white/40 text-white rounded-full px-7 py-3 text-sm font-medium hover:bg-black/55 hover:border-white/60 transition-colors duration-200"
+                className="inline-flex justify-center items-center gap-3 bg-black/40 backdrop-blur-sm border border-white/70 text-white rounded-full px-7 py-3 text-sm font-medium hover:bg-black/55 hover:border-white/90 transition-colors duration-200"
               >
                 <Play size={16} />
                 Explore Zero-Mile
@@ -324,15 +367,15 @@ export default function HeroSection() {
             }`}
           >
             {/* Overlay header */}
-            <div className="flex items-center justify-between px-6 md:px-12 pb-5">
+            <div className="hero-header hero-menu-header flex items-center justify-between">
               <span className="text-white font-semibold text-lg tracking-tight font-sans">
-                <img src={logo} alt="BlueZone Aeroponics" width={200} />
+                <img src={logo} alt="BlueZone Aeroponics" width={200} className="hero-logo" />
               </span>
               <button
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
                 aria-label="Close menu"
-                className="relative w-6 h-5 flex-shrink-0"
+                className="hero-menu-toggle relative w-6 h-5 flex-shrink-0"
               >
                 <span
                   style={{ transitionTimingFunction: EASE }}

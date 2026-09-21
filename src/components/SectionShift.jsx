@@ -58,17 +58,6 @@ const COMPARISON = [
       text: "Harvested into the market it serves",
     },
   },
-  {
-    label: "Evidence",
-    traditional: {
-      figure: "Unstated",
-      text: "Sustainability claims made, rarely measured",
-    },
-    zeroMile: {
-      figure: "A–D labeled",
-      text: "Every figure classified by source",
-    },
-  },
 ];
 
 const FAO_FOOD_LOSS_URL =
@@ -200,7 +189,7 @@ export default function SectionShift() {
           ))}
         </div>
 
-        <Footnote className="mt-6">
+        {/* <Footnote className="mt-6">
           Loss before retail (25.4%):{" "}
           <a
             href={FAO_FOOD_LOSS_URL}
@@ -211,10 +200,10 @@ export default function SectionShift() {
             FAO, SDG indicator 12.3.1a, 2023 data
           </a>
           . Stage counts follow the supply chain set out above.
-        </Footnote>
-        <Footnote className="mt-2">
+        </Footnote> */}
+        {/* <Footnote className="mt-2">
           Import dependency figure pending source confirmation.
-        </Footnote>
+        </Footnote> */}
       </Reveal>
 
       <div className="flex flex-col md:flex-row gap-4 md:gap-10 lg:gap-16 md:items-center justify-between mt-14 bg-white rounded-2xl p-4">

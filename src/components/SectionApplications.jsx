@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import airportImage from "../assets/application/1-airport.png";
+import islandImage from "../assets/application/2-island.png";
+import institutionImage from "../assets/application/3-institution.png";
+import resortImage from "../assets/application/4-resorts.png";
+import foodserviceImage from "../assets/application/5-food-service.png";
+import growerImage from "../assets/application/6-grower.png";
 import {
   ArrowUpRight,
   Building2,
@@ -15,7 +21,6 @@ import {
   Accent,
   BentoTile,
   Body,
-  ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
@@ -30,8 +35,8 @@ const SECTORS = [
     body: "Volume, schedule reliability and presentation standards, at a site where fresh inventory has to land daily.",
     href: "/applications/airline-catering",
     image: {
+      src: airportImage,
       label: "Airline catering",
-      hint: "Galley prep, catering facility, or apron with aircraft.",
     },
   },
   {
@@ -40,8 +45,8 @@ const SECTORS = [
     body: "Freight dependence, long lead times and arrival quality.",
     href: "/applications/islands",
     image: {
+      src: islandImage,
       label: "Island supply",
-      hint: "Island port, supply vessel, or coastal community.",
     },
   },
   {
@@ -50,8 +55,8 @@ const SECTORS = [
     body: "Local production capacity as part of food security planning.",
     href: "/applications/food-security",
     image: {
+      src: institutionImage,
       label: "Institutional site",
-      hint: "Public facility, school or hospital kitchen.",
     },
   },
   {
@@ -60,8 +65,8 @@ const SECTORS = [
     body: "Year-round menu consistency, guest-facing quality, and a visible on-property growing story.",
     href: "/applications/hotels-resorts",
     image: {
+      src: resortImage,
       label: "Resort property",
-      hint: "Restaurant terrace, or a unit sited on resort grounds.",
     },
   },
   {
@@ -70,8 +75,8 @@ const SECTORS = [
     body: "Predictable supply and shelf life against a variable import market.",
     href: "/applications/foodservice",
     image: {
+      src: foodserviceImage,
       label: "Distribution",
-      hint: "Packing line, chilled store, or a delivery being received.",
     },
   },
   {
@@ -80,8 +85,8 @@ const SECTORS = [
     body: "Added controlled-environment capacity alongside existing field operations.",
     href: "/applications/commercial-growers",
     image: {
+      src: growerImage,
       label: "Grower operation",
-      hint: "Glasshouse or field operation with units added alongside.",
     },
   },
 ];
@@ -157,6 +162,27 @@ export default function SectionApplications() {
         </Body>
       </Reveal>
 
+      <div className="flex items-center justify-end self-end gap-3 mt-8">
+        <button
+          type="button"
+          onClick={goPrev}
+          disabled={index === 0}
+          aria-label="Previous"
+          className="flex items-center justify-center w-11 h-11 rounded-full border border-bz-navy/20 text-bz-navy transition-colors duration-200 hover:bg-bz-navy/5 hover:border-bz-navy/40 disabled:opacity-30 disabled:pointer-events-none"
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <button
+          type="button"
+          onClick={goNext}
+          disabled={index >= maxIndex}
+          aria-label="Next"
+          className="flex items-center justify-center w-11 h-11 rounded-full border border-bz-navy/20 text-bz-navy transition-colors duration-200 hover:bg-bz-navy/5 hover:border-bz-navy/40 disabled:opacity-30 disabled:pointer-events-none"
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+
       {/* Bleeds past the section's right padding so cards run to the screen
           edge; the left edge stays flush with the heading. Clipping here and
           not at the root matters: unclipped, the track makes the whole
@@ -178,12 +204,12 @@ export default function SectionApplications() {
               className="shrink-0 w-[85vw] sm:w-[460px] lg:w-[560px]"
             >
               <SectorLink href={href}>
-                <ImagePlaceholder
-                  flat
-                  ratio="aspect-[16/10]"
-                  label={image.label}
-                  hint={image.hint}
-                  className="border-0 border-b border-dashed border-bz-navy/20"
+                <img
+                  src={image.src}
+                  alt={image.label}
+                  loading="lazy"
+                  decoding="async"
+                  className="block w-full aspect-[16/10] object-cover"
                 />
                 <div className="p-7">
                   <Icon size={20} className="text-bz-blue" aria-hidden="true" />
@@ -196,27 +222,6 @@ export default function SectionApplications() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="flex items-center gap-3 mt-8">
-        <button
-          type="button"
-          onClick={goPrev}
-          disabled={index === 0}
-          aria-label="Previous"
-          className="flex items-center justify-center w-11 h-11 rounded-full border border-bz-navy/20 text-bz-navy transition-colors duration-200 hover:bg-bz-navy/5 hover:border-bz-navy/40 disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          type="button"
-          onClick={goNext}
-          disabled={index >= maxIndex}
-          aria-label="Next"
-          className="flex items-center justify-center w-11 h-11 rounded-full border border-bz-navy/20 text-bz-navy transition-colors duration-200 hover:bg-bz-navy/5 hover:border-bz-navy/40 disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <ChevronRight size={18} />
-        </button>
       </div>
     </Section>
   );

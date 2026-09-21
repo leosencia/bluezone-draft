@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ArrowUpRight, ImageIcon } from "lucide-react";
+import bzLogo from "../assets/blue-zone-logo-negative.png";
+import bzLogoWhite from "../assets/blue-zone-logo-positive.png";
 
 // The one easing curve in the system, carried over from the hero's chrome.
 export const EASE = "cubic-bezier(0.76,0,0.24,1)";
@@ -177,7 +179,9 @@ export function Marquee({
     >
       <div
         className={`flex w-max ${
-          direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
+          direction === "left"
+            ? "animate-marquee-left"
+            : "animate-marquee-right"
         }`}
       >
         {half}
@@ -194,11 +198,14 @@ export function Marquee({
 export function SectionKicker({ children, onNavy = false, className = "" }) {
   return (
     <span
-      className={`liquid-glass noise-overlay relative inline-block ${
-        onNavy ? "bg-white/10" : "bg-bz-navy"
-      } text-white text-xs font-medium uppercase tracking-[0.18em] px-4 py-1.5 mb-4 md:mb-5 ${className}`}
+      // className={`liquid-glass noise-overlay relative inline-block ${
+      //   onNavy ? "bg-white/10" : "bg-bz-navy"
+      // } text-white text-xs font-medium uppercase tracking-[0.18em] px-4 py-1.5 mb-4 md:mb-5 ${className}`}
+      className={`relative overflow-hidden flex w-fit flex-row gap-3 items-center ${onNavy ? "text-white" : "text-bz-navy"} text-xs font-medium uppercase tracking-[0.18em] px-4 py-2 mb-4 md:mb-5 ${className}
+        ${onNavy ? "bg-white/10" : "bg-bz-teal/10"} rounded-2xl`}
     >
-      <span className="relative z-10">{children}</span>
+      <img src={onNavy ? bzLogoWhite : bzLogo} width={18} />
+      <span className="">{children}</span>
     </span>
   );
 }
@@ -270,7 +277,12 @@ export function PrimaryButton({ href, children, className = "" }) {
   );
 }
 
-export function SecondaryButton({ href, children, dark = false, className = "" }) {
+export function SecondaryButton({
+  href,
+  children,
+  dark = false,
+  className = "",
+}) {
   return (
     <a
       href={href}
@@ -538,4 +550,3 @@ export function ImagePlaceholder({
     </div>
   );
 }
-

@@ -134,10 +134,10 @@ export default function SectionMethod() {
           Why the root zone is <Accent>air, not water</Accent>
         </SectionHeading>
         <Body className="mt-6 max-w-2xl">
-          Hydroponics suspends roots in a nutrient solution. Aeroponics
-          suspends them in air and delivers the same nutrients as a timed mist.
-          Both remove soil. Only one leaves the root zone open to ambient
-          oxygen, and that single difference drives most of what follows.
+          Hydroponics suspends roots in a nutrient solution. Aeroponics suspends
+          them in air and delivers the same nutrients as a timed mist. Both
+          remove soil. Only one leaves the root zone open to ambient oxygen, and
+          that single difference drives most of what follows.
         </Body>
       </Reveal>
 
@@ -308,7 +308,7 @@ export default function SectionMethod() {
         </Reveal>
       </div>
 
-      <Reveal>
+      {/* <Reveal>
         <Footnote className="mt-8 max-w-3xl">
           Figures above describe aeroponics as a growing method, drawn from
           published research. They are not BlueZone system performance, which
@@ -335,7 +335,7 @@ export default function SectionMethod() {
             See how evidence is classified.
           </a>
         </Footnote>
-      </Reveal>
+      </Reveal> */}
     </Section>
   );
 }
