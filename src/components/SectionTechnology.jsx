@@ -16,7 +16,7 @@ const CAPABILITIES = [
   {
     icon: Droplets,
     title: "Root zone",
-    body: "Misted nutrient delivery. No soil, no substrate waste.",
+    body: "Timed nutrient mist delivered to roots in an enclosed chamber.",
   },
   {
     icon: Recycle,
@@ -60,14 +60,14 @@ export default function SectionTechnology() {
 
         <Reveal delay={80}>
           <Body className="max-w-none">
-            Because the root zone is enclosed, water that is not taken up is
-            captured and recirculated instead of draining away. Because the room
-            is enclosed, light, temperature, humidity and CO&#8322; are set
-            rather than hoped for.
+            In a recirculating configuration, water not taken up can be
+            captured and reused. In an indoor growing room, lighting,
+            temperature, humidity and CO&#8322; can be managed to a crop plan.
           </Body>
           <Body className="mt-4 max-w-none">
-            The result is a growing cycle that repeats to a schedule, 365 days a
-            year, independent of the season outside.
+            This supports planned, year-round crop cycles with less exposure to
+            outdoor seasons. People still seed, load, inspect, harvest, clean
+            and maintain the growing system.
           </Body>
 
           <div className="grid sm:grid-cols-2 auto-rows-fr gap-4 mt-10">

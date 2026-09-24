@@ -22,19 +22,19 @@ import {
 const COMPARISON = [
   {
     label: "Supply chain flow",
-    // Six stages, matching the CHAIN array in SectionProblem.jsx. If that
-    // chain gains or loses a stage, this figure and text change with it.
     traditional: {
-      figure: "6 stages",
-      text: "Farm → Processing → Transport → Cold chain → Distribution → Kitchen",
+      figure: "Multi-stage",
+      text: "May involve processing, transport, storage and distribution",
     },
-    zeroMile: { figure: "2 stages", text: "Harvest → Point of use" },
+    zeroMile: {
+      figure: "Shorter route",
+      text: "Wholesale supply or production at the customer’s site",
+    },
   },
   {
     label: "Distance to market",
     traditional: {
-      // TODO(source): 80%+ imported — awaiting source + date from client, per brand kit §11
-      figure: "80%+ imported",
+      figure: "Climate-led",
       text: "Sited where the climate allows",
     },
     zeroMile: { figure: "On site", text: "Sited where the demand is" },
@@ -46,22 +46,19 @@ const COMPARISON = [
       text: "Output follows the growing season",
     },
     zeroMile: {
-      figure: "365 days",
-      text: "Output follows a controlled cycle",
+      figure: "Controlled",
+      text: "Production can follow planned crop cycles year-round",
     },
   },
   {
-    label: "Loss before retail",
-    traditional: { figure: "25.4%", text: "Freshness spent in transit" },
+    label: "Route to the buyer",
+    traditional: { figure: "Time in transit", text: "Distance and handoffs vary by source" },
     zeroMile: {
-      figure: "Same-day",
-      text: "Harvested into the market it serves",
+      figure: "Closer harvest",
+      text: "Planned around the market the crop will serve",
     },
   },
 ];
-
-const FAO_FOOD_LOSS_URL =
-  "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/";
 
 export default function SectionShift() {
   return (
@@ -189,21 +186,12 @@ export default function SectionShift() {
           ))}
         </div>
 
-        {/* <Footnote className="mt-6">
-          Loss before retail (25.4%):{" "}
-          <a
-            href={FAO_FOOD_LOSS_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="underline underline-offset-2 hover:text-bz-blue transition-colors duration-200"
-          >
-            FAO, SDG indicator 12.3.1a, 2023 data
-          </a>
-          . Stage counts follow the supply chain set out above.
-        </Footnote> */}
-        {/* <Footnote className="mt-2">
-          Import dependency figure pending source confirmation.
-        </Footnote> */}
+        <Footnote className="mt-6 max-w-3xl">
+          Illustrative routes only. The actual number of handoffs, distance,
+          storage requirement and delivery schedule depend on the crop,
+          customer and location. Zero-Mile describes strategic proximity; it
+          does not mean every journey or logistics emission disappears.
+        </Footnote>
       </Reveal>
 
       <div className="flex flex-col md:flex-row gap-4 md:gap-10 lg:gap-16 md:items-center justify-between mt-14 bg-white rounded-2xl p-4">
@@ -222,7 +210,12 @@ export default function SectionShift() {
         </Reveal>
 
         <Reveal delay={80}>
-          <img src={sitingImgUrl} className="rounded-xl" width={600} />
+          <img
+            src={sitingImgUrl}
+            alt="Illustrative indoor growing site positioned close to demand."
+            className="rounded-xl"
+            width={600}
+          />
         </Reveal>
       </div>
     </Section>

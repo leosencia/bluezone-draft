@@ -1,225 +1,82 @@
 import { useState } from "react";
+import { Accent, Body, Reveal, Section, SectionHeading, SectionKicker } from "./primitives";
 
-import {
-  Accent,
-  BentoTile,
-  Body,
-  Chip,
-  Footnote,
-  ImagePlaceholder,
-  Reveal,
-  Section,
-  SectionHeading,
-  SectionKicker,
-} from "./primitives";
-import { Send, SendHorizonal } from "lucide-react";
+const FIELD = "w-full rounded-xl border border-bz-navy/20 bg-white px-4 py-3 text-sm text-bz-navy placeholder:text-bz-slate focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-bz-blue";
+const EMPTY = { name: "", email: "", organisation: "", location: "", cropInterests: "", quantity: "", packs: "", delivery: "", organisationType: "", stage: "", systemCrops: "", procurement: "", operator: "", funding: "" };
 
-const ORG_TYPES = [
-  "Airport / airline catering",
-  "Island / remote community",
-  "Hotel / resort",
-  "Foodservice / distribution",
-  "Government / institution",
-  "Commercial grower",
-  "Other",
-];
-
-const STAGES = [
-  "Exploring the idea",
-  "Evaluating a pilot",
-  "Budgeted project",
-  "Ready to deploy",
-];
-
-const FIELD =
-  "w-full rounded-full border border-bz-navy/15 bg-white px-5 py-3 text-sm text-bz-navy font-light placeholder:text-bz-navy/40 focus:outline-none focus:border-bz-blue focus:ring-1 focus:ring-bz-blue transition-colors duration-200";
-
-const LABEL = "block text-bz-navy/60 text-xs uppercase tracking-[0.15em] mb-2";
-
-function ChipGroup({ name, options, value, onChange }) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      {options.map((option) => {
-        const selected = value === option;
-        return (
-          <Chip
-            key={option}
-            as="button"
-            type="button"
-            aria-pressed={selected}
-            selected={selected}
-            onClick={() => onChange(selected ? "" : option)}
-          >
-            {option}
-          </Chip>
-        );
-      })}
-      <input type="hidden" name={name} value={value} />
+export default function SectionContact({ enquiryType, onEnquiryTypeChange }) {
+  const [fields, setFields] = useState(EMPTY);
+  const produce = enquiryType === "produce";
+  const update = (event) => setFields((previous) => ({ ...previous, [event.target.name]: event.target.value }));
+  const input = (name, label, placeholder, type = "text", required = false) => (
+    <div key={name}>
+      <label htmlFor={`contact-${name}`} className="block text-sm font-medium text-bz-navy mb-2">{label}{required ? " *" : ""}</label>
+      <input id={`contact-${name}`} name={name} value={fields[name]} onChange={update} type={type} required={required} placeholder={placeholder} autoComplete={name === "name" ? "name" : name === "email" ? "email" : name === "organisation" ? "organization" : "off"} className={FIELD} />
     </div>
   );
-}
-
-export default function SectionContact() {
-  const [orgType, setOrgType] = useState("");
-  const [stage, setStage] = useState("");
-
+  const select = (name, label, options) => (
+    <div key={name}>
+      <label htmlFor={`contact-${name}`} className="block text-sm font-medium text-bz-navy mb-2">{label}</label>
+      <select id={`contact-${name}`} name={name} value={fields[name]} onChange={update} className={FIELD}><option value="">Select if relevant</option>{options.map((option) => <option key={option}>{option}</option>)}</select>
+    </div>
+  );
   return (
     <Section id="get-in-touch" surface="white">
-      <div className="grid lg:grid-cols-[minmax(0,420px)_1fr] gap-12 lg:gap-16 items-start">
-        <div>
-          <Reveal>
-            <SectionKicker>Get In Touch</SectionKicker>
-            <SectionHeading>
-              Grow <Accent>where it&rsquo;s needed</Accent>
-            </SectionHeading>
-            <Body className="mt-6">
-              Tell us what you need to produce, and where. We&rsquo;ll tell you
-              whether Zero-Mile production makes commercial sense for it.
-            </Body>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <ImagePlaceholder
-              ratio="aspect-[4/3]"
-              label="Site or unit photo"
-              hint="Installed unit in its setting, or the team on site."
-              className="mt-10"
-            />
-            <div className="mt-6">
-              <p className="text-bz-navy/60 text-xs uppercase tracking-[0.15em]">
-                Direct enquiries
-              </p>
-              <a
-                href="mailto:contact@bluezoneaeroponics.com"
-                className="text-bz-blue text-sm font-medium hover:text-bz-navy transition-colors duration-200"
-              >
-                contact@bluezoneaeroponics.com
-              </a>
-            </div>
-          </Reveal>
-        </div>
-
+      <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-start">
+        <Reveal>
+          <SectionKicker>Get in Touch</SectionKicker>
+          <SectionHeading>Two ways to <Accent>grow closer.</Accent></SectionHeading>
+          <Body className="mt-6">Discuss produce supply with BlueZone Microgreens, or explore an aeroponic system and a measured pilot for your site.</Body>
+          <div className="mt-10 space-y-6 border-t border-bz-navy/15 pt-8">
+            <div><h3 className="font-instrument-serif text-bz-navy text-2xl">For your kitchen and customers</h3><Body className="mt-2 text-sm">Preferred crops, pack formats, quantities and delivery needs help us start a useful supply conversation.</Body></div>
+            <div><h3 className="font-instrument-serif text-bz-navy text-2xl">For your production site</h3><Body className="mt-2 text-sm">A practical site, operating team, recurring demand and funding route help define a viable systems project.</Body></div>
+          </div>
+          <p className="mt-10 text-xs text-bz-slate">Direct enquiries</p>
+          <a href="mailto:contact@bluezoneaeroponics.com" className="inline-block mt-2 text-bz-blue text-sm font-medium break-all underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue">contact@bluezoneaeroponics.com</a>
+        </Reveal>
         <Reveal delay={80}>
-          <BentoTile innerClassName="p-6 md:p-10">
-            <form
-              onSubmit={(e) => {
-                // No backend wired yet — connect this to your form handler.
-                e.preventDefault();
-              }}
-            >
+          <form onSubmit={(event) => event.preventDefault()} className="rounded-2xl bg-bz-mist p-6 md:p-9" aria-describedby="enquiry-availability">
+            <fieldset>
+              <legend className="text-sm font-medium text-bz-navy mb-4">What would you like to discuss?</legend>
+              <div className="flex flex-wrap gap-3">
+                {[["produce", "Produce supply"], ["systems", "Systems / pilot"]].map(([value, label]) => (
+                  <label key={value} className="cursor-pointer">
+                    <input type="radio" name="enquiryType" value={value} checked={enquiryType === value} onChange={() => onEnquiryTypeChange(value)} className="peer sr-only" />
+                    <span className="block rounded-full border border-bz-navy/25 px-5 py-3 text-sm text-bz-navy peer-checked:bg-bz-navy peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-bz-blue">{label}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <p className="text-xs text-bz-slate mt-6">* Required fields. Commercial details are optional.</p>
+            <div className="grid sm:grid-cols-2 gap-5 mt-5">
+              {input("name", "Full name", "Your name", "text", true)}
+              {input("email", "Email", "you@company.com", "email", true)}
+              {input("organisation", "Organisation", "Company or organisation")}
+              {input("location", "Country or location", "Town, region and country")}
+            </div>
+            <fieldset className="mt-8">
+              <legend className="font-instrument-serif text-bz-navy text-2xl mb-5">{produce ? "Your produce requirements" : "Your systems project"}</legend>
               <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label className={LABEL} htmlFor="contact-name">
-                    Full name
-                  </label>
-                  <input
-                    id="contact-name"
-                    name="name"
-                    type="text"
-                    required
-                    placeholder="Your name"
-                    className={FIELD}
-                  />
-                </div>
-                <div>
-                  <label className={LABEL} htmlFor="contact-email">
-                    Email
-                  </label>
-                  <input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="you@company.com"
-                    className={FIELD}
-                  />
-                </div>
-                <div>
-                  <label className={LABEL} htmlFor="contact-org">
-                    Organisation
-                  </label>
-                  <input
-                    id="contact-org"
-                    name="organisation"
-                    type="text"
-                    placeholder="Company or institution"
-                    className={FIELD}
-                  />
-                </div>
-                <div>
-                  <label className={LABEL} htmlFor="contact-title">
-                    Job title
-                  </label>
-                  <input
-                    id="contact-title"
-                    name="jobTitle"
-                    type="text"
-                    placeholder="Your role"
-                    className={FIELD}
-                  />
-                </div>
-                <div className="sm:col-span-2">
-                  <label className={LABEL} htmlFor="contact-location">
-                    Country or location
-                  </label>
-                  <input
-                    id="contact-location"
-                    name="location"
-                    type="text"
-                    placeholder="Where production would be sited"
-                    className={FIELD}
-                  />
-                </div>
+                {produce ? <>
+                  {input("cropInterests", "Crop interests", "Microgreens, micro herbs, pea shoots")}
+                  {input("quantity", "Approximate weekly quantity", "Kilograms or punnets per week")}
+                  {input("packs", "Pack requirements", "Preferred sizes or specifications")}
+                  {input("delivery", "Delivery needs", "Destination, frequency and timing")}
+                </> : <>
+                  {select("organisationType", "Organisation type", ["Airline caterer / central kitchen", "Resort / hotel group", "Distributor / wholesaler", "Local operator / island project", "Government / institution", "Farmer / commercial grower", "Contract caterer / campus", "Other"])}
+                  {select("stage", "Project stage", ["Exploring the idea", "Evaluating a pilot", "Budgeted project", "Planning implementation"])}
+                  {input("systemCrops", "Crops and specifications", "Selected crops and quality needs")}
+                  {input("procurement", "Current procurement", "Weekly volume and indicative landed cost")}
+                  {input("operator", "Site and operating team", "Proposed site, utilities and operator")}
+                  {select("funding", "Funding stage", ["Exploring funding", "Budget under review", "Budget allocated", "Seeking an eligible funding partner"])}
+                </>}
               </div>
-
-              <div className="mt-8">
-                <span className={LABEL}>Organisation type</span>
-                <ChipGroup
-                  name="organisationType"
-                  options={ORG_TYPES}
-                  value={orgType}
-                  onChange={setOrgType}
-                />
-              </div>
-
-              <div className="mt-8">
-                <span className={LABEL}>Project stage</span>
-                <ChipGroup
-                  name="projectStage"
-                  options={STAGES}
-                  value={stage}
-                  onChange={setStage}
-                />
-              </div>
-
-              <div className="mt-8">
-                <label className={LABEL} htmlFor="contact-brief">
-                  What are you looking to produce or solve?
-                </label>
-                <textarea
-                  id="contact-brief"
-                  name="brief"
-                  rows={4}
-                  placeholder="Crops, volumes, current supply problem, timeline"
-                  className="w-full rounded-2xl border border-bz-navy/15 bg-white px-5 py-4 text-sm text-bz-navy font-light placeholder:text-bz-navy/40 focus:outline-none focus:border-bz-blue focus:ring-1 focus:ring-bz-blue transition-colors duration-200 resize-y"
-                />
-              </div>
-
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-5">
-                <button
-                  type="submit"
-                  className="flex flex-row justify-center items-center gap-2 bg-bz-navy text-white rounded-full py-2 px-6 text-sm font-medium hover:bg-bz-ocean transition-colors duration-200"
-                >
-                  <span>Send enquiry</span>
-                  <SendHorizonal size={18} />
-                </button>
-                <Footnote className="flex-1">
-                  We reply to qualified enquiries with a site and crop
-                  assessment.
-                </Footnote>
-              </div>
-            </form>
-          </BentoTile>
+            </fieldset>
+            <div className="mt-8 border-t border-bz-navy/15 pt-6">
+              <p id="enquiry-availability" className="text-sm leading-relaxed text-bz-slate">Online submission is not yet available. Please email us directly to discuss your enquiry. Details entered here are not sent.</p>
+              <button type="submit" disabled className="mt-5 rounded-full bg-bz-navy/15 text-bz-slate px-6 py-3 text-sm font-medium cursor-not-allowed">Send enquiry</button>
+            </div>
+          </form>
         </Reveal>
       </div>
     </Section>

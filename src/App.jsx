@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HeroSection from "./components/HeroSection";
 import SectionProblem from "./components/SectionProblem";
 import SectionShift from "./components/SectionShift";
@@ -17,8 +18,22 @@ import SectionContact from "./components/SectionContact";
 import SectionFooter from "./components/SectionFooter";
 
 export default function App() {
+  const [enquiryType, setEnquiryType] = useState("produce");
+  // Keep native anchors and centralise enquiry routing, including footer links.
+  const routeEnquiry = (event) => {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
+    const link = event.target.closest?.("a[href='#get-in-touch']");
+    if (link) setEnquiryType(link.dataset.enquiry === "systems" ? "systems" : "produce");
+  };
   return (
-    <>
+    <div onClickCapture={routeEnquiry}>
       <HeroSection />
       {/* Homepage sections 02-14 of the Final Website Structure, in order.
           The hero stays position:sticky through its own hold zone (HOLD_VH
@@ -42,21 +57,24 @@ export default function App() {
         <SectionShift />
         <SectionImpact />
         <SectionWhyZeroMile />
+        <SectionProduce />
         <SectionTechnology />
         <SectionMethod />
         <SectionBioCube />
         <SectionCapacity />
         <SectionSpecifications />
-        <SectionProduce />
         <SectionApplications />
         {/* <SectionProof /> — temporarily removed, no nav path / mobile
             discoverability for the A–D scale yet. EvidenceLabel pills swapped
             for a plain "See source" link at each call site meanwhile. */}
         <SectionPilot />
         <SectionAbout />
-        <SectionContact />
+        <SectionContact
+          enquiryType={enquiryType}
+          onEnquiryTypeChange={setEnquiryType}
+        />
         <SectionFooter />
       </main>
-    </>
+    </div>
   );
 }

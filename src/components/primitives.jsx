@@ -204,7 +204,12 @@ export function SectionKicker({ children, onNavy = false, className = "" }) {
       className={`relative overflow-hidden flex w-fit flex-row gap-3 items-center ${onNavy ? "text-white" : "text-bz-navy"} text-xs font-medium uppercase tracking-[0.18em] px-4 py-2 mb-4 md:mb-5 ${className}
         ${onNavy ? "bg-white/10" : "bg-bz-teal/10"} rounded-2xl`}
     >
-      <img src={onNavy ? bzLogoWhite : bzLogo} width={18} />
+      <img
+        src={onNavy ? bzLogoWhite : bzLogo}
+        alt=""
+        aria-hidden="true"
+        width={18}
+      />
       <span className="">{children}</span>
     </span>
   );
@@ -260,10 +265,11 @@ export function Footnote({ children, dark = false, className = "" }) {
 }
 
 // Pill button with the small circular icon badge from the reference layout.
-export function PrimaryButton({ href, children, className = "" }) {
+export function PrimaryButton({ href, children, className = "", ...props }) {
   return (
     <a
       href={href}
+      {...props}
       className={`group inline-flex items-center gap-3 bg-bz-navy text-white rounded-full pl-6 pr-2 py-2 text-sm font-medium hover:bg-bz-ocean transition-colors duration-200 ${className}`}
     >
       {children}

@@ -349,7 +349,7 @@ const PRESSURES = [
     figure: "25.4%",
     summary: "of fruits and vegetables are lost before reaching retail.",
     title: "Long supply chains",
-    body: "A quarter of the world's fruit and vegetables are lost between harvest and the retail shelf. The longer the chain, the more of the crop never arrives.",
+    body: "A quarter of the world's fruit and vegetables are lost between harvest and the retail shelf. Distance, handling and storage are among the conditions a supply plan must manage.",
     source: "FAO, SDG indicator 12.3.1a, 2023 data",
     sourceUrl:
       "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/",
@@ -368,14 +368,14 @@ const PRESSURES = [
     figure: "19%",
     summary: "of food-system greenhouse gas emissions come from transport.",
     title: "Transport",
-    body: "Moving food generates about 19% of food-system greenhouse gas emissions, roughly 3 billion tonnes of CO₂e a year. Fruit and vegetables are over a third of that, because they travel refrigerated.",
+    body: "Moving food generates about 19% of food-system greenhouse gas emissions, roughly 3 billion tonnes of CO₂e a year. Fruit and vegetable transport accounts for more than a third of food-mile emissions in the study.",
     source: "Li et al., Nature Food, 2022",
     sourceUrl: "https://www.nature.com/articles/s43016-022-00531-w",
   },
 ];
 
 function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
-  const { icon: Icon, figure, summary, title, body, sourceUrl } = pressure;
+  const { icon: Icon, figure, summary, title, body, source, sourceUrl } = pressure;
   const duration = fast ? "duration-150" : "duration-400";
 
   return (
@@ -441,7 +441,7 @@ function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
               </h3>
               <Body className="mt-2 max-w-none">{body}</Body>
               <div className="mt-4 pointer-events-auto">
-                <SourceLink href={sourceUrl} />
+                <SourceLink href={sourceUrl} label={source} />
               </div>
             </div>
           </div>
@@ -476,15 +476,15 @@ export default function SectionProblem() {
             </div>
             <div>
               <Body className="mt-6">
-                Every mile between a farm and a kitchen is a mile where
-                freshness, margin and certainty are lost.
+                Every additional handoff between a farm and a kitchen adds
+                time, handling and another dependency to manage.
               </Body>
               <Body className="mt-4">
                 Fresh produce moves through harvest, processing, transport, cold
                 chain and distribution before it reaches a plate. Each stage
-                adds cost, time and a point of failure. The model works until
-                weather, fuel, freight capacity or a border interrupts it, and
-                then it does not work at all.
+                can add cost and time. Weather, fuel, freight capacity and
+                border disruption can all affect availability, depending on
+                the route and market.
               </Body>
             </div>
           </div>

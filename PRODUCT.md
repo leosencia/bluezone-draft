@@ -6,15 +6,15 @@ brand
 
 ## Users
 
-Mixed B2B and investor/press audience: institutional buyers (resorts/hotels, airports, government, commercial growers) evaluating BlueZone as a vertical-farm infrastructure vendor, alongside investors and media forming a first impression. They arrive skeptical of "gadget" framing and are looking for evidence this is engineered, deployable infrastructure, not a lifestyle product.
+Mixed B2B audience: wholesalers, foodservice distributors, restaurants and hospitality buyers considering BlueZone Microgreens; and institutional buyers, resorts, airports, local operators and commercial growers evaluating a growing system or pilot. Investors and media may also use the site to form a first impression.
 
 ## Product Purpose
 
-BlueZone Aeroponics' marketing site introduces modular, water-efficient vertical farms (the BioCube) for islands, remote communities, and other zero-mile-produce contexts. The hero is the first, and often only, impression: it must read as credible industrial infrastructure and convert into a "Get in Touch" contact, not just admiration.
+BlueZone Aeroponics' marketing site presents two offers under one Zero-Mile Produce story: BlueZone Microgreens and modular BioCube aeroponic growing systems. It should open useful produce-supply conversations and structured system or pilot enquiries without implying current stock, fixed delivery coverage or proven BioCube performance.
 
 ## Brand Personality
 
-Engineered, calm, premium. Voice is confident and unhurried, not hype-driven. Visuals let the BioCube photography carry the proof; interface chrome (navigation, type, buttons) stays quiet and gets out of the way. No hedging copy, no invented stats, no urgency tactics.
+Engineered, calm, premium. Voice is confident and unhurried, without hype. BioCube photography and clearly labelled concept imagery carry the visual story; navigation, type and controls remain quiet. No invented statistics, availability promises or urgency tactics.
 
 ## Anti-references
 
@@ -22,11 +22,12 @@ Generic SaaS / AI-tool marketing: gradient-text hero headlines, glassmorphism pa
 
 ## Design Principles
 
-- **Photograph as proof, not decoration.** The BioCube render is the argument; UI chrome (nav, type, buttons) stays minimal and never competes with it.
+- **Images have an honest role.** BioCube imagery shows the system concept; generated produce assets are labelled as illustrative until commissioned photography is available.
 - **Restraint over spectacle.** Calm, engineered confidence beats SaaS-flash animation or gradient tricks. If a choice reads as "trying too hard," cut it.
-- **One CTA voice.** Always "Get in Touch" (or an equally specific, non-generic label) — never "Contact Us."
+- **Specific enquiry paths.** Produce CTAs open Produce supply; system and application CTAs open Systems / pilot; navigation-level contact defaults to Produce supply.
 - **Full-bleed parity across breakpoints.** The BioCube unit, and specifically its BLUEZONE-branded face, must stay legible whether the background image is being viewed on a wide desktop or a narrow phone crop.
 - **Evidence over hype.** No unattributed statistics or invented claims; if a number appears, it needs a real source.
+- **Protect the distinction.** Produce supply and production at a customer site are different commercial models. Zero-Mile means strategic proximity, not a guarantee of zero logistics emissions.
 
 ## Accessibility & Inclusion
 

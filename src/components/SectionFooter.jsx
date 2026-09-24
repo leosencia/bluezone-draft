@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-
 import logo from "../assets/bluezone.png";
 import footerImage from "../assets/footer-image.png";
 import { BentoTile, Body, IconBadge, Reveal, Section } from "./primitives";
@@ -11,23 +9,23 @@ const NAV = [
       { label: "Why Zero-Mile", href: "#why-zero-mile" },
       { label: "Impact", href: "#impact" },
       { label: "Technology", href: "#technology" },
+      { label: "Microgreens", href: "#produce" },
       { label: "BioCube", href: "#biocube" },
     ],
   },
   {
     heading: "Applications",
     links: [
-      { label: "Airports and catering", href: "/applications/airline-catering" },
-      { label: "Islands and remote", href: "/applications/islands" },
-      { label: "Hotels and resorts", href: "/applications/hotels-resorts" },
-      { label: "Foodservice", href: "/applications/foodservice" },
+      { label: "Airports and catering", href: "#get-in-touch", enquiry: "systems" },
+      { label: "Islands and remote", href: "#get-in-touch", enquiry: "systems" },
+      { label: "Hotels and resorts", href: "#get-in-touch", enquiry: "systems" },
+      { label: "Foodservice", href: "#get-in-touch", enquiry: "systems" },
     ],
   },
   {
     heading: "Company",
     links: [
       { label: "About", href: "#about" },
-      { label: "Produce", href: "#produce" },
       { label: "Pilot programme", href: "#pilot" },
       { label: "Get in touch", href: "#get-in-touch" },
     ],
@@ -48,12 +46,6 @@ const SOCIAL = [
 ];
 
 export default function SectionFooter() {
-  const handleSubscribe = (event) => {
-    event.preventDefault();
-    // TODO(backend): no subscribe endpoint yet. Deliberately does nothing
-    // rather than faking a success state — see the brief.
-  };
-
   const social = SOCIAL.filter(({ href }) => href);
 
   // Full-bleed: the Section's own gutters and max-width are overridden with
@@ -104,7 +96,7 @@ export default function SectionFooter() {
           </div>
 
           <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16 py-10 md:py-14">
-            <div className="grid lg:grid-cols-[minmax(0,300px)_minmax(0,1fr)_minmax(0,360px)] gap-10 lg:gap-0">
+            <div className="grid lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] gap-10 lg:gap-0">
               {/* Brand */}
               <div className="lg:pr-12">
                 <img
@@ -114,8 +106,8 @@ export default function SectionFooter() {
                   className="h-auto"
                 />
                 <Body dark className="mt-6 max-w-sm">
-                  Modular aeroponic infrastructure that puts controlled
-                  production next to the people eating the food.
+                  BlueZone Microgreens and modular aeroponic growing systems,
+                  united by the Zero-Mile Produce idea.
                 </Body>
 
                 <a
@@ -152,10 +144,11 @@ export default function SectionFooter() {
                       {heading}
                     </p>
                     <ul className="mt-5 space-y-3">
-                      {links.map(({ label, href }) => (
+                      {links.map(({ label, href, enquiry }) => (
                         <li key={label}>
                           <a
                             href={href}
+                            data-enquiry={enquiry}
                             className="text-white/60 hover:text-white text-sm font-light transition-colors duration-200"
                           >
                             {label}
@@ -167,50 +160,6 @@ export default function SectionFooter() {
                 ))}
               </div>
 
-              {/* Newsletter */}
-              <div className="lg:pl-12 lg:border-l lg:border-white/10">
-                <p className="text-bz-teal text-xs uppercase tracking-[0.18em]">
-                  Stay in the loop
-                </p>
-                <h2 className="font-instrument-serif text-white text-2xl md:text-3xl mt-3 leading-tight">
-                  Get the latest updates
-                </h2>
-                <Body dark className="mt-3">
-                  Subscribe to our newsletter for product news, insights and
-                  closer food.
-                </Body>
-
-                <form onSubmit={handleSubscribe} className="mt-6">
-                  <label htmlFor="footer-email" className="sr-only">
-                    Email address
-                  </label>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <input
-                      id="footer-email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      placeholder="Enter your email"
-                      // Focus indicator is an outline, not a ring: Tailwind's
-                      // ring-* utilities compile to box-shadow, which
-                      // DESIGN.md forbids outright.
-                      className="flex-1 min-w-0 rounded-xl border border-white/20 bg-transparent px-4 py-3 text-sm text-white placeholder:text-white/50 transition-colors duration-200 focus:border-bz-teal focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-bz-teal"
-                    />
-                    <button
-                      type="submit"
-                      className="group inline-flex items-center justify-center gap-2 rounded-xl bg-bz-teal px-5 py-3 text-sm font-medium text-bz-navy transition-colors duration-200 hover:bg-bz-teal/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                    >
-                      Subscribe
-                      <ArrowRight
-                        size={16}
-                        aria-hidden="true"
-                        className="transition-transform duration-200 group-hover:translate-x-0.5"
-                      />
-                    </button>
-                  </div>
-                </form>
-              </div>
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-12 pt-8 border-t border-white/10">
@@ -221,7 +170,7 @@ export default function SectionFooter() {
               {/* No privacy / terms / cookie pages exist in this repo, so the
                   reference's legal links would all be dead. Tagline stays. */}
               <p className="text-white/40 text-xs font-light">
-                Sustainable food. Anywhere.
+                Zero-Mile Produce. Grown closer to demand.
               </p>
             </div>
           </div>

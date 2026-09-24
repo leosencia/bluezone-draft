@@ -27,8 +27,8 @@ const METHODS = [
   {
     key: "hydro",
     icon: Droplets,
-    name: "Hydroponics",
-    descriptor: "Roots in solution",
+    name: "Hydroponic systems",
+    descriptor: "Several root-zone designs",
   },
   {
     key: "aero",
@@ -44,26 +44,26 @@ const ROWS = [
   {
     label: "Root zone",
     soil: "In soil",
-    hydro: "Submerged in nutrient solution",
+    hydro: "Nutrient solution delivered by immersion, films or irrigation",
     aero: "Suspended in air, misted on a cycle",
   },
   {
     label: "Oxygen at the root",
     soil: "Limited by soil structure and moisture",
-    hydro: "Dissolved in solution, must be actively aerated",
-    aero: "Ambient air, continuously available",
+    hydro: "Managed differently by system; some roots occupy an air space",
+    aero: "Roots occupy an air space between misting cycles",
   },
   {
     label: "Water path",
-    soil: "Irrigation lost to soil, runoff and evaporation",
-    hydro: "Recirculated within a reservoir",
-    aero: "Recirculated, unabsorbed mist captured",
+    soil: "Irrigation moves through the soil profile",
+    hydro: "May recirculate through a reservoir or drain after use",
+    aero: "May recirculate after unabsorbed mist is captured",
   },
   {
     label: "Substrate",
     soil: "Soil",
-    hydro: "Inert media: rockwool, clay, perlite",
-    aero: "None",
+    hydro: "May use none or an inert growing medium",
+    aero: "Crop supports may use plugs or other media",
   },
   {
     label: "Nutrient control",
@@ -74,21 +74,21 @@ const ROWS = [
   {
     label: "Root inspection",
     soil: "Buried",
-    hydro: "Submerged",
-    aero: "Visible without disturbing the plant",
+    hydro: "Depends on the system configuration",
+    aero: "Accessible within the root chamber when opened",
   },
   {
     label: "Vertical stacking",
     soil: "Single plane",
-    hydro: "Stackable, reservoir weight limits tiers",
-    aero: "Stackable, no standing water to carry",
+    hydro: "Possible in purpose-built systems",
+    aero: "Possible in purpose-built systems",
   },
   {
     // Naming the real weakness is deliberate — "confident enough not to
     // oversell" is a brand voice attribute. Do not soften or drop this row.
     label: "Primary failure mode",
     soil: "Weather, pests, drought",
-    hydro: "Reservoir contamination spreads through the loop",
+    hydro: "Pumps, aeration or solution management, depending on design",
     aero: "Mist interruption, roots dry quickly without it",
   },
 ];
@@ -134,10 +134,11 @@ export default function SectionMethod() {
           Why the root zone is <Accent>air, not water</Accent>
         </SectionHeading>
         <Body className="mt-6 max-w-2xl">
-          Hydroponics suspends roots in a nutrient solution. Aeroponics suspends
-          them in air and delivers the same nutrients as a timed mist. Both
-          remove soil. Only one leaves the root zone open to ambient oxygen, and
-          that single difference drives most of what follows.
+          Hydroponics and aeroponics are families of soilless growing methods.
+          Hydroponic systems deliver nutrient solution through several root-zone
+          designs; aeroponics holds roots in an air space and applies nutrients
+          as a mist. Performance depends on the crop, configuration and
+          operating conditions.
         </Body>
       </Reveal>
 
@@ -284,7 +285,7 @@ export default function SectionMethod() {
               </p>
               <Body className="mt-2 max-w-none text-sm flex-1">{caveat}</Body>
               <div className="mt-5">
-                <SourceLink href={AEROPONICS_SOURCE.url} />
+                <SourceLink href={AEROPONICS_SOURCE.url} label={AEROPONICS_SOURCE.label} />
               </div>
             </BentoTile>
           </Reveal>
@@ -302,13 +303,13 @@ export default function SectionMethod() {
               what closes that gap.
             </Body>
             <div className="mt-5">
-              <SourceLink dark href={AEROPONICS_SOURCE.url} />
+              <SourceLink dark href={AEROPONICS_SOURCE.url} label={AEROPONICS_SOURCE.label} />
             </div>
           </BentoTile>
         </Reveal>
       </div>
 
-      {/* <Reveal>
+      <Reveal>
         <Footnote className="mt-8 max-w-3xl">
           Figures above describe aeroponics as a growing method, drawn from
           published research. They are not BlueZone system performance, which
@@ -327,15 +328,8 @@ export default function SectionMethod() {
           >
             {COMPARABILITY_SOURCE.label}
           </a>
-          {" · "}
-          <a
-            href="#proof"
-            className="underline underline-offset-2 hover:text-bz-blue transition-colors duration-200"
-          >
-            See how evidence is classified.
-          </a>
         </Footnote>
-      </Reveal> */}
+      </Reveal>
     </Section>
   );
 }

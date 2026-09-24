@@ -70,9 +70,9 @@ export default function SectionWhyZeroMile() {
             <Accent>the point of demand</Accent>
           </SectionHeading>
           <Body className="mt-6">
-            Zero-Mile is the model behind everything BlueZone builds: move the
-            growing environment to the market instead of moving the crop to the
-            market.
+            Zero-Mile connects our produce and systems offers: grow closer to
+            the kitchens and customers that need fresh greens, with the
+            production model shaped around the site and its market.
           </Body>
         </Reveal>
 
@@ -103,7 +103,7 @@ export default function SectionWhyZeroMile() {
       <Reveal>
         <Footnote className="mt-8">
           Zero-Mile is a strategic concept, not a literal claim that every
-          product travels zero miles.
+          product travels zero miles or produces zero logistics emissions.
         </Footnote>
       </Reveal>
     </Section>

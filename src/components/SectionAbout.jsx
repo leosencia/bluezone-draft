@@ -1,70 +1,58 @@
 import {
   Accent,
   Body,
-  Footnote,
   IconBadge,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
-  StatCard,
 } from "./primitives";
 
-// Placeholder credentials. Replace with real, attributable figures — nothing
-// here should ship as an invented claim. `image` takes a photo URL once the
-// shoot lands; until then each card falls back to its placeholder fill.
-const CREDENTIALS = [
+const OFFER = [
   {
-    figure: "—",
-    caption: "Years in controlled-environment agriculture",
-    imageLabel: "Founder on site",
-    placement: "left-6 right-6 bottom-6",
+    number: "01",
+    title: "BlueZone Microgreens",
+    body: "A produce offer for wholesalers, foodservice distributors, restaurants and hospitality buyers seeking a controlled indoor supply conversation.",
   },
   {
-    figure: "—",
-    caption: "Units deployed",
-    imageLabel: "Unit in operation",
-    offset: true,
-    placement: "left-6 bottom-16",
+    number: "02",
+    title: "BioCube systems",
+    body: "Modular aeroponic growing systems supported by crop planning, operating design and measured commercial demonstrations.",
   },
   {
-    figure: "—",
-    caption: "Crops in production",
-    imageLabel: "Harvest detail",
-    placement: "left-6 right-20 bottom-6",
+    number: "03",
+    title: "Somerset proof site",
+    body: "A planned demonstration and training initiative intended to build operating evidence and support future projects. It is not presented as an active production site.",
   },
 ];
 
 export default function SectionAbout() {
   return (
     <Section id="about" surface="mist" fade>
-      <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-20">
+      <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-20 items-start">
         <Reveal>
-          <SectionKicker>About</SectionKicker>
+          <SectionKicker>About BlueZone</SectionKicker>
           <SectionHeading>
-            We&rsquo;re building the infrastructure for{" "}
-            <Accent>
-              <span className="whitespace-nowrap">Zero-Mile</span> production
-            </Accent>
+            One company, two ways to bring produce <Accent>closer to demand</Accent>
           </SectionHeading>
         </Reveal>
 
-        <Reveal delay={80} className="flex flex-col max-w-xl">
+        <Reveal delay={80}>
           <Body className="max-w-none">
-            Placeholder paragraph. Who BlueZone is, how the company started, and
-            what it builds. BlueZone Aeroponics is the umbrella identity for
-            both the commercial produce business and the aeroponic
-            farming-system business.
+            BlueZone Aeroponics is the umbrella brand for BlueZone Microgreens
+            and the BioCube growing-system offer. Both are built around the
+            Zero-Mile Produce idea: reduce strategic distance by locating
+            suitable production nearer to the buyers and communities it serves.
           </Body>
           <Body className="mt-4 max-w-none">
-            Placeholder paragraph. The technology philosophy and the commercial
-            approach: what gets measured, what gets proven in a pilot, and how
-            capacity scales from there.
+            Produce customers can discuss crops, quantities, pack requirements
+            and delivery needs. System customers can explore the crop plan,
+            site, operator, procurement baseline and funding route needed to
+            test a project responsibly.
           </Body>
-
           <a
             href="#get-in-touch"
-            className="group inline-flex items-center gap-4 mt-6 text-bz-navy text-sm font-medium hover:text-bz-blue transition-colors duration-200 self-start"
+            className="group inline-flex items-center gap-4 mt-7 text-bz-navy text-sm font-medium hover:text-bz-blue transition-colors duration-200"
           >
             Talk to the team
             <IconBadge />
@@ -72,31 +60,17 @@ export default function SectionAbout() {
         </Reveal>
       </div>
 
-      <blockquote className="font-instrument-serif italic text-bz-navy/90 text-xl md:text-2xl leading-snug border-l-2 border-bz-blue pl-6 mt-14 max-w-3xl">
-        Placeholder quote. One or two sentences from the founder on why
-        production belongs next to the people eating it.
-      </blockquote>
-
-      <Reveal>
-        <div className="mt-8">
-          <p className="text-bz-navy text-sm font-medium">Founder name</p>
-          <p className="text-bz-navy/50 text-sm font-light mt-1">
-            Founder, BlueZone Aeroponics
-          </p>
-        </div>
-      </Reveal>
-
-      <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
-        {CREDENTIALS.map((credential, i) => (
-          <StatCard key={credential.caption} delay={i * 80} {...credential} />
+      <div className="mt-14 border-t border-bz-navy/15">
+        {OFFER.map(({ number, title, body }, i) => (
+          <Reveal key={title} delay={i * 60}>
+            <div className="grid md:grid-cols-[80px_0.7fr_1.3fr] gap-3 md:gap-8 py-7 md:py-9 border-b border-bz-navy/15">
+              <p className="text-bz-blue text-xs tracking-[0.18em]">{number}</p>
+              <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl leading-tight">{title}</h3>
+              <Body className="max-w-none">{body}</Body>
+            </div>
+          </Reveal>
         ))}
       </div>
-
-      <Reveal>
-        <Footnote className="mt-10">
-          Credentials above are placeholders pending confirmation.
-        </Footnote>
-      </Reveal>
     </Section>
   );
 }

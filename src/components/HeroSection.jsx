@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Accent } from "./primitives";
 
 import logo from "../assets/bluezone.png";
@@ -31,9 +31,9 @@ const NAV_LINKS = [
   { label: "Why Zero-Mile", href: "#why-zero-mile" },
   { label: "Impact", href: "#impact" },
   { label: "Technology", href: "#technology" },
+  { label: "Microgreens", href: "#produce" },
   { label: "BioCube", href: "#biocube" },
   { label: "Applications", href: "#applications" },
-  { label: "Produce", href: "#produce" },
   { label: "About", href: "#about" },
 ];
 
@@ -254,7 +254,7 @@ export default function HeroSection() {
               >
                 <img src={logo} alt="BlueZone Aeroponics" width={200} className="hero-logo" />
               </a>
-              <nav className="hidden xl:flex items-center gap-8">
+              <nav className="hidden xl:flex items-center gap-5">
                 {NAV_LINKS.map(({ label, href }) => (
                   <a
                     key={label}
@@ -320,27 +320,26 @@ export default function HeroSection() {
             </h1>
 
             <p className="hero-description text-white/90 font-light [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
-              BlueZone Aeroponics brings modular, water-efficient vertical farms
-              to islands, remote communities, and beyond.
+              Explore BlueZone Microgreens and modular aeroponic growing systems,
+              bringing fresh produce closer to demand.
             </p>
 
             <div className="hero-actions flex items-center">
               <a
-                href={CTA.href}
+                href="#produce"
                 className="group inline-flex justify-center items-center gap-3 bg-white text-black rounded-full px-7 py-3 text-sm font-medium hover:bg-white/90 transition-colors duration-200"
               >
-                {CTA.label}
+                Explore Microgreens
                 <ArrowRight
                   size={16}
                   className="transition-transform duration-200 group-hover:translate-x-0.5"
                 />
               </a>
               <a
-                href="#why-zero-mile"
+                href="#biocube"
                 className="inline-flex justify-center items-center gap-3 bg-black/40 backdrop-blur-sm border border-white/70 text-white rounded-full px-7 py-3 text-sm font-medium hover:bg-black/55 hover:border-white/90 transition-colors duration-200"
               >
-                <Play size={16} />
-                Explore Zero-Mile
+                Explore BioCube
               </a>
             </div>
           </div>
