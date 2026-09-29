@@ -29,12 +29,9 @@ const HOLD_VH = 145;
 // Primary navigation per the Final Website Structure (16 / Navigation & Footer).
 const NAV_LINKS = [
   { label: "Why Zero-Mile", href: "#why-zero-mile" },
-  { label: "Impact", href: "#impact" },
   { label: "Technology", href: "#technology" },
   { label: "Microgreens", href: "#produce" },
   { label: "BioCube", href: "#biocube" },
-  { label: "Applications", href: "#applications" },
-  { label: "About", href: "#about" },
 ];
 
 // Persistent CTA — specific, never "Contact Us".

@@ -1,184 +1,118 @@
-import { useState } from "react";
+import { Minus, Plus } from "lucide-react";
+import { Accent, Body, PrimaryButton, SectionHeading, SectionKicker } from "./primitives";
+import cutaway from "../assets/biocube/catalogue-cutaway.webp";
 
-import {
-  Accent,
-  Body,
-  BentoTile,
-  Footnote,
-  ImagePlaceholder,
-  Reveal,
-  Section,
-  SectionHeading,
-  SectionKicker,
-  SecondaryButton,
-} from "./primitives";
+// Candidate configuration from the supplied catalogue, not validated output.
+const CONFIGURATION = [
+  { value: "4,500", prefix: "Up to", label: "Planting boxes" },
+  { value: "70 m²", label: "Canopy area" },
+  { value: "35", label: "Sections" },
+  { value: "5", label: "Vertical tiers" },
+];
 
-// Hotspot coordinates are percentages of the product visual, so they hold
-// their position as the image scales.
-const HOTSPOTS = [
-  {
-    id: "climate",
-    label: "Climate control",
-    body: "Temperature, humidity and CO₂ held to setpoint, independent of the weather outside.",
-    x: 78,
-    y: 30,
-  },
-  {
-    id: "root-zone",
-    label: "Aeroponic root zone",
-    body: "Roots suspended in air, misted with water and nutrients on a controlled cycle.",
-    x: 34,
-    y: 62,
-  },
-  {
-    id: "lighting",
-    label: "LED lighting",
-    body: "Photoperiod and spectrum tuned per crop, running to a fixed schedule.",
-    x: 46,
-    y: 34,
-  },
-  {
-    id: "irrigation",
-    label: "Irrigation and recirculation",
-    body: "Water not taken up by the plant is captured and returned to the loop.",
-    x: 64,
-    y: 70,
-  },
-  {
-    id: "zones",
-    label: "Growing zones",
-    body: "Separate zones allow different crops or cycle stages to run at once.",
-    x: 22,
-    y: 42,
-  },
-  {
-    id: "controls",
-    label: "Controls and monitoring",
-    body: "Setpoints, cycle state and alarms in one place, on site or remotely.",
-    x: 88,
-    y: 55,
-  },
-  {
-    id: "modularity",
-    label: "Modularity",
-    body: "Ships as a unit. Connects to power and water, then starts producing to cycle.",
-    x: 56,
-    y: 18,
-  },
-  {
-    id: "scalability",
-    label: "Scalability",
-    body: "Capacity is added by adding units, so it grows in steps rather than in one build.",
-    x: 12,
-    y: 74,
-  },
+const SUBSYSTEMS = ["Growing racks", "Nutrient delivery", "Climate", "Lighting", "Monitoring"];
+
+const TECHNICAL_DETAILS = [
+  { title: "Aeroponics", slide: 5, rows: [["Mist particle size", "20–60 µm"], ["Nozzle quantity", "460"]] },
+  { title: "Climate", slide: 8, rows: [["HVAC power", "16.6 kW"], ["Cooling capacity", "42 kW"], ["Catalogue space-temperature range", "5–28°C"]] },
+  { title: "Nutrient delivery", slide: 9, rows: [["Dosing tanks", "3 fertiliser tanks and 1 acid tank"], ["Chiller temperature range", "12–25°C"]] },
+  { title: "Lighting", slide: 11, rows: [["Total growing-light power", "9.6 kW"]] },
+  { title: "Monitoring", slide: 13, rows: [["Catalogue-described capabilities", "Monitoring and preset planting strategies"]] },
 ];
 
 export default function SectionBioCube() {
-  const [active, setActive] = useState(0);
-  const hotspot = HOTSPOTS[active];
-
   return (
-    <Section id="biocube" surface="navy">
-      <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-end">
-        <Reveal>
-          <SectionKicker onNavy>BioCube</SectionKicker>
-          <SectionHeading dark>
-            Meet <Accent dark>BioCube</Accent>
-          </SectionHeading>
-          <Body dark className="mt-6">
-            The infrastructure behind Zero-Mile production.
-          </Body>
-        </Reveal>
-
-        <Reveal delay={80}>
-          <Body dark className="max-w-none">
-            BioCube is a modular, controlled-environment growing system. It
-            ships as a unit, connects to power and water, and starts producing
-            to a fixed cycle. Units are added as demand grows, so capacity
-            scales in steps rather than in one build.
-          </Body>
-        </Reveal>
-      </div>
-
-      {/* Interactive product visual */}
-      <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,360px)] gap-8 lg:gap-12 mt-14">
-        <Reveal>
-          <div className="relative">
-            <ImagePlaceholder
-              dark
-              ratio="aspect-[16/11]"
-              label="BioCube product visual"
-              hint="Three-quarter render or photo of the unit, doors open, lit interior. Keep the branded face in frame."
-            />
-
-            {HOTSPOTS.map((spot, i) => (
-              <button
-                key={spot.id}
-                type="button"
-                onClick={() => setActive(i)}
-                aria-label={spot.label}
-                aria-pressed={i === active}
-                style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 w-7 h-7 rounded-full text-[0.65rem] font-medium hidden md:flex items-center justify-center transition-all duration-300 ${
-                  i === active
-                    ? "bg-bz-lime text-bz-navy scale-110"
-                    : "bg-white/15 text-white border border-white/40 hover:bg-white/25"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
+    <section id="biocube" aria-labelledby="biocube-heading" className="scroll-mt-4 bg-white px-6 md:px-12 lg:px-16 text-bz-navy">
+      <div className="max-w-7xl mx-auto py-16 lg:py-20">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+          <div className="lg:col-span-4">
+            <SectionKicker>BioCube</SectionKicker>
+            <div id="biocube-heading"><SectionHeading>Meet <Accent>BioCube</Accent></SectionHeading></div>
           </div>
-        </Reveal>
+          <div className="lg:col-span-8">
+            <Body className="!max-w-2xl">
+              A proposed containerised growing system for microgreens, bringing
+              together aeroponic nutrient delivery, stacked racks, LED lighting,
+              climate control and digital monitoring.
+            </Body>
+            <PrimaryButton href="#get-in-touch" data-enquiry="systems" className="mt-5 min-h-11 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue">
+              Discuss a BioCube system
+            </PrimaryButton>
+          </div>
+        </div>
 
-        <Reveal delay={80}>
-          <div className="h-full flex flex-col">
-            <BentoTile dark noise fill="bg-white/5" innerClassName="p-6 md:p-8">
-              <p className="text-bz-lime text-xs uppercase tracking-[0.18em]">
-                {String(active + 1).padStart(2, "0")}
-              </p>
-              <h3 className="font-instrument-serif text-white text-2xl md:text-3xl mt-3">
-                {hotspot.label}
-              </h3>
-              <Body dark className="mt-3 max-w-none">
-                {hotspot.body}
-              </Body>
-            </BentoTile>
+        <div className="grid lg:grid-cols-12 gap-8 mt-10 lg:mt-12 items-center">
+          <figure className="lg:col-span-8 lg:col-start-5 lg:row-start-1 min-w-0">
+            <div className="rounded-2xl bg-bz-mist px-3 py-8 sm:px-5 sm:py-10 lg:py-5">
+              <img src={cutaway} width={1416} height={545} loading="lazy" decoding="async" className="block w-full h-auto" alt="BioCube catalogue cutaway showing stacked growing racks and equipment compartments." />
+            </div>
+            <figcaption className="mt-3 text-xs leading-relaxed text-bz-navy/70">
+              Catalogue illustration of the proposed configuration. Final equipment and layout may change.
+            </figcaption>
+          </figure>
 
-            <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2">
-              {HOTSPOTS.map((spot, i) => (
-                <button
-                  key={spot.id}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  className={`flex items-baseline gap-2 text-left text-xs font-light py-1.5 transition-colors duration-200 ${
-                    i === active
-                      ? "text-bz-lime"
-                      : "text-white/60 hover:text-white"
-                  }`}
-                >
-                  <span aria-hidden="true" className="tabular-nums opacity-60">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  {spot.label}
-                </button>
+          <div id="specifications" className="relative scroll-mt-6 lg:col-span-4 lg:col-start-1 lg:row-start-1">
+            {/* Preserve incoming links to the retired Capacity section. */}
+            <span id="capacity" aria-hidden="true" className="absolute top-0 left-0 scroll-mt-6" />
+            <h3 className="font-instrument-serif text-2xl sm:text-3xl">Proposed configuration</h3>
+            <p className="mt-3 text-sm leading-relaxed text-bz-navy/70 max-w-md">
+              Catalogue figures, subject to supplier confirmation. Production output has not been verified.
+            </p>
+            <dl className="grid grid-cols-2 mt-5 border-t border-bz-navy/15">
+              {CONFIGURATION.map(({ value, prefix, label }, index) => (
+                <div key={label} className={`flex flex-col py-4 border-b border-bz-navy/15 ${index % 2 === 0 ? "pr-4 border-r" : "pl-5"}`}>
+                  <dt className="order-2 mt-2 text-sm text-bz-navy/70">{label}</dt>
+                  <dd className="order-1 flex flex-wrap items-baseline gap-x-1.5 text-bz-navy">
+                    {prefix && <span className="text-xs text-bz-navy/70">{prefix}</span>}
+                    <span className="font-instrument-serif text-3xl sm:text-4xl leading-none whitespace-nowrap">{value}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-xs leading-relaxed text-bz-navy/70">Source: supplied BioCube catalogue, slide 4.</p>
+          </div>
+        </div>
+
+        <ul aria-label="Proposed BioCube subsystems" className="flex flex-wrap items-center gap-y-2 mt-8 text-sm text-bz-navy/70">
+          {SUBSYSTEMS.map((name, index) => (
+            <li key={name} className="inline-flex items-center">
+              {index > 0 && <span aria-hidden="true" className="px-3 text-bz-blue">·</span>}
+              {name}
+            </li>
+          ))}
+        </ul>
+
+        <details className="group mt-6 border-y border-bz-navy/15">
+          <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-medium hover:text-bz-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue [&::-webkit-details-marker]:hidden">
+            View technical details
+            <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-bz-mist text-bz-blue">
+              <Plus size={18} className="group-open:hidden" />
+              <Minus size={18} className="hidden group-open:block" />
+            </span>
+          </summary>
+          <div className="pb-8">
+            <p className="text-sm leading-relaxed text-bz-navy/70 max-w-2xl">
+              Proposed component specifications; final equipment and operating requirements remain to be confirmed.
+            </p>
+            <div className="grid lg:grid-cols-2 gap-x-12 gap-y-7 mt-7">
+              {TECHNICAL_DETAILS.map(({ title, slide, rows }) => (
+                <div key={title}>
+                  <h4 className="text-sm font-medium">{title}</h4>
+                  <p className="mt-1 text-xs text-bz-navy/70">Source: supplied BioCube catalogue, slide {slide}.</p>
+                  <dl className="mt-3 border-t border-bz-navy/15">
+                    {rows.map(([label, value]) => (
+                      <div key={label} className="grid lg:grid-cols-2 gap-1 lg:gap-4 py-3 border-b border-bz-navy/10 text-sm leading-relaxed">
+                        <dt className="text-bz-navy/70">{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
               ))}
             </div>
           </div>
-        </Reveal>
+        </details>
       </div>
-
-      <Reveal>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-6 mt-14 pt-8 border-t border-white/10">
-          <Footnote dark className="flex-1">
-            BioCube is a platform within BlueZone, not the entire company.
-          </Footnote>
-          <SecondaryButton dark href="#specifications">
-            System specifications
-          </SecondaryButton>
-        </div>
-      </Reveal>
-    </Section>
+    </section>
   );
 }

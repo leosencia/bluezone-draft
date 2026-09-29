@@ -7,25 +7,14 @@ const NAV = [
     heading: "Explore",
     links: [
       { label: "Why Zero-Mile", href: "#why-zero-mile" },
-      { label: "Impact", href: "#impact" },
       { label: "Technology", href: "#technology" },
       { label: "Microgreens", href: "#produce" },
       { label: "BioCube", href: "#biocube" },
     ],
   },
   {
-    heading: "Applications",
-    links: [
-      { label: "Airports and catering", href: "#get-in-touch", enquiry: "systems" },
-      { label: "Islands and remote", href: "#get-in-touch", enquiry: "systems" },
-      { label: "Hotels and resorts", href: "#get-in-touch", enquiry: "systems" },
-      { label: "Foodservice", href: "#get-in-touch", enquiry: "systems" },
-    ],
-  },
-  {
     heading: "Company",
     links: [
-      { label: "About", href: "#about" },
       { label: "Pilot programme", href: "#pilot" },
       { label: "Get in touch", href: "#get-in-touch" },
     ],
@@ -137,7 +126,7 @@ export default function SectionFooter() {
               </div>
 
               {/* Link columns */}
-              <div className="grid sm:grid-cols-3 gap-8 lg:px-12 lg:border-l lg:border-white/10">
+              <div className="grid sm:grid-cols-2 gap-8 lg:px-12 lg:border-l lg:border-white/10">
                 {NAV.map(({ heading, links }) => (
                   <div key={heading}>
                     <p className="text-bz-lime text-xs uppercase tracking-[0.18em]">

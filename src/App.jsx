@@ -2,18 +2,13 @@ import { useState } from "react";
 import HeroSection from "./components/HeroSection";
 import SectionProblem from "./components/SectionProblem";
 import SectionShift from "./components/SectionShift";
-import SectionImpact from "./components/SectionImpact";
 import SectionWhyZeroMile from "./components/SectionWhyZeroMile";
 import SectionTechnology from "./components/SectionTechnology";
 import SectionMethod from "./components/SectionMethod";
 import SectionBioCube from "./components/SectionBioCube";
-import SectionCapacity from "./components/SectionCapacity";
-import SectionSpecifications from "./components/SectionSpecifications";
 import SectionProduce from "./components/SectionProduce";
-import SectionApplications from "./components/SectionApplications";
 // import SectionProof from "./components/SectionProof"; // temporarily removed, see App.jsx render
 import SectionPilot from "./components/SectionPilot";
-import SectionAbout from "./components/SectionAbout";
 import SectionContact from "./components/SectionContact";
 import SectionFooter from "./components/SectionFooter";
 
@@ -35,7 +30,7 @@ export default function App() {
   return (
     <div onClickCapture={routeEnquiry}>
       <HeroSection />
-      {/* Homepage sections 02-14 of the Final Website Structure, in order.
+      {/* Homepage sections, in order.
           The hero stays position:sticky through its own hold zone (HOLD_VH
           in HeroSection.jsx); pulling main up by exactly one viewport height
           (-100vh) makes it start rising over the hero — still pinned
@@ -55,20 +50,15 @@ export default function App() {
       <main className="relative z-10 -mt-[100vh] bg-white">
         <SectionProblem />
         <SectionShift />
-        <SectionImpact />
         <SectionWhyZeroMile />
         <SectionProduce />
         <SectionTechnology />
         <SectionMethod />
         <SectionBioCube />
-        <SectionCapacity />
-        <SectionSpecifications />
-        <SectionApplications />
         {/* <SectionProof /> — temporarily removed, no nav path / mobile
             discoverability for the A–D scale yet. EvidenceLabel pills swapped
             for a plain "See source" link at each call site meanwhile. */}
         <SectionPilot />
-        <SectionAbout />
         <SectionContact
           enquiryType={enquiryType}
           onEnquiryTypeChange={setEnquiryType}

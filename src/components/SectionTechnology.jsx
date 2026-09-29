@@ -12,6 +12,8 @@ import {
   SectionKicker,
 } from "./primitives";
 
+import rootZone from "../assets/root-zone.png";
+
 const CAPABILITIES = [
   {
     icon: Droplets,
@@ -51,18 +53,27 @@ export default function SectionTechnology() {
 
       <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mt-14">
         <Reveal>
-          <ImagePlaceholder
-            ratio="aspect-[4/3]"
-            label="Aeroponic root zone"
-            hint="Macro shot of misted roots, or a cutaway of the chamber."
-          />
+          <figure>
+            <img
+              src={rootZone}
+              alt="Illustrative mixed microgreens and micro herbs on a blue-grey ceramic dish."
+              width={1536}
+              height={1024}
+              loading="lazy"
+              decoding="async"
+              className="w-full aspect-[6/5] sm:aspect-[3/2] lg:aspect-[6/5] object-cover rounded-2xl"
+            />
+            <figcaption className="mt-3 text-xs text-bz-slate">
+              Illustrative imagery.
+            </figcaption>
+          </figure>
         </Reveal>
 
         <Reveal delay={80}>
           <Body className="max-w-none">
-            In a recirculating configuration, water not taken up can be
-            captured and reused. In an indoor growing room, lighting,
-            temperature, humidity and CO&#8322; can be managed to a crop plan.
+            In a recirculating configuration, water not taken up can be captured
+            and reused. In an indoor growing room, lighting, temperature,
+            humidity and CO&#8322; can be managed to a crop plan.
           </Body>
           <Body className="mt-4 max-w-none">
             This supports planned, year-round crop cycles with less exposure to
@@ -90,9 +101,8 @@ export default function SectionTechnology() {
         <Footnote className="mt-10 max-w-2xl">
           Water and fertiliser efficiency figures for BlueZone systems are
           pending pilot measurement. Supplier efficiency claims are excluded
-          entirely; the peer-reviewed research on aeroponics as a method is
-          set out, labeled and attributed to the method rather than to
-          BlueZone{" "}
+          entirely; the peer-reviewed research on aeroponics as a method is set
+          out, labeled and attributed to the method rather than to BlueZone{" "}
           <a
             href="#method"
             className="underline underline-offset-2 hover:text-bz-blue transition-colors duration-200"
