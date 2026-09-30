@@ -77,11 +77,14 @@ export default function SectionWhyZeroMile() {
         </Reveal>
 
         <Reveal delay={100} className="relative mt-10 md:mt-12 self-center">
-          <img
-            src={planeImg}
-            alt="A BlueZone BioCube unit on an airport apron, sited next to the point of demand."
-            className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-2xl"
-          />
+          <figure>
+            <img
+              src={planeImg}
+              alt="Concept illustration of a BlueZone BioCube unit on an airport apron, sited next to the point of demand."
+              className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-2xl"
+            />
+            <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration of production close to demand.</figcaption>
+          </figure>
         </Reveal>
       </div>
 

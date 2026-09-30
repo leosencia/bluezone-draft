@@ -13,3 +13,5 @@ is encoded as WebP at quality 90.
 The source PDF remains in the user's Downloads directory and is not published
 with the website. The component provides the provisional caption and slide
 references as accessible HTML.
+
+Current source check: the existing asset matches page 4 of `BUEZONE CATALOGUE (3).pdf`. This is a cross-check against the latest edition, not a new extraction. See [the internal content ledger](../../../docs/content/BLUEZONE-CONTENT-SOURCES.md). Final equipment and layout remain provisional.

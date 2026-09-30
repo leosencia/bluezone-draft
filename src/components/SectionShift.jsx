@@ -210,12 +210,15 @@ export default function SectionShift() {
         </Reveal>
 
         <Reveal delay={80}>
-          <img
-            src={sitingImgUrl}
-            alt="Illustrative indoor growing site positioned close to demand."
-            className="rounded-xl"
-            width={600}
-          />
+          <figure>
+            <img
+              src={sitingImgUrl}
+              alt="Concept illustration of an indoor growing site positioned close to demand."
+              className="rounded-xl"
+              width={600}
+            />
+            <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration. Actual siting and logistics depend on the project.</figcaption>
+          </figure>
         </Reveal>
       </div>
     </Section>

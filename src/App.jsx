@@ -13,7 +13,7 @@ import SectionContact from "./components/SectionContact";
 import SectionFooter from "./components/SectionFooter";
 
 export default function App() {
-  const [enquiryType, setEnquiryType] = useState("produce");
+  const [enquiryType, setEnquiryType] = useState(() => new URLSearchParams(window.location.search).get("enquiry") === "systems" ? "systems" : "produce");
   // Keep native anchors and centralise enquiry routing, including footer links.
   const routeEnquiry = (event) => {
     if (

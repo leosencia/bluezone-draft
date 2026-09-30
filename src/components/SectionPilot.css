@@ -5,7 +5,7 @@
 
 .pilot-sequence-ledger {
   position: sticky;
-  top: 0;
+  top: calc((100svh - min(78svh, 48rem)) / 2);
   display: grid;
   grid-template-rows: minmax(0, 1fr) 0fr;
   height: min(78svh, 48rem);
@@ -170,7 +170,6 @@
 .pilot-sequence-copy {
   max-width: 44rem;
   min-width: 0;
-  opacity: var(--step-open, 1);
 }
 
 .pilot-sequence-copy h3 {
@@ -189,6 +188,7 @@
   font-size: clamp(0.875rem, 0.82rem + 0.2vw, 1rem);
   font-weight: 300;
   line-height: 1.625;
+  opacity: var(--step-open, 1);
 }
 
 .pilot-sequence-scene.is-reduced {
@@ -197,6 +197,7 @@
 
 .pilot-sequence-scene.is-reduced .pilot-sequence-ledger {
   position: relative;
+  top: auto;
   display: block;
   height: auto;
   min-height: 0;

@@ -339,6 +339,7 @@ export default function HeroSection() {
                 Explore BioCube
               </a>
             </div>
+            <p className="mt-4 text-xs text-white/80">BioCube concept illustration</p>
           </div>
         </div>
 

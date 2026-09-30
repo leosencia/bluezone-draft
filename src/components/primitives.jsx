@@ -93,10 +93,11 @@ export function Section({
   containerClassName = "",
 }) {
   const [from, mid, to] = FADE_TO[surface];
+  const textured = surface === "navy" ? "noise-overlay" : "";
   return (
     <section
       id={id}
-      className={`relative w-full scroll-mt-4 px-6 md:px-12 lg:px-16 ${SURFACES[surface]} ${className}`}
+      className={`relative w-full scroll-mt-4 px-6 md:px-12 lg:px-16 ${SURFACES[surface]} ${textured} ${className}`}
     >
       <div
         className={`max-w-7xl mx-auto py-20 md:py-28 lg:py-32 ${containerClassName}`}
@@ -135,11 +136,12 @@ export function BentoTile({
   innerClassName = "p-6 md:p-7",
 }) {
   const surface = fill ?? (dark ? "bg-bz-navy" : "bg-white/70");
+  const textured = noise || dark || fill === "bg-bz-navy";
   return (
     <div
       className={`rounded-2xl h-full ${surface} ${
         dark ? "liquid-glass" : "liquid-glass-light"
-      } ${noise ? "noise-overlay" : ""} ${span} ${className}`}
+      } ${textured ? "noise-overlay" : ""} ${span} ${className}`}
     >
       <div className={`relative z-10 h-full flex flex-col ${innerClassName}`}>
         {children}
@@ -215,15 +217,15 @@ export function SectionKicker({ children, onNavy = false, className = "" }) {
   );
 }
 
-export function SectionHeading({ children, dark = false, className = "" }) {
+export function SectionHeading({ children, dark = false, className = "", as: Tag = "h2" }) {
   return (
-    <h2
+    <Tag
       className={`font-instrument-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] max-w-4xl ${
         dark ? "text-white" : "text-bz-navy"
       } ${className}`}
     >
       {children}
-    </h2>
+    </Tag>
   );
 }
 

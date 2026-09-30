@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   Accent,
@@ -32,7 +32,7 @@ const STEPS = [
   {
     n: "04",
     title: "Measure",
-    body: "Record yield, quality, resources, labour, reliability and full cost per kilogram.",
+    body: "Record usable yield, quality, resources, labour, reliability, food-safety requirements and workflow fit, including cost per usable kilogram.",
   },
   {
     n: "05",
@@ -42,12 +42,14 @@ const STEPS = [
 ];
 
 const MEASURES = [
-  "Saleable yield and crop quality",
+  "Usable yield and crop quality",
   "Energy, water and nutrient use",
   "Labour and operating responsibility",
-  "Cost per kilogram at agreed output",
+  "Cost per usable kilogram",
   "Procurement volume and cost displaced",
   "Reliability across repeated crop cycles",
+  "Food-safety and quality requirements",
+  "Fit with receiving, handling and kitchen workflows",
 ];
 
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
@@ -290,11 +292,18 @@ function ScrollStepLedger({ reducedMotion }) {
 
 export default function SectionPilot() {
   const reducedMotion = usePrefersReducedMotion();
+  const [compactViewport, setCompactViewport] = useState(() => window.matchMedia("(max-width: 1023px), (max-height: 850px)").matches);
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 1023px), (max-height: 850px)");
+    const update = () => setCompactViewport(query.matches);
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
 
   return (
     <Section id="pilot" surface="white">
       <Reveal>
-        <ScrollStepLedger reducedMotion={reducedMotion} />
+        <ScrollStepLedger reducedMotion={reducedMotion || compactViewport} />
       </Reveal>
 
       <Reveal>

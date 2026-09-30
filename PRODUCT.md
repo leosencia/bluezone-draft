@@ -32,3 +32,7 @@ Generic SaaS / AI-tool marketing: gradient-text hero headlines, glassmorphism pa
 ## Accessibility & Inclusion
 
 WCAG AA baseline: sufficient color contrast for white text over the hero photo (verify against the darkest and lightest regions the crop can land on), visible focus states on nav links and buttons, Escape-to-close on the mobile menu (already implemented), and keyboard-operable hamburger/menu controls.
+
+## Current content sources
+
+Use [the content ledger](docs/content/BLUEZONE-CONTENT-SOURCES.md) and [source review](BLUEZONE-SOURCE-OF-TRUTH-REVIEW.md) for the four current PDFs: BUEZONE CATALOGUE (3).pdf; BlueZone Aeroponics vs Hyrdroponics (1).pdf; Bluezone Aeroponics Farming Proposal (2).pdf; Bluezon Aeroponics Farming - Leafy Greens Indoor Farm Solution (1).pdf. Keep the microgreens container, leafy-greens pilot, modular comparison farm and five-room facility distinct. Publish provisional configuration and generic pilot criteria; hold unverified savings, annual output, certification, named partners and financial claims. Comparison lives at /aeroponics-vs-hydroponics/; systems enquiries return via /?enquiry=systems#get-in-touch. Existing business status and public inbox await confirmation.

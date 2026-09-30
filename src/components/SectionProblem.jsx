@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Droplets,
-  Truck,
-  Wind,
 } from "lucide-react";
 
 import {
@@ -17,8 +13,6 @@ import {
   Section,
   SectionHeading,
   SectionKicker,
-  SourceLink,
-  Stat,
   usePrefersReducedMotion,
 } from "./primitives";
 
@@ -343,125 +337,7 @@ function SupplyChainCarousel() {
   );
 }
 
-const PRESSURES = [
-  {
-    icon: Truck,
-    figure: "25.4%",
-    summary: "of fruits and vegetables are lost before reaching retail.",
-    title: "Long supply chains",
-    body: "A quarter of the world's fruit and vegetables are lost between harvest and the retail shelf. Distance, handling and storage are among the conditions a supply plan must manage.",
-    source: "FAO, SDG indicator 12.3.1a, 2023 data",
-    sourceUrl:
-      "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/",
-  },
-  {
-    icon: Droplets,
-    figure: "~70%",
-    summary: "of global freshwater withdrawals are from agriculture.",
-    title: "Water",
-    body: "Agriculture accounts for roughly 70% of global freshwater withdrawals, and renewable water available per person has fallen 7% in a decade.",
-    source: "FAO AQUASTAT",
-    sourceUrl: "https://www.fao.org/aquastat/en/",
-  },
-  {
-    icon: Wind,
-    figure: "19%",
-    summary: "of food-system greenhouse gas emissions come from transport.",
-    title: "Transport",
-    body: "Moving food generates about 19% of food-system greenhouse gas emissions, roughly 3 billion tonnes of CO₂e a year. Fruit and vegetable transport accounts for more than a third of food-mile emissions in the study.",
-    source: "Li et al., Nature Food, 2022",
-    sourceUrl: "https://www.nature.com/articles/s43016-022-00531-w",
-  },
-];
-
-function EvidenceTile({ pressure, isExpanded, onToggle, fast }) {
-  const { icon: Icon, figure, summary, title, body, source, sourceUrl } = pressure;
-  const duration = fast ? "duration-150" : "duration-400";
-
-  return (
-    <div
-      className={`group relative rounded-2xl border bg-white overflow-hidden transition-colors duration-300 ${
-        isExpanded
-          ? "border-bz-navy/15"
-          : "border-bz-navy/10 hover:border-bz-navy/20"
-      }`}
-    >
-      {/* The toggle covers the tile but sits behind the content rather than
-          wrapping it: the expanded body now carries a source link, and an
-          <a> inside a <button> is invalid and unreachable by keyboard. The
-          content layer is pointer-events-none so clicks still fall through
-          to this button everywhere except the link itself. */}
-      <button
-        type="button"
-        onClick={onToggle}
-        aria-expanded={isExpanded}
-        aria-label={`${figure} — ${title}`}
-        className="absolute inset-0 z-0 w-full h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bz-blue/40"
-      />
-
-      <div className="relative z-10 flex items-start gap-4 p-4 md:p-5 pointer-events-none">
-        <span className="shrink-0 flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-bz-blue/10 mt-0.5">
-          <Icon size={18} className="text-bz-blue" aria-hidden="true" />
-        </span>
-
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start gap-3">
-            <Stat
-              className={`shrink-0 transition-all ${duration} ${
-                isExpanded ? "text-4xl md:text-6xl" : "text-2xl md:text-3xl"
-              }`}
-            >
-              {figure}
-            </Stat>
-            <p
-              className={`text-bz-navy/55 text-xs md:text-sm font-light leading-snug pt-1 transition-all ${duration} overflow-hidden ${
-                isExpanded ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
-              }`}
-            >
-              {summary}
-            </p>
-          </div>
-
-          <div
-            className={`grid transition-[grid-template-rows,margin-top] ${duration} ${
-              isExpanded ? "grid-rows-[1fr] mt-4" : "grid-rows-[0fr] mt-0"
-            }`}
-          >
-            <div
-              // Collapsed, this content is clipped to zero height but still
-              // in the DOM — inert keeps the source link out of the tab
-              // order until the tile is actually open.
-              inert={!isExpanded}
-              className={`overflow-hidden transition-opacity ${duration} ${
-                isExpanded ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <h3 className="text-bz-navy text-base font-sans font-medium">
-                {title}
-              </h3>
-              <Body className="mt-2 max-w-none">{body}</Body>
-              <div className="mt-4 pointer-events-auto">
-                <SourceLink href={sourceUrl} label={source} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <ChevronDown
-          size={16}
-          aria-hidden="true"
-          className={`shrink-0 mt-2 text-bz-navy/40 transition-transform ${duration} ${
-            isExpanded ? "rotate-180" : ""
-          }`}
-        />
-      </div>
-    </div>
-  );
-}
-
 export default function SectionProblem() {
-  const [expandedEvidence, setExpandedEvidence] = useState(null);
-  const reducedMotion = usePrefersReducedMotion();
 
   return (
     <Section id="problem" surface="white">
@@ -495,21 +371,6 @@ export default function SectionProblem() {
         </Reveal>
       </div>
 
-      {/* Evidence strip: compact by default, one tile expands on click. */}
-      <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-3 md:gap-4 mt-6 md:mt-8">
-        {PRESSURES.map((pressure, i) => (
-          <Reveal key={pressure.title} delay={i * 80}>
-            <EvidenceTile
-              pressure={pressure}
-              isExpanded={expandedEvidence === i}
-              fast={reducedMotion}
-              onToggle={() =>
-                setExpandedEvidence((current) => (current === i ? null : i))
-              }
-            />
-          </Reveal>
-        ))}
-      </div>
     </Section>
   );
 }

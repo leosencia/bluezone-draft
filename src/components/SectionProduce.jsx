@@ -6,7 +6,7 @@ import peaShoots from "../assets/microgreens/pea-shoots-concept.png";
 const CROPS = [
   { name: "Microgreens", detail: "Young leaves. A considered finishing touch.", body: "Explore tender greens for salads, sandwiches and plated dishes. Discuss the varieties and quantities that work for your menu or wholesale range." },
   { name: "Micro herbs", detail: "Small leaves. Distinctive flavour.", body: "Bring aroma and detail to the plate. Share your preferred herbs, presentation requirements and supply needs with our team." },
-  { name: "Pea shoots", detail: "Delicate tendrils. Fresh possibilities.", body: "A focus of our planned Somerset production, alongside microgreens. Talk to us about pack formats and the volumes your kitchen or customers need." },
+  { name: "Pea shoots", detail: "Delicate tendrils. Fresh possibilities.", body: "Discuss pea shoots and microgreens, including the pack formats and quantities your kitchen or customers need." },
 ];
 
 export default function SectionProduce() {

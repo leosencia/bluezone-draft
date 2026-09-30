@@ -5,7 +5,6 @@ import {
   BentoTile,
   Body,
   Footnote,
-  ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
@@ -23,17 +22,17 @@ const CAPABILITIES = [
   {
     icon: Recycle,
     title: "Water",
-    body: "Closed-loop recirculation, dosed to the cycle.",
+    body: "Automated dosing and irrigation support the crop plan.",
   },
   {
     icon: Thermometer,
     title: "Climate",
-    body: "Temperature, humidity and CO₂ held to setpoint.",
+    body: "Climate equipment and airflow manage conditions in the growing area.",
   },
   {
     icon: Lightbulb,
     title: "Light",
-    body: "LED photoperiod tuned per crop.",
+    body: "LED lighting supports planned indoor crop cycles.",
   },
 ];
 
@@ -56,12 +55,12 @@ export default function SectionTechnology() {
           <figure>
             <img
               src={rootZone}
-              alt="Illustrative mixed microgreens and micro herbs on a blue-grey ceramic dish."
-              width={1536}
-              height={1024}
+              alt="Illustrative pea shoots with curled tendrils on cool stone and navy linen."
+              width={1122}
+              height={1402}
               loading="lazy"
               decoding="async"
-              className="w-full aspect-[6/5] sm:aspect-[3/2] lg:aspect-[6/5] object-cover rounded-2xl"
+              className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover rounded-2xl"
             />
             <figcaption className="mt-3 text-xs text-bz-slate">
               Illustrative imagery.
@@ -99,15 +98,13 @@ export default function SectionTechnology() {
 
       <Reveal>
         <Footnote className="mt-10 max-w-2xl">
-          Water and fertiliser efficiency figures for BlueZone systems are
-          pending pilot measurement. Supplier efficiency claims are excluded
-          entirely; the peer-reviewed research on aeroponics as a method is set
-          out, labeled and attributed to the method rather than to BlueZone{" "}
+          Crop performance and resource use depend on the configuration and
+          operating conditions. Explore how aeroponics and hydroponics differ{" "}
           <a
-            href="#method"
+            href="/aeroponics-vs-hydroponics/"
             className="underline underline-offset-2 hover:text-bz-blue transition-colors duration-200"
           >
-            in Method
+            in our comparison
           </a>
           .
         </Footnote>

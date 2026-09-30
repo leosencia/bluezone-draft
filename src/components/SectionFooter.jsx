@@ -1,6 +1,13 @@
 import logo from "../assets/bluezone.png";
 import footerImage from "../assets/footer-image.png";
-import { BentoTile, Body, IconBadge, Reveal, Section } from "./primitives";
+import {
+  BentoTile,
+  Body,
+  Footnote,
+  IconBadge,
+  Reveal,
+  Section,
+} from "./primitives";
 
 const NAV = [
   {
@@ -8,6 +15,10 @@ const NAV = [
     links: [
       { label: "Why Zero-Mile", href: "#why-zero-mile" },
       { label: "Technology", href: "#technology" },
+      {
+        label: "Aeroponics vs hydroponics",
+        href: "/aeroponics-vs-hydroponics/",
+      },
       { label: "Microgreens", href: "#produce" },
       { label: "BioCube", href: "#biocube" },
     ],
@@ -34,7 +45,10 @@ const SOCIAL = [
   { name: "YouTube", href: null },
 ];
 
-export default function SectionFooter() {
+export default function SectionFooter({
+  homePrefix = "",
+  comparisonPage = false,
+}) {
   const social = SOCIAL.filter(({ href }) => href);
 
   // Full-bleed: the Section's own gutters and max-width are overridden with
@@ -55,12 +69,10 @@ export default function SectionFooter() {
             because the band is full-bleed — rounded corners at the viewport
             edge would read as a floating card, not a footer.
 
-            The panel is stripped back to flat bz-navy: `noise` is off, and
-            liquid-glass (hardcoded on every dark BentoTile) has its white
-            sheen, inset highlight and rim pseudo-element neutralised. Those
-            three together lifted #071B2B to a slate that read teal-ish, and
-            they also left the panel a shade off the #071B2B the photo scrim
-            fades into — so killing them makes that seam exact. */}
+            The panel keeps the shared navy noise treatment. Liquid-glass
+            (hardcoded on every dark BentoTile) has its white sheen, inset
+            highlight and rim pseudo-element neutralised so the base colour
+            still meets the #071B2B photo scrim without a visible seam. */}
         <BentoTile
           dark
           className="!rounded-none overflow-hidden !bg-none !shadow-none before:!hidden"
@@ -69,7 +81,7 @@ export default function SectionFooter() {
           <div className="relative">
             <img
               src={footerImage}
-              alt="A BlueZone BioCube sited in open grassland at sunrise."
+              alt="Concept illustration of a BlueZone BioCube sited in open grassland at sunrise."
               className="w-full aspect-[3/1] min-h-[200px] object-cover object-[62%_center] sm:object-center"
             />
             {/* Bottom scrim: the foot of the photo is bright sunlit grass and
@@ -85,6 +97,10 @@ export default function SectionFooter() {
           </div>
 
           <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16 py-10 md:py-14">
+            <Footnote dark className="mb-8">
+              Concept illustration. Final siting and equipment depend on the
+              project.
+            </Footnote>
             <div className="grid lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] gap-10 lg:gap-0">
               {/* Brand */}
               <div className="lg:pr-12">
@@ -100,10 +116,10 @@ export default function SectionFooter() {
                 </Body>
 
                 <a
-                  href="mailto:contact@bluezoneaeroponics.com"
+                  href="mailto:johnny@bluezoneaeroponicfarming.com"
                   className="group inline-flex items-center gap-4 mt-8 text-white text-sm font-medium hover:text-bz-lime transition-colors duration-200"
                 >
-                  contact@bluezoneaeroponics.com
+                  johnny@bluezoneaeroponicfarming.com
                   <IconBadge dark />
                 </a>
 
@@ -136,7 +152,17 @@ export default function SectionFooter() {
                       {links.map(({ label, href, enquiry }) => (
                         <li key={label}>
                           <a
-                            href={href}
+                            href={
+                              href.startsWith("#")
+                                ? `${homePrefix}${href}`
+                                : href
+                            }
+                            aria-current={
+                              comparisonPage &&
+                              href === "/aeroponics-vs-hydroponics/"
+                                ? "page"
+                                : undefined
+                            }
                             data-enquiry={enquiry}
                             className="text-white/60 hover:text-white text-sm font-light transition-colors duration-200"
                           >
@@ -148,7 +174,6 @@ export default function SectionFooter() {
                   </div>
                 ))}
               </div>
-
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-12 pt-8 border-t border-white/10">
