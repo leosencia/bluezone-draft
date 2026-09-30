@@ -5,7 +5,7 @@
 .hero-header {
   position: absolute;
   inset: 0 0 auto;
-  padding-inline: var(--hero-gutter);
+  padding-inline: var(--hero-gutter, clamp(24px, 5.7vw, 112px));
   min-height: clamp(88px, 12vh, 128px);
 }
 

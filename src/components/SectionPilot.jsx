@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import {
   Accent,
@@ -145,39 +145,45 @@ function ScrollStepLedger({ reducedMotion }) {
       frame = 0;
       if (reduced) return;
 
-      const viewportHeight = window.innerHeight;
-      const scrollSpan = Math.max(1, scene.offsetHeight - viewportHeight);
+      const narrow = window.innerWidth < 1024;
+      const stickyTop = parseFloat(getComputedStyle(ledger).top) || 0;
+      const scrollSpan = Math.max(1, scene.offsetHeight - ledger.offsetHeight);
       const progress = clamp(
-        -scene.getBoundingClientRect().top / scrollSpan,
+        (stickyTop - scene.getBoundingClientRect().top) / scrollSpan,
         0,
         1,
       );
       if (
         contextModeRef.current === "full" &&
-        progress >= CONTEXT_COMPACT_AT
+        (narrow || progress >= CONTEXT_COMPACT_AT)
       ) {
         setContextMode("compact");
       } else if (
         contextModeRef.current === "compact" &&
-        progress <= CONTEXT_MAIN_AT
+        !narrow && progress <= CONTEXT_MAIN_AT
       ) {
         setContextMode("full");
       }
       const stepProgress = clamp(
-        (progress - CONTEXT_COMPACT_AT) / (1 - CONTEXT_COMPACT_AT),
+        narrow ? progress : (progress - CONTEXT_COMPACT_AT) / (1 - CONTEXT_COMPACT_AT),
         0,
         1,
       );
       const stagePosition = stepProgress * (STEPS.length - 1);
-      const compactHeight = window.innerWidth < 768 ? 54 : 76;
       const stepViewportHeight = stepViewport.clientHeight;
-      const expandedHeight = Math.max(
-        compactHeight + 180,
-        stepViewportHeight - compactHeight * (STEPS.length - 1),
+      const preferredCompactHeight = window.innerWidth < 768 ? 54 : 76;
+      const expansionRoom = Math.max(180, ...rows.map((row) =>
+        row.querySelector(".pilot-sequence-copy p").scrollHeight + 88,
+      ));
+      const compactHeight = Math.min(
+        preferredCompactHeight,
+        Math.max(36, (stepViewportHeight - expansionRoom) / (STEPS.length - 1)),
       );
+      const expandedHeight = Math.max(0, stepViewportHeight - compactHeight * (STEPS.length - 1));
 
       let y = 0;
       rows.forEach((row, index) => {
+        row.style.height = `${expandedHeight}px`;
         const distance = Math.abs(stagePosition - index);
         const open = smoothStep(clamp(1 - distance, 0, 1));
         const visibleHeight =
@@ -292,19 +298,27 @@ function ScrollStepLedger({ reducedMotion }) {
 
 export default function SectionPilot() {
   const reducedMotion = usePrefersReducedMotion();
-  const [compactViewport, setCompactViewport] = useState(() => window.matchMedia("(max-width: 1023px), (max-height: 850px)").matches);
-  useEffect(() => {
-    const query = window.matchMedia("(max-width: 1023px), (max-height: 850px)");
-    const update = () => setCompactViewport(query.matches);
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
 
   return (
     <Section id="pilot" surface="white">
-      <Reveal>
-        <ScrollStepLedger reducedMotion={reducedMotion || compactViewport} />
-      </Reveal>
+      {!reducedMotion && (
+        <div className="pilot-mobile-intro">
+          <SectionKicker>Commercial Demonstration</SectionKicker>
+          <SectionHeading>Prove the operating case <Accent>before expanding</Accent></SectionHeading>
+          <Body className="mt-6">
+            A BlueZone pilot is a commercial demonstration built around an
+            agreed buyer, crop plan and operating team. Its purpose is to
+            establish what the site can produce, what it takes to run and how
+            that compares with the produce it is intended to replace.
+          </Body>
+          <div className="pilot-context-measures my-6" aria-label="Success measures">
+            <p>Success measures</p>
+            <div>{MEASURES.map((measure) => <span key={measure}>{measure}</span>)}</div>
+          </div>
+          <PrimaryButton href="#get-in-touch" data-enquiry="systems">Discuss a systems pilot</PrimaryButton>
+        </div>
+      )}
+      <ScrollStepLedger reducedMotion={reducedMotion} />
 
       <Reveal>
         <Footnote className="mt-8 max-w-3xl">

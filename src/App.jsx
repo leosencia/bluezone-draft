@@ -1,5 +1,6 @@
 import { useState } from "react";
 import HeroSection from "./components/HeroSection";
+import SectionPremise from "./components/SectionPremise";
 import SectionProblem from "./components/SectionProblem";
 import SectionShift from "./components/SectionShift";
 import SectionWhyZeroMile from "./components/SectionWhyZeroMile";
@@ -48,6 +49,7 @@ export default function App() {
           HeroSection.jsx above 100 instead — the excess is a pure static
           hold; -100vh here doesn't change. */}
       <main className="relative z-10 -mt-[100vh] bg-white">
+        <SectionPremise />
         <SectionProblem />
         <SectionShift />
         <SectionWhyZeroMile />

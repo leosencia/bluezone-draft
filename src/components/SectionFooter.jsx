@@ -63,18 +63,9 @@ export default function SectionFooter({
       containerClassName="!max-w-none !py-0"
     >
       <Reveal>
-        {/* The photo has to reach the card's edges, so the tile's own padding
-            is dropped (innerClassName="p-0") and re-applied to the content
-            wrapper below the image. Corners are squared off (!rounded-none)
-            because the band is full-bleed — rounded corners at the viewport
-            edge would read as a floating card, not a footer.
-
-            The panel keeps the shared navy noise treatment. Liquid-glass
-            (hardcoded on every dark BentoTile) has its white sheen, inset
-            highlight and rim pseudo-element neutralised so the base colour
-            still meets the #071B2B photo scrim without a visible seam. */}
         <BentoTile
           dark
+          noise={false}
           className="!rounded-none overflow-hidden !bg-none !shadow-none before:!hidden"
           innerClassName="p-0"
         >
@@ -84,12 +75,6 @@ export default function SectionFooter({
               alt="Concept illustration of a BlueZone BioCube sited in open grassland at sunrise."
               className="w-full aspect-[3/1] min-h-[200px] object-cover object-[62%_center] sm:object-center"
             />
-            {/* Bottom scrim: the foot of the photo is bright sunlit grass and
-                the panel below is bz-navy. Multi-stop rather than a two-stop
-                gradient — a straight linear fade over this much contrast
-                bands visibly and still leaves a seam near the bottom. Stops
-                are weighted late so the scrim stays near-clear over the top
-                third and the photo does not go muddy. */}
             <div
               aria-hidden="true"
               className="absolute inset-x-0 bottom-0 h-[55%] bg-[linear-gradient(to_bottom,rgba(7,27,43,0)_0%,rgba(7,27,43,0.10)_30%,rgba(7,27,43,0.38)_55%,rgba(7,27,43,0.72)_75%,rgba(7,27,43,0.92)_89%,#071B2B_100%)]"
@@ -97,10 +82,6 @@ export default function SectionFooter({
           </div>
 
           <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16 py-10 md:py-14">
-            <Footnote dark className="mb-8">
-              Concept illustration. Final siting and equipment depend on the
-              project.
-            </Footnote>
             <div className="grid lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] gap-10 lg:gap-0">
               {/* Brand */}
               <div className="lg:pr-12">

@@ -1,4 +1,12 @@
-import { Minus, Plus } from "lucide-react";
+import {
+  Activity,
+  Fan,
+  Layers3,
+  Lightbulb,
+  Minus,
+  Plus,
+  Sprout,
+} from "lucide-react";
 import {
   Accent,
   Body,
@@ -17,26 +25,31 @@ const CONFIGURATION = [
 ];
 
 const SUBSYSTEMS = [
-  [
-    "Growing racks",
-    "Stacked growing racks organise the growing area around a central access aisle.",
-  ],
-  [
-    "Nutrient delivery",
-    "Automated dosing and irrigation deliver water and nutrients through aeroponic misting.",
-  ],
-  [
-    "Climate and airflow",
-    "Integrated climate equipment and air distribution manage conditions within the growing area.",
-  ],
-  [
-    "LED lighting",
-    "Grow lighting supports a planned crop cycle inside the container.",
-  ],
-  [
-    "Monitoring",
-    "Digital monitoring and preset growing strategies support day-to-day operation.",
-  ],
+  {
+    name: "Growing racks",
+    icon: Layers3,
+    body: "Stacked growing racks organise the growing area around a central access aisle.",
+  },
+  {
+    name: "Nutrient delivery",
+    icon: Sprout,
+    body: "Automated dosing and irrigation deliver water and nutrients through aeroponic misting.",
+  },
+  {
+    name: "Climate and airflow",
+    icon: Fan,
+    body: "Integrated climate equipment and air distribution manage conditions within the growing area.",
+  },
+  {
+    name: "LED lighting",
+    icon: Lightbulb,
+    body: "Grow lighting supports a planned crop cycle inside the container.",
+  },
+  {
+    name: "Monitoring",
+    icon: Activity,
+    body: "Digital monitoring and preset growing strategies support day-to-day operation.",
+  },
 ];
 
 const TECHNICAL_DETAILS = [
@@ -118,21 +131,21 @@ export default function SectionBioCube() {
 
         <div className="grid lg:grid-cols-12 gap-8 mt-10 lg:mt-12 items-center">
           <figure className="lg:col-span-8 lg:col-start-5 lg:row-start-1 min-w-0">
-            <div className="rounded-2xl bg-bz-mist px-3 py-8 sm:px-5 sm:py-10 lg:py-5">
+            <div className="rounded-2xl px-3 py-8 sm:px-5 sm:py-10 lg:py-5">
               <img
                 src={cutaway}
                 width={1416}
                 height={545}
                 loading="lazy"
                 decoding="async"
-                className="block w-full h-auto"
+                className="md:max-w-5xl ml-18 h-auto"
                 alt="BioCube catalogue cutaway showing stacked growing racks and equipment compartments."
               />
             </div>
-            <figcaption className="mt-3 text-xs leading-relaxed text-bz-navy/70">
+            {/* <figcaption className="mt-3 text-xs leading-relaxed text-bz-navy/70">
               Catalogue illustration of the proposed microgreens configuration.
               Final equipment and layout may change.
-            </figcaption>
+            </figcaption> */}
           </figure>
 
           <div
@@ -149,9 +162,9 @@ export default function SectionBioCube() {
               Proposed configuration
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-bz-navy/70 max-w-md">
-              Proposed microgreens configuration, based on the supplied
-              catalogue. Final specifications are confirmed for each project.
-              Production output has not been verified.
+              Proposed microgreens configuration. Final specifications are
+              confirmed for each project. Production output is currently
+              undergoing quality validation.
             </p>
             <dl className="grid grid-cols-2 mt-5 border-t border-bz-navy/15">
               {CONFIGURATION.map(({ value, prefix, label }, index) => (
@@ -177,19 +190,25 @@ export default function SectionBioCube() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-[0.65fr_1.35fr] gap-8 lg:gap-16 mt-14 border-t border-bz-navy/15 pt-10">
-          <SectionHeading className="!text-3xl">
-            Working together, <Accent>inside BioCube.</Accent>
+        <div className="grid bg-bz-ocean text-white p-8 rounded-2xl lg:grid-cols-[0.65fr_1.35fr] gap-8 lg:gap-16 mt-14 border-t border-bz-navy/15 pt-10">
+          <SectionHeading className="!text-3xl text-white">
+            Working together, <Accent dark>inside BioCube.</Accent>
           </SectionHeading>
-          <dl className="divide-y divide-bz-navy/15">
-            {SUBSYSTEMS.map(([name, body]) => (
+          <dl className="divide-y divide-bz-mist/20 !text-white">
+            {SUBSYSTEMS.map(({ name, icon: Icon, body }) => (
               <div
                 key={name}
-                className="grid sm:grid-cols-[0.7fr_1.3fr] gap-2 sm:gap-6 py-5 first:pt-0"
+                className="grid sm:grid-cols-[auto_0.7fr_1.3fr] gap-3 sm:gap-5 py-5 first:pt-0"
               >
-                <dt className="font-medium text-sm">{name}</dt>
+                <span
+                  aria-hidden="true"
+                  className="flex size-11 items-center justify-center rounded-full border border-white/20 bg-white/15 text-white"
+                >
+                  <Icon size={19} strokeWidth={1.8} />
+                </span>
+                <dt className="self-center font-medium text-sm">{name}</dt>
                 <dd>
-                  <Body className="!text-sm">{body}</Body>
+                  <Body className="!text-sm !text-white">{body}</Body>
                 </dd>
               </div>
             ))}
@@ -208,10 +227,10 @@ export default function SectionBioCube() {
             </span>
           </summary>
           <div className="pb-8">
-            <p className="text-sm leading-relaxed text-bz-navy/70 max-w-2xl">
+            {/* <p className="text-sm leading-relaxed text-bz-navy/70 max-w-2xl">
               Proposed component specifications; final equipment and operating
               requirements remain to be confirmed.
-            </p>
+            </p> */}
             <div className="grid lg:grid-cols-2 gap-x-12 gap-y-7 mt-7">
               {TECHNICAL_DETAILS.map(({ title, slide, rows }) => (
                 <div key={title}>

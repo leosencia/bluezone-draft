@@ -52,7 +52,10 @@ const COMPARISON = [
   },
   {
     label: "Route to the buyer",
-    traditional: { figure: "Time in transit", text: "Distance and handoffs vary by source" },
+    traditional: {
+      figure: "Time in transit",
+      text: "Distance and handoffs vary by source",
+    },
     zeroMile: {
       figure: "Closer harvest",
       text: "Planned around the market the crop will serve",
@@ -188,9 +191,9 @@ export default function SectionShift() {
 
         <Footnote className="mt-6 max-w-3xl">
           Illustrative routes only. The actual number of handoffs, distance,
-          storage requirement and delivery schedule depend on the crop,
-          customer and location. Zero-Mile describes strategic proximity; it
-          does not mean every journey or logistics emission disappears.
+          storage requirement and delivery schedule depend on the crop, customer
+          and location. Zero-Mile describes strategic proximity; it does not
+          mean every journey or logistics emission disappears.
         </Footnote>
       </Reveal>
 
@@ -217,7 +220,7 @@ export default function SectionShift() {
               className="rounded-xl"
               width={600}
             />
-            <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration. Actual siting and logistics depend on the project.</figcaption>
+            {/* <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration. Actual siting and logistics depend on the project.</figcaption> */}
           </figure>
         </Reveal>
       </div>

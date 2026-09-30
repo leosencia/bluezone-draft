@@ -83,7 +83,7 @@ export default function SectionWhyZeroMile() {
               alt="Concept illustration of a BlueZone BioCube unit on an airport apron, sited next to the point of demand."
               className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-2xl"
             />
-            <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration of production close to demand.</figcaption>
+            {/* <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration of production close to demand.</figcaption> */}
           </figure>
         </Reveal>
       </div>

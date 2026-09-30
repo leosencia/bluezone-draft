@@ -1,5 +1,5 @@
 import { Minus, Plus } from "lucide-react";
-import logo from "../assets/bluezone.png";
+import SiteNavigation from "../components/SiteNavigation";
 import {
   Accent,
   Body,
@@ -14,41 +14,29 @@ import {
 } from "../components/primitives";
 import SectionFooter from "../components/SectionFooter";
 import { COMPARISON_ROWS, FAQS } from "../content/comparison";
+import container from "../assets/container.png";
 import aero from "../assets/aero.png";
 import hydro from "../assets/hydro.png";
 
 const ENQUIRY = "/?enquiry=systems#get-in-touch";
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "BioCube", href: "/#biocube" },
+];
+const NAV_CTA = { label: "Get in touch", href: ENQUIRY };
 
 export default function ComparisonPage() {
   return (
     <>
-      <header className="noise-overlay bg-bz-navy px-6 md:px-12 lg:px-16">
-        <div className="max-w-7xl mx-auto py-5 flex flex-wrap items-center justify-between gap-5">
-          <a href="/" aria-label="BlueZone Aeroponics home">
-            <img src={logo} alt="BlueZone Aeroponics" width={170} />
-          </a>
-          <nav
-            aria-label="Main navigation"
-            className="flex flex-wrap items-center gap-5 md:gap-8 text-sm text-white/80"
-          >
-            <a
-              href="/"
-              className="min-h-11 inline-flex items-center hover:text-white"
-            >
-              Home
-            </a>
-            <a
-              href="/#biocube"
-              className="min-h-11 inline-flex items-center hover:text-white"
-            >
-              BioCube
-            </a>
-            <SecondaryButton href={ENQUIRY} dark>
-              Get in touch
-            </SecondaryButton>
-          </nav>
-        </div>
-      </header>
+      <div className="noise-overlay bg-bz-navy">
+        <SiteNavigation
+          links={NAV_LINKS}
+          cta={NAV_CTA}
+          floatingCtaLabel="Get in touch"
+          floatingAfterHeader
+          headerClassName="!relative z-10"
+        />
+      </div>
       <main id="comparison-main">
         <Section surface="mist">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -78,13 +66,17 @@ export default function ComparisonPage() {
               </div>
             </Reveal>
             <Reveal delay={80} className="lg:col-span-7">
-              <ImagePlaceholder
-                label="Controlled growing environment"
-                ratio="aspect-[4/3] lg:aspect-[6/5]"
-              />
-              <Footnote className="mt-3">
-                Image placeholder. Growing-system photography to follow.
-              </Footnote>
+              <figure>
+                <img
+                  src={container}
+                  alt="Illustrative pea shoots with curled tendrils on cool stone and navy linen."
+                  width={1122}
+                  height={1402}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full rounded-2xl"
+                />
+              </figure>
             </Reveal>
           </div>
         </Section>
@@ -117,9 +109,9 @@ export default function ComparisonPage() {
                   decoding="async"
                   className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover rounded-2xl"
                 />
-                <figcaption className="mt-3 text-xs text-bz-slate">
+                {/* <figcaption className="mt-3 text-xs text-bz-slate">
                   Illustrative imagery.
-                </figcaption>
+                </figcaption> */}
               </figure>
               <h3 className="font-instrument-serif text-bz-navy text-3xl mt-6">
                 Aeroponics
@@ -142,9 +134,9 @@ export default function ComparisonPage() {
                   decoding="async"
                   className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover rounded-2xl"
                 />
-                <figcaption className="mt-3 text-xs text-bz-slate">
+                {/* <figcaption className="mt-3 text-xs text-bz-slate">
                   Illustrative imagery.
-                </figcaption>
+                </figcaption> */}
               </figure>
               <h3 className="font-instrument-serif text-bz-navy text-3xl mt-6">
                 Hydroponics
@@ -157,11 +149,11 @@ export default function ComparisonPage() {
               </Body>
             </Reveal>
           </div>
-          <Footnote className="mt-10 max-w-3xl">
+          {/* <Footnote className="mt-10 max-w-3xl">
             Visuals are image placeholders. Aeroponics is sometimes classified
             within the wider hydroponics family. Here, the comparison is between
             mist-fed aeroponics and other common hydroponic designs.
-          </Footnote>
+          </Footnote> */}
         </Section>
 
         <Section surface="mist" id="comparison">

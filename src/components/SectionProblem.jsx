@@ -340,7 +340,11 @@ function SupplyChainCarousel() {
 export default function SectionProblem() {
 
   return (
-    <Section id="problem" surface="white">
+    <Section
+      id="problem"
+      surface="white"
+      containerClassName="!pt-10 sm:!pt-12 md:!pt-16 lg:!pt-20"
+    >
       <div className="flex flex-col">
         <Reveal>
           <div className="w-full flex flex-col md:flex-row gap-2 md:gap-8">

@@ -4,12 +4,12 @@
 }
 
 .pilot-sequence-ledger {
+  --pilot-ledger-height: min(clamp(34rem, 78svh, 48rem), calc(100svh - 2rem));
   position: sticky;
-  top: calc((100svh - min(78svh, 48rem)) / 2);
+  top: max(1rem, calc((100svh - var(--pilot-ledger-height)) / 2));
   display: grid;
   grid-template-rows: minmax(0, 1fr) 0fr;
-  height: min(78svh, 48rem);
-  min-height: 34rem;
+  height: var(--pilot-ledger-height);
   padding-block: clamp(1rem, 3vh, 2rem);
   overflow: hidden;
 }
@@ -227,7 +227,7 @@
 
 .pilot-sequence-scene.is-reduced .pilot-sequence-step {
   position: relative;
-  height: auto;
+  height: auto !important;
   min-height: 0;
   clip-path: none;
   transform: none;
@@ -246,6 +246,50 @@
 
 .pilot-sequence-scene.is-reduced .pilot-sequence-copy {
   opacity: 1;
+}
+
+.pilot-sequence-scene.is-reduced .pilot-sequence-copy p {
+  opacity: 1;
+}
+
+.pilot-mobile-intro {
+  display: none;
+}
+
+.pilot-sequence-scene:not(.is-reduced) .pilot-sequence-step-inner {
+  padding-block: calc(6px + var(--step-open, 1) * 10px);
+}
+
+@media (max-width: 1023px) {
+  .pilot-mobile-intro {
+    display: block;
+    margin-bottom: 3rem;
+  }
+
+  .pilot-sequence-scene:not(.is-reduced) .pilot-sequence-ledger {
+    --pilot-ledger-height: min(44rem, calc(100svh - 2rem));
+    height: var(--pilot-ledger-height);
+    min-height: 0;
+    grid-template-rows: auto minmax(0, 1fr);
+    padding-block: 0;
+  }
+
+  .pilot-sequence-scene:not(.is-reduced) .pilot-context {
+    display: block;
+    padding-bottom: 1rem;
+  }
+
+  .pilot-sequence-scene:not(.is-reduced) .pilot-context-copy > p,
+  .pilot-sequence-scene:not(.is-reduced) .pilot-context-actions,
+  .pilot-sequence-scene:not(.is-reduced) .pilot-context-measures {
+    display: none;
+  }
+
+  .pilot-sequence-scene:not(.is-reduced) .pilot-context-copy h2 {
+    max-width: 32rem;
+    font-size: 1.6rem !important;
+    line-height: 1.1 !important;
+  }
 }
 
 .pilot-sequence-scene.is-reduced .pilot-sequence-copy h3 {

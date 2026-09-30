@@ -129,14 +129,14 @@ export function Section({
 export function BentoTile({
   children,
   dark = false,
-  noise = false,
+  noise,
   fill,
   span = "",
   className = "",
   innerClassName = "p-6 md:p-7",
 }) {
   const surface = fill ?? (dark ? "bg-bz-navy" : "bg-white/70");
-  const textured = noise || dark || fill === "bg-bz-navy";
+  const textured = noise ?? (dark || fill === "bg-bz-navy");
   return (
     <div
       className={`rounded-2xl h-full ${surface} ${

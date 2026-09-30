@@ -62,9 +62,9 @@ export default function SectionTechnology() {
               decoding="async"
               className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover rounded-2xl"
             />
-            <figcaption className="mt-3 text-xs text-bz-slate">
+            {/* <figcaption className="mt-3 text-xs text-bz-slate">
               Illustrative imagery.
-            </figcaption>
+            </figcaption> */}
           </figure>
         </Reveal>
 
