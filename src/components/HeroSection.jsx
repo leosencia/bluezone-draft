@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
-import { Accent } from "./primitives";
-
 import SiteNavigation from "./SiteNavigation";
 import "./HeroSection.css";
 
@@ -51,6 +49,7 @@ export default function HeroSection() {
 
     let painted = -1;
     let wanted = 0;
+    stickyRef.current.style.setProperty("--hero-scrim-opacity", "1");
 
     const paint = (index) => {
       const img = images[index];
@@ -156,6 +155,10 @@ export default function HeroSection() {
               Math.max(0, -wrapper.getBoundingClientRect().top / scrubbable),
             )
           : 0;
+      sticky.style.setProperty(
+        "--hero-scrim-opacity",
+        String(1 - progress),
+      );
 
       const index = Math.min(
         TOTAL_FRAMES - 1,
@@ -196,6 +199,7 @@ export default function HeroSection() {
           aria-hidden="true"
           className="absolute inset-0 w-full h-full"
         />
+        <div aria-hidden="true" className="hero-side-scrim" />
 
         {/* Content layer */}
         <div className="relative z-10 flex flex-col h-full">
@@ -205,8 +209,10 @@ export default function HeroSection() {
           {/* Hero content */}
           <div className="hero-content flex flex-col">
             <h1 className="hero-heading font-instrument-serif text-white">
-              <span className="block italic font-instrument-serif">
-                <Accent dark>Zero-Mile Produce.</Accent>
+              <span className="hero-title-pill block">
+                <span className="hero-title-accent">
+                  Zero-Mile Produce.
+                </span>
               </span>
               <span className="block">Fresh Greens Grown</span>
               <span className="block">Where They’re Needed Most</span>
@@ -240,10 +246,7 @@ export default function HeroSection() {
             </p>
           </div>
         </div>
-
       </div>
-
-
     </section>
   );
 }
