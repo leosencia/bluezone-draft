@@ -274,14 +274,14 @@
 .biocube-video-error button,
 .biocube-video-error a { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; text-decoration: underline; text-underline-offset: 4px; }
 
-.biocube-project-layout { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 64px; }
+.biocube-project-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 64px; }
 .biocube-project-copy > span { background: rgb(7 27 43 / 8%); }
 .biocube-project-steps { margin-top: 28px; }
 .biocube-project-steps li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; padding-block: 14px; border-top: 1px solid rgb(7 27 43 / 25%); }
 .biocube-project-steps li > span { padding-top: 2px; font-size: .72rem; }
 .biocube-project-steps h3 { font-weight: 500; font-size: .9rem; }
 .biocube-project-steps p { max-width: 55ch; margin-top: 6px; font-size: .83rem; line-height: 1.6; }
-.biocube-project-image img { width: 100%; aspect-ratio: 4 / 5; border-radius: 24px; object-fit: cover; object-position: 65% center; }
+.biocube-project-image img { width: 100%; aspect-ratio: 3 / 2; border-radius: 24px; object-fit: cover; object-position: center; }
 .biocube-project-image figcaption { margin-top: 10px; color: #071b2b; font-size: .72rem; line-height: 1.6; }
 
 #biocube-main a:focus-visible,
@@ -304,6 +304,7 @@
   .biocube-specifications,
   .biocube-footage-layout,
   .biocube-project-layout { gap: 32px; }
+  .biocube-project-layout { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
   .biocube-subsystems { gap: 16px; }
   .biocube-system-card { padding: 8px; }
   .biocube-system-card > div { padding-inline: 8px; }

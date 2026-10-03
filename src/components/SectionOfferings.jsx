@@ -96,7 +96,7 @@ export default function SectionOfferings() {
                 Catalogue design figures; final specifications depend on the
                 project. Production output is under validation.
               </p>
-              <a href="/biocube/" className="offering-link">
+              <a href="/biocube/" className="offering-link offering-link-filled">
                 Explore BioCube <ArrowUpRight size={18} aria-hidden="true" />
               </a>
             </div>

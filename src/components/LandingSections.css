@@ -657,6 +657,24 @@
   flex-shrink: 0;
 }
 
+.offering-link-filled {
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 24px;
+  padding: 11px 14px 11px 17px;
+  border-radius: 999px;
+  background: #18a6a6;
+  color: #071b2b;
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.offering-link-filled:hover {
+  background: #b6d88a;
+  color: #071b2b;
+  transform: translateY(-1px);
+}
+
 .pilot-summary {
   display: grid;
   align-items: center;
