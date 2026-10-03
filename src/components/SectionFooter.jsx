@@ -1,9 +1,8 @@
-import logo from "../assets/bluezone.png";
+import logo from "../assets/bluezone-light.png";
 import footerImage from "../assets/footer-image.png";
 import {
   BentoTile,
   Body,
-  Footnote,
   IconBadge,
   Reveal,
   Section,
@@ -13,20 +12,22 @@ const NAV = [
   {
     heading: "Explore",
     links: [
-      { label: "Why Zero-Mile", href: "#why-zero-mile" },
-      { label: "Technology", href: "#technology" },
+      { label: "Zero-Mile", href: "#premise" },
+      { label: "Aeroponics", href: "#technology" },
+      { label: "Food security", href: "#food-security" },
       {
         label: "Aeroponics vs hydroponics",
         href: "/aeroponics-vs-hydroponics/",
       },
       { label: "Microgreens", href: "#produce" },
-      { label: "BioCube", href: "#biocube" },
+      { label: "BioCube", href: "/biocube/" },
     ],
   },
   {
     heading: "Company",
     links: [
       { label: "Pilot programme", href: "#pilot" },
+      { label: "FAQs", href: "#faq" },
       { label: "Get in touch", href: "#get-in-touch" },
     ],
   },
@@ -98,7 +99,7 @@ export default function SectionFooter({
 
                 <a
                   href="mailto:johnny@bluezoneaeroponicfarming.com"
-                  className="group inline-flex items-center gap-4 mt-8 text-white text-sm font-medium hover:text-bz-lime transition-colors duration-200"
+                  className="group inline-flex max-w-full items-center gap-3 mt-8 text-white text-xs sm:text-sm font-medium break-all hover:text-bz-lime transition-colors duration-200"
                 >
                   johnny@bluezoneaeroponicfarming.com
                   <IconBadge dark />

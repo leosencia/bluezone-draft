@@ -21,8 +21,8 @@ const TOTAL_FRAMES = FRAMES.length;
 // covering — it can't be tuned smaller without breaking on the sticky
 // release point). Anything past that mandatory 100vh is a pure static pause
 // on the last frame before the bury starts — raise/lower it here.
-const SCRUB_VH = 400;
-const HOLD_VH = 145;
+const SCRUB_VH = 200;
+const HOLD_VH = 110;
 
 export default function HeroSection() {
   const wrapperRef = useRef(null);
@@ -122,14 +122,18 @@ export default function HeroSection() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       const w = Math.round(stickyRef.current.clientWidth * dpr);
       const h = Math.round(stickyRef.current.clientHeight * dpr);
+      // A remounted effect creates a new scene buffer even when the visible
+      // canvas already has the right dimensions.
+      if (scene.width !== w || scene.height !== h) {
+        scene.width = w;
+        scene.height = h;
+      }
       // Mobile fires resize every time the browser chrome slides; bail unless
       // the size really changed, since assigning width/height clears the canvas.
       if (canvas.width === w && canvas.height === h) return;
 
       canvas.width = w;
       canvas.height = h;
-      scene.width = w;
-      scene.height = h;
       painted = -1;
       show(wanted);
     };
@@ -155,10 +159,7 @@ export default function HeroSection() {
               Math.max(0, -wrapper.getBoundingClientRect().top / scrubbable),
             )
           : 0;
-      sticky.style.setProperty(
-        "--hero-scrim-opacity",
-        String(1 - progress),
-      );
+      sticky.style.setProperty("--hero-scrim-opacity", String(1 - progress));
 
       const index = Math.min(
         TOTAL_FRAMES - 1,
@@ -210,9 +211,7 @@ export default function HeroSection() {
           <div className="hero-content flex flex-col">
             <h1 className="hero-heading font-instrument-serif text-white">
               <span className="hero-title-pill block">
-                <span className="hero-title-accent">
-                  Zero-Mile Produce.
-                </span>
+                <span className="hero-title-accent">Zero-Mile Produce</span>
               </span>
               <span className="block">Fresh Greens Grown</span>
               <span className="block">Where They’re Needed Most</span>

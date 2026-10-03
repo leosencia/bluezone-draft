@@ -19,6 +19,16 @@ Supplementary method definitions reviewed in the source review: [OSU Hydroponics
 
 Values in the BioCube rows are displayed as label/value pairs beside the proposed-configuration qualification. Locations are under `src/components/` unless named otherwise.
 
+Dedicated BioCube page added 3 October 2026 at `/biocube/`. `src/content/biocube.js`
+and `src/pages/BioCubePage.jsx` reuse BC-001 through BC-013 and BC-SUB-1 through
+BC-SUB-5 with the same proposed-configuration and output-validation qualifications.
+The project steps shorten the existing generic pilot scope. No new yield,
+savings, certification or commercial-performance claims are introduced.
+Catalogue equipment and interface images are extracted from CAT pp. 5, 8, 9
+and 13 and labelled as illustrations. Actual site footage is supplied by the
+user via R2 (`/videos/chamber.mp4`, `/videos/mist.mp4`); it is not evidence of
+catalogue specifications or validated production output.
+
 | Claim ID | Configuration | Source/page | Evidence / decision | Selected public wording | Location |
 | --- | --- | --- | --- | --- | --- |
 | BC-001 | Proposed microgreens container | CAT p.4 | Source-stated design / Use with qualification | Up to 4,500 planting boxes | SectionBioCube.jsx |
@@ -54,6 +64,13 @@ Values in the BioCube rows are displayed as label/value pairs beside the propose
 | FAQ-2 | General method / proposed container | Review §6; CAT pp.1,3–5,11; PILOT pp.10–12; OSU | General method / Use as general explanation | Is aeroponics always better than hydroponics? There is no single result that applies to every crop and configuration. Compare the actual growing systems and operating conditions, including usable yield, quality, resources and the team's requirements. | comparison.js |
 | FAQ-3 | General method / proposed container | Review §6; CAT pp.1,3–5,11; PILOT pp.10–12; OSU | General method / Use as general explanation | Does indoor production run itself? Automated delivery and monitoring support operation, but the growing process still includes preparation, seeding, harvesting and handling. A pilot helps establish the operating effort and responsibilities. | comparison.js |
 | FAQ-4 | General method / proposed container | Review §6; CAT pp.1,3–5,11; PILOT pp.10–12; OSU | General method / Use as general explanation | Does the BioCube illustration represent every proposed project? The illustrated catalogue configuration is designed for microgreens. Crop selection, layout and equipment are agreed for each project. | comparison.js |
+| FAQ-5 | General method / proposed system | CAT pp.3,5–11,13; PILOT pp.6,9–12 | General method / Use with qualification | BlueZone combines aeroponic delivery, stacked racks, lighting, climate management and monitoring. Crop and configuration are agreed per project. | SectionFAQ.jsx |
+| FAQ-6 | Crop feasibility | CAT p.12; PILOT pp.10–12 | Editorial qualification / Requires validation | Strawberries and other crops are framed as crop-specific feasibility questions, not confirmed BioCube output. Variety, pollination, climate, labour and buyer requirements require validation. | SectionFAQ.jsx |
+| FAQ-7 | Site and operation | CAT pp.3–11; PILOT pp.10–12 | General method / Use with qualification | Site needs and automation depend on the selected system, crop and operation. Automation supports rather than replaces the growing team. | SectionFAQ.jsx |
+| FAQ-8 | UAE supply contribution | FOOD-SECURITY-SOURCES.md | Editorial synthesis / Use with qualification | Local controlled production can complement imports for selected crops; no replacement, savings or national-impact claim is made. | SectionFAQ.jsx |
+| FAQ-9 | Pilot evaluation | PILOT pp.10–12 | Source-stated evaluation scope / Use as general explanation | Evaluate buyer, crop, site, team, yield, quality, inputs, labour, reliability and workflow before expansion. | SectionFAQ.jsx |
+| FAQ-10 | General method | Review §6; OSU/UMN definitions | General method / Use as general explanation | BlueZone aeroponics uses mist-fed suspended roots; other hydroponic designs may use flowing solution, reservoirs or growing media. | comparison.js |
+| FAQ-11 | Commercial outcomes | Review §6; PILOT pp.10–12 | Editorial qualification / Requires validation | BlueZone does not guarantee yield, water savings or ROI. Project outcomes require measurement against agreed criteria. | comparison.js |
 | PILOT-1 | Generic pilot | PILOT pp.10–11 | Source-stated evaluation scope / Use as general explanation | Usable yield and crop quality | SectionPilot.jsx |
 | PILOT-2 | Generic pilot | PILOT pp.10–11 | Source-stated evaluation scope / Use as general explanation | Energy, water and nutrient use | SectionPilot.jsx |
 | PILOT-3 | Generic pilot | PILOT pp.10–11 | Source-stated evaluation scope / Use as general explanation | Labour and operating responsibility | SectionPilot.jsx |
@@ -79,6 +96,15 @@ Values in the BioCube rows are displayed as label/value pairs beside the propose
 | HOLD-ECONOMICS | Model/business context | FARM pp.8–14; PILOT pp.10–12 | Unconfirmed or internal commercial / Hold | None | Not published: Pricing, returns, financing and project economics remain internal |
 | HOLD-SOMERSET | Model/business context | No confirmation in four PDFs | Unconfirmed or internal commercial / Hold | None | Not published: Unsupported location removed |
 | HOLD-CONTACT | Model/business context | CAT p.15; existing site | Unconfirmed or internal commercial / Hold | None | Not published: Different named contact/domain; preserve site inbox pending confirmation |
+
+## Comparison update, 2026-10-03
+
+The user requested an expanded comparison page and authorised choosing
+reasonable figures after clarification of conflicting ratios. See
+[comparison benchmarks](COMPARISON-PAGE-BENCHMARKS.md) for the model-derived
+figures, assumptions and source qualifications now used on that page.
+Earlier numerical holds remain applicable to BioCube and other pages;
+these estimates must not be recast as verified operating performance.
 
 ## Public comparison paragraphs
 

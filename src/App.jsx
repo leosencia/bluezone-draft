@@ -3,18 +3,19 @@ import HeroSection from "./components/HeroSection";
 import SectionPremise from "./components/SectionPremise";
 import SectionProblem from "./components/SectionProblem";
 import SectionShift from "./components/SectionShift";
-import SectionWhyZeroMile from "./components/SectionWhyZeroMile";
-import SectionTechnology from "./components/SectionTechnology";
-import SectionMethod from "./components/SectionMethod";
-import SectionBioCube from "./components/SectionBioCube";
-import SectionProduce from "./components/SectionProduce";
-// import SectionProof from "./components/SectionProof"; // temporarily removed, see App.jsx render
-import SectionPilot from "./components/SectionPilot";
+import SectionAeroponics from "./components/SectionAeroponics";
+import SectionFoodSecurity from "./components/SectionFoodSecurity";
+import SectionOfferings from "./components/SectionOfferings";
 import SectionContact from "./components/SectionContact";
+import SectionFAQ from "./components/SectionFAQ";
 import SectionFooter from "./components/SectionFooter";
+import "./components/LandingSections.css";
 
 export default function App() {
-  const [enquiryType, setEnquiryType] = useState(() => new URLSearchParams(window.location.search).get("enquiry") === "systems" ? "systems" : "produce");
+  const [enquiryType, setEnquiryType] = useState(() => {
+    const type = new URLSearchParams(window.location.search).get("enquiry");
+    return ["systems", "pilot"].includes(type) ? type : "produce";
+  });
   // Keep native anchors and centralise enquiry routing, including footer links.
   const routeEnquiry = (event) => {
     if (
@@ -26,7 +27,7 @@ export default function App() {
     )
       return;
     const link = event.target.closest?.("a[href='#get-in-touch']");
-    if (link) setEnquiryType(link.dataset.enquiry === "systems" ? "systems" : "produce");
+    if (link) setEnquiryType(["systems", "pilot"].includes(link.dataset.enquiry) ? link.dataset.enquiry : "produce");
   };
   return (
     <div onClickCapture={routeEnquiry}>
@@ -48,23 +49,18 @@ export default function App() {
           on the last frame before the bury starts, raise HOLD_VH in
           HeroSection.jsx above 100 instead — the excess is a pure static
           hold; -100vh here doesn't change. */}
-      <main className="relative z-10 -mt-[100vh] bg-white">
+      <main className="landing-content relative z-10 -mt-[100vh] bg-white">
         <SectionPremise />
         <SectionProblem />
         <SectionShift />
-        <SectionWhyZeroMile />
-        <SectionProduce />
-        <SectionTechnology />
-        <SectionMethod />
-        <SectionBioCube />
-        {/* <SectionProof /> — temporarily removed, no nav path / mobile
-            discoverability for the A–D scale yet. EvidenceLabel pills swapped
-            for a plain "See source" link at each call site meanwhile. */}
-        <SectionPilot />
+        <SectionAeroponics />
+        <SectionFoodSecurity />
+        <SectionOfferings />
         <SectionContact
           enquiryType={enquiryType}
           onEnquiryTypeChange={setEnquiryType}
         />
+        <SectionFAQ />
         <SectionFooter />
       </main>
     </div>

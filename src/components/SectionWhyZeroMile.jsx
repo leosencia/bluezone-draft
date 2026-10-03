@@ -61,15 +61,15 @@ const PILLARS = [
 
 export default function SectionWhyZeroMile() {
   return (
-    <Section id="why-zero-mile" surface="mist">
+    <Section id="why-zero-mile" surface="navy">
       <div className="flex flex-col w-full">
         <Reveal>
-          <SectionKicker>Why Zero-Mile</SectionKicker>
-          <SectionHeading>
+          <SectionKicker onNavy>Why Zero-Mile</SectionKicker>
+          <SectionHeading dark>
             Production as close as commercially practical to{" "}
-            <Accent>the point of demand</Accent>
+            <Accent dark>the point of demand</Accent>
           </SectionHeading>
-          <Body className="mt-6">
+          <Body dark className="mt-6">
             Zero-Mile connects our produce and systems offers: grow closer to
             the kitchens and customers that need fresh greens, with the
             production model shaped around the site and its market.
@@ -81,7 +81,7 @@ export default function SectionWhyZeroMile() {
             <img
               src={planeImg}
               alt="Concept illustration of a BlueZone BioCube unit on an airport apron, sited next to the point of demand."
-              className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-2xl"
+              className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-3xl"
             />
             {/* <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration of production close to demand.</figcaption> */}
           </figure>
@@ -92,19 +92,19 @@ export default function SectionWhyZeroMile() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 auto-rows-fr gap-4 md:gap-5 mt-14">
         {PILLARS.map(({ icon: Icon, title, body, span }, i) => (
           <Reveal key={title} delay={i * 60} className={`h-full ${span}`}>
-            <BentoTile innerClassName="p-7 md:p-8">
-              <Icon size={20} className="text-bz-teal" aria-hidden="true" />
-              <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl mt-5">
+            <BentoTile dark fill="bg-white/10" innerClassName="p-7 md:p-8">
+              <Icon size={20} className="text-bz-lime" aria-hidden="true" />
+              <h3 className="font-instrument-serif text-white text-2xl md:text-3xl mt-5">
                 {title}
               </h3>
-              <Body className="mt-2 max-w-none">{body}</Body>
+              <Body dark className="mt-2 max-w-none">{body}</Body>
             </BentoTile>
           </Reveal>
         ))}
       </div>
 
       <Reveal>
-        <Footnote className="mt-8">
+        <Footnote dark className="mt-8">
           Zero-Mile is a strategic concept, not a literal claim that every
           product travels zero miles or produces zero logistics emissions.
         </Footnote>

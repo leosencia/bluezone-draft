@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         comparison: fileURLToPath(new URL('./aeroponics-vs-hydroponics/index.html', import.meta.url)),
+        biocube: fileURLToPath(new URL('./biocube/index.html', import.meta.url)),
       },
     },
   },

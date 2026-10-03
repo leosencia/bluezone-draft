@@ -1,0 +1,389 @@
+#biocube-main {
+  color: #071b2b;
+  letter-spacing: 0;
+}
+
+#biocube-main .biocube-container {
+  padding-block: 68px;
+}
+
+.biocube-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 700px;
+  background: #ffffff;
+  color: #071b2b;
+}
+
+.biocube-hero-media,
+.biocube-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.biocube-hero-media { z-index: -2; }
+
+.biocube-hero-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.biocube-hero-shade {
+  z-index: -1;
+  background: transparent;
+}
+
+.biocube-hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(100% - 128px, 1280px);
+  min-height: inherit;
+  margin-inline: auto;
+  padding-top: 150px;
+  padding-bottom: 28px;
+}
+
+.biocube-hero-content { max-width: 480px; }
+
+.biocube-hero h1 {
+  font: 400 6rem/1 "Instrument Serif", serif;
+}
+
+.biocube-hero-statement {
+  margin-top: 14px;
+  font: 400 2.8rem/1.12 "Instrument Serif", serif;
+}
+
+.biocube-hero-statement em { color: #087ea4; }
+
+.biocube-hero-description {
+  max-width: 39ch;
+  margin-top: 24px;
+  color: #405461;
+  font-size: .96rem;
+  line-height: 1.65;
+}
+
+.biocube-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  margin-top: 26px;
+}
+
+.biocube-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: .875rem;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.biocube-text-link svg { flex-shrink: 0; }
+
+.biocube-hero-caption {
+  align-self: flex-end;
+  margin-top: 38px;
+  font-size: .7rem;
+  color: #405461;
+}
+
+.biocube-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: end;
+  gap: 64px;
+}
+
+.biocube-intro > p { max-width: 54ch; }
+
+.biocube-overview {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  align-items: center;
+  gap: 48px;
+  margin-top: 38px;
+}
+
+.biocube-cutaway img { width: 100%; height: auto; }
+
+.biocube-cutaway figcaption,
+.biocube-note {
+  margin-top: 16px;
+  color: #566976;
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+.biocube-configuration > h3,
+.biocube-specifications-heading h3 {
+  font: 1.75rem/1.2 "Instrument Serif", serif;
+}
+
+.biocube-configuration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+  border-top: 1px solid rgb(7 27 43 / 15%);
+}
+
+.biocube-configuration-grid > div {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: end;
+  padding-block: 18px;
+  gap: 8px;
+  border-bottom: 1px solid rgb(7 27 43 / 15%);
+}
+
+.biocube-configuration-grid > div:nth-child(odd) { padding-right: 16px; }
+.biocube-configuration-grid dt { color: #405461; font-size: .75rem; }
+.biocube-configuration-grid dd { color: #087ea4; font: 2.65rem/1 "Instrument Serif", serif; }
+.biocube-value-unit { font-size: 1.4rem; }
+.biocube-configuration-grid .biocube-value-prefix { display: block; margin-bottom: 6px; color: #405461; font: .65rem/1.3 Inter, sans-serif; }
+
+.biocube-specifications {
+  display: grid;
+  grid-template-columns: .85fr 1.5fr;
+  align-items: start;
+  gap: 64px;
+  margin-top: 38px;
+  padding-top: 30px;
+  border-top: 1px solid rgb(7 27 43 / 15%);
+}
+
+.biocube-specifications-heading h3 { max-width: 20ch; }
+.biocube-specifications-heading p { max-width: 36ch; margin-top: 10px; font-size: .83rem; line-height: 1.6; color: #405461; }
+.biocube-spec-list details { border-bottom: 1px solid rgb(7 27 43 / 15%); }
+.biocube-spec-list details:first-child { border-top: 1px solid rgb(7 27 43 / 15%); }
+
+.biocube-spec-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 0;
+  min-height: 54px;
+  font-size: .875rem;
+  font-weight: 500;
+  list-style: none;
+  cursor: pointer;
+}
+
+.biocube-spec-list summary::-webkit-details-marker { display: none; }
+.biocube-spec-list summary svg { flex-shrink: 0; }
+.biocube-spec-list details[open] .biocube-detail-plus,
+.biocube-spec-list .biocube-detail-minus { display: none; }
+.biocube-spec-list details[open] .biocube-detail-minus { display: block; }
+
+.biocube-spec-list dl > div {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid rgb(7 27 43 / 8%);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.biocube-spec-list dt { color: #405461; }
+.biocube-spec-source { padding-block: 12px 18px; color: #566976; font-size: .7rem; }
+
+.biocube-subsystems {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.biocube-subsystems > div { min-width: 0; }
+
+.biocube-system-card {
+  height: 100%;
+  border-radius: 24px;
+  background: #f4f7f7;
+  color: #071b2b;
+}
+
+.biocube-system-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.biocube-system-card > div { padding: 18px 12px 14px; }
+.biocube-card-index { color: #087ea4; font-size: .7rem; font-weight: 500; }
+.biocube-system-card h3 { margin-top: 8px; font: 1.75rem/1.12 "Instrument Serif", serif; }
+.biocube-system-card p { margin-top: 12px; font-size: .875rem; line-height: 1.65; color: #405461; }
+.biocube-system-card p.biocube-card-detail { margin-top: 22px; padding-top: 12px; border-top: 1px solid rgb(7 27 43 / 12%); color: #0d3b5c; font-size: .74rem; }
+
+.biocube-monitoring {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: center;
+  gap: 44px;
+  margin-top: 36px;
+}
+
+.biocube-monitoring img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 20px; }
+.biocube-monitoring figcaption { margin-top: 9px; color: #b4c5ce; font-size: .7rem; }
+.biocube-monitoring .biocube-card-index { color: #b6d88a; }
+.biocube-monitoring h3 { margin: 12px 0 16px; color: #f4f7f7; font: 2.2rem/1.1 "Instrument Serif", serif; }
+.biocube-monitoring .biocube-text-link { margin-top: 14px; color: #f4f7f7; }
+.biocube-dark-note { color: #b4c5ce; margin-top: 24px; }
+
+.biocube-footage-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.biocube-footage-layout .biocube-note { max-width: 50ch; }
+.biocube-light-note { color: rgb(244 247 247 / 76%); }
+.biocube-clips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.biocube-clip { min-width: 0; max-width: 210px; }
+.biocube-clip-frame { position: relative; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 20px; background: #071b2b; }
+.biocube-clip-play { position: relative; display: block; width: 100%; height: 100%; }
+.biocube-clip-play img,
+.biocube-clip-frame video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.biocube-clip-play img { transition: filter 200ms ease; }
+.biocube-clip-play:hover img { filter: brightness(.8); }
+.biocube-play-icon { position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 52px; height: 52px; padding-left: 3px; transform: translate(-50%, -50%); border-radius: 50%; background: #b6d88a; color: #071b2b; }
+.biocube-clip-duration { position: absolute; bottom: 12px; right: 12px; padding: 3px 7px; border-radius: 6px; background: rgb(7 27 43 / 85%); color: #f4f7f7; font-size: .7rem; }
+.biocube-clip figcaption { padding-top: 13px; }
+.biocube-clip figcaption > span { color: rgb(244 247 247 / 72%); font-size: .6rem; }
+.biocube-clip h3 { margin-top: 7px; color: #f4f7f7; font: 1.4rem/1.15 "Instrument Serif", serif; }
+.biocube-clip figcaption p { margin-top: 7px; color: rgb(244 247 247 / 76%); font-size: .75rem; line-height: 1.6; }
+.biocube-video-loading { position: absolute; top: 10px; left: 10px; right: 10px; padding: 6px; background: rgb(7 27 43 / 85%); color: #f4f7f7; text-align: center; font-size: .72rem; pointer-events: none; }
+.biocube-video-error { display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding: 16px; color: #f4f7f7; text-align: center; font-size: .8rem; }
+.biocube-video-error button,
+.biocube-video-error a { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; text-decoration: underline; text-underline-offset: 4px; }
+
+.biocube-project-layout { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 64px; }
+.biocube-project-copy > span { background: rgb(7 27 43 / 8%); }
+.biocube-project-steps { margin-top: 28px; }
+.biocube-project-steps li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; padding-block: 14px; border-top: 1px solid rgb(7 27 43 / 25%); }
+.biocube-project-steps li > span { padding-top: 2px; font-size: .72rem; }
+.biocube-project-steps h3 { font-weight: 500; font-size: .9rem; }
+.biocube-project-steps p { max-width: 55ch; margin-top: 6px; font-size: .83rem; line-height: 1.6; }
+.biocube-project-image img { width: 100%; aspect-ratio: 4 / 5; border-radius: 24px; object-fit: cover; object-position: 65% center; }
+.biocube-project-image figcaption { margin-top: 10px; color: #071b2b; font-size: .72rem; line-height: 1.6; }
+
+#biocube-main a:focus-visible,
+#biocube-main button:focus-visible,
+#biocube-main summary:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.biocube-clip-play:focus-visible { outline-offset: -5px !important; outline-color: #b6d88a !important; }
+.biocube-skip-link { position: absolute; top: 12px; left: 12px; z-index: 60; padding: 12px 18px; transform: translateY(-160%); background: #f4f7f7; color: #071b2b; border-radius: 8px; }
+.biocube-skip-link:focus { transform: translateY(0); }
+
+@media (min-width: 1600px) {
+  .biocube-hero { min-height: 760px; }
+  .biocube-hero-image { object-position: center 72%; }
+}
+
+@media (max-width: 1023px) {
+  .biocube-hero-inner { width: calc(100% - 96px); }
+  .biocube-hero-content { max-width: 390px; }
+  .biocube-intro,
+  .biocube-overview,
+  .biocube-specifications,
+  .biocube-footage-layout,
+  .biocube-project-layout { gap: 32px; }
+  .biocube-subsystems { gap: 16px; }
+  .biocube-system-card { padding: 8px; }
+  .biocube-system-card > div { padding-inline: 8px; }
+  .biocube-system-card h3 { font-size: 1.5rem; }
+  .biocube-monitoring { gap: 32px; }
+  .biocube-footage-layout { grid-template-columns: 1fr 1fr; }
+  .biocube-clips { gap: 16px; }
+}
+
+@media (max-width: 767px) {
+  #biocube-main .biocube-container { padding-block: 52px; }
+  .biocube-hero { min-height: 790px; }
+  .biocube-hero-inner { width: calc(100% - 48px); justify-content: flex-start; padding-top: 125px; padding-bottom: 22px; }
+  .biocube-hero-image {
+    inset: auto auto 0 50%;
+    width: 140%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: center;
+    transform: translateX(-50%);
+  }
+  .biocube-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: calc(100% - 70vw) 0 auto;
+    height: 25vw;
+    background: linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0.2) 34%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    pointer-events: none;
+  }
+  .biocube-hero-shade { background: transparent; }
+  .biocube-hero-content { max-width: 450px; }
+  .biocube-hero h1 { font-size: 4.5rem; }
+  .biocube-hero-statement { font-size: 2.2rem; margin-top: 12px; }
+  .biocube-hero-description { margin-top: 16px; font-size: .875rem; max-width: 42ch; }
+  .biocube-hero-caption { margin-top: auto; }
+  .biocube-hero .biocube-actions { gap: 8px 18px; margin-top: 18px; }
+  .biocube-intro,
+  .biocube-overview,
+  .biocube-specifications,
+  .biocube-monitoring,
+  .biocube-footage-layout,
+  .biocube-project-layout { grid-template-columns: 1fr; gap: 24px; }
+  .biocube-overview { margin-top: 28px; }
+  .biocube-configuration-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .biocube-configuration-grid > div { justify-content: end; padding-right: 12px; }
+  .biocube-configuration-grid > div:nth-child(odd) { padding-right: 12px; }
+  .biocube-configuration-grid dd { font-size: 2.1rem; }
+  .biocube-configuration-grid dt { font-size: .7rem; }
+  .biocube-specifications { margin-top: 30px; padding-top: 24px; }
+  .biocube-specifications-heading h3 { max-width: none; }
+  .biocube-subsystems { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+  .biocube-system-card { display: grid; grid-template-columns: 36% minmax(0, 1fr); align-items: start; gap: 12px; padding: 10px; }
+  .biocube-system-card > img { height: 155px; aspect-ratio: auto; }
+  .biocube-system-card > div { padding: 6px 4px 8px; }
+  .biocube-system-card p { font-size: .8rem; margin-top: 8px; }
+  .biocube-system-card p.biocube-card-detail { margin-top: 12px; padding-top: 9px; }
+  .biocube-monitoring { margin-top: 28px; }
+  .biocube-monitoring figure { max-width: 500px; }
+  .biocube-footage-layout { gap: 30px; }
+  .biocube-clips { gap: 20px; max-width: 440px; }
+  .biocube-project-image img { aspect-ratio: 16 / 10; object-position: center; }
+}
+
+@media (max-width: 420px) {
+  .biocube-configuration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .biocube-configuration-grid dd { font-size: 2.5rem; }
+  .biocube-system-card { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
+  .biocube-system-card > img { height: 140px; }
+  .biocube-system-card h3 { font-size: 1.4rem; }
+  .biocube-clips { gap: 16px; }
+  .biocube-clip h3 { font-size: 1.25rem; }
+  .biocube-hero-description { max-width: 36ch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #biocube-main *, .biocube-skip-link { scroll-behavior: auto !important; transition: none !important; }
+}

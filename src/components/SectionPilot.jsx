@@ -304,7 +304,9 @@ export default function SectionPilot() {
       {!reducedMotion && (
         <div className="pilot-mobile-intro">
           <SectionKicker>Commercial Demonstration</SectionKicker>
-          <SectionHeading>Prove the operating case <Accent>before expanding</Accent></SectionHeading>
+          <SectionHeading>
+            Prove the operating case <Accent>before expanding</Accent>
+          </SectionHeading>
           <Body className="mt-6">
             A BlueZone pilot is a commercial demonstration built around an
             agreed buyer, crop plan and operating team. Its purpose is to

@@ -21,7 +21,7 @@ export function usePrefersReducedMotion() {
 }
 
 // Reveals its children once, when they scroll into view.
-export function Reveal({ children, delay = 0, className = "" }) {
+export function Reveal({ children, delay = 0, id, className = "" }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
   const reduced = usePrefersReducedMotion();
@@ -51,17 +51,22 @@ export function Reveal({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
+      id={id}
+      data-revealed={shown || reduced ? "true" : "false"}
       style={
         reduced
           ? undefined
-          : { transitionTimingFunction: EASE, transitionDelay: `${delay}ms` }
+          : {
+              transitionProperty: "opacity, transform",
+              transitionDuration: "700ms",
+              transitionTimingFunction: EASE,
+              transitionDelay: `${delay}ms`,
+            }
       }
       className={`${
         reduced
           ? ""
-          : `transition-all duration-700 ${
-              shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`
+          : `${shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`
       } ${className}`}
     >
       {children}
@@ -74,6 +79,7 @@ const SURFACES = {
   mist: "bg-bz-mist",
   navy: "bg-bz-navy",
   ocean: "bg-bz-ocean",
+  teal: "bg-bz-teal",
 };
 
 // Colour each surface fades to, for the soft bottom edge.
@@ -82,6 +88,7 @@ const FADE_TO = {
   mist: ["rgba(244,247,247,0)", "rgba(244,247,247,0.7)", "#F4F7F7"],
   navy: ["rgba(7,27,43,0)", "rgba(7,27,43,0.7)", "#071B2B"],
   ocean: ["rgba(13,59,92,0)", "rgba(13,59,92,0.7)", "#0D3B5C"],
+  teal: ["rgba(24,166,166,0)", "rgba(24,166,166,0.7)", "#18A6A6"],
 };
 
 export function Section({
@@ -139,7 +146,7 @@ export function BentoTile({
   const textured = noise ?? (dark || fill === "bg-bz-navy");
   return (
     <div
-      className={`rounded-2xl h-full ${surface} ${
+      className={`rounded-3xl h-full ${surface} ${
         dark ? "liquid-glass" : "liquid-glass-light"
       } ${textured ? "noise-overlay" : ""} ${span} ${className}`}
     >
@@ -217,7 +224,12 @@ export function SectionKicker({ children, onNavy = false, className = "" }) {
   );
 }
 
-export function SectionHeading({ children, dark = false, className = "", as: Tag = "h2" }) {
+export function SectionHeading({
+  children,
+  dark = false,
+  className = "",
+  as: Tag = "h2",
+}) {
   return (
     <Tag
       className={`font-instrument-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] max-w-4xl ${
@@ -275,10 +287,12 @@ export function PrimaryButton({ href, children, className = "", ...props }) {
       className={`group inline-flex items-center gap-3 bg-bz-navy text-white rounded-full pl-6 pr-2 py-2 text-sm font-medium hover:bg-bz-ocean transition-colors duration-200 ${className}`}
     >
       {children}
-      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-bz-blue text-white">
+      <span
+        className={`flex items-center justify-center w-7 h-7 rounded-full bg-bz-blue text-white ${props.light ? "group-hover:!bg-bz-mist" : ""}`}
+      >
         <ArrowRight
           size={14}
-          className="transition-transform duration-200 group-hover:translate-x-0.5"
+          className={`transition-transform duration-200 group-hover:translate-x-0.5 ${props.light ? "group-hover:text-bz-teal" : ""}`}
         />
       </span>
     </a>
@@ -456,11 +470,22 @@ export function SourceNote({ source, href, dark = false, className = "" }) {
  * Plain colour is kept for anything under ~2rem, where a gradient fill
  * thins the serif strokes too far to stay legible.
  */
-export function Stat({ children, dark = false, className = "" }) {
+export function Stat({
+  children,
+  dark = false,
+  solid = false,
+  className = "",
+}) {
   return (
     <span
       className={`font-instrument-serif leading-none ${
-        dark ? "stat-gradient-dark" : "stat-gradient"
+        solid
+          ? dark
+            ? "text-bz-lime"
+            : "text-bz-blue"
+          : dark
+            ? "stat-gradient-dark"
+            : "stat-gradient"
       } ${className}`}
     >
       {children}

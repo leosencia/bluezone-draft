@@ -100,20 +100,20 @@ export default function SectionBioCube() {
     <section
       id="biocube"
       aria-labelledby="biocube-heading"
-      className="scroll-mt-4 bg-white px-6 md:px-12 lg:px-16 text-bz-navy"
+      className="scroll-mt-4 bg-bz-navy noise-overlay px-6 md:px-12 lg:px-16 text-white"
     >
       <div className="max-w-7xl mx-auto py-16 lg:py-20">
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           <div className="lg:col-span-4">
-            <SectionKicker>BioCube</SectionKicker>
+            <SectionKicker onNavy>BioCube</SectionKicker>
             <div id="biocube-heading">
-              <SectionHeading>
-                Meet <Accent>BioCube</Accent>
+              <SectionHeading dark>
+                Meet <Accent dark>BioCube</Accent>
               </SectionHeading>
             </div>
           </div>
           <div className="lg:col-span-8">
-            <Body className="!max-w-2xl">
+            <Body dark className="!max-w-2xl !text-white/75">
               A proposed containerised growing system for microgreens, bringing
               together aeroponic nutrient delivery, stacked racks, LED lighting,
               climate control and digital monitoring. Crop selection, equipment
@@ -131,7 +131,7 @@ export default function SectionBioCube() {
 
         <div className="grid lg:grid-cols-12 gap-8 mt-10 lg:mt-12 items-center">
           <figure className="lg:col-span-8 lg:col-start-5 lg:row-start-1 min-w-0">
-            <div className="rounded-2xl px-3 py-8 sm:px-5 sm:py-10 lg:py-5">
+            <div className="rounded-3xl px-3 py-8 sm:px-5 sm:py-10 lg:py-5">
               <img
                 src={cutaway}
                 width={1416}
@@ -158,26 +158,26 @@ export default function SectionBioCube() {
               aria-hidden="true"
               className="absolute top-0 left-0 scroll-mt-6"
             />
-            <h3 className="font-instrument-serif text-2xl sm:text-3xl">
+            <h3 className="font-instrument-serif text-2xl sm:text-3xl text-white">
               Proposed configuration
             </h3>
-            <p className="mt-3 text-sm leading-relaxed text-bz-navy/70 max-w-md">
+            <p className="mt-3 text-sm leading-relaxed text-white/70 max-w-md">
               Proposed microgreens configuration. Final specifications are
               confirmed for each project. Production output is currently
               undergoing quality validation.
             </p>
-            <dl className="grid grid-cols-2 mt-5 border-t border-bz-navy/15">
+            <dl className="grid grid-cols-2 mt-5 border-t border-white/15">
               {CONFIGURATION.map(({ value, prefix, label }, index) => (
                 <div
                   key={label}
-                  className={`flex flex-col py-4 border-b border-bz-navy/15 ${index % 2 === 0 ? "pr-4 border-r" : "pl-5"}`}
+                  className={`flex flex-col py-4 border-b border-white/15 ${index % 2 === 0 ? "pr-4 border-r border-white/15" : "pl-5"}`}
                 >
-                  <dt className="order-2 mt-2 text-sm text-bz-navy/70">
+                  <dt className="order-2 mt-2 text-sm text-white/70">
                     {label}
                   </dt>
-                  <dd className="order-1 flex flex-wrap items-baseline gap-x-1.5 text-bz-navy">
+                  <dd className="order-1 flex flex-wrap items-baseline gap-x-1.5 text-white">
                     {prefix && (
-                      <span className="text-xs text-bz-navy/70">{prefix}</span>
+                      <span className="text-xs text-white/70">{prefix}</span>
                     )}
                     <span className="font-instrument-serif text-3xl sm:text-4xl leading-none whitespace-nowrap">
                       {value}
@@ -190,9 +190,12 @@ export default function SectionBioCube() {
           </div>
         </div>
 
-        <div className="grid bg-bz-ocean text-white p-8 rounded-2xl lg:grid-cols-[0.65fr_1.35fr] gap-8 lg:gap-16 mt-14 border-t border-bz-navy/15 pt-10">
+        <div className="grid bg-bz-teal text-white p-8 rounded-3xl lg:grid-cols-[0.65fr_1.35fr] gap-8 lg:gap-16 mt-14">
           <SectionHeading className="!text-3xl text-white">
-            Working together, <Accent dark>inside BioCube.</Accent>
+            Working together,{" "}
+            <span className="italic font-instrument-serif text-bz-navy">
+              inside BioCube.
+            </span>
           </SectionHeading>
           <dl className="divide-y divide-bz-mist/20 !text-white">
             {SUBSYSTEMS.map(({ name, icon: Icon, body }) => (
@@ -208,19 +211,19 @@ export default function SectionBioCube() {
                 </span>
                 <dt className="self-center font-medium text-sm">{name}</dt>
                 <dd>
-                  <Body className="!text-sm !text-white">{body}</Body>
+                  <Body dark className="!text-sm !text-white/85">{body}</Body>
                 </dd>
               </div>
             ))}
           </dl>
         </div>
 
-        <details className="group mt-6 border-y border-bz-navy/15">
-          <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-medium hover:text-bz-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue [&::-webkit-details-marker]:hidden">
+        <details className="group mt-6 border-y border-white/15">
+          <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 py-4 text-sm font-medium text-white hover:text-bz-lime focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-lime [&::-webkit-details-marker]:hidden">
             View technical details
             <span
               aria-hidden="true"
-              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-bz-mist text-bz-blue"
+              className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-bz-lime"
             >
               <Plus size={18} className="group-open:hidden" />
               <Minus size={18} className="hidden group-open:block" />
@@ -234,15 +237,15 @@ export default function SectionBioCube() {
             <div className="grid lg:grid-cols-2 gap-x-12 gap-y-7 mt-7">
               {TECHNICAL_DETAILS.map(({ title, slide, rows }) => (
                 <div key={title}>
-                  <h4 className="text-sm font-medium">{title}</h4>
+                  <h4 className="text-sm font-medium text-white">{title}</h4>
                   {/* <p className="mt-1 text-xs text-bz-navy/70">Source: supplied BioCube catalogue, slide {slide}.</p> */}
-                  <dl className="mt-3 border-t border-bz-navy/15">
+                  <dl className="mt-3 border-t border-white/15">
                     {rows.map(([label, value]) => (
                       <div
                         key={label}
-                        className="grid lg:grid-cols-2 gap-1 lg:gap-4 py-3 border-b border-bz-navy/10 text-sm leading-relaxed"
+                        className="grid lg:grid-cols-2 gap-1 lg:gap-4 py-3 border-b border-white/10 text-sm leading-relaxed text-white"
                       >
-                        <dt className="text-bz-navy/70">{label}</dt>
+                        <dt className="text-white/65">{label}</dt>
                         <dd>{value}</dd>
                       </div>
                     ))}
