@@ -1,16 +1,16 @@
 /**
- * BlueZone — Aeroponics Farming
+ * Bluezone — Aeroponics Farming
  * Single-page hero section.
  *
  * Structure, class names, spacing and sizing follow the motion-sites spec.
- * Colour, type, copy and motion follow BlueZone Brand Identity System V1.0.
+ * Colour, type, copy and motion follow Bluezone Brand Identity System V1.0.
  */
 
 // ---------------------------------------------------------------------------
 // Config — swap these when the real assets land.
 // ---------------------------------------------------------------------------
 
-/** Placeholder footage from the motion spec. Replace with BlueZone facility
+/** Placeholder footage from the motion spec. Replace with Bluezone facility
  *  footage (kit 06: roots + fine mist + controlled lighting, or a real BioCube
  *  / vertical aeroponic facility). One line, nothing else to change. */
 const VIDEO_SRC =
@@ -32,7 +32,7 @@ const NAV_LINKS = ['Story', 'BioCube', 'Evidence', 'Contact'];
  * Geometric placeholder mark from the motion spec, recoloured to Midnight Navy.
  *
  * NOTE — kit section 11 / Brand Governance: "Never recreate the logo from a
- * screenshot or type it manually." Replace this path with the master BlueZone
+ * screenshot or type it manually." Replace this path with the master Bluezone
  * B/Z symbol vector before anything ships.
  */
 function Logo() {
@@ -77,7 +77,7 @@ export default function App() {
         <nav className="flex items-center justify-center pt-4 sm:pt-6 px-4 sm:px-8 gap-2 sm:gap-3">
           <a
             href="#"
-            aria-label="BlueZone home"
+            aria-label="Bluezone home"
             className="flex items-center justify-center rounded-full w-10 h-10 sm:w-11 sm:h-11 shrink-0 transition-opacity duration-200 hover:opacity-80"
             style={{ backgroundColor: '#EDEDED' }}
           >

@@ -136,7 +136,7 @@ export default function SiteNavigation({
           >
             <img
               src={light ? logoDark : logo}
-              alt="BlueZone Aeroponics"
+              alt="Bluezone Aeroponics"
               width={200}
               className="hero-logo"
             />
@@ -172,7 +172,7 @@ export default function SiteNavigation({
             onClick={() => setIsMenuOpen(true)}
             aria-label="Open menu"
             aria-expanded={isMenuOpen}
-              className={`hero-menu-toggle xl:hidden relative w-6 h-5 flex-shrink-0 ${light ? "text-bz-navy" : "text-white"}`}
+            className={`hero-menu-toggle xl:hidden relative w-6 h-5 flex-shrink-0 ${light ? "text-bz-navy" : "text-white"}`}
           >
             <span
               style={{ transitionTimingFunction: EASE }}
@@ -220,7 +220,7 @@ export default function SiteNavigation({
               <span className="text-white font-semibold text-lg tracking-tight font-sans">
                 <img
                   src={logo}
-                  alt="BlueZone Aeroponics"
+                  alt="Bluezone Aeroponics"
                   width={200}
                   className="hero-logo"
                 />
@@ -308,7 +308,7 @@ export default function SiteNavigation({
           <div className="hidden items-center gap-2 xl:flex">
             <a
               href="/"
-              aria-label="BlueZone home"
+              aria-label="Bluezone home"
               tabIndex={isPastHero && isFloatingNavVisible ? undefined : -1}
               className="flex size-12 items-center justify-center rounded-full border border-bz-navy/5 bg-bz-mist/95 backdrop-blur-md transition-colors duration-200 hover:bg-white"
             >

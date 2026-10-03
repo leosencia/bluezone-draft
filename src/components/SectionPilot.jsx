@@ -160,26 +160,36 @@ function ScrollStepLedger({ reducedMotion }) {
         setContextMode("compact");
       } else if (
         contextModeRef.current === "compact" &&
-        !narrow && progress <= CONTEXT_MAIN_AT
+        !narrow &&
+        progress <= CONTEXT_MAIN_AT
       ) {
         setContextMode("full");
       }
       const stepProgress = clamp(
-        narrow ? progress : (progress - CONTEXT_COMPACT_AT) / (1 - CONTEXT_COMPACT_AT),
+        narrow
+          ? progress
+          : (progress - CONTEXT_COMPACT_AT) / (1 - CONTEXT_COMPACT_AT),
         0,
         1,
       );
       const stagePosition = stepProgress * (STEPS.length - 1);
       const stepViewportHeight = stepViewport.clientHeight;
       const preferredCompactHeight = window.innerWidth < 768 ? 54 : 76;
-      const expansionRoom = Math.max(180, ...rows.map((row) =>
-        row.querySelector(".pilot-sequence-copy p").scrollHeight + 88,
-      ));
+      const expansionRoom = Math.max(
+        180,
+        ...rows.map(
+          (row) =>
+            row.querySelector(".pilot-sequence-copy p").scrollHeight + 88,
+        ),
+      );
       const compactHeight = Math.min(
         preferredCompactHeight,
         Math.max(36, (stepViewportHeight - expansionRoom) / (STEPS.length - 1)),
       );
-      const expandedHeight = Math.max(0, stepViewportHeight - compactHeight * (STEPS.length - 1));
+      const expandedHeight = Math.max(
+        0,
+        stepViewportHeight - compactHeight * (STEPS.length - 1),
+      );
 
       let y = 0;
       rows.forEach((row, index) => {
@@ -211,7 +221,6 @@ function ScrollStepLedger({ reducedMotion }) {
         activeRef.current = active;
         ledger.dataset.activeStep = String(active);
       }
-
     };
 
     const requestUpdate = () => {
@@ -250,7 +259,7 @@ function ScrollStepLedger({ reducedMotion }) {
               Prove the operating case <Accent>before expanding</Accent>
             </SectionHeading>
             <Body className="mt-6">
-              A BlueZone pilot is a commercial demonstration built around an
+              A Bluezone pilot is a commercial demonstration built around an
               agreed buyer, crop plan and operating team. Its purpose is to
               establish what the site can produce, what it takes to run and how
               that compares with the produce it is intended to replace.
@@ -308,16 +317,25 @@ export default function SectionPilot() {
             Prove the operating case <Accent>before expanding</Accent>
           </SectionHeading>
           <Body className="mt-6">
-            A BlueZone pilot is a commercial demonstration built around an
+            A Bluezone pilot is a commercial demonstration built around an
             agreed buyer, crop plan and operating team. Its purpose is to
             establish what the site can produce, what it takes to run and how
             that compares with the produce it is intended to replace.
           </Body>
-          <div className="pilot-context-measures my-6" aria-label="Success measures">
+          <div
+            className="pilot-context-measures my-6"
+            aria-label="Success measures"
+          >
             <p>Success measures</p>
-            <div>{MEASURES.map((measure) => <span key={measure}>{measure}</span>)}</div>
+            <div>
+              {MEASURES.map((measure) => (
+                <span key={measure}>{measure}</span>
+              ))}
+            </div>
           </div>
-          <PrimaryButton href="#get-in-touch" data-enquiry="systems">Discuss a systems pilot</PrimaryButton>
+          <PrimaryButton href="#get-in-touch" data-enquiry="systems">
+            Discuss a systems pilot
+          </PrimaryButton>
         </div>
       )}
       <ScrollStepLedger reducedMotion={reducedMotion} />

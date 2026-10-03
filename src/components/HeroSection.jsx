@@ -218,7 +218,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="hero-description text-white/90 font-light [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
-              Explore BlueZone Microgreens and modular aeroponic growing
+              Explore Bluezone Microgreens and modular aeroponic growing
               systems, bringing fresh produce closer to demand.
             </p>
 

@@ -1,7 +1,7 @@
 # Homepage food-security sources
 
 Checked 3 October 2026. The homepage now follows Hero, Premise, Problem,
-Shift, Aeroponics, Food Security, BlueZone offerings, Contact, then the footer.
+Shift, Aeroponics, Food Security, Bluezone offerings, Contact, then the footer.
 The existing Premise is retained. Detailed method comparisons remain at
 /aeroponics-vs-hydroponics/.
 
@@ -9,7 +9,7 @@ The existing Premise is retained. Detailed method comparisons remain at
 
 The Food Security section now leads with UAE-specific constraints and the
 National Food Security Strategy 2051. The published figures are context,
-not BlueZone operating results or present-day nationwide production shares.
+not Bluezone operating results or present-day nationwide production shares.
 
 | Display | Meaning and scope | Source |
 | --- | --- | --- |
@@ -20,15 +20,15 @@ not BlueZone operating results or present-day nationwide production shares.
 
 The Dubai skyline photo is by [Ahmed Galal on Unsplash](https://unsplash.com/photos/green-trees-on-brown-sand-during-daytime-o27Syy2u6wU)
 and is stored locally at `src/assets/food-security/dubai-desert-skyline.jpg`.
-It shows the UAE setting, not a BlueZone site. The three BlueZone contribution
+It shows the UAE setting, not a Bluezone site. The three Bluezone contribution
 images reuse existing concept illustrations; the section labels them as such.
-BlueZone's potential contribution is limited to suitable crops, planned
+Bluezone's potential contribution is limited to suitable crops, planned
 water management and scheduled local crop cycles. It does not claim a measured
 national food-security impact or replacement of imports and field agriculture.
 
 ## Earlier global context, no longer shown in this section
 
-These figures describe global challenges, not BlueZone outcomes.
+These figures describe global challenges, not Bluezone outcomes.
 
 | Display | Meaning and scope | Source |
 | --- | --- | --- |
@@ -49,10 +49,10 @@ nor an all-farm water metric; climate-control and management water are excluded.
 - [University repository](https://cris.unibo.it/bitstream/11585/933655/1/Carotti%20et%20al%202023.pdf)
 
 The figure is explicitly labelled as a published study result, not measured
-BlueZone performance, immediately beside the statistic. No generic ROI,
+Bluezone performance, immediately beside the statistic. No generic ROI,
 growth-rate, pesticide-free or certified-sustainability claims are added.
 
-## BlueZone's potential contribution
+## Bluezone's potential contribution
 
 Local crop production, recovery of unused nutrient solution, and shorter
 routes are framed as potential contributions rather than quantified impacts.

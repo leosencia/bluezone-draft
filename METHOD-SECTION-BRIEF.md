@@ -1,6 +1,6 @@
 # Implementation brief: Aeroponics vs Hydroponics section + comparison figures
 
-You are working in the BlueZone Aeroponics marketing site (Vite + React + Tailwind, JSX).
+You are working in the Bluezone Aeroponics marketing site (Vite + React + Tailwind, JSX).
 Implement the five tasks below. Do not start writing components until you have read the
 files in "Read first".
 
@@ -20,7 +20,7 @@ files in "Read first".
 
 ## Scope note on DESIGN.md
 
-`DESIGN.md` describes the **hero** design system (`name: BlueZone Hero`). Two of its rules are
+`DESIGN.md` describes the **hero** design system (`name: Bluezone Hero`). Two of its rules are
 hero-scoped and must NOT be applied to body sections:
 
 - **"`rounded-full` is the only corner treatment"** — true of hero chrome only. Body sections
@@ -152,14 +152,14 @@ entry in a `bg-bz-ocean rounded-xl` block. Do not use a horizontal scroller.
 
 Below the grid, a **2×2 tile grid** of `BentoTile`s. This is where the client's requested
 efficiency numbers live, and every one is attributed to aeroponics **as a method**, never to
-BlueZone.
+Bluezone.
 
 Tiles 1–3, each: figure in `Stat`, claim line, caveat line in smaller muted text, an
 `EvidenceLabel level="C"` chip (Task 3), and the source in a `Footnote`.
 
 | Figure | Claim | Caveat |
 |---|---|---|
-| `Up to 98%` | less water than conventional field cultivation | Across published aeroponic studies. A reported range, not a BlueZone measurement. |
+| `Up to 98%` | less water than conventional field cultivation | Across published aeroponic studies. A reported range, not a Bluezone measurement. |
 | `45–75%` | higher yield than conventional soil cultivation | Range across crops and studies. Varies substantially by crop. |
 | `~60%` | less fertiliser input | Reported reduction for aeroponic systems against soil baselines. |
 
@@ -182,7 +182,7 @@ Same source, same `C` label.
 A `Footnote` under the strip, verbatim:
 
 > Figures above describe aeroponics as a growing method, drawn from published research. They
-> are not BlueZone system performance, which is pending pilot measurement. Direct like-for-like
+> are not Bluezone system performance, which is pending pilot measurement. Direct like-for-like
 > comparison between aeroponic and hydroponic systems also remains limited in the literature:
 > published studies use different crops, units and growing conditions, so the two are not yet
 > cleanly comparable on a single number.
@@ -203,7 +203,7 @@ export function EvidenceLabel({ level, dark = false })
 
 Renders a small chip: the letter, then the short name. `SectionProof.jsx` already defines the
 scale — read `KEY` there and use those exact names as the single source of truth rather than
-retyping them. Levels: A "BlueZone verified", B "Current modelling", C "External science",
+retyping them. Levels: A "Bluezone verified", B "Current modelling", C "External science",
 D "Global or industry data".
 
 Visual: uppercase, tracked, ~10–11px, `bz-teal` text on a `bz-teal/10` fill at `rounded-full`,
@@ -238,11 +238,11 @@ correct behaviour.
 ## Task 5 — Update the `SectionTechnology` footnote
 
 It currently reads, in part: *"Published aeroponic efficiency claims come from suppliers rather
-than independent measurement, so they are not presented here as BlueZone performance."*
+than independent measurement, so they are not presented here as Bluezone performance."*
 
 Once Task 2 ships, "not presented here" is no longer accurate. Rewrite it to draw the
 distinction that now exists: **supplier claims remain excluded; peer-reviewed method-level
-research is presented, labeled, and attributed to the method rather than to BlueZone.** Keep it
+research is presented, labeled, and attributed to the method rather than to Bluezone.** Keep it
 to two sentences and keep the "pending pilot measurement" clause. Add a link to `#method`.
 
 ---
@@ -259,7 +259,7 @@ Useful from it:
   tile 4 (Energy) does.
 - A dense multi-column comparison block reading as one panel, not as separate columns.
 
-**Explicitly do not take:** the color scheme (it is green; BlueZone is navy/ocean/teal), the
+**Explicitly do not take:** the color scheme (it is green; Bluezone is navy/ocean/teal), the
 gradient or two-tone headline treatment, the logo cloud, the "10k+ users" avatar social proof,
 drop shadows on cards, or the hero stat overlay. `PRODUCT.md` names generic SaaS marketing as
 the anti-reference and `DESIGN.md` names gradient-text headlines and hero-metric stat cards

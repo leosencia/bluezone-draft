@@ -11,7 +11,7 @@ import {
 const OFFER = [
   {
     number: "01",
-    title: "BlueZone Microgreens",
+    title: "Bluezone Microgreens",
     body: "A produce offer for wholesalers, foodservice distributors, restaurants and hospitality buyers seeking a controlled indoor supply conversation.",
   },
   {
@@ -31,15 +31,16 @@ export default function SectionAbout() {
     <Section id="about" surface="mist" fade>
       <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-20 items-start">
         <Reveal>
-          <SectionKicker>About BlueZone</SectionKicker>
+          <SectionKicker>About Bluezone</SectionKicker>
           <SectionHeading>
-            One company, two ways to bring produce <Accent>closer to demand</Accent>
+            One company, two ways to bring produce{" "}
+            <Accent>closer to demand</Accent>
           </SectionHeading>
         </Reveal>
 
         <Reveal delay={80}>
           <Body className="max-w-none">
-            BlueZone Aeroponics is the umbrella brand for BlueZone Microgreens
+            Bluezone Aeroponics is the umbrella brand for Bluezone Microgreens
             and the BioCube growing-system offer. Both are built around the
             Zero-Mile Produce idea: reduce strategic distance by locating
             suitable production nearer to the buyers and communities it serves.
@@ -65,7 +66,9 @@ export default function SectionAbout() {
           <Reveal key={title} delay={i * 60}>
             <div className="grid md:grid-cols-[80px_0.7fr_1.3fr] gap-3 md:gap-8 py-7 md:py-9 border-b border-bz-navy/15">
               <p className="text-bz-blue text-xs tracking-[0.18em]">{number}</p>
-              <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl leading-tight">{title}</h3>
+              <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl leading-tight">
+                {title}
+              </h3>
               <Body className="max-w-none">{body}</Body>
             </div>
           </Reveal>

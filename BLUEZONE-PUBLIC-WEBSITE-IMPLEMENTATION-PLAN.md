@@ -1,4 +1,4 @@
-# BlueZone public website implementation plan
+# Bluezone public website implementation plan
 
 Date: 29 September 2026  
 Status: implemented locally under the component-reuse and placeholder-image rules. Retained as the implementation record; active claim provenance is in `docs/content/BLUEZONE-CONTENT-SOURCES.md`.  
@@ -8,7 +8,7 @@ Basis: the six requested workstreams, [the source review](BLUEZONE-SOURCE-OF-TRU
 
 Build a dedicated comparison page, shorten the homepage Method section into a teaser, clarify the existing BioCube configuration, and remove unsupported or overly promotional content. Record every retained product claim against the four client PDFs.
 
-The visual direction borrows the reference's generous spacing, asymmetric image/text compositions, rounded image frames and occasional dark feature panels. Translate these into BlueZone's navy, mist, blue and lime palette, Instrument Serif headings, Inter body copy and existing pill buttons. Preserve the current homepage hero and its scroll behaviour.
+The visual direction borrows the reference's generous spacing, asymmetric image/text compositions, rounded image frames and occasional dark feature panels. Translate these into Bluezone's navy, mist, blue and lime palette, Instrument Serif headings, Inter body copy and existing pill buttons. Preserve the current homepage hero and its scroll behaviour.
 
 Implementation produces:
 
@@ -24,7 +24,7 @@ Implementation produces:
 | Topic | Decision |
 | --- | --- |
 | Existing website | Work on the active `src/main.jsx` → `src/App.jsx` implementation. Preserve the existing uncommitted BioCube work and previously removed sections. |
-| Comparison content | Use section 6 of the source review as the copy baseline, with short edits for readability. Keep its six comparison criteria, balanced method descriptions, BlueZone rationale, pilot approach and four short answers. |
+| Comparison content | Use section 6 of the source review as the copy baseline, with short edits for readability. Keep its six comparison criteria, balanced method descriptions, Bluezone rationale, pilot approach and four short answers. |
 | Page architecture | Use a second Vite HTML entry with its own React entry point. The website has two public documents and does not need a routing dependency for this change. |
 | New URL | Canonical internal-link path: `/aeroponics-vs-hydroponics/`. The trailing slash represents a real output directory; verify the slashless variant resolves or redirects on the eventual host. |
 | Homepage placement | Replace the existing full Method section in place, after Technology and before BioCube. Preserve `#method` on the teaser for existing incoming links. |
@@ -53,7 +53,7 @@ The intended visitor is a prospective buyer or project partner scanning product 
 
 ### Translate the reference into the existing identity
 
-| Reference feature | BlueZone implementation |
+| Reference feature | Bluezone implementation |
 | --- | --- |
 | Large visual alongside relatively short copy | Keep the BioCube cutaway prominent; pair the Technology explanation with an existing placeholder image; use a compact text/image introduction on the comparison page. |
 | Asymmetric columns | Use the site's existing 12-column layout: typically five columns of copy beside seven of imagery, or four beside eight for product details. |
@@ -64,14 +64,14 @@ The intended visitor is a prospective buyer or project partner scanning product 
 | Quiet labels, strong headlines | Keep Instrument Serif for headings and Inter for body/control text. Retain the current heading hierarchy and selective section kickers; do not introduce the reference's numbering throughout the site. |
 | Compact pill actions and arrow cues | Reuse the existing button/link patterns and Lucide arrows. Links should have descriptive text and visible focus states. |
 
-The reference's testimonials, satisfied-client count, service categories, personal portraits, agricultural stock imagery and glass overlays are not content requirements. The requested design influence is composition, hierarchy and pacing. BlueZone's source-supported imagery and copy determine what occupies those layouts.
+The reference's testimonials, satisfied-client count, service categories, personal portraits, agricultural stock imagery and glass overlays are not content requirements. The requested design influence is composition, hierarchy and pacing. Bluezone's source-supported imagery and copy determine what occupies those layouts.
 
 ### Concrete layout choices
 
 - **Comparison introduction:** simple navy navigation bar; split title/copy and an existing, captioned crop image. Keep it compact enough that the explanation begins near the first screenful. No scroll-scrubbed hero on this page.
 - **Method explanations:** use existing placeholder images beside short explanations. Label the methods in copy, explain the root-zone distinction, and note that hydroponics includes several designs. Do not create new diagrams or graphics.
 - **Comparison table:** light surface with quiet separators and equal visual weight for both methods. On phones, render each criterion as a stacked pair from the same data, without requiring sideways page scrolling.
-- **BlueZone rationale:** one flat navy feature panel, echoing the reference's dark systems section. Use a heading and short supporting paragraphs, not a new benefits-stat grid.
+- **Bluezone rationale:** one flat navy feature panel, echoing the reference's dark systems section. Use a heading and short supporting paragraphs, not a new benefits-stat grid.
 - **Homepage teaser:** low-height mist band, left-aligned heading and paragraph, with one button aligned alongside on larger screens and below on phones.
 - **BioCube:** retain the large cutaway/specification split; follow it with five concise subsystem rows and the existing technical disclosure.
 - **Technology:** existing placeholder image beside the explanation, followed by compact labelled capability rows. Use normal surfaces rather than adding another decorative card grid.
@@ -99,7 +99,7 @@ Comparison page
   Title, short introduction and captioned crop image
   How the roots receive nutrients: placeholder image and explanations
   Six-criterion comparison
-  Why BlueZone uses aeroponics: navy feature panel
+  Why Bluezone uses aeroponics: navy feature panel
   Compare the whole system / measured pilot
   Four short answers
   BioCube and systems-enquiry actions; optional further reading
@@ -127,7 +127,7 @@ Use real anchors for navigation so open-in-new-tab, browser Back and direct visi
 
 **Heading:** Aeroponics vs hydroponics
 
-> Both grow plants without soil. Aeroponics delivers water and nutrients as a mist to roots suspended in air. Explore how the methods differ and why BlueZone uses aeroponics.
+> Both grow plants without soil. Aeroponics delivers water and nutrients as a mist to roots suspended in air. Explore how the methods differ and why Bluezone uses aeroponics.
 
 **Action:** Compare the growing methods → `/aeroponics-vs-hydroponics/`
 
@@ -140,10 +140,10 @@ Use the public draft in the review, excluding its internal source-notes table. P
 - The distinction between nutrient mist and other hydroponic delivery methods.
 - The note that aeroponics can be classified within the wider hydroponics family.
 - All six criteria: nutrient delivery, root oxygen, water/nutrients, space/layout, everyday operation and results.
-- BlueZone's integrated-system rationale and the requirement to compare whole systems.
+- Bluezone's integrated-system rationale and the requirement to compare whole systems.
 - A generic measured-pilot explanation and the four FAQs.
 
-Place optional university “Further reading” links in a quiet page-end section. They support general method descriptions; they must not be presented as validation of BlueZone performance. No client PDF downloads.
+Place optional university “Further reading” links in a quiet page-end section. They support general method descriptions; they must not be presented as validation of Bluezone performance. No client PDF downloads.
 
 Use `/#biocube` for “Explore BioCube” and `/?enquiry=systems#get-in-touch` for “Discuss a growing project.” These navigation buttons do not imply that a functioning online submission service exists.
 
@@ -315,11 +315,11 @@ Record the exact filenames, document IDs and PDF page counts:
 | ID | File | Pages | Configuration/context |
 | --- | --- | --- | --- |
 | CAT | `BUEZONE CATALOGUE (3).pdf` | 15 | Proposed microgreens container |
-| COMP | `BlueZone Aeroponics vs Hyrdroponics (1).pdf` | 6 | Comparative sales material; includes a different modular-farm reference |
+| COMP | `Bluezone Aeroponics vs Hyrdroponics (1).pdf` | 6 | Comparative sales material; includes a different modular-farm reference |
 | PILOT | `Bluezone Aeroponics Farming Proposal (2).pdf` | 12 | Proposed leafy-greens pilot and generic validation process |
 | FARM | `Bluezon Aeroponics Farming - Leafy Greens Indoor Farm Solution (1).pdf` | 14 | Five-room facility design and private modelling |
 
-Record the local source location and review date. Use PDF page order starting at 1. Keep the files in their supplied location; do not copy them into the build. Record the supplementary university references separately as method-definition sources, not BlueZone product evidence.
+Record the local source location and review date. Use PDF page order starting at 1. Keep the files in their supplied location; do not copy them into the build. Record the supplementary university references separately as method-definition sources, not Bluezone product evidence.
 
 ### Claim ledger schema
 
@@ -360,7 +360,7 @@ Example ledger entries:
 
 ### Context and history updates
 
-- `PRODUCT.md`: identify the four PDFs as the primary BlueZone-specific source set; distinguish container, pilot and facility models; record public-content boundaries, the comparison-page location and native cross-page enquiry behaviour. Keep the existing tone, audience and accessibility direction.
+- `PRODUCT.md`: identify the four PDFs as the primary Bluezone-specific source set; distinguish container, pilot and facility models; record public-content boundaries, the comparison-page location and native cross-page enquiry behaviour. Keep the existing tone, audience and accessibility direction.
 - `DESIGN.md`: append a scoped content-page/section supplement. The existing document describes the hero's achromatic overlay; distinguish that from the site's existing navy/mist/blue content palette. Record how the reference informs layout, image frames and the new flat feature panel without rewriting the hero specification.
 - `src/assets/biocube/README.md`: preserve the actual original extraction provenance, then add the new catalogue edition/page against which the asset was checked. Do not falsely describe the old asset as newly extracted from the latest PDF.
 - `BIOCUBE-CATALOGUE-IMPLEMENTATION-PLAN.md`: leave unchanged as historical documentation. The new ledger and product context identify it as superseded for current implementation decisions.

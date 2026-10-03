@@ -1,12 +1,12 @@
-# BlueZone website content audit
+# Bluezone website content audit
 
 Review date: 22 September 2026. Cumulative audit of three client documents, updated after the first implementation pass. Statuses below distinguish implemented, partially addressed and deferred findings.
 
 ## Source and scope
 
-**B01:** Client-supplied `BlueZone_Aeroponics_Brand_Summary_Updated-1.pdf`, page 1 (the complete one-page document), located in `C:/Users/Lawrence/Downloads/`.
+**B01:** Client-supplied `Bluezone_Aeroponics_Brand_Summary_Updated-1.pdf`, page 1 (the complete one-page document), located in `C:/Users/Lawrence/Downloads/`.
 
-**B02:** Client-supplied `BlueZone_Container_OEM_Strategy_Next_Steps.pdf`, five pages, dated **24 August 2026**, located in `C:/Users/Lawrence/Downloads/`. The document's heading is “BlueZone Automated Farming Systems.” Its strategy and planned next steps are not evidence that commissioning, sales, partnerships or deployments have happened.
+**B02:** Client-supplied `Bluezone_Container_OEM_Strategy_Next_Steps.pdf`, five pages, dated **24 August 2026**, located in `C:/Users/Lawrence/Downloads/`. The document's heading is “Bluezone Automated Farming Systems.” Its strategy and planned next steps are not evidence that commissioning, sales, partnerships or deployments have happened.
 
 **B03:** Client-supplied `Zero Mile - airlines catering, islands, hotels.pdf`, four pages, headed “ZERO-MILE PRODUCE - Global OEM Strategy, Target Rankings & Sales Rationale,” located in `C:/Users/Lawrence/Downloads/`. No visible issue date; PDF creation/modification metadata is **4 September 2026**. That timestamp suggests a later file than B02, but does not establish approval or supersession of its strategy.
 
@@ -14,7 +14,7 @@ The client materials take precedence over existing project briefs for this revie
 
 Reviewed the active local website: `index.html` → `src/main.jsx` → `src/App.jsx`, all 16 mounted section components, and relevant shared components. This is a source-code content audit, not verification of a deployed site or a browser-based visual review. File links below are relative to this report; line numbers describe this snapshot.
 
-Excluded inactive alternatives (`src/App.tsx`, `src/components/BlueZoneHero.jsx`, `index_1.html`) and the unmounted `SectionProof.jsx` from visitor-facing findings. Comments and commented-out JSX do not count as visible qualifications.
+Excluded inactive alternatives (`src/App.tsx`, `src/components/BluezoneHero.jsx`, `index_1.html`) and the unmounted `SectionProof.jsx` from visitor-facing findings. Comments and commented-out JSX do not count as visible qualifications.
 
 **Main finding after B03:** The website's **Zero-Mile Produce headline, infrastructure positioning and aviation/island/resort applications now have direct client support**. The earlier recommendation to replace that headline with a Somerset-led one is withdrawn. The remaining work is to clarify the separate produce and systems offers, explain how sites and commercial pilots are selected, and qualify availability and performance claims. B02's UK wholesaler-first plan and B03's international immediate priorities differ; the website should not be judged wrong merely for following B03's global direction. None of the documents supplies a commissioning update, verified stock availability or confirmed deployment commitments.
 
@@ -35,8 +35,8 @@ Excluded inactive alternatives (`src/App.tsx`, `src/components/BlueZoneHero.jsx`
 
 | B01 heading, all on page 1 | Brand baseline |
 | --- | --- |
-| Umbrella Brand | BlueZone Aeroponics covers the commercial produce business and the **future aeroponic farming-system/OEM business**. |
-| Produce Positioning | **BlueZone Microgreens can be used** as the customer-facing produce line. This is a permitted name, not an instruction to rename the entire company. |
+| Umbrella Brand | Bluezone Aeroponics covers the commercial produce business and the **future aeroponic farming-system/OEM business**. |
+| Produce Positioning | **Bluezone Microgreens can be used** as the customer-facing produce line. This is a permitted name, not an instruction to rename the entire company. |
 | Produce Positioning | Premium aeroponically grown **microgreens and micro herbs**, produced year-round in a controlled indoor environment. Buyers include B2B wholesalers, foodservice distributors, hotels, restaurants and other commercial buyers. |
 | Systems Positioning | The umbrella name accommodates supplying or OEM-ing commercial modular aeroponic indoor farming systems, without restricting systems to one crop category. |
 | Core Sales Messaging | “Controlled climate. Year-round production. Independent of seasonal weather.” The alternative headline is “Growing 365 days a year - whatever the weather.” |
@@ -49,7 +49,7 @@ B01 does **not** establish BioCube's name, technical specifications, output, ava
 
 | B02 reference | Established direction | Limit on what can be claimed publicly |
 | --- | --- | --- |
-| Page 1, core conclusion and §1 | First Somerset unit to prove technology/economics; longer-term UK sourcing, private-label, import/installation and integration of automated containers manufactured in China. Customer organisations operate the units. | Supports the business model, not a claim that BlueZone manufactures the hardware, already holds OEM rights or has units ready to ship. |
+| Page 1, core conclusion and §1 | First Somerset unit to prove technology/economics; longer-term UK sourcing, private-label, import/installation and integration of automated containers manufactured in China. Customer organisations operate the units. | Supports the business model, not a claim that Bluezone manufactures the hardware, already holds OEM rights or has units ready to ship. |
 | Page 1, §1 | Planned package includes commissioning, crop operating procedures, training, UK data, technical support and warranty/spares coordination. Support and consumables are potential revenue streams. | Not a confirmed service contract, response time, warranty duration or subscription tariff. |
 | Page 1, §2 | Priority: UK produce/foodservice wholesalers; farmers/growers; airline caterers/central kitchens; large luxury hotel/resort groups; contract caterers/campuses. | Sales priority informs the recommended website emphasis. It does not automatically dictate an exact navigation order or invalidate every other possible market. |
 | Page 2, §§3–4 | Wholesaler demand discovery for Somerset-grown pea shoots/microgreens; questions cover weekly volume, varieties, packs, prices, sourcing and supply problems. | Listed companies are prospects, not customers or endorsers. No confirmed purchase commitments or delivery territory are supplied. |
@@ -68,11 +68,11 @@ B01 does **not** establish BioCube's name, technical specifications, output, ava
 | Page 1, §1 | Target overlapping needs: imported fresh greens, scarce land/water, climate pressure, recurring concentrated demand, capital/funding, policy alignment, high landed cost and replication potential. | Geography or enthusiasm alone is insufficient. Replace the website's indiscriminate “Anywhere” framing with site-fit criteria. |
 | Pages 1–2, §3 | Caterer-led procurement specifications and a measured one-unit aviation pilot, with expansion if results justify it. | The existing customer-site pilot narrative is supported; it needs commercial structure, meaningful KPIs and accurate readiness language. |
 | Page 2, §4; page 3, §§5–6 | Islands, Gulf markets, Singapore and government/development-backed routes are explicit priorities. | Withdraw the concern that these sectors lack documentary support. Country scores and account rankings are internal prioritisation estimates, not proof of customers or returns. |
-| Page 4, §§7–8 | BlueZone supplies the system/commissioning/crop procedures/measurement; factory supports technical issues, warranty and spares; operator supplies site/utilities/labour/offtake; funding is conditional. Pilot is a commercial demonstration with agreed KPIs. | Explain responsibility and conditional scale-up; do not invent a free trial, guaranteed grant or contractual warranty. |
+| Page 4, §§7–8 | Bluezone supplies the system/commissioning/crop procedures/measurement; factory supports technical issues, warranty and spares; operator supplies site/utilities/labour/offtake; funding is conditional. Pilot is a commercial demonstration with agreed KPIs. | Explain responsibility and conditional scale-up; do not invent a free trial, guaranteed grant or contractual warranty. |
 | Page 4, §10 | Build crop economics around lettuce, salad leaves, rocket, spinach, culinary herbs, Asian/speciality greens, microgreens and edible flowers. | Leafy greens and edible flowers are supported **system crop targets**. Neither that list nor B01 confirms a ready-to-order crop catalogue. |
 | Page 1, §2; page 4, final note | Zero-Mile is not a zero-emissions guarantee or a literal government requirement; quantify water/carbon/cost/yield only against validated baselines. | Retain the site's strategic-distance qualifier and extend it to emissions. Existing overclaims and unverified numbers remain concerns. |
 
-**Strategy conflict to carry forward:** B02 page 1 §2/page 5 §10 says to prioritise UK wholesalers, gather Somerset evidence, then approach airline caterers and major hotels. B03 page 4 §10 instead calls QACC Doha, a Maldives demonstration and SATS Singapore immediate priorities; Gate Gourmet rollout follows pilot data. B03 also uses present-tense sales-pitch wording (“BlueZone provides”) where B01/B02 frame systems as future/staged. This could represent an expanded global plan or a strategic change, but neither scope nor completion status is explicitly reconciled. Until a client update resolves it, preserve both routes and avoid rewriting the whole site around one inferred sequence. This is a documented content decision for later review, not a blocker to completing this audit.
+**Strategy conflict to carry forward:** B02 page 1 §2/page 5 §10 says to prioritise UK wholesalers, gather Somerset evidence, then approach airline caterers and major hotels. B03 page 4 §10 instead calls QACC Doha, a Maldives demonstration and SATS Singapore immediate priorities; Gate Gourmet rollout follows pilot data. B03 also uses present-tense sales-pitch wording (“Bluezone provides”) where B01/B02 frame systems as future/staged. This could represent an expanded global plan or a strategic change, but neither scope nor completion status is explicitly reconciled. Until a client update resolves it, preserve both routes and avoid rewriting the whole site around one inferred sequence. This is a documented content decision for later review, not a blocker to completing this audit.
 
 ## P0: This is flat-out wrong
 
@@ -93,7 +93,7 @@ B01 contains no competitor-method comparison; this is a separate scientific corr
 
 **Priority changed after B03:** P0 → P1. **Type:** Unverified readiness / source tension. **Where:** [BioCube](src/components/SectionBioCube.jsx), lines 94–100; [About](src/components/SectionAbout.jsx), lines 54–57; [Pilot](src/components/SectionPilot.jsx), lines 28–30 and 51–62; [Contact](src/components/SectionContact.jsx), lines 27–31.
 
-- **Website:** BioCube “ships as a unit, connects to power and water, and starts producing”; Pilot describes “A working unit”; contact offers “Ready to deploy.” The last is a visitor's project-stage option, not by itself a promise that BlueZone can ship.
+- **Website:** BioCube “ships as a unit, connects to power and water, and starts producing”; Pilot describes “A working unit”; contact offers “Ready to deploy.” The last is a visitor's project-stage option, not by itself a promise that Bluezone can ship.
 - **Sources:** B01 calls systems/OEM a future business; B02 requires proof before sales. B03 page 4 §§7/9/10 presents a customer pilot structure, present-tense infrastructure pitch and immediate international proposals. The combined sources no longer justify calling the entire systems proposition flat-out wrong.
 - **Remaining gap:** None supplies confirmation of commissioning, fulfilment readiness, delivery lead time or agreed customer pilot availability. A strategy pitch alone does not establish these operational facts.
 - **Adjust:** Retain the supported systems and pilot proposition, but replace unconditional shipping/production language with assessed project scope until readiness is confirmed. Describe installation, commissioning and customer operation rather than implying utility connection alone starts production.
@@ -116,10 +116,10 @@ B01 contains no competitor-method comparison; this is a separate scientific corr
 
 **Type:** Omission/positioning and unverified range. **Where:** [Produce](src/components/SectionProduce.jsx), lines 19–61.
 
-- **Website:** “Grow what the market needs”; cards offer microgreens, micro herbs, leafy greens and edible flowers. The permitted name “BlueZone Microgreens” and the premium produce description are absent.
+- **Website:** “Grow what the market needs”; cards offer microgreens, micro herbs, leafy greens and edible flowers. The permitted name “Bluezone Microgreens” and the premium produce description are absent.
 - **B01:** Produce Positioning establishes microgreens and micro herbs. Broader crop freedom belongs explicitly to Systems Positioning.
-- **Adjust after B03:** Separate the produce-supply range from crops being evaluated for systems. Keep BlueZone Aeroponics as the umbrella, using BlueZone Microgreens for the produce line if adopted. Leafy greens and edible flowers may remain as system crop targets: B03 page 4 §10 now supports them. Confirm availability before presenting any crop as ready to order.
-- **Suggested description once supply is confirmed:** “BlueZone Microgreens: premium aeroponically grown microgreens and micro herbs, produced year-round in a controlled indoor environment.” Until then, use an invitation to discuss prospective supply without implying available stock.
+- **Adjust after B03:** Separate the produce-supply range from crops being evaluated for systems. Keep Bluezone Aeroponics as the umbrella, using Bluezone Microgreens for the produce line if adopted. Leafy greens and edible flowers may remain as system crop targets: B03 page 4 §10 now supports them. Confirm availability before presenting any crop as ready to order.
+- **Suggested description once supply is confirmed:** “Bluezone Microgreens: premium aeroponically grown microgreens and micro herbs, produced year-round in a controlled indoor environment.” Until then, use an invitation to discuss prospective supply without implying available stock.
 - **Still needed:** Confirmed varieties, supply area, pack formats, order quantities and delivery arrangements. Do not invent these to fill the section.
 
 **B02 update:** Page 2 §4 and page 3 §5 establish **pea shoots/microgreens** as the initial Somerset supply focus, with a small commercially validated crop range in page 5 §10. Add pea shoots to the initial-offer explanation; currently they appear in the output metric rather than as a named Produce item. B02 does not revoke B01's micro-herb positioning or establish leafy greens/edible flowers as available products. “UK” and “Somerset” describe strategic focus/site location, not a guaranteed nationwide delivery service.
@@ -155,7 +155,7 @@ B01 contains no competitor-method comparison; this is a separate scientific corr
 **Type:** Fact-check/overstatement. **Where:** [Produce](src/components/SectionProduce.jsx), lines 23 and 98–112, including the `5x.png` graphic.
 
 - **Website:** “5x more nutrients in the fraction of the space,” plus “at peak nutrient density.”
-- **Finding:** USDA's account of the 25-variety research supports roughly fivefold higher levels of the vitamins and carotenoids studied in general, while stressing variation by species and growing/handling conditions. It does not establish every nutrient, BlueZone's own harvests, a universal nutrient peak, or a growing-space ratio. [USDA ARS, microgreens research summary](https://agresearchmag.ars.usda.gov/ar/archive/2014/jan/greens0114.pdf).
+- **Finding:** USDA's account of the 25-variety research supports roughly fivefold higher levels of the vitamins and carotenoids studied in general, while stressing variation by species and growing/handling conditions. It does not establish every nutrient, Bluezone's own harvests, a universal nutrient peak, or a growing-space ratio. [USDA ARS, microgreens research summary](https://agresearchmag.ars.usda.gov/ar/archive/2014/jan/greens0114.pdf).
 - **Adjust:** Keep any research statement specific to measured nutrients and the study. Remove the space claim unless separately substantiated. Revise the prominent graphic as well as the text. B01's “healthy” positioning does not authorise a universal multiplier.
 - **Suggested heading:** “Small greens, concentrated flavour.” If retaining research: “Research has found higher concentrations of certain vitamins and carotenoids in microgreens than in mature leaves. Results vary by crop and growing conditions.”
 
@@ -165,8 +165,8 @@ B01 contains no competitor-method comparison; this is a separate scientific corr
 
 - **Website:** Under “Distance to market,” “80%+ imported” is compared with “On site.” Under “Loss before retail,” “25.4%” is compared with “Same-day.” All traditional supply is represented as six stages versus two.
 - **B01:** Supports local produce, but specifies no import market, import share, same-day service or universal two-stage delivery model. It explicitly includes distributors and wholesalers.
-- **Adjust:** Remove “80%+ imported” until geography, commodity, denominator, year and a source are identified. Compare distance with distance, time with time, and loss rate with loss rate. No BlueZone loss rate is established. Label any six-to-two-stage diagram as an illustrative on-site scenario, not the supply model for every customer.
-- **Fact-check:** FAO supports 25.4% as the global fruit-and-vegetable loss estimate for 2023 before retail. It is not a transport-only loss rate, a measurement of a particular supplier or proof of BlueZone's avoided loss. [FAO food-loss indicator](https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/).
+- **Adjust:** Remove “80%+ imported” until geography, commodity, denominator, year and a source are identified. Compare distance with distance, time with time, and loss rate with loss rate. No Bluezone loss rate is established. Label any six-to-two-stage diagram as an illustrative on-site scenario, not the supply model for every customer.
+- **Fact-check:** FAO supports 25.4% as the global fruit-and-vegetable loss estimate for 2023 before retail. It is not a transport-only loss rate, a measurement of a particular supplier or proof of Bluezone's avoided loss. [FAO food-loss indicator](https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/).
 
 **B02 update:** Page 2 §§3–4 makes the first route **Somerset producer → wholesaler → the wholesaler's customers**. A later unit at a customer's depot/kitchen could shorten that route. Show these as separate scenarios; “Harvest → Point of use” does not describe every initial wholesale sale. B02 asks whether buyers currently source UK-grown or imported produce, so import dependency is a discovery question, not a documented 80% baseline.
 
@@ -204,15 +204,15 @@ B01 contains no competitor-method comparison; this is a separate scientific corr
 
 Withdraw the instruction to make wholesalers the universal opening audience. Distinguish a UK produce/proof route from global systems applications, keep both discoverable, and record which strategy the homepage is intended to lead with. Neither PDF prescribes a navigation order. Within the global route, explain distinct purchaser, operator, produce-buyer and funding roles rather than treating all organisations as the same kind of customer. Contract caterers/campuses remain relevant under B02 but need not displace B03's leading applications.
 
-### B01-12: Research figures need visible attribution and a consistent boundary from BlueZone performance
+### B01-12: Research figures need visible attribution and a consistent boundary from Bluezone performance
 
 **Type:** Fact-check/qualification. **Where:** [Method](src/components/SectionMethod.jsx), lines 109–126 and 274–340.
 
-The displayed figures are up to 98% less water, 45–75% higher yield and approximately 60% less fertiliser. These numbers do appear in the cited 2026 review, so they should not be labelled invented. Their appearance in a review does not establish BlueZone performance or a universal comparison. [Chu and Wan, Agriculture, 2026](https://www.mdpi.com/2077-0472/16/2/265).
+The displayed figures are up to 98% less water, 45–75% higher yield and approximately 60% less fertiliser. These numbers do appear in the cited 2026 review, so they should not be labelled invented. Their appearance in a review does not establish Bluezone performance or a universal comparison. [Chu and Wan, Agriculture, 2026](https://www.mdpi.com/2077-0472/16/2/265).
 
-Retain the existing water card's explicit non-BlueZone caveat and apply that distinction visibly to all three figures. Restore a concise shared qualifier; the longer qualifier and comparability citation currently sit inside commented-out JSX. Attribute the review by name/year and require the underlying crop, system and baseline evidence before using its upper-end findings as sales promises. The 2024 review also highlights variation by crop/system and limits to direct comparisons. [Regmi et al., Technology in Horticulture, 2024](https://www.maxapress.com/article/doi/10.48130/tihort-0024-0002).
+Retain the existing water card's explicit non-Bluezone caveat and apply that distinction visibly to all three figures. Restore a concise shared qualifier; the longer qualifier and comparability citation currently sit inside commented-out JSX. Attribute the review by name/year and require the underlying crop, system and baseline evidence before using its upper-end findings as sales promises. The 2024 review also highlights variation by crop/system and limits to direct comparisons. [Regmi et al., Technology in Horticulture, 2024](https://www.maxapress.com/article/doi/10.48130/tihort-0024-0002).
 
-No BlueZone saving percentage should be inferred from B01's climate-resilience language.
+No Bluezone saving percentage should be inferred from B01's climate-resilience language.
 
 ## P3: Small
 
@@ -220,7 +220,7 @@ No BlueZone saving percentage should be inferred from B01's climate-resilience l
 
 **Type:** Naming/positioning. **Where:** [HTML head](index.html), lines 4–7; [Footer](src/components/SectionFooter.jsx), line 224.
 
-The title is “BlueZone — Zero Food Miles Produce,” and no meta description is defined. B03 now supplies the exact customer-facing phrase **“Zero-Mile Produce.”** Suggested umbrella/global title: **“BlueZone Aeroponics | Zero-Mile Produce.”** Suggested description: **“Explore modular aeroponic growing systems for year-round production close to demand, plus BlueZone microgreens and micro-herb supply enquiries.”** A separate produce page can use B01's product descriptor once supply status is clear. The earlier microgreens-only homepage title recommendation is superseded by this broader option.
+The title is “Bluezone — Zero Food Miles Produce,” and no meta description is defined. B03 now supplies the exact customer-facing phrase **“Zero-Mile Produce.”** Suggested umbrella/global title: **“Bluezone Aeroponics | Zero-Mile Produce.”** Suggested description: **“Explore modular aeroponic growing systems for year-round production close to demand, plus Bluezone microgreens and micro-herb supply enquiries.”** A separate produce page can use B01's product descriptor once supply status is clear. The earlier microgreens-only homepage title recommendation is superseded by this broader option.
 
 ### B01-14: Source links hide useful context that is already in the code
 
@@ -234,13 +234,13 @@ Visible links say only “See source,” although source names and dates are sto
 
 **Priority:** P1: Major. **Type:** Omission/positioning. **Where:** [About](src/components/SectionAbout.jsx), lines 44–62; [BioCube](src/components/SectionBioCube.jsx), lines 86–100; [Pilot](src/components/SectionPilot.jsx), `STEPS`.
 
-- **Website:** Emphasises infrastructure BlueZone “builds,” physical features and adding units. It does not explain who operates the equipment or the planned commissioning, crop procedures, training and support package.
+- **Website:** Emphasises infrastructure Bluezone “builds,” physical features and adding units. It does not explain who operates the equipment or the planned commissioning, crop procedures, training and support package.
 - **B02:** Page 1 §1 describes sourcing from a Chinese manufacturer and becoming the UK commercial integrator of private-label equipment. The scalable business is selling supported systems that customer organisations operate, while retaining the Somerset proof site (page 5 §10).
-- **Adjust:** Explain the planned supply/install/train/support role and customer operating responsibility. Avoid wording that implies proprietary hardware manufacture or a BlueZone-run network of farms unless separately supported. “Builds” alone is ambiguous, not proof of a false manufacturing claim. There is no need to publish internal sourcing margins or procurement details to explain the customer offer.
+- **Adjust:** Explain the planned supply/install/train/support role and customer operating responsibility. Avoid wording that implies proprietary hardware manufacture or a Bluezone-run network of farms unless separately supported. “Builds” alone is ambiguous, not proof of a false manufacturing claim. There is no need to publish internal sourcing margins or procurement details to explain the customer offer.
 - **Suggested copy:** “Our longer-term plan is to supply private-label aeroponic growing systems with installation, commissioning, crop operating procedures and staff training, supported by UK operating evidence and technical support. Customer teams would run day-to-day production.”
 - **Qualification:** OEM rights, warranty arrangements, spares and support commitments still require confirmation under B02 page 5. Present the planned package without inventing service levels, contract terms or already-secured rights.
 
-**B03 refinement:** Page 4 §9 calls the long-term proposition distributed fresh-food infrastructure, explicitly more than container resale. Explain the implementation and performance value without reducing the global brand to a UK reseller. Page 4 §7 assigns technical support/warranty/spares to the factory; distinguish that delivery role from BlueZone's coordination and commissioning support. Do not promise BlueZone itself directly performs every factory obligation. B03-02 records the pilot responsibility split.
+**B03 refinement:** Page 4 §9 calls the long-term proposition distributed fresh-food infrastructure, explicitly more than container resale. Explain the implementation and performance value without reducing the global brand to a UK reseller. Page 4 §7 assigns technical support/warranty/spares to the factory; distinguish that delivery role from Bluezone's coordination and commissioning support. Do not promise Bluezone itself directly performs every factory obligation. B03-02 records the pilot responsibility split.
 
 ### B02-02: Add the Somerset proof story without replacing supported customer pilots
 
@@ -270,7 +270,7 @@ Visible links say only “See source,” although source names and dates are sto
 - **B02:** Page 4 §9 prioritises actual saleable yield, cycles, electricity, water, inputs, labour, cleaning, reliability, prices, margin and customer payback. It frames a 2–3-year evidenced payback as a desirable future case, not an achieved result.
 - **Adjust:** Add a concise planned-measurement statement, then publish dated operating results when available. A useful future case study should identify crop/configuration, measurement period, saleable yield after waste, labour and resource costs, and customer-specific assumptions. General aeroponics research cannot replace that evidence.
 - **Suggested copy:** “The Somerset validation programme is intended to measure saleable yield, energy and water use, hands-on labour, inputs, maintenance and production cost.”
-- **Do not publish yet:** “Pays for itself in 2–3 years,” guaranteed savings/profit, or a payback calculator populated with assumed BlueZone results. This is a guard against importing an internal target into web copy, not a claim that such promises already appear on the site. The document's CAPEX/annual-savings shorthand is not a supplied worked financial model.
+- **Do not publish yet:** “Pays for itself in 2–3 years,” guaranteed savings/profit, or a payback calculator populated with assumed Bluezone results. This is a guard against importing an internal target into web copy, not a claim that such promises already appear on the site. The document's CAPEX/annual-savings shorthand is not a supplied worked financial model.
 
 **B03 refinement, page 4 §8:** Extend the pilot measures to **fully loaded cost/kg versus the customer's imported landed cost/kg**, crop-specific annual output, labour cost/kg, selected procurement displaced, litres water/kg, kWh/kg, harvest-to-kitchen time, shelf life, spoilage and quality consistency. The current “Yield, water, energy, labour, economics” is directionally correct but too generic to explain the procurement case. Present measures to agree and collect, not already-achieved benefits. Scale-up depends on agreed results, not an assumed successful pilot.
 
@@ -300,7 +300,7 @@ B01 permits hotels and restaurants as produce buyers. B02 page 4 §8 narrows the
 ## B02 material to interpret, not copy into public claims
 
 - **Prospect and call lists:** Internal sales research, not testimonials, customer logos, committed volumes or endorsements. No company-list fact-check was needed to identify this distinction, and none of those businesses was contacted.
-- **New heading:** “BlueZone Automated Farming Systems” names this strategy document. It does not expressly replace B01's BlueZone Aeroponics umbrella or approve a new logo/domain. Record the naming question for future materials; do not automatically rename the website.
+- **New heading:** “Bluezone Automated Farming Systems” names this strategy document. It does not expressly replace B01's Bluezone Aeroponics umbrella or approve a new logo/domain. Record the naming question for future materials; do not automatically rename the website.
 - **OEM readiness tasks:** Confirmation of private-label rights, import/conformity responsibilities, liability, warranty/spares and support is a planning dependency. This audit does not make a legal determination or infer that any check is complete. No new compliance claims should be added from a to-do list.
 - **Commercial tactics:** Container margins, preferential pilot pricing, case-study access, recurring consumables and support are proposed business arrangements, not publishable prices or customer entitlements.
 - **Current status:** The document is dated 24 August 2026, but its proposed sequence is not an operational update. Verify commissioning, crop availability, demonstrations and pilot readiness before changing future-tense copy into present-tense promises.
@@ -327,7 +327,7 @@ B01 permits hotels and restaurants as produce buyers. B02 page 4 §8 narrows the
 
 | Proposed role in B03 | Contribution to explain |
 | --- | --- |
-| BlueZone | System, commissioning support, crop operating procedures and performance measurement. |
+| Bluezone | System, commissioning support, crop operating procedures and performance measurement. |
 | Factory | Technical support, warranty and spare parts under confirmed arrangements. |
 | Caterer, resort or local operator | Site, utilities, staff and a defined buyer/use for the produce. |
 | Government or climate programme, where eligible | Potential grant, co-funding or demonstration support; not guaranteed funding. |
@@ -350,11 +350,11 @@ Selected external checks completed on 22 September 2026. These assess claims in 
 | Claim or material in B03 | Finding and treatment |
 | --- | --- |
 | Singapore aims for 20% local fibre capacity by 2035 | Supported by the government's revised targets. “Fibre” here covers fresh leafy/fruited vegetables, beansprouts and mushrooms; it is not 20% of all food or a mandate for individual companies to achieve zero miles. [Ministry of Sustainability and the Environment, revised targets](https://www.mse.gov.sg/latest-news/oral-reply-to-parliamentary-question-on-revised-local-production-targets/). |
-| ACT Fund 2: S$70 million over five years | Supported by SFA's factsheet. It describes co-funding for local farm capability/capacity; the programme's existence does not establish BlueZone or any specific proposed partner/project is eligible or funded. [SFA factsheet](https://www.sfa.gov.sg/news-publications/newsroom/media-factsheet---singapore-continues-to-strengthenits-food-supply-resilience). |
-| Emirates Flight Catering/Bustanica validates aviation interest | The operator's 2022 announcement documents an airport-adjacent **hydroponic** farm supplying airline catering, not a BlueZone aeroponic installation. Valid as an industry precedent; not proof of BlueZone costs, yields or technology advantage. [Emirates, Bustanica launch](https://www.emirates.com/media-centre/emirates-flight-catering-opens-worlds-largest-vertical-farm-in-dubai/). |
-| dnata/Greenspace demonstrates catering interest in local growing | dnata's April 2026 release documents its Melbourne microfarm and daily herb use; Greenspace identifies the WTCE installation as its microfarm. Supports the category precedent, not proven economics for a full-size BlueZone container. [dnata release](https://www.dnata.com/media-centre/dnata-showcases-live-microgarden-spotlighting-fresh-culinary-innovation-at-wtce/), [Greenspace partner coverage](https://greenspace.com/media). |
+| ACT Fund 2: S$70 million over five years | Supported by SFA's factsheet. It describes co-funding for local farm capability/capacity; the programme's existence does not establish Bluezone or any specific proposed partner/project is eligible or funded. [SFA factsheet](https://www.sfa.gov.sg/news-publications/newsroom/media-factsheet---singapore-continues-to-strengthenits-food-supply-resilience). |
+| Emirates Flight Catering/Bustanica validates aviation interest | The operator's 2022 announcement documents an airport-adjacent **hydroponic** farm supplying airline catering, not a Bluezone aeroponic installation. Valid as an industry precedent; not proof of Bluezone costs, yields or technology advantage. [Emirates, Bustanica launch](https://www.emirates.com/media-centre/emirates-flight-catering-opens-worlds-largest-vertical-farm-in-dubai/). |
+| dnata/Greenspace demonstrates catering interest in local growing | dnata's April 2026 release documents its Melbourne microfarm and daily herb use; Greenspace identifies the WTCE installation as its microfarm. Supports the category precedent, not proven economics for a full-size Bluezone container. [dnata release](https://www.dnata.com/media-centre/dnata-showcases-live-microgarden-spotlighting-fresh-culinary-innovation-at-wtce/), [Greenspace partner coverage](https://greenspace.com/media). |
 | Country scores such as Qatar 98, Singapore/Maldives 96 | B03 page 3 expressly labels these strategic prioritisation estimates. Do not turn them into independent market ratings, customer interest percentages or measured investment returns. |
-| Named accounts, funding routes and existing growers | Treat as targets, possible enabling partners or third-party benchmarks, as labelled in B03. Verify branch identities, current programmes and proposed roles before publishing account-specific assertions. Do not imply endorsement, guaranteed offtake, a secured grant or a BlueZone relationship. |
+| Named accounts, funding routes and existing growers | Treat as targets, possible enabling partners or third-party benchmarks, as labelled in B03. Verify branch identities, current programmes and proposed roles before publishing account-specific assertions. Do not imply endorsement, guaranteed offtake, a secured grant or a Bluezone relationship. |
 
 **What should stay internal:** Outreach order, account rankings and scoring, proposed commercial structures not yet agreed, and assumptions about funding or procurement commitments. No prospect was contacted and no proposal was sent. B03's “immediate priorities” are source material for the audit, not instructions to execute those sales actions.
 
@@ -366,10 +366,10 @@ These are checks of website claims, not additions to B01's brand requirements. L
 | --- | --- |
 | Approximately 70% of freshwater withdrawals go to agriculture; renewable water per person fell 7% in a decade | Broadly supported. FAO gives 72% for global agricultural freshwater withdrawals and its December 2025 release reports the 7% decline. Approximate 70% is reasonable rounding; attach the period/source. [FAO global water-use statement](https://www.fao.org/director-general/articles/details/water-is-life--food-is-water--sustaining-water-and-ensuring-food-for-the-future/), [FAO 2025 release](https://www.fao.org/newsroom/detail/renewable-water-availability-per-person-plunges-7-percent-in-a-decade-as-global-scarcity-deepens--fao-data-shows/). |
 | 44% of habitable land is used for agriculture | Matches the cited publisher's 2024 analysis, including grazing land. Keep “habitable” and “agriculture”; this is not 44% of all land or vegetable cropland. This verifies the published figure, not a fresh calculation from raw FAO data. [Our World in Data, 2024 analysis](https://ourworldindata.org/global-land-for-agriculture). |
-| Transport represents 19% of food-system emissions, about 3 billion tonnes CO₂e annually | Supported as the estimate in Li et al. (2022), which includes upstream supply-chain transport. Fruit/vegetable consumption accounts for 36% of those food-mile emissions in the study. Attribute the estimate; do not present it as BlueZone's achievable reduction. [Original paper abstract](https://pubmed.ncbi.nlm.nih.gov/37118044/). |
+| Transport represents 19% of food-system emissions, about 3 billion tonnes CO₂e annually | Supported as the estimate in Li et al. (2022), which includes upstream supply-chain transport. Fruit/vegetable consumption accounts for 36% of those food-mile emissions in the study. Attribute the estimate; do not present it as Bluezone's achievable reduction. [Original paper abstract](https://pubmed.ncbi.nlm.nih.gov/37118044/). |
 | 25.4% of fruit and vegetables lost before retail | Supported for 2023 by FAO. Keep year, commodity group and pre-retail scope. See B01-08/09 for misuse in comparisons and causal wording. [FAO indicator](https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en/). |
 | Fivefold nutrient advantage | A narrower research statement is supported; the site's universal headline and space claim overreach. See B01-07. |
-| 98% water / 45–75% yield / 60% fertiliser | Found in the cited review; not independently verified for BlueZone. See B01-12. |
+| 98% water / 45–75% yield / 60% fertiliser | Found in the cited review; not independently verified for Bluezone. See B01-12. |
 | 80%+ imports, BioCube specifications and annual output | Not established by B01, B02 or B03. B03 supports qualitative import dependence in target markets, not the site's universal 80% baseline. B02/B03 require measurement and contextual baselines. Require the market source, client specification or calculation respectively; general aeroponics research cannot validate these business-specific claims. |
 
 ## Content-delivery defects noticed alongside the audit
@@ -383,7 +383,7 @@ These are implementation observations, not brand contradictions. They matter bec
 
 ## Existing content that aligns with the reviewed materials
 
-- The BlueZone Aeroponics umbrella name is present in logo alt text, About and the footer. About's explanation of two business areas is useful once its status and placeholder issues are fixed.
+- The Bluezone Aeroponics umbrella name is present in logo alt text, About and the footer. About's explanation of two business areas is useful once its status and placeholder issues are fixed.
 - Microgreens and micro herbs already appear in Produce. They need a clearer supply proposition, not removal.
 - Controlled climate and year-round/365-day production align with the client's sales messaging. Do not flag “365 days” itself as an invented promise when B01 explicitly uses it; avoid turning that message into a claim of uninterrupted operational uptime.
 - Local production and improved resilience align with the Core Brand Idea. B03 explicitly supports **Zero-Mile Produce** as the headline. The existing strategic-distance footnote is aligned and should remain, with an emissions distinction added.
@@ -408,7 +408,7 @@ All **26 finding IDs** are retained: 16 from B01, seven from B02 and three from 
 
 | Status | Finding IDs | What changed or remains |
 | --- | --- | --- |
-| Implemented | B01-02, B01-03, B01-04, B01-05, B01-07, B01-08, B01-09, B01-10, B01-13, B01-14, B01-16, B02-02, B02-03, B02-04, B02-05, B02-06, B02-07, B03-01, B03-02, B03-03 | The homepage now presents two offers, gives BlueZone Microgreens a full enquiry-led section, corrects the method comparison and broad claims, adds visible source names, replaces placeholders, explains the planned Somerset proof role, strengthens commercial-pilot and application content, and routes application links to the systems enquiry. |
+| Implemented | B01-02, B01-03, B01-04, B01-05, B01-07, B01-08, B01-09, B01-10, B01-13, B01-14, B01-16, B02-02, B02-03, B02-04, B02-05, B02-06, B02-07, B03-01, B03-02, B03-03 | The homepage now presents two offers, gives Bluezone Microgreens a full enquiry-led section, corrects the method comparison and broad claims, adds visible source names, replaces placeholders, explains the planned Somerset proof role, strengthens commercial-pilot and application content, and routes application links to the systems enquiry. |
 | Partially addressed | B01-11, B01-15, B02-01 | The homepage retains the supported international emphasis while About records the planned Somerset initiative. Contact now has separate produce and systems modes, preserves entered values and explicitly says that online submission is unavailable; the direct-email alternative remains. The inactive newsletter has been removed. Integration/support language is present at a high level, while specific OEM, warranty and service responsibilities still require confirmation. |
 | Deferred for the BioCube pass | B01-01, B01-06, B01-12 | BioCube, Capacity and Specifications remain intentionally unchanged at the client's direction. Product readiness, system-specific specifications, capacity calculations, measured performance and the boundary around research figures therefore remain open. Their current qualifications do not resolve the underlying verification work. |
 

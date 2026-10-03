@@ -1,7 +1,7 @@
-# BlueZone — Header + Hero
+# Bluezone — Header + Hero
 
 React + Vite + Tailwind CSS v3 + lucide-react. Built from the Motion Sites hero
-spec, with the background, navigation and copy taken from the BlueZone Final
+spec, with the background, navigation and copy taken from the Bluezone Final
 Website Structure.
 
 ## Run

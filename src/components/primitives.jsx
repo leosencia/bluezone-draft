@@ -241,7 +241,7 @@ export function SectionHeading({
   );
 }
 
-// The lowercase italic accent from the hero H1, now carrying BlueZone Blue.
+// The lowercase italic accent from the hero H1, now carrying Bluezone Blue.
 export function Accent({ children, dark = false }) {
   return (
     <span
@@ -362,8 +362,8 @@ export function Chip({
  */
 export const EVIDENCE_LEVELS = {
   A: {
-    title: "BlueZone verified",
-    body: "Measured in a BlueZone system.",
+    title: "Bluezone verified",
+    body: "Measured in a Bluezone system.",
   },
   B: {
     title: "Current modelling",

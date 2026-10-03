@@ -119,7 +119,7 @@ export default function ComparisonPage() {
             cta={{ label: "Discuss a project", href: ENQUIRY }}
             floatingCtaLabel="Get in touch"
             floatingAfterHeader
-            headerClassName="!z-20"
+            headerClassName="page-section-aligned-header !z-20"
           />
           <div className="comparison-hero-inner">
             <Reveal className="comparison-hero-content">
@@ -139,7 +139,7 @@ export default function ComparisonPage() {
                   Compare the methods
                 </PrimaryButton>
                 <a href="#bluezone-approach" className="comparison-hero-link">
-                  See BlueZone&apos;s approach
+                  See Bluezone&apos;s approach
                 </a>
               </div>
             </Reveal>
@@ -164,7 +164,7 @@ export default function ComparisonPage() {
               </SectionHeading>
             </div>
             <Body>
-              Fine nutrient mist feeds roots suspended in air. BlueZone combines
+              Fine nutrient mist feeds roots suspended in air. Bluezone combines
               this oxygen-rich root environment with automated delivery and
               climate control to support efficient, consistent growing.
             </Body>
@@ -278,7 +278,7 @@ export default function ComparisonPage() {
               Controlled growing. <Accent dark>Measured potential.</Accent>
             </SectionHeading>
             <Body dark className="mt-4">
-              A look at BlueZone&apos;s proposed indoor leafy-greens facility.
+              A look at Bluezone&apos;s proposed indoor leafy-greens facility.
               The figures below are modelled planning estimates, not measured
               performance or BioCube container specifications.
             </Body>
@@ -307,7 +307,7 @@ export default function ComparisonPage() {
             <Reveal className="comparison-system-visual">
               <img
                 src={container}
-                alt="Illustrative BlueZone growing system showing stacked racks inside a container."
+                alt="Illustrative Bluezone growing system showing stacked racks inside a container."
                 loading="lazy"
                 decoding="async"
               />
@@ -320,7 +320,7 @@ export default function ComparisonPage() {
                 From a single system <Accent dark>to modular rooms.</Accent>
               </SectionHeading>
               <Body dark className="mt-5">
-                BlueZone&apos;s proposed systems pair aeroponic misting with
+                Bluezone&apos;s proposed systems pair aeroponic misting with
                 racks, lighting, climate management and monitoring. The right
                 setup depends on the crop, site and buyer. A measured pilot
                 establishes usable yield, resource use and operating effort
@@ -355,7 +355,7 @@ export default function ComparisonPage() {
               </SectionHeading>
             </div>
             <Body>
-              BlueZone&apos;s facility model alongside the supplied hydroponic
+              Bluezone&apos;s facility model alongside the supplied hydroponic
               and outdoor benchmarks. The reference farms have no matched area
               or operating basis, so these are planning comparisons, not a
               like-for-like performance ranking.
@@ -368,7 +368,7 @@ export default function ComparisonPage() {
               aria-describedby="comparison-table-note"
             >
               <caption className="sr-only">
-                BlueZone aeroponics, hydroponics and traditional outdoor farming
+                Bluezone aeroponics, hydroponics and traditional outdoor farming
               </caption>
               <thead role="rowgroup">
                 <tr role="row">
@@ -380,7 +380,7 @@ export default function ComparisonPage() {
                     What you compare
                   </th>
                   {[
-                    ["BlueZone aeroponics", aero, "Facility model"],
+                    ["Bluezone aeroponics", aero, "Facility model"],
                     ["Hydroponics", hydro, "Supplied benchmark"],
                     ["Traditional outdoor", farm, "Supplied benchmark"],
                   ].map(([name, image, label]) => (
@@ -422,7 +422,7 @@ export default function ComparisonPage() {
             </summary>
             <div>
               <p>
-                Source: BlueZone&apos;s supplied{" "}
+                Source: Bluezone&apos;s supplied{" "}
                 <cite>Leafy Greens Indoor Farm Solution</cite> proposal, pages
                 4, 6 and 12, and the supplied comparison brief. These figures
                 describe the proposed facility, not demonstrated output.
@@ -436,7 +436,7 @@ export default function ComparisonPage() {
                 <strong>1. Comparison ranges:</strong> Hydroponic and outdoor
                 figures are supplied reference ranges, not verified industry
                 averages. Their crop specification, area and measurement periods
-                have not been matched to the BlueZone model.
+                have not been matched to the Bluezone model.
               </p>
               <p>
                 <strong>2. Resource calculations:</strong> 375 tonnes of water

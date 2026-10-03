@@ -48,7 +48,7 @@ export default function SectionAeroponics() {
         </div>
         <Body>
           Indoor vertical farming grows crops on stacked tiers within a managed
-          environment. BlueZone pairs this layout with aeroponics, which
+          environment. Bluezone pairs this layout with aeroponics, which
           delivers water and nutrients to suspended roots as a mist.
         </Body>
       </Reveal>

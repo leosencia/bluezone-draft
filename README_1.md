@@ -1,6 +1,6 @@
-# BlueZone — Hero Section
+# Bluezone — Hero Section
 
-Motion-Sites "Stellar.ai" hero structure, re-skinned to the BlueZone Aeroponics
+Motion-Sites "Stellar.ai" hero structure, re-skinned to the Bluezone Aeroponics
 Brand Kit V1. The Motion prompt drives the layout; the brand kit drives colour,
 type, copy and claims.
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-React 18 + Vite + Tailwind 3 + lucide-react. Drop `src/components/BlueZoneHero.jsx`,
+React 18 + Vite + Tailwind 3 + lucide-react. Drop `src/components/BluezoneHero.jsx`,
 `src/index.css` and `tailwind.config.js` into an existing project if you already
 have one.
 
@@ -42,7 +42,7 @@ dividers on desktop. `max-w-7xl mx-auto`, white background, Lucide icons.
 | 7 | **`rounded-full` → `rounded-md`; `rounded-3xl` → `rounded-2xl`** | §05: "Cards: 8–16px corner radius; avoid excessive 'app UI' pill shapes." One-line revert if you disagree. |
 | 8 | **Reviews badge → brand eyebrow** | The original slot held "4.9 rating from 18.3K+ users". See *Claims* below. |
 | 9 | **Company logos → sector row** | See *Claims* below. |
-| 10 | **CTA copy** | §08 / §12: primary CTA points at a qualified commercial conversation. "Begin Free Trial" and "Get started free" don't describe anything BlueZone sells. |
+| 10 | **CTA copy** | §08 / §12: primary CTA points at a qualified commercial conversation. "Begin Free Trial" and "Get started free" don't describe anything Bluezone sells. |
 | 11 | **Second CTA added** | §08 defines a primary *and* secondary button. Motion had one. |
 | 12 | **Overlay cards are data-driven** | Motion specified four hand-written overlays (wizard, training metrics, test results, deploy checklist) — those are AI-SaaS product UI. Replaced with one card rendering from `SLIDES`, in three variants (stat / chips / journey), so the card has the same visual weight without inventing a product. |
 | 13 | **Tailwind theme extended** | Motion said "no custom theme extensions." Without named tokens every colour is a raw hex arbitrary value. Tokens are nested under `brand.*` so they don't shadow Tailwind's own `teal-*` / `lime-*` scales. |
@@ -58,7 +58,7 @@ endorsement. It now reads "Zero-Mile Production" (with the descriptor shown from
 number.
 
 **The company logo row.** Motion listed INTERSCOPE, SPOTIFY, Nexera, M3, LAURA
-COLE and vertex. Presenting those — or invented equivalents — as BlueZone clients
+COLE and vertex. Presenting those — or invented equivalents — as Bluezone clients
 is a false endorsement. The row now carries the six target environments from §10
 under the label "Built around where food is needed," which claims fit, not
 custom. Swap in real logos only when the client confirms permission.
@@ -72,7 +72,7 @@ is exactly what §11 exists to prevent.
 
 ## Placeholders to replace
 
-**Logo** — `BlueZoneHero.jsx`, in the nav. §11: "Never recreate the logo from a
+**Logo** — `BluezoneHero.jsx`, in the nav. §11: "Never recreate the logo from a
 screenshot or type it manually." The B/Z symbol is the client's vector asset, so
 the slot holds a neutral gradient block at the right size and clear space. Drop
 the master SVG in.
@@ -85,7 +85,7 @@ each entry in `SLIDES`. A navy gradient sits behind the video so a slow or faile
 load degrades to brand colour instead of browser grey.
 
 **Nav labels** — Solutions / Sectors / Technology / Evidence are my guesses at
-BlueZone's IA, matching Motion's shape (two with chevrons, two without).
+Bluezone's IA, matching Motion's shape (two with chevrons, two without).
 
 ## Colour and contrast notes
 
@@ -99,7 +99,7 @@ Body and nav text is Midnight Navy at 60–70% opacity rather than Tailwind grey
 which keeps everything inside the palette and clears AA comfortably.
 
 Field Green appears on exactly one slide — 05, the solution — per §03: "Green may
-appear as a very subtle terminal accent." Slides 01–03 are BlueZone Blue, 04 is
+appear as a very subtle terminal accent." Slides 01–03 are Bluezone Blue, 04 is
 Aero Teal. That progression is deliberate: problem → opportunity → solution.
 
 ## Accessibility

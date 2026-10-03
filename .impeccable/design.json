@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-09-15T00:00:00.000Z",
-  "title": "Design System: BlueZone Hero",
+  "title": "Design System: Bluezone Hero",
   "extensions": {
     "colorMeta": {
       "white-100": {
@@ -89,7 +89,7 @@
   ],
   "narrative": {
     "northStar": "Signal in the Dark",
-    "overview": "The BioCube's interior grow-light is the one bright, warm thing in an otherwise still, dark frame: open ocean, open sky, one engineered object. Every UI element on top of that photograph is a signal, not a surface: white text, a white pill, a thin white line, nothing more. Signals don't compete with what they're pointing at.\n\nThis system carries zero brand color of its own. Every hue in the frame belongs to the photograph. The chrome (navbar, hamburger, CTAs, mobile-menu overlay) exists only in white and black, at varying opacity, so it reads as instrument-panel signal rather than decoration. This is a deliberate gap in the system today, not a named prohibition: a future brand accent could be introduced without contradicting this spec, but nothing here currently earns that color.\n\nThe system explicitly rejects generic SaaS/AI-tool marketing tells: gradient-text headlines, glassmorphism panels, hero-metric stat cards, dashboard-carousel narratives. src/components/BlueZoneHero.jsx, sitting unused in this repo, is a live example of that failure mode (navy/blue gradient headline, tab-carousel hero) and should not be mined for tokens or patterns.",
+    "overview": "The BioCube's interior grow-light is the one bright, warm thing in an otherwise still, dark frame: open ocean, open sky, one engineered object. Every UI element on top of that photograph is a signal, not a surface: white text, a white pill, a thin white line, nothing more. Signals don't compete with what they're pointing at.\n\nThis system carries zero brand color of its own. Every hue in the frame belongs to the photograph. The chrome (navbar, hamburger, CTAs, mobile-menu overlay) exists only in white and black, at varying opacity, so it reads as instrument-panel signal rather than decoration. This is a deliberate gap in the system today, not a named prohibition: a future brand accent could be introduced without contradicting this spec, but nothing here currently earns that color.\n\nThe system explicitly rejects generic SaaS/AI-tool marketing tells: gradient-text headlines, glassmorphism panels, hero-metric stat cards, dashboard-carousel narratives. src/components/BluezoneHero.jsx, sitting unused in this repo, is a live example of that failure mode (navy/blue gradient headline, tab-carousel hero) and should not be mined for tokens or patterns.",
     "keyCharacteristics": [
       "Full-bleed photography is the only color source; UI chrome is pure white/black at varying opacity.",
       "Pill shape (rounded-full) is the only corner treatment in the system — no other radius exists.",
@@ -108,7 +108,7 @@
       "Do keep the BioCube's branded face in frame at every breakpoint — the background photo's crop point is a design decision, not an afterthought (object-position, not bare object-center, once the viewport gets narrow enough to crop the unit out)."
     ],
     "donts": [
-      "Don't use gradient-text hero headlines, glassmorphism panels, hero-metric stat-card templates, or dashboard-carousel narratives — the generic SaaS/AI-tool tells this system explicitly rejects. src/components/BlueZoneHero.jsx is the anti-pattern already sitting in this repo; don't extend it or pull tokens from it.",
+      "Don't use gradient-text hero headlines, glassmorphism panels, hero-metric stat-card templates, or dashboard-carousel narratives — the generic SaaS/AI-tool tells this system explicitly rejects. src/components/BluezoneHero.jsx is the anti-pattern already sitting in this repo; don't extend it or pull tokens from it.",
       "Don't add box-shadow anywhere. Depth comes from opacity and blur only.",
       "Don't introduce a second accent color casually. The achromatic palette is a current gap, not a locked rule — but any color addition needs a deliberate decision recorded here, not a one-off utility class.",
       "Don't let Instrument Serif appear at body or label size, or Inter appear above headline size — the two-voice pairing breaks if they blend."

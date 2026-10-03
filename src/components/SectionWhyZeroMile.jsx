@@ -80,7 +80,7 @@ export default function SectionWhyZeroMile() {
           <figure>
             <img
               src={planeImg}
-              alt="Concept illustration of a BlueZone BioCube unit on an airport apron, sited next to the point of demand."
+              alt="Concept illustration of a Bluezone BioCube unit on an airport apron, sited next to the point of demand."
               className="w-full h-auto -mt-6 md:-mt-[7.5rem] rounded-3xl"
             />
             {/* <figcaption className="mt-3 text-xs text-bz-slate">Concept illustration of production close to demand.</figcaption> */}
@@ -97,7 +97,9 @@ export default function SectionWhyZeroMile() {
               <h3 className="font-instrument-serif text-white text-2xl md:text-3xl mt-5">
                 {title}
               </h3>
-              <Body dark className="mt-2 max-w-none">{body}</Body>
+              <Body dark className="mt-2 max-w-none">
+                {body}
+              </Body>
             </BentoTile>
           </Reveal>
         ))}

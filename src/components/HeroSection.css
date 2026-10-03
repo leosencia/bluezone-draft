@@ -26,6 +26,23 @@
   min-height: clamp(88px, 12vh, 128px);
 }
 
+/* Matches the Section component's responsive side gutters and 1280px content cap. */
+.page-section-aligned-header {
+  --hero-gutter: 24px;
+}
+
+@media (min-width: 768px) {
+  .page-section-aligned-header {
+    --hero-gutter: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-section-aligned-header {
+    --hero-gutter: max(64px, calc((100vw - 1280px) / 2));
+  }
+}
+
 .hero-menu-header {
   position: relative;
   flex-shrink: 0;

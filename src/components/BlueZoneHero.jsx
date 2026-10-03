@@ -1,5 +1,13 @@
-import { useState, useEffect } from 'react';
-import { ChevronDown, Ship, Droplets, Truck, MapPin, Box, ArrowRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import {
+  ChevronDown,
+  Ship,
+  Droplets,
+  Truck,
+  MapPin,
+  Box,
+  ArrowRight,
+} from "lucide-react";
 
 /* ==================================================================
    PLACEHOLDERS — replace before this goes anywhere near production.
@@ -11,12 +19,12 @@ import { ChevronDown, Ship, Droplets, Truck, MapPin, Box, ArrowRight } from 'luc
 // mist, controlled lighting, composition left spacious for text overlays.
 // Per-slide image direction is noted on each SLIDE below.
 const HERO_VIDEO_SRC =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260319_165750_358b1e72-c921-48b7-aaac-f200994f32fb.mp4';
+  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260319_165750_358b1e72-c921-48b7-aaac-f200994f32fb.mp4";
 
 // Brand kit §11: "Every statistic must have a source and date."
 // I have not verified any of these figures — they came from the kit's
 // carousel table without attribution. Fill in publisher + year before launch.
-const SOURCE_TODO = 'Source pending — add publisher + year';
+const SOURCE_TODO = "Source pending — add publisher + year";
 
 // §12 checklist: "Hero carousel ... does not autoplay too quickly."
 // The Motion prompt said 4s; 7s gives the five-part argument room to land.
@@ -28,108 +36,123 @@ const AUTOPLAY_MS = 7000;
 
 const SLIDES = [
   {
-    num: '01',
-    tab: 'Import',
+    num: "01",
+    tab: "Import",
     icon: Ship,
-    label: 'The Import Problem',
-    variant: 'stat',
-    stat: '80%+',
-    statBody: 'of food is imported.',
+    label: "The Import Problem",
+    variant: "stat",
+    stat: "80%+",
+    statBody: "of food is imported.",
     bar: 80,
-    resolve: 'Why should fresh food travel so far?',
-    evidence: 'D · Industry data',
-    accent: 'blue',
+    resolve: "Why should fresh food travel so far?",
+    evidence: "D · Industry data",
+    accent: "blue",
     // §06 image language 01: island + port + supply route
   },
   {
-    num: '02',
-    tab: 'Water',
+    num: "02",
+    tab: "Water",
     icon: Droplets,
-    label: 'The Water Pressure',
-    variant: 'stat',
-    stat: '72%',
-    statBody: 'of global freshwater withdrawals go to agriculture.',
+    label: "The Water Pressure",
+    variant: "stat",
+    stat: "72%",
+    statBody: "of global freshwater withdrawals go to agriculture.",
     bar: 72,
-    resolve: 'We need to grow more with less.',
-    evidence: 'D · Industry data',
-    accent: 'blue',
+    resolve: "We need to grow more with less.",
+    evidence: "D · Industry data",
+    accent: "blue",
     // §06 image language 02: roots + fine mist + controlled lighting
   },
   {
-    num: '03',
-    tab: 'Distance',
+    num: "03",
+    tab: "Distance",
     icon: Truck,
-    label: 'The Distance Problem',
-    variant: 'stat',
-    stat: '25.4%',
-    statBody: 'of fruits & vegetables are lost before retail.',
+    label: "The Distance Problem",
+    variant: "stat",
+    stat: "25.4%",
+    statBody: "of fruits & vegetables are lost before retail.",
     bar: 25.4,
-    resolve: 'What if the farm was closer to the kitchen?',
-    evidence: 'D · Industry data',
-    accent: 'blue',
+    resolve: "What if the farm was closer to the kitchen?",
+    evidence: "D · Industry data",
+    accent: "blue",
     // §06 image language 03: produce logistics / road / cold chain
   },
   {
-    num: '04',
-    tab: 'Demand',
+    num: "04",
+    tab: "Demand",
     icon: MapPin,
-    label: 'The Opportunity',
-    variant: 'chips',
+    label: "The Opportunity",
+    variant: "chips",
     statement: "The farm doesn't have to be far away.",
-    chips: ['Airports', 'Islands', 'Hotels & Resorts', 'Foodservice'],
-    resolve: 'It can be where the demand is.',
-    accent: 'teal',
+    chips: ["Airports", "Islands", "Hotels & Resorts", "Foodservice"],
+    resolve: "It can be where the demand is.",
+    accent: "teal",
     // §06 image language 04: airport, resort, island or institutional demand environment
   },
   {
-    num: '05',
-    tab: 'Zero-Mile',
+    num: "05",
+    tab: "Zero-Mile",
     icon: Box,
-    label: 'The Solution',
-    variant: 'journey',
-    statement: 'Zero-Mile Production.',
-    journey: ['Explore', 'Discuss', 'Pilot', 'Measure', 'Scale'],
-    resolve: 'Grow closer. Control more.',
+    label: "The Solution",
+    variant: "journey",
+    statement: "Zero-Mile Production.",
+    journey: ["Explore", "Discuss", "Pilot", "Measure", "Scale"],
+    resolve: "Grow closer. Control more.",
     // §03: "Green may appear as a very subtle terminal accent." This is the
     // only slide that uses it — the last beat of the argument.
-    accent: 'field',
+    accent: "field",
     // §06 image language 05: real BioCube / vertical aeroponic facility
   },
 ];
 
 // Static class strings — Tailwind cannot see dynamically built names.
 const ACCENT = {
-  blue: { bar: 'bg-brand-blue', rule: 'bg-brand-blue', icon: 'text-brand-blue' },
-  teal: { bar: 'bg-brand-teal', rule: 'bg-brand-teal', icon: 'text-brand-teal' },
-  field: { bar: 'bg-brand-field', rule: 'bg-brand-field', icon: 'text-brand-field' },
+  blue: {
+    bar: "bg-brand-blue",
+    rule: "bg-brand-blue",
+    icon: "text-brand-blue",
+  },
+  teal: {
+    bar: "bg-brand-teal",
+    rule: "bg-brand-teal",
+    icon: "text-brand-teal",
+  },
+  field: {
+    bar: "bg-brand-field",
+    rule: "bg-brand-field",
+    icon: "text-brand-field",
+  },
 };
 
 const NAV_LINKS = [
-  { label: 'Solutions', chevron: true },
-  { label: 'Sectors', chevron: true },
-  { label: 'Technology', chevron: false },
-  { label: 'Evidence', chevron: false },
+  { label: "Solutions", chevron: true },
+  { label: "Sectors", chevron: true },
+  { label: "Technology", chevron: false },
+  { label: "Evidence", chevron: false },
 ];
 
 // §10 — the environments the identity has to work across. These are sectors
-// BlueZone is built for, NOT a client list. Do not restyle this row to read
+// Bluezone is built for, NOT a client list. Do not restyle this row to read
 // as logos or endorsements unless the client supplies real, permissioned ones.
 const SECTORS = [
-  'Airports',
-  'Islands & Remote',
-  'Hotels & Resorts',
-  'Foodservice',
-  'Government',
-  'Commercial Growers',
+  "Airports",
+  "Islands & Remote",
+  "Hotels & Resorts",
+  "Foodservice",
+  "Government",
+  "Commercial Growers",
 ];
 
-export default function BlueZoneHero() {
+export default function BluezoneHero() {
   const [active, setActive] = useState(0);
 
   // setTimeout keyed on `active` rather than a bare setInterval: clicking a
   // tab restarts the dwell instead of being yanked forward a moment later.
   useEffect(() => {
-    const t = setTimeout(() => setActive((i) => (i + 1) % SLIDES.length), AUTOPLAY_MS);
+    const t = setTimeout(
+      () => setActive((i) => (i + 1) % SLIDES.length),
+      AUTOPLAY_MS,
+    );
     return () => clearTimeout(t);
   }, [active]);
 
@@ -141,7 +164,7 @@ export default function BlueZoneHero() {
       {/* ============================= NAVIGATION ============================= */}
       <nav
         className="px-6 py-4 flex items-center justify-between max-w-7xl mx-auto animate-fade-in-up"
-        style={{ opacity: 0, animationDelay: '0.1s' }}
+        style={{ opacity: 0, animationDelay: "0.1s" }}
       >
         <div className="flex items-center gap-2.5">
           {/* LOGO PLACEHOLDER.
@@ -165,7 +188,9 @@ export default function BlueZoneHero() {
               className="flex items-center gap-1 text-sm text-brand-navy/70 hover:text-brand-navy transition-colors"
             >
               {link.label}
-              {link.chevron && <ChevronDown className="w-4 h-4" strokeWidth={1.75} />}
+              {link.chevron && (
+                <ChevronDown className="w-4 h-4" strokeWidth={1.75} />
+              )}
             </button>
           ))}
         </div>
@@ -193,7 +218,7 @@ export default function BlueZoneHero() {
             keeps its exact shape and carries the brand descriptor instead. */}
         <div
           className="inline-flex items-center gap-2.5 mb-8 animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.2s' }}
+          style={{ opacity: 0, animationDelay: "0.2s" }}
         >
           <span className="w-6 h-6 border border-brand-navy/20 rounded flex items-center justify-center">
             <Box className="w-3.5 h-3.5 text-brand-blue" strokeWidth={1.75} />
@@ -208,10 +233,10 @@ export default function BlueZoneHero() {
         {/* --- Main heading --- */}
         {/* Type scale, weight and case are the Motion-Sites prompt's, unchanged.
             Only the gradient is the brand kit's: Midnight Navy → Deep Ocean →
-            BlueZone Blue, replacing black → gray-500 → gray-400. */}
+            Bluezone Blue, replacing black → gray-500 → gray-400. */}
         <h1
           className="text-6xl md:text-7xl lg:text-[80px] font-normal leading-[1.1] tracking-tight mb-5 text-brand-navy animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.3s' }}
+          style={{ opacity: 0, animationDelay: "0.3s" }}
         >
           <span className="block">Grow Closer.</span>
           <span className="block bg-gradient-to-r from-brand-navy via-brand-ocean to-brand-blue bg-clip-text text-transparent">
@@ -222,10 +247,10 @@ export default function BlueZoneHero() {
         {/* --- Subheading --- */}
         <p
           className="text-lg md:text-xl text-brand-navy/70 mb-8 max-w-2xl mx-auto animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.4s' }}
+          style={{ opacity: 0, animationDelay: "0.4s" }}
         >
-          BlueZone builds modular aeroponic infrastructure that puts controlled production
-          closer to where fresh food is actually needed.
+          Bluezone builds modular aeroponic infrastructure that puts controlled
+          production closer to where fresh food is actually needed.
         </p>
 
         {/* --- CTAs --- */}
@@ -233,7 +258,7 @@ export default function BlueZoneHero() {
             button. Both are here because the kit pairs them. */}
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12 animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.5s' }}
+          style={{ opacity: 0, animationDelay: "0.5s" }}
         >
           <button className="inline-flex items-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-base font-medium hover:bg-brand-ocean transition-colors">
             Explore a Zero-Mile Project
@@ -248,7 +273,7 @@ export default function BlueZoneHero() {
         {/* --- Tab bar --- */}
         <div
           className="flex justify-center mb-8 animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.6s' }}
+          style={{ opacity: 0, animationDelay: "0.6s" }}
         >
           <div className="bg-brand-mist rounded-lg p-1 w-full max-w-md md:w-auto md:max-w-none">
             {/* Mobile: 2×2 grid with the solution spanning the full width —
@@ -261,15 +286,15 @@ export default function BlueZoneHero() {
                     key={s.num}
                     onClick={() => setActive(i)}
                     className={`flex items-center justify-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium transition-colors ${
-                      i === 4 ? 'col-span-2' : ''
+                      i === 4 ? "col-span-2" : ""
                     } ${
                       active === i
-                        ? 'bg-white text-brand-navy shadow-sm'
-                        : 'text-brand-navy/60 hover:text-brand-navy'
+                        ? "bg-white text-brand-navy shadow-sm"
+                        : "text-brand-navy/60 hover:text-brand-navy"
                     }`}
                   >
                     <Icon
-                      className={`w-4 h-4 ${active === i ? ACCENT[s.accent].icon : ''}`}
+                      className={`w-4 h-4 ${active === i ? ACCENT[s.accent].icon : ""}`}
                       strokeWidth={1.75}
                     />
                     {s.tab}
@@ -288,18 +313,21 @@ export default function BlueZoneHero() {
                       onClick={() => setActive(i)}
                       className={`flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-medium transition-colors ${
                         active === i
-                          ? 'bg-white text-brand-navy shadow-sm'
-                          : 'text-brand-navy/60 hover:text-brand-navy'
+                          ? "bg-white text-brand-navy shadow-sm"
+                          : "text-brand-navy/60 hover:text-brand-navy"
                       }`}
                     >
                       <Icon
-                        className={`w-4 h-4 ${active === i ? ACCENT[s.accent].icon : ''}`}
+                        className={`w-4 h-4 ${active === i ? ACCENT[s.accent].icon : ""}`}
                         strokeWidth={1.75}
                       />
                       {s.tab}
                     </button>
                     {i < SLIDES.length - 1 && (
-                      <span className="w-px h-5 bg-brand-navy/10" aria-hidden="true" />
+                      <span
+                        className="w-px h-5 bg-brand-navy/10"
+                        aria-hidden="true"
+                      />
                     )}
                   </div>
                 );
@@ -313,7 +341,7 @@ export default function BlueZoneHero() {
             brand navy rather than browser grey. */}
         <div
           className="relative rounded-2xl overflow-hidden h-[400px] md:h-[500px] bg-gradient-to-br from-brand-navy via-brand-ocean to-brand-navy animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.7s' }}
+          style={{ opacity: 0, animationDelay: "0.7s" }}
         >
           <video
             src={HERO_VIDEO_SRC}
@@ -339,7 +367,10 @@ export default function BlueZoneHero() {
           >
             <div className="bg-white rounded-2xl overflow-hidden border border-brand-navy/10">
               {/* Accent rule — §07: one accent colour per family */}
-              <div className={`h-[3px] w-full ${accent.rule}`} aria-hidden="true" />
+              <div
+                className={`h-[3px] w-full ${accent.rule}`}
+                aria-hidden="true"
+              />
 
               <div className="p-5 sm:p-6">
                 {/* Label row */}
@@ -355,7 +386,7 @@ export default function BlueZoneHero() {
                 </div>
 
                 {/* Statement */}
-                {slide.variant === 'stat' ? (
+                {slide.variant === "stat" ? (
                   <>
                     {/* Big figure stays Midnight Navy — §03 forbids pale teal
                         or green as text on white. Accent lives in the bar. */}
@@ -395,7 +426,10 @@ export default function BlueZoneHero() {
                 )}
 
                 {/* Divider + resolution line */}
-                <div className="h-px w-full bg-brand-navy/10 my-5" aria-hidden="true" />
+                <div
+                  className="h-px w-full bg-brand-navy/10 my-5"
+                  aria-hidden="true"
+                />
                 <p className="text-[15px] font-medium text-brand-navy">
                   {slide.resolve}
                 </p>
@@ -407,7 +441,7 @@ export default function BlueZoneHero() {
                 )}
 
                 {/* §12: primary CTA points at a qualified commercial conversation */}
-                {slide.variant === 'journey' && (
+                {slide.variant === "journey" && (
                   <button className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-brand-navy text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-brand-ocean transition-colors">
                     Discuss a Pilot
                     <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
@@ -423,7 +457,7 @@ export default function BlueZoneHero() {
             these are target environments, not clients. */}
         <div
           className="mt-24 animate-fade-in-up"
-          style={{ opacity: 0, animationDelay: '0.8s' }}
+          style={{ opacity: 0, animationDelay: "0.8s" }}
         >
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-navy/40 mb-6">
             Built around where food is needed

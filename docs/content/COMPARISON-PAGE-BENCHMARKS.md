@@ -40,7 +40,7 @@ manual-only monitoring have been replaced with practice-dependent wording.
 - https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/small-scale-hydroponics
 
 These support root-environment definitions and aeration/solution management,
-not the BlueZone model or universal superiority claims. Existing hydroponic
+not the Bluezone model or universal superiority claims. Existing hydroponic
 definitions are retained; potential growth/resource benefits are qualified
 by system and crop. Certification is separate from pesticide practice.
 

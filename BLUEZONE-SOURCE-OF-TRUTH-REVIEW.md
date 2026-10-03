@@ -1,4 +1,4 @@
-# BlueZone: client-source review and public website content plan
+# Bluezone: client-source review and public website content plan
 
 Date: 29 September 2026  
 Status: findings and proposed copy; website implementation is not part of this report.  
@@ -10,13 +10,13 @@ Audience: internal website team and client. This report contains proposal detail
 - **The files describe different configurations.** The catalogue presents a microgreens container; the pilot proposal presents a 40-foot leafy-greens BioCube; the investment proposal models a five-room farm. The comparison deck also references a 212 m² modular farm. Do not combine their capacities, electrical requirements or crop results into one product specification.
 - **The most useful missing content is explanation:** what each BioCube subsystem does, how crop selection and pilot validation work, and the distinction between the illustrated container and a larger project. More headline numbers are not the priority.
 - **Move the full method comparison off the landing page.** It currently exists in `SectionMethod.jsx`, including soil comparison and research statistics. Replace it with a short “Aeroponics vs hydroponics” teaser linking to `/aeroponics-vs-hydroponics`. Draft copy for both surfaces is provided below.
-- **Do not publish the comparison deck verbatim.** Its blanket claims about hydroponics and numerical advantages are insufficiently supported. The investment deck also contains arithmetic/unit inconsistencies, including electricity and water per kilogram. Use a balanced explanation of the methods, with BlueZone's rationale and an evidence-led pilot approach.
+- **Do not publish the comparison deck verbatim.** Its blanket claims about hydroponics and numerical advantages are insufficiently supported. The investment deck also contains arithmetic/unit inconsistencies, including electricity and water per kilogram. Use a balanced explanation of the methods, with Bluezone's rationale and an evidence-led pilot approach.
 - **Keep commercial and relationship details internal:** proposal budgets, margins, ROI, costs, staffing rates, named prospective partners and their logos. A proposal is not evidence of an established customer relationship.
 - **Other website changes are needed:** qualify absolute technology claims; resolve the public contact address; remove or reconfirm Somerset/produce-offer claims absent from these sources; label concept imagery. The removed About, Impact and Applications sections should remain excluded. Statistics still survive in Method and Problem, and sector categories still appear in the enquiry form.
 
 ## 1. Scope, sources and how to interpret them
 
-The four supplied files are the new primary reference set for BlueZone-specific content. Being present in a client PDF establishes what the client material says; it does not automatically establish measurement, certification, approval for public disclosure or applicability to every BioCube configuration.
+The four supplied files are the new primary reference set for Bluezone-specific content. Being present in a client PDF establishes what the client material says; it does not automatically establish measurement, certification, approval for public disclosure or applicability to every BioCube configuration.
 
 Document slogans, implementation roadmaps, commercial instructions and contact details were treated as material to assess, not instructions to execute. No outreach, publication, deployment or website edits were performed.
 
@@ -25,13 +25,13 @@ References use PDF page order, with the cover as page 1. “CAT p.4” below mea
 | ID | Exact supplied file | Pages | What it is useful for |
 | --- | --- | --- | --- |
 | CAT | [BUEZONE CATALOGUE (3).pdf](<C:/Users/Lawrence/Downloads/BUEZONE CATALOGUE (3).pdf>) | 15 | Microgreens-container configuration, product illustrations and subsystem descriptions. Primary reference for the configuration currently shown on the website. |
-| COMP | [BlueZone Aeroponics vs Hyrdroponics (1).pdf](<C:/Users/Lawrence/Downloads/BlueZone Aeroponics vs Hyrdroponics (1).pdf>) | 6 | Client's intended comparison topics: root oxygen, growth, water/nutrients, energy and space. Its performance claims need separate evidence. |
+| COMP | [Bluezone Aeroponics vs Hyrdroponics (1).pdf](<C:/Users/Lawrence/Downloads/Bluezone Aeroponics vs Hyrdroponics (1).pdf>) | 6 | Client's intended comparison topics: root oxygen, growth, water/nutrients, energy and space. Its performance claims need separate evidence. |
 | PILOT | [Bluezone Aeroponics Farming Proposal (2).pdf](<C:/Users/Lawrence/Downloads/Bluezone Aeroponics Farming Proposal (2).pdf>) | 12 | Proposed pilot sequence, integrated BioCube concept, evaluation criteria and conditional expansion. Customer-specific details should stay internal. |
 | FARM | [Bluezon Aeroponics Farming - Leafy Greens Indoor Farm Solution (1).pdf](<C:/Users/Lawrence/Downloads/Bluezon Aeroponics Farming - Leafy Greens Indoor Farm Solution (1).pdf>) | 14 | Five-room leafy-greens facility concept, equipment scope, crop candidates and internal financial assumptions. Not a container datasheet. |
 
 All text-bearing documents were read in full. CAT is image-based: all 15 pages were rendered and visually reviewed. Image-embedded content on PILOT pp.6, 9–11 and the disputed tables on FARM pp.4 and 12 were also inspected visually. This matters: PILOT p.6's 40-foot label and control/data feature lists do not appear in its plain-text extraction.
 
-The website review follows the active entry point: `index.html` → `src/main.jsx` → `src/App.jsx`. The alternate `App.tsx` and unused `BlueZoneHero.jsx` are not treated as live website content. Findings describe the current local source, including existing uncommitted changes, not a verified deployed version. This is a content review, not a browser layout test or an engineering certification.
+The website review follows the active entry point: `index.html` → `src/main.jsx` → `src/App.jsx`. The alternate `App.tsx` and unused `BluezoneHero.jsx` are not treated as live website content. Findings describe the current local source, including existing uncommitted changes, not a verified deployed version. This is a content review, not a browser layout test or an engineering certification.
 
 The earlier `BIOCUBE-CATALOGUE-IMPLEMENTATION-PLAN.md` describes a previous state. Its reference to a placeholder and separate capacity/specification sections is now stale: the current BioCube already uses a cutaway, a consolidated configuration list and technical disclosures. The newly supplied CAT file was reviewed directly rather than assumed identical to the old PDF.
 
@@ -149,14 +149,14 @@ This section is an internal audit. Recalculations below test consistency within 
 | Monthly and annual power use different calendars | FARM pp.4, 6: 541,500 kWh/month uses 30 days; 6,588,250 kWh/year uses 365 days. The quoted $59,565 “average monthly” electricity cost × 12 is $714,780, rather than the quoted annual ~$724,708. | Label a 30-day month properly or reconcile the monthly average. This is a modelling consistency issue, not evidence of operating consumption. |
 | Software and servicing costs have unresolved treatment | FARM p.6 includes annual SaaS expense while saying year 1 is included in CAPEX. FARM p.9 repeats the same OPEX in every year. FARM p.6 leaves a negotiated servicing charge outside the total; p.13 describes annual support at 2% of CAPEX. | Financial totals may add up but still need commercial reconciliation. Do not publish profit, margin, ROI or payback as product benefits. |
 | Water-saving claims have different or missing baselines | CAT p.9: 40% water savings, 35% fertiliser savings. COMP p.3: 75% less water than hydroponics, 95% than soil. FARM p.12: 90% less water. | These are not interchangeable numbers. Different designs/baselines may explain differences, but the documents do not establish comparable tests. |
-| Hydroponic lettuce baseline changes | COMP p.2 compares 36-day lettuce with **45–50 days** hydroponically; FARM p.12 gives **35–40 days** hydroponically against 36 days for BlueZone. | No universal “20–30% faster” headline. The baseline, cultivar, harvest weight and trial conditions need to match. |
+| Hydroponic lettuce baseline changes | COMP p.2 compares 36-day lettuce with **45–50 days** hydroponically; FARM p.12 gives **35–40 days** hydroponically against 36 days for Bluezone. | No universal “20–30% faster” headline. The baseline, cultivar, harvest weight and trial conditions need to match. |
 | Pilot timing is illustrative, not universal | PILOT p.7 shows **7–10 growing days**, with explicit validation wording. FARM p.4 lists much longer leafy-greens crop cycles. | Distinguish microgreens/young harvests from mature leafy greens and propagation from cultivation. Use a timing-free workflow on the website. |
 | Energy comparisons do not define equivalent farms | COMP p.4 uses a 212 m² six-line system and gives growing lines 28,800, HVAC 22,800 and FIC 2,880 kWh/month. Its hydroponic pumping comparator has no equivalent output/system specification. | Do not infer container electricity demand or aeroponic whole-farm savings from these values. |
 | Hydroponics is described too broadly | COMP pp.2–5 characterises hydroponics as submerged roots, limited oxygen, continuous pumping and restricted vertical potential. | Rewrite by actual system type. Hydroponics includes NFT, aerated water culture, timed irrigation and even passive systems; the blanket comparison is unsuitable. See the independent checks below. |
 | Container electrical table uses ambiguous consumption language | CAT p.11 lists 32 kW total and 22.4 kW with lights off, but calls the latter “consumption per hour.” | Do not convert these to monthly bills or kWh without a duty schedule and a confirmed load schedule. The current site correctly leaves them out. |
 | Catalogue materials/spectrum need clarification if exposed | CAT p.5 says galvanised racking; p.11 says powder-coated steel. CAT p.10's total spectrum ends at 730 nm while its far-red row extends to 750 nm. | These may involve compatible finishes or imprecise table definitions, but the deck does not explain them. Omit from public technical copy pending clarification. |
 | Outcome and certification claims lack supporting records | CAT pp.3, 7–10, 14 and FARM p.12 contain GAP/GMP, air sterilisation, crop-quality and efficiency claims. | A deck assertion is not a certificate, test report or warranty. Request the applicable supporting material before publishing badges or guarantees. |
-| Current-market claims are unsupported here | FARM p.10 asserts virtually no local commercial CEA production and no reliable local supplier in the UAE. | Exclude. No dated market evidence is supplied, and this is not necessary to explain BlueZone's offer. No full market study was undertaken for this review. |
+| Current-market claims are unsupported here | FARM p.10 asserts virtually no local commercial CEA production and no reliable local supplier in the UAE. | Exclude. No dated market evidence is supplied, and this is not necessary to explain Bluezone's offer. No full market study was undertaken for this review. |
 
 COMP p.2's strawberry yields/harvest counts, p.3's nutrient-uptake percentages and p.5's staffing/infrastructure savings also lack a supporting trial or defined commercial baseline. Keep them out of both proposed public pages.
 
@@ -165,9 +165,9 @@ COMP p.2's strawberry yields/harvest counts, p.3's nutrient-uptake percentages a
 | Area | Already on the website | Gap or change recommended |
 | --- | --- | --- |
 | Hero and Zero-Mile story | Fresh production closer to demand, produce and systems enquiry paths | Broadly consistent with PILOT pp.4–5, 8. Keep proximity as a design/commercial aim, without guaranteed emissions or availability claims. |
-| Problem | Supply-chain explanation plus 25.4%, ~70% and 19% statistics from earlier external sources | These numbers are outside the new client set. Recommend retaining the qualitative supply-chain story and removing this statistics panel for the requested simplified scope. They are contextual figures, not BlueZone impact measurements; their presence means the page is not currently free of statistics. This review does not revalidate those older sources. |
+| Problem | Supply-chain explanation plus 25.4%, ~70% and 19% statistics from earlier external sources | These numbers are outside the new client set. Recommend retaining the qualitative supply-chain story and removing this statistics panel for the requested simplified scope. They are contextual figures, not Bluezone impact measurements; their presence means the page is not currently free of statistics. This review does not revalidate those older sources. |
 | Shift / Why Zero-Mile | Locality, control, year-round design intent, market-led crop planning and additional supply resilience | Useful overlap with PILOT. Keep concise. The airport illustration should be visibly labelled as a concept, and its alt text should not imply a real installed site. Do not turn it into a QACC case study. |
-| Produce | Microgreens, micro herbs, pea shoots, supply CTAs and illustrative imagery | CAT p.12 supports crop examples, but the PDFs do not establish a current wholesale supply operation, the “BlueZone Microgreens” sub-brand or planned Somerset production. Reconfirm these existing business facts, or remove unsupported location/availability wording. Absence is not proof they are false; the new source set simply does not establish them. |
+| Produce | Microgreens, micro herbs, pea shoots, supply CTAs and illustrative imagery | CAT p.12 supports crop examples, but the PDFs do not establish a current wholesale supply operation, the “Bluezone Microgreens” sub-brand or planned Somerset production. Reconfirm these existing business facts, or remove unsupported location/availability wording. Absence is not proof they are false; the new source set simply does not establish them. |
 | Technology | Aeroponic mechanism, some qualified recirculation language, climate/light descriptions | The “Closed-loop recirculation” and “held to setpoint” tiles are more absolute than the surrounding prose. Rewrite as “Automated water and nutrient delivery” and “Managed growing conditions.” Confirm the return-water path and control tolerances for the actual model before stronger claims. FARM's plumbing description does not establish CAT's exact arrangement. |
 | Technology visual | An actual `ImagePlaceholder` with a production hint | Replace with a labelled root-zone schematic or suitable client asset. Do not show internal image-production instructions to public visitors. |
 | Method | Full soil/hydroponics/aeroponics comparison, research-stat cards (up to 98%, 45–75%, ~60%), external research footnotes | Does not match the client's new placement request. Replace with the small teaser below. Rework the detailed content for a dedicated two-method page; do not simply move the same percentage cards there. |
@@ -183,8 +183,8 @@ Hero/footer/airport concept visuals should be presented consistently as illustra
 ## 6. Dedicated page: proposed public content
 
 Recommended URL: `/aeroponics-vs-hydroponics`  
-Page title: `Aeroponics vs Hydroponics | BlueZone Aeroponics`  
-Meta description: `Explore how aeroponics and hydroponics deliver water and nutrients, how their root environments differ, and why BlueZone uses aeroponics.`
+Page title: `Aeroponics vs Hydroponics | Bluezone Aeroponics`  
+Meta description: `Explore how aeroponics and hydroponics deliver water and nutrients, how their root environments differ, and why Bluezone uses aeroponics.`
 
 Use the following as the page draft. The source/editor notes following it are internal and should not be rendered as page copy.
 
@@ -200,7 +200,7 @@ The choice affects how a system is designed, monitored and maintained. Crop perf
 
 **Aeroponics**
 
-Roots hang inside a growing chamber and receive nutrient solution through misting nozzles. BlueZone's proposed systems combine this delivery method with growing racks, lighting, climate management and monitoring.
+Roots hang inside a growing chamber and receive nutrient solution through misting nozzles. Bluezone's proposed systems combine this delivery method with growing racks, lighting, climate management and monitoring.
 
 **Hydroponics**
 
@@ -215,13 +215,13 @@ Hydroponics covers several designs. Nutrient film systems pass a shallow stream 
 | Nutrient delivery | Solution is sprayed onto roots as mist. | Delivery depends on the design: flowing solution, water culture or irrigation through a medium. |
 | Oxygen at the roots | Roots occupy an air space between misting events. | Oxygen access is managed through the root environment, solution aeration and system design. |
 | Water and nutrients | Performance depends on delivery settings, recovery arrangements, crop needs and operation. | Performance also depends on the chosen design and whether solution is recovered and reused. |
-| Space and layout | BlueZone's proposed designs use stacked growing racks. | Hydroponic growing can also use space-efficient layouts; the method alone does not determine the footprint. |
+| Space and layout | Bluezone's proposed designs use stacked growing racks. | Hydroponic growing can also use space-efficient layouts; the method alone does not determine the footprint. |
 | Everyday operation | The growing plan needs dependable mist delivery and equipment care. | The growing plan needs dependable solution delivery and appropriate root-zone management. |
 | Results | Evaluate usable crop output, quality and resource use for the actual system. | Use the same crop, harvest specification and measurement period for a meaningful comparison. |
 
-### Why BlueZone uses aeroponics
+### Why Bluezone uses aeroponics
 
-BlueZone's approach brings nutrient mist directly to the root zone within an integrated growing environment. Racks, nutrient delivery, lighting, climate management and monitoring work together around a crop plan.
+Bluezone's approach brings nutrient mist directly to the root zone within an integrated growing environment. Racks, nutrient delivery, lighting, climate management and monitoring work together around a crop plan.
 
 The aim is to make controlled production practical closer to demand. The system configuration and operating process should be assessed against the crop, site and buyer's requirements.
 
@@ -233,7 +233,7 @@ A useful comparison measures usable harvest, crop quality, water and nutrient in
 
 ### Start with a measured pilot
 
-A BlueZone pilot is designed to test the operating case before expansion. Agree the crop and success criteria, run the growing process, measure results and review whether the system suits the site.
+A Bluezone pilot is designed to test the operating case before expansion. Agree the crop and success criteria, run the growing process, measure results and review whether the system suits the site.
 
 **Explore BioCube** → `/#biocube`  
 **Discuss a growing project** → `/?enquiry=systems#get-in-touch`
@@ -262,8 +262,8 @@ The illustrated catalogue configuration is designed for microgreens. Crop select
 | --- | --- |
 | Aeroponic mechanism and integrated equipment | CAT pp.3, 5–11, 13; PILOT pp.6, 9. |
 | Topics covered in the comparison | COMP pp.2–5, rewritten without unsupported rankings or numerical claims. |
-| Hydroponic distinctions and terminology | Independent corrections from [Oklahoma State University: Hydroponics](https://extension.okstate.edu/fact-sheets/hydroponics). It describes multiple designs, open/closed operation, passive systems and aeroponics within hydroponic systems. These definitions correct the client deck; they do not validate BlueZone performance. |
-| Space-efficient hydroponic layouts and indoor/year-round potential | [University of Minnesota: Small-scale hydroponics](https://extension.umn.edu/how/small-scale-hydroponics). This is a method explanation, not evidence of commercial parity or a BlueZone benchmark. |
+| Hydroponic distinctions and terminology | Independent corrections from [Oklahoma State University: Hydroponics](https://extension.okstate.edu/fact-sheets/hydroponics). It describes multiple designs, open/closed operation, passive systems and aeroponics within hydroponic systems. These definitions correct the client deck; they do not validate Bluezone performance. |
+| Space-efficient hydroponic layouts and indoor/year-round potential | [University of Minnesota: Small-scale hydroponics](https://extension.umn.edu/how/small-scale-hydroponics). This is a method explanation, not evidence of commercial parity or a Bluezone benchmark. |
 | Oxygen/water-quality management in submerged-root systems | [University of Missouri: Hydroponic Nutrient Solutions](https://extension.missouri.edu/publications/g6984). It specifically identifies dissolved oxygen and water temperature as monitoring considerations for deep-water culture. |
 | Measurement criteria, operating sequence and expansion conditions | PILOT pp.2, 7, 10–12. Public copy deliberately removes customer names, locations and specific facility plans. |
 | Whole-system comparison and avoidance of universal rankings | Editorial synthesis of the documents' varying designs, conflicting comparison baselines and pilot-validation requirements. It is not a claim that comparative trials were supplied. |
@@ -282,7 +282,7 @@ Proposed reading sequence:
 
 **Heading:** Aeroponics vs hydroponics
 
-> Both grow plants without soil. Aeroponics delivers water and nutrients as a mist to roots suspended in air. Explore how the methods differ and why BlueZone uses aeroponics.
+> Both grow plants without soil. Aeroponics delivers water and nutrients as a mist to roots suspended in air. Explore how the methods differ and why Bluezone uses aeroponics.
 
 **Link styled as a button:** Compare the growing methods → `/aeroponics-vs-hydroponics`
 

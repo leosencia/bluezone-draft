@@ -78,7 +78,7 @@ export default function SectionShift() {
               >
                 <img
                   src={siting}
-                  alt="Concept of a BlueZone growing unit beside a buyer's warehouse."
+                  alt="Concept of a Bluezone growing unit beside a buyer's warehouse."
                   loading="lazy"
                   className="rounded-b-3xl"
                 />

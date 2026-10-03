@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Mixed B2B audience: wholesalers, foodservice distributors, restaurants and hospitality buyers considering BlueZone Microgreens; and institutional buyers, resorts, airports, local operators and commercial growers evaluating a growing system or pilot. Investors and media may also use the site to form a first impression.
+Mixed B2B audience: wholesalers, foodservice distributors, restaurants and hospitality buyers considering Bluezone Microgreens; and institutional buyers, resorts, airports, local operators and commercial growers evaluating a growing system or pilot. Investors and media may also use the site to form a first impression.
 
 ## Product Purpose
 
-BlueZone Aeroponics' marketing site presents two offers under one Zero-Mile Produce story: BlueZone Microgreens and modular BioCube aeroponic growing systems. It should open useful produce-supply conversations and structured system or pilot enquiries without implying current stock, fixed delivery coverage or proven BioCube performance.
+Bluezone Aeroponics' marketing site presents two offers under one Zero-Mile Produce story: Bluezone Microgreens and modular BioCube aeroponic growing systems. It should open useful produce-supply conversations and structured system or pilot enquiries without implying current stock, fixed delivery coverage or proven BioCube performance.
 
 ## Brand Personality
 
@@ -18,7 +18,7 @@ Engineered, calm, premium. Voice is confident and unhurried, without hype. BioCu
 
 ## Anti-references
 
-Generic SaaS / AI-tool marketing: gradient-text hero headlines, glassmorphism panels, "hero-metric" stat-card templates, stock dashboard-carousel narratives. If it could be mistaken for a generic AI-tool landing page, it has failed. (Note: `src/components/BlueZoneHero.jsx` in this repo is exactly this failure mode — a navy/blue gradient-headline tab-carousel exploration that is not wired into the app and should not be treated as the design reference. `src/components/HeroSection.jsx`, the component actually rendered by `App.jsx`, is the canonical direction.)
+Generic SaaS / AI-tool marketing: gradient-text hero headlines, glassmorphism panels, "hero-metric" stat-card templates, stock dashboard-carousel narratives. If it could be mistaken for a generic AI-tool landing page, it has failed. (Note: `src/components/BluezoneHero.jsx` in this repo is exactly this failure mode — a navy/blue gradient-headline tab-carousel exploration that is not wired into the app and should not be treated as the design reference. `src/components/HeroSection.jsx`, the component actually rendered by `App.jsx`, is the canonical direction.)
 
 ## Design Principles
 
@@ -35,4 +35,4 @@ WCAG AA baseline: sufficient color contrast for white text over the hero photo (
 
 ## Current content sources
 
-Use [the content ledger](docs/content/BLUEZONE-CONTENT-SOURCES.md) and [source review](BLUEZONE-SOURCE-OF-TRUTH-REVIEW.md) for the four current PDFs: BUEZONE CATALOGUE (3).pdf; BlueZone Aeroponics vs Hyrdroponics (1).pdf; Bluezone Aeroponics Farming Proposal (2).pdf; Bluezon Aeroponics Farming - Leafy Greens Indoor Farm Solution (1).pdf. Keep the microgreens container, leafy-greens pilot, modular comparison farm and five-room facility distinct. Publish provisional configuration and generic pilot criteria; hold unverified savings, annual output, certification, named partners and financial claims. Comparison lives at /aeroponics-vs-hydroponics/; systems enquiries return via /?enquiry=systems#get-in-touch. Existing business status and public inbox await confirmation.
+Use [the content ledger](docs/content/BLUEZONE-CONTENT-SOURCES.md) and [source review](BLUEZONE-SOURCE-OF-TRUTH-REVIEW.md) for the four current PDFs: BUEZONE CATALOGUE (3).pdf; Bluezone Aeroponics vs Hyrdroponics (1).pdf; Bluezone Aeroponics Farming Proposal (2).pdf; Bluezon Aeroponics Farming - Leafy Greens Indoor Farm Solution (1).pdf. Keep the microgreens container, leafy-greens pilot, modular comparison farm and five-room facility distinct. Publish provisional configuration and generic pilot criteria; hold unverified savings, annual output, certification, named partners and financial claims. Comparison lives at /aeroponics-vs-hydroponics/; systems enquiries return via /?enquiry=systems#get-in-touch. Existing business status and public inbox await confirmation.

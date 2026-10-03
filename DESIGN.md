@@ -1,5 +1,5 @@
 ---
-name: BlueZone Hero
+name: Bluezone Hero
 description: Full-bleed BioCube photography carrying a calm, engineered, achromatic UI overlay.
 colors:
   white-100: "#FFFFFF"
@@ -84,7 +84,7 @@ components:
     width: "24px"
 ---
 
-# Design System: BlueZone Hero
+# Design System: Bluezone Hero
 
 ## 1. Overview
 
@@ -94,7 +94,7 @@ The BioCube's interior grow-light is the one bright, warm thing in an otherwise 
 
 This system carries zero brand color of its own. Every hue in the frame belongs to the photograph. The chrome (navbar, hamburger, CTAs, mobile-menu overlay) exists only in white and black, at varying opacity, so it reads as instrument-panel signal rather than decoration. This is a deliberate gap in the system today, not a named prohibition: a future brand accent could be introduced without contradicting this spec, but nothing here currently earns that color.
 
-The system explicitly rejects generic SaaS/AI-tool marketing tells: gradient-text headlines, glassmorphism panels, hero-metric stat cards, dashboard-carousel narratives. `src/components/BlueZoneHero.jsx`, sitting unused in this repo, is a live example of that failure mode (navy/blue gradient headline, tab-carousel hero) and should not be mined for tokens or patterns.
+The system explicitly rejects generic SaaS/AI-tool marketing tells: gradient-text headlines, glassmorphism panels, hero-metric stat cards, dashboard-carousel narratives. `src/components/BluezoneHero.jsx`, sitting unused in this repo, is a live example of that failure mode (navy/blue gradient headline, tab-carousel hero) and should not be mined for tokens or patterns.
 
 **Key Characteristics:**
 - Full-bleed photography is the only color source; UI chrome is pure white/black at varying opacity.
@@ -169,11 +169,11 @@ Buttons, nav links and the hamburger are the entire component vocabulary. Every 
 - **Do** keep the BioCube's branded face in frame at every breakpoint — the background photo's crop point is a design decision, not an afterthought (`object-position`, not bare `object-center`, once the viewport gets narrow enough to crop the unit out).
 
 ### Don't:
-- **Don't** use gradient-text hero headlines, glassmorphism panels, hero-metric stat-card templates, or dashboard-carousel narratives — the generic SaaS/AI-tool tells this system explicitly rejects. `src/components/BlueZoneHero.jsx` is the anti-pattern already sitting in this repo; don't extend it or pull tokens from it.
+- **Don't** use gradient-text hero headlines, glassmorphism panels, hero-metric stat-card templates, or dashboard-carousel narratives — the generic SaaS/AI-tool tells this system explicitly rejects. `src/components/BluezoneHero.jsx` is the anti-pattern already sitting in this repo; don't extend it or pull tokens from it.
 - **Don't** add `box-shadow` anywhere. Depth comes from opacity and blur only.
 - **Don't** introduce a second accent color casually. The achromatic palette is a current gap, not a locked rule — but any color addition needs a deliberate decision recorded here, not a one-off utility class.
 - **Don't** let Instrument Serif appear at body or label size, or Inter appear above headline size — the two-voice pairing breaks if they blend.
 
 ## Content sections and comparison page
 
-Reuse landing-page primitives for Section, SectionKicker, SectionHeading, Accent, Body, Footnote, buttons, Reveal and ImagePlaceholder; reuse SectionFooter with home-prefix links. Preserve the existing BlueZone content palette and typography. The supplied agricultural and logistics references guide asymmetric columns, generous spacing, broad image areas and occasional navy panels. They do not supply public claims or new branding. Missing visuals use the existing image placeholder component. No AI-generated graphics, new diagrams, canvas illustrations or fabricated engineering visuals. The hero remains its existing composition. Short or narrow viewports use the existing static pilot layout to expose all eight measures.
+Reuse landing-page primitives for Section, SectionKicker, SectionHeading, Accent, Body, Footnote, buttons, Reveal and ImagePlaceholder; reuse SectionFooter with home-prefix links. Preserve the existing Bluezone content palette and typography. The supplied agricultural and logistics references guide asymmetric columns, generous spacing, broad image areas and occasional navy panels. They do not supply public claims or new branding. Missing visuals use the existing image placeholder component. No AI-generated graphics, new diagrams, canvas illustrations or fabricated engineering visuals. The hero remains its existing composition. Short or narrow viewports use the existing static pilot layout to expose all eight measures.

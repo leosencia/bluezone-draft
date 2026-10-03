@@ -88,7 +88,11 @@ const SECTORS = [
 function SectorLink({ children }) {
   return (
     <BentoTile className="group" innerClassName="p-0">
-      <a href="#get-in-touch" data-enquiry="systems" className="relative block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue">
+      <a
+        href="#get-in-touch"
+        data-enquiry="systems"
+        className="relative block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue"
+      >
         {children}
         <ArrowUpRight
           size={16}
@@ -221,8 +225,32 @@ export default function SectionApplications() {
       </div>
       <Reveal>
         <div className="mt-12 rounded-2xl bg-bz-mist p-7 md:p-10 grid md:grid-cols-2 gap-8">
-          <div><h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">System crop planning</h3><Body className="mt-3">Leafy greens, culinary herbs, microgreens and edible flowers are crop targets for site-specific evaluation. Crop cycles, configuration and economics need to be established for each project.</Body></div>
-          <div><h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">A market for every harvest</h3><Body className="mt-3">Airline kitchens, resort clusters, distributors and institutional caterers can provide recurring demand. Water, land, climate and logistics constraints help identify where local production may be useful.</Body><p className="mt-4 text-sm text-bz-slate">These system crop possibilities are separate from the BlueZone Microgreens supply range.</p></div>
+          <div>
+            <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">
+              System crop planning
+            </h3>
+            <Body className="mt-3">
+              Leafy greens, culinary herbs, microgreens and edible flowers are
+              crop targets for site-specific evaluation. Crop cycles,
+              configuration and economics need to be established for each
+              project.
+            </Body>
+          </div>
+          <div>
+            <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">
+              A market for every harvest
+            </h3>
+            <Body className="mt-3">
+              Airline kitchens, resort clusters, distributors and institutional
+              caterers can provide recurring demand. Water, land, climate and
+              logistics constraints help identify where local production may be
+              useful.
+            </Body>
+            <p className="mt-4 text-sm text-bz-slate">
+              These system crop possibilities are separate from the Bluezone
+              Microgreens supply range.
+            </p>
+          </div>
         </div>
       </Reveal>
     </Section>

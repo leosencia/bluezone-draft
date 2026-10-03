@@ -19,8 +19,10 @@ function JourneyPath({ imageBacked = false }) {
   return (
     <ol
       aria-label="The path from distance to proximity"
-      className={`journey-path relative z-10 mx-auto flex items-start ${
-        imageBacked ? "max-w-3xl px-4 py-8" : "max-w-[15rem] sm:max-w-2xl"
+      className={`journey-path relative z-10 flex items-start ${
+        imageBacked
+          ? "max-w-3xl px-4 py-8"
+          : "mx-auto w-full max-w-[15rem] sm:max-w-2xl md:ml-0 md:max-w-none"
       }`}
     >
       {PATH.map(({ label, icon: Icon, active }, index) => (
@@ -105,31 +107,30 @@ export default function SectionPremise() {
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,white_0%,white_45%,rgba(255,255,255,0.82)_70%,rgba(255,255,255,0)_100%)]"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl text-center sm:px-12">
-        <Reveal className="flex flex-col items-center">
-          <SectionKicker>The Zero-Mile Premise</SectionKicker>
-          <SectionHeading className="mx-auto !max-w-3xl">
-            <span className="block">Freshness is a</span>
-            <span className="block">
-              <Accent>proximity problem.</Accent>
-            </span>
-          </SectionHeading>
-          <Body className="mx-auto mt-5 text-center ">
-            BlueZone starts with a simple question: how close can production be
-            to the people who need it? The answer depends on the market, the
-            crop and the operating model.
-          </Body>
-        </Reveal>
+      <div className="relative z-10 w-full max-w-7xl text-start">
+        <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between md:gap-10 lg:gap-16">
+          <Reveal className="flex flex-col items-center text-center md:w-[min(31rem,38%)] md:shrink-0 md:items-start md:text-start">
+            <SectionKicker>The Zero-Mile Premise</SectionKicker>
+            <SectionHeading className="!max-w-3xl text-center md:text-start">
+              <span className="block">Freshness is a</span>
+              <span className="block">
+                <Accent>proximity problem.</Accent>
+              </span>
+            </SectionHeading>
+            <Body className="mt-5 text-center md:text-start">
+              Bluezone starts with a simple question: how close can production
+              be to the people who need it? The answer depends on the market,
+              the crop and the operating model.
+            </Body>
+          </Reveal>
 
-        {/* <Reveal delay={100} className="mt-8 sm:hidden">
-          <div className="relative isolate w-full overflow-hidden rounded-2xl">
+          <Reveal
+            delay={100}
+            className="journey-reveal block w-full md:flex-1 !items-start !justify-start"
+          >
             <JourneyPath />
-          </div>
-        </Reveal> */}
-
-        <Reveal delay={100} className="journey-reveal mt-10 hidden sm:block">
-          <JourneyPath />
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

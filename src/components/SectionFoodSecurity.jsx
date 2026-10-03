@@ -48,7 +48,7 @@ const CONTRIBUTIONS = [
   },
   {
     image: siting,
-    alt: "Concept illustration of a BlueZone growing container beside a distribution facility.",
+    alt: "Concept illustration of a Bluezone growing container beside a distribution facility.",
     title: "Plan production year-round",
     body: "Lighting, climate control and monitoring support planned crop cycles with less dependence on outdoor heat, seasons and long import routes.",
   },
@@ -134,14 +134,14 @@ export default function SectionFoodSecurity() {
 
       <Reveal className="security-contribution-intro">
         <div>
-          <p className="security-contribution-label">BlueZone&apos;s role</p>
+          <p className="security-contribution-label">Bluezone&apos;s role</p>
           <SectionHeading dark as="h3">
             Focused local production.{" "}
             <Accent dark>A stronger supply mix.</Accent>
           </SectionHeading>
         </div>
         <Body dark>
-          BlueZone&apos;s contribution would be focused on crops suited to
+          Bluezone&apos;s contribution would be focused on crops suited to
           controlled aeroponic growing, alongside the wider UAE food system.
         </Body>
       </Reveal>
@@ -170,12 +170,12 @@ export default function SectionFoodSecurity() {
         ))}
       </div>
       <p className="security-footnote">
-        BlueZone concepts are illustrative. Local growing can complement imports
+        Bluezone concepts are illustrative. Local growing can complement imports
         and field agriculture; crop suitability, affordability, energy and
         reliable operation all matter to food security.
       </p>
       <a className="security-next-link" href="#solutions">
-        Explore BlueZone <ArrowUpRight size={17} aria-hidden="true" />
+        Explore Bluezone <ArrowUpRight size={17} aria-hidden="true" />
       </a>
     </Section>
   );

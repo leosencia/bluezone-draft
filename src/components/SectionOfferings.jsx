@@ -16,7 +16,7 @@ export default function SectionOfferings() {
     <Section id="solutions" surface="mist" className="compact-section">
       <Reveal className="section-intro sequence-reveal">
         <div>
-          <SectionKicker>BlueZone</SectionKicker>
+          <SectionKicker>Bluezone</SectionKicker>
           <SectionHeading>
             Fresh produce. <Accent>Or a farm of your own.</Accent>
           </SectionHeading>
@@ -44,7 +44,7 @@ export default function SectionOfferings() {
               <p className="offering-label">
                 For kitchens, hospitality & wholesale
               </p>
-              <h3>BlueZone Microgreens</h3>
+              <h3>Bluezone Microgreens</h3>
               <p>
                 Microgreens, micro herbs and pea shoots. Discuss varieties, pack
                 sizes, weekly quantities and delivery needs with our team.
@@ -61,7 +61,7 @@ export default function SectionOfferings() {
           </article>
         </Reveal>
         <Reveal delay={80} className="offering-reveal">
-          <article id="biocube" className="offering offering-system shadow-2xl">
+          <article id="biocube" className="offering offering-system shadow-lg">
             <figure>
               <img
                 src={cutaway}
@@ -96,7 +96,10 @@ export default function SectionOfferings() {
                 Catalogue design figures; final specifications depend on the
                 project. Production output is under validation.
               </p>
-              <a href="/biocube/" className="offering-link offering-link-filled">
+              <a
+                href="/biocube/"
+                className="offering-link offering-link-filled"
+              >
                 Explore BioCube <ArrowUpRight size={18} aria-hidden="true" />
               </a>
             </div>

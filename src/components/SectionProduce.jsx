@@ -33,7 +33,7 @@ export default function SectionProduce() {
     <Section id="produce" surface="white">
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         <Reveal className="lg:col-span-5">
-          <SectionKicker>BlueZone Microgreens</SectionKicker>
+          <SectionKicker>Bluezone Microgreens</SectionKicker>
           <SectionHeading>
             Premium microgreens and micro herbs,{" "}
             <Accent>grown with control.</Accent>

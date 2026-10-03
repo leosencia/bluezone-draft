@@ -55,7 +55,7 @@ export default function SectionProblem() {
             delay={index * 60}
             className="problem-story-reveal"
           >
-            <article className="problem-story bg-white rounded-3xl shadow-xl">
+            <article className="problem-story bg-white rounded-3xl shadow-lg">
               <img
                 src={image}
                 alt={alt}

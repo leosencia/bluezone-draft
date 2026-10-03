@@ -182,7 +182,7 @@ export default function BioCubePage() {
             <source media="(max-width: 767px)" srcSet={heroMobile} />
             <img
               src={hero}
-              alt="Concept illustration of a BlueZone BioCube with illuminated growing racks, sited beside the sea."
+              alt="Concept illustration of a Bluezone BioCube with illuminated growing racks, sited beside the sea."
               className="biocube-hero-image"
               fetchPriority="high"
             />
@@ -194,7 +194,7 @@ export default function BioCubePage() {
             floatingCtaLabel="Discuss a BioCube"
             floatingAfterHeader
             light
-            headerClassName="!z-20"
+            headerClassName="page-section-aligned-header !z-20"
           />
           <div className="biocube-hero-inner">
             <Reveal className="biocube-hero-content">
@@ -206,7 +206,7 @@ export default function BioCubePage() {
                 <em>Closer to demand.</em>
               </p>
               <p className="biocube-hero-description">
-                BlueZone's BioCube is a proposed modular indoor vertical farm.
+                Bluezone's BioCube is a proposed modular indoor vertical farm.
                 Stacked growing tiers, aeroponic misting, lighting and climate
                 management come together in one container.
               </p>
@@ -344,33 +344,40 @@ export default function BioCubePage() {
               </SectionHeading>
             </div>
             <Body dark>
-              The BioCube combines stacked growing space, nutrient misting,
-              crop lighting, climate management and monitoring around a crop plan.
+              The BioCube combines stacked growing space, nutrient misting, crop
+              lighting, climate management and monitoring around a crop plan.
             </Body>
           </Reveal>
           <div className="biocube-subsystems">
-            {SUBSYSTEMS.map(({ name, image, alt, source, body, detail }, index) => (
-              <Reveal key={name} delay={index * 90}>
-                <article className="biocube-system-card">
-                  <figure>
-                    <img src={image} alt={alt} loading="lazy" decoding="async" />
-                    <figcaption>{source}</figcaption>
-                  </figure>
-                  <div className="!p-4 md:!p-8">
-                    <span className="biocube-card-index">0{index + 1}</span>
-                    <h3>{name}</h3>
-                    <p>{body}</p>
-                    <p className="biocube-card-detail">{detail}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+            {SUBSYSTEMS.map(
+              ({ name, image, alt, source, body, detail }, index) => (
+                <Reveal key={name} delay={index * 90}>
+                  <article className="biocube-system-card">
+                    <figure>
+                      <img
+                        src={image}
+                        alt={alt}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption>{source}</figcaption>
+                    </figure>
+                    <div className="!p-4 md:!p-8">
+                      <span className="biocube-card-index">0{index + 1}</span>
+                      <h3>{name}</h3>
+                      <p>{body}</p>
+                      <p className="biocube-card-detail">{detail}</p>
+                    </div>
+                  </article>
+                </Reveal>
+              ),
+            )}
           </div>
           <Reveal className="biocube-monitoring">
             <figure>
               <img
                 src={monitoring}
-                alt="Catalogue concept illustration of the BlueZone monitoring interface displaying growing conditions and camera views."
+                alt="Catalogue concept illustration of the Bluezone monitoring interface displaying growing conditions and camera views."
                 loading="lazy"
                 decoding="async"
               />
@@ -394,7 +401,8 @@ export default function BioCubePage() {
           </Reveal>
           <p className="biocube-note biocube-dark-note">
             On-site footage shows one installation. Equipment and interface
-            illustrations show a proposed configuration; final details vary by project.
+            illustrations show a proposed configuration; final details vary by
+            project.
           </p>
         </Section>
 
@@ -471,7 +479,7 @@ export default function BioCubePage() {
               <figure>
                 <img
                   src={siting}
-                  alt="Concept illustration of a BlueZone growing container sited close to its customer location."
+                  alt="Concept illustration of a Bluezone growing container sited close to its customer location."
                   loading="lazy"
                   decoding="async"
                 />

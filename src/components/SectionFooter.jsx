@@ -68,7 +68,7 @@ export default function SectionFooter({
           <div className="relative">
             <img
               src={footerImage}
-              alt="Concept illustration of a BlueZone BioCube sited in open grassland at sunrise."
+              alt="Concept illustration of a Bluezone BioCube sited in open grassland at sunrise."
               className="w-full aspect-[3/1] min-h-[200px] object-cover object-[62%_center] sm:object-center"
             />
             <div
@@ -83,12 +83,12 @@ export default function SectionFooter({
               <div className="lg:pr-16">
                 <img
                   src={logo}
-                  alt="BlueZone Aeroponics"
+                  alt="Bluezone Aeroponics"
                   width={180}
                   className="h-auto"
                 />
                 <Body dark className="mt-6 max-w-sm">
-                  BlueZone Microgreens and modular aeroponic growing systems,
+                  Bluezone Microgreens and modular aeroponic growing systems,
                   united by the Zero-Mile Produce idea.
                 </Body>
 
@@ -103,7 +103,7 @@ export default function SectionFooter({
                   </a>
 
                   <a
-                    href="mailto:johnny@bluezoneaeroponicfarming.com"
+                    href="tel:+447792839406"
                     className="group inline-flex max-w-full items-center gap-3 text-white text-xs sm:text-sm font-medium break-all hover:text-bz-lime transition-colors duration-200"
                   >
                     <Phone size={16} />
@@ -120,7 +120,7 @@ export default function SectionFooter({
                         href={href}
                         target="_blank"
                         rel="noreferrer"
-                        aria-label={`BlueZone Aeroponics on ${name}`}
+                        aria-label={`Bluezone Aeroponics on ${name}`}
                         className="rounded-full border border-white/20 px-3 py-1.5 text-xs font-light text-white/70 hover:border-white/40 hover:text-white transition-colors duration-200"
                       >
                         {name}
@@ -167,7 +167,7 @@ export default function SectionFooter({
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-12 pt-8 border-t border-white/10">
               <p className="text-white/40 text-xs font-light">
-                &copy; {new Date().getFullYear()} BlueZone Aeroponics. All
+                &copy; {new Date().getFullYear()} Bluezone Aeroponics. All
                 rights reserved.
               </p>
               {/* No privacy / terms / cookie pages exist in this repo, so the

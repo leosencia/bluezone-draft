@@ -24,7 +24,7 @@ The existing annual pea-shoot tonnage, 225 trays, and conversion of planting box
 
 | Slides | Content | Website implication |
 | --- | --- | --- |
-| 1–3 | Microgreens-focused BioCube Container; exterior and growing-aisle imagery; climate, nutrient, lighting and software positioning | Describe the shown configuration specifically as a container for microgreens. Avoid implying this layout is proven for every crop in BlueZone's broader strategy. |
+| 1–3 | Microgreens-focused BioCube Container; exterior and growing-aisle imagery; climate, nutrient, lighting and software positioning | Describe the shown configuration specifically as a container for microgreens. Avoid implying this layout is proven for every crop in Bluezone's broader strategy. |
 | 4 | Longitudinal cutaway, stacked racks, equipment compartments and four configuration figures; annual box-output claim | Strongest reference for the product overview. The cutaway explains the object better than the current empty placeholder. |
 | 5 | Aeroponic nozzles, mist, crop clearance and materials | Replace generic root-zone copy with a concise catalogue-based mechanism description; keep detailed values in the technical section. |
 | 6–8 | Airflow diagram, filtration/air-treatment concept and ClimateSync HVAC | Give airflow and HVAC a clear place in the showcase. Avoid promising sterile air or weather-independent performance. |
@@ -131,7 +131,7 @@ This is an internal content inventory, not a direction to publish every row. Pub
 
 - **234,000 boxes annual yield** (slide 4): source exists, but crop, box definition, cycle length, rejects and downtime are missing. 234,000 ÷ 4,500 = 52 full-capacity equivalents per year is an inference only, not evidence of weekly harvests. Do not turn it into kilograms, retail sales or revenue.
 - **30% more annual yield** (slide 5), **35% fertiliser savings / 40% water savings** (slide 9): no baseline or test protocol supplied. Keep out of headline statistics and the existing method-level evidence strip.
-- **30% higher terpene content / 30% LED energy savings / 50,000 hours guaranteed use** (slide 10): no comparison, test report or contractual warranty terms supplied. Do not publish as BlueZone results or warranty.
+- **30% higher terpene content / 30% LED energy savings / 50,000 hours guaranteed use** (slide 10): no comparison, test report or contractual warranty terms supplied. Do not publish as Bluezone results or warranty.
 - **GAP/GMP compliance** (slide 3): deck assertion without certificates, applicable scope or audit records. Do not add compliance badges.
 - **Air sterilisation / elimination of bacteria and viruses / contaminant-free air** (slides 6–8): hold performance and safety claims pending equipment documentation and test evidence.
 - **Photo-hydroxylation / photon hydroxylation / photohydrogen** terminology, the claimed 100–300 nm range, density of 10^11/m³ and “40 times/hr” (slides 7–8): terminology and measurement definitions require supplier clarification. Do not recast “40 times/hr” as a verified air-change rate.
@@ -201,7 +201,7 @@ Do not change the microgreens produce catalogue to match slide 12 automatically:
 
 These questions are a handoff list for the middleman/supplier, not blockers to removing unsupported website claims or drafting the revised showcase.
 
-1. Which manufacturer, exact model and revision does this deck describe? Which features are standard, optional or still conceptual? Is it the configuration BlueZone intends to offer?
+1. Which manufacturer, exact model and revision does this deck describe? Which features are standard, optional or still conceptual? Is it the configuration Bluezone intends to offer?
 2. Can they provide an approved datasheet, equipment schedule, external dimensions, shipping/operating mass, service clearances and installation/commissioning requirements?
 3. What do planting box, tray and section mean? How do 4,500 boxes, 35 sections, 5 tiers and 70 m² relate? What usable crop clearance does 311 mm represent?
 4. What is the whole-container electrical requirement, including phase and peak demand? What do 32 kW and 22.4 kW represent? What measured kWh/day applies under a stated crop and climate schedule?
@@ -220,7 +220,7 @@ These questions are a handoff list for the middleman/supplier, not blockers to r
 - No unsupported annual tonnes, 225-tray total, retail-punnet conversion or assumed crop cycle remains in active components.
 - The four slide-4 figures retain their original scope and terminology; canopy area is never presented as footprint.
 - Power input, cooling capacity and energy consumption remain distinct. No invented electricity cost, kWh/day, phase requirement or external dimensions.
-- Supplier savings, sterilisation, compliance and crop-quality claims are not presented as established BlueZone results.
+- Supplier savings, sterilisation, compliance and crop-quality claims are not presented as established Bluezone results.
 - Product imagery is labelled accurately, has useful alt text, and contains no misleading equipment annotations or invented dimensions.
 - Desktop and mobile users can access the same explanations with keyboard/touch controls; important text is not embedded only in images.
 - `#biocube` and `#specifications` navigation works; the systems CTA opens the correct enquiry mode; any retired Capacity links are handled.
