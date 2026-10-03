@@ -49,7 +49,6 @@
 
 .problem-story p,
 .shift-note,
-.growing-controls dd,
 .offering-copy > p {
   font-size: 14px;
   line-height: 1.65;
@@ -64,8 +63,7 @@
   top: 0;
 }
 
-.shift-layout,
-.aeroponics-layout {
+.shift-layout {
   display: grid;
   gap: 32px;
 }
@@ -142,32 +140,85 @@
   border-radius: 0 0 1.25rem 1.25rem;
 }
 
-.aeroponics-visual img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 1.25rem;
-}
-
-.aeroponics-intro {
-  order: 0;
-}
-
-.aeroponics-visual {
-  order: 1;
-}
-
-.aeroponics-details {
-  order: 2;
-}
-
-.aeroponics-details .growing-controls {
-  margin-top: 0;
-}
-
 .shift-section.noise-overlay::after {
   display: none;
 }
+
+.vertical-system-reveal { margin-top: 36px; }
+
+.vertical-system-figure {
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: #edf3f3;
+}
+
+.vertical-system-figure img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  padding: 28px 24px 10px;
+}
+
+.vertical-system-figure figcaption {
+  padding: 0 24px 18px;
+  color: #405461;
+  font-size: 11px;
+}
+
+.vertical-layers {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.vertical-layer-reveal { min-width: 0; }
+
+.vertical-layer {
+  position: relative;
+  display: flex;
+  align-items: end;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  isolation: isolate;
+  background: #0d3b5c;
+  color: #f4f7f7;
+}
+
+.vertical-layer > img {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vertical-layer::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(to top, rgb(7 27 43 / 94%) 0%, rgb(7 27 43 / 78%) 25%, transparent 78%);
+}
+
+.vertical-layer-copy { padding: 24px; }
+.vertical-layer-index { color: #b6d88a; font-size: 10px; text-transform: uppercase; }
+.vertical-layer h3 { margin-top: 10px; font: 29px/1.1 "Instrument Serif", serif; }
+.vertical-layer p { max-width: 31ch; margin-top: 10px; font-size: 13px; line-height: 1.55; }
+
+.vertical-system-outro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px 40px;
+  margin-top: 30px;
+}
+
+.vertical-system-outro > p { max-width: 60ch; }
+.vertical-system-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
 
 /* The UAE food-security field carries a faint topographic signal rather than
    another image: grain keeps the navy from feeling flat, while the oversized
@@ -204,81 +255,6 @@
   z-index: 0;
   opacity: .24;
   mix-blend-mode: soft-light;
-}
-
-.aeroponics-visual figcaption {
-  color: #405461;
-  font-size: 11px;
-  margin-top: 8px;
-}
-
-.growing-controls {
-  margin-top: 24px;
-}
-
-.growing-controls > div {
-  display: grid;
-  grid-template-columns: 28px minmax(0, 1fr);
-  gap: 10px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgb(7 27 43 / 14%);
-}
-
-.growing-controls > div > span {
-  color: #087ea4;
-  font-size: 12px;
-  padding-top: 2px;
-}
-
-.growing-controls dt {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.growing-controls dd {
-  margin-top: 4px;
-  color: #405461;
-}
-
-.research-result {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid rgb(7 27 43 / 14%);
-  display: grid;
-  gap: 12px;
-}
-
-.research-number {
-  font: 52px/1 "Instrument Serif", serif;
-  color: #087ea4;
-}
-
-.research-result h3 {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.research-result p:not(.research-number) {
-  font-size: 13px;
-  line-height: 1.6;
-  margin-top: 6px;
-  color: #405461;
-}
-
-.research-result a {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 12px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.research-result a {
-  color: #087ea4;
-}
-
-.research-result p.research-context {
-  font-size: 11px;
 }
 
 .security-intro > p { max-width: 51ch; }
@@ -776,27 +752,29 @@
 .problem-story-reveal[data-revealed="false"] .problem-story img,
 .security-story-reveal[data-revealed="false"] .security-story > img,
 .offering-reveal[data-revealed="false"] .offering figure,
-.root-zone-reveal[data-revealed="false"] figure {
+.vertical-system-reveal[data-revealed="false"] .vertical-system-figure img,
+.vertical-layer-reveal[data-revealed="false"] .vertical-layer > img {
   clip-path: inset(0 0 100% 0 round 1.25rem);
 }
 
 .problem-story-reveal[data-revealed="true"] .problem-story img,
 .security-story-reveal[data-revealed="true"] .security-story > img,
 .offering-reveal[data-revealed="true"] .offering figure,
-.root-zone-reveal[data-revealed="true"] figure {
+.vertical-system-reveal[data-revealed="true"] .vertical-system-figure img,
+.vertical-layer-reveal[data-revealed="true"] .vertical-layer > img {
   animation: image-unmask 700ms cubic-bezier(0.22, 1, 0.36, 1) 70ms both;
 }
 
 .problem-story-reveal[data-revealed="false"] .problem-story > div,
 .offering-reveal[data-revealed="false"] .offering-copy,
-.root-zone-reveal[data-revealed="false"] .research-result {
+.vertical-layer-reveal[data-revealed="false"] .vertical-layer-copy {
   opacity: 0;
   transform: translate3d(0, 14px, 0);
 }
 
 .problem-story-reveal[data-revealed="true"] .problem-story > div,
 .offering-reveal[data-revealed="true"] .offering-copy,
-.root-zone-reveal[data-revealed="true"] .research-result {
+.vertical-layer-reveal[data-revealed="true"] .vertical-layer-copy {
   animation: content-rise 560ms cubic-bezier(0.22, 1, 0.36, 1) 290ms both;
 }
 
@@ -816,25 +794,6 @@
 .shift-comparison-reveal[data-revealed="true"] .shift-comparison > div:nth-child(2) .comparison-cell { animation-delay: 220ms; }
 .shift-comparison-reveal[data-revealed="true"] .shift-comparison > div:nth-child(3) .comparison-cell { animation-delay: 310ms; }
 .shift-comparison-reveal[data-revealed="true"] .shift-comparison > div:nth-child(4) .comparison-cell { animation-delay: 400ms; }
-
-.controls-reveal[data-revealed="false"] .growing-controls > div,
-.controls-reveal[data-revealed="false"] > p,
-.controls-reveal[data-revealed="false"] > a {
-  opacity: 0;
-  transform: translate3d(0, 12px, 0);
-}
-
-.controls-reveal[data-revealed="true"] .growing-controls > div,
-.controls-reveal[data-revealed="true"] > p,
-.controls-reveal[data-revealed="true"] > a {
-  animation: content-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.controls-reveal[data-revealed="true"] .growing-controls > div:nth-child(1) { animation-delay: 80ms; }
-.controls-reveal[data-revealed="true"] .growing-controls > div:nth-child(2) { animation-delay: 170ms; }
-.controls-reveal[data-revealed="true"] .growing-controls > div:nth-child(3) { animation-delay: 260ms; }
-.controls-reveal[data-revealed="true"] > p { animation-delay: 350ms; }
-.controls-reveal[data-revealed="true"] > a { animation-delay: 430ms; }
 
 .security-story-reveal[data-revealed="false"] .security-story-copy {
   opacity: 0;
@@ -872,11 +831,9 @@
   .problem-story-reveal .problem-story > div,
   .shift-comparison-reveal .traditional-cell,
   .shift-comparison-reveal .zero-mile-cell,
-  .controls-reveal .growing-controls > div,
-  .controls-reveal > p,
-  .controls-reveal > a,
-  .root-zone-reveal figure,
-  .root-zone-reveal .research-result,
+  .vertical-system-reveal .vertical-system-figure img,
+  .vertical-layer-reveal .vertical-layer > img,
+  .vertical-layer-reveal .vertical-layer-copy,
   .security-story-reveal .security-story > *,
   .offering-reveal .offering figure,
   .offering-reveal .offering-copy,
@@ -913,10 +870,8 @@
   .problem-story h3 {
     font-size: 26px;
   }
-  .research-result {
-    grid-template-columns: auto 1fr;
-    gap: 24px;
-  }
+  .vertical-layers { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .vertical-layer { min-height: 360px; }
   .comparison-header img {
     height: 160px;
   }
@@ -939,26 +894,9 @@
     gap: 64px;
     align-items: center;
   }
-  .aeroponics-layout {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px 64px;
-    align-items: start;
-  }
-  .aeroponics-intro {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .aeroponics-details {
-    grid-column: 2;
-    grid-row: 2;
-  }
-  .aeroponics-visual {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-  .aeroponics-visual img {
-    aspect-ratio: 6 / 5;
-  }
+  .vertical-system-reveal { margin-top: 40px; }
+  .vertical-layers { gap: 24px; margin-top: 24px; }
+  .vertical-layer { min-height: 390px; }
   .problem-stories,
   .security-stories,
   .offerings-grid {

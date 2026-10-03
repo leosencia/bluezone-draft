@@ -39,23 +39,34 @@ const NAV_LINKS = [
 
 const SUBSYSTEMS = [
   {
-    name: "Growing racks & lighting",
-    image: racks,
-    alt: "Catalogue illustration of stacked BioCube growing racks with lighting above each tier.",
-    body: "Stacked racks organise the growing area around a central access aisle. LED lighting supports a planned indoor crop cycle.",
-    detail: "Stacked growing space. Planned light cycles.",
+    name: "Vertical growing space",
+    image: chamberPoster,
+    alt: "On-site view down a BioCube aisle between stacked growing tiers.",
+    source: "On-site footage",
+    body: "Stacked growing tiers organise the crop around a central aisle, making use of indoor space while keeping it accessible to the team.",
+    detail: "A layout built around the crop and operator.",
   },
   {
     name: "Nutrient delivery",
     image: dosing,
     alt: "Catalogue illustration of the BioCube nutrient dosing tanks, filtration and irrigation equipment.",
+    source: "Catalogue illustration",
     body: "Automated dosing and irrigation feed water and dissolved nutrients to misting nozzles in the enclosed root zone.",
     detail: "Nutrient solution, delivered as mist.",
+  },
+  {
+    name: "Crop lighting",
+    image: racks,
+    alt: "Catalogue close-up of LED grow lighting mounted above BioCube growing racks.",
+    source: "Catalogue illustration",
+    body: "LED lighting above the tiers supports planned crop cycles within the indoor growing area.",
+    detail: "Light cycles planned for the crop.",
   },
   {
     name: "Climate & airflow",
     image: climate,
     alt: "Catalogue illustration of the climate-control equipment at one end of the BioCube container.",
+    source: "Catalogue illustration",
     body: "Integrated climate equipment and air distribution manage conditions throughout the growing area, alongside the crop plan.",
     detail: "A managed growing environment.",
   },
@@ -195,9 +206,9 @@ export default function BioCubePage() {
                 <em>Closer to demand.</em>
               </p>
               <p className="biocube-hero-description">
-                BlueZone's BioCube is a modular growing system bringing racks,
-                nutrient misting, lighting and climate control together in one
-                container.
+                BlueZone's BioCube is a proposed modular indoor vertical farm.
+                Stacked growing tiers, aeroponic misting, lighting and climate
+                management come together in one container.
               </p>
               <div className="biocube-actions">
                 <PrimaryButton
@@ -333,15 +344,18 @@ export default function BioCubePage() {
               </SectionHeading>
             </div>
             <Body dark>
-              Misting is one part of the growing process. Racks, light, climate
-              and monitoring work together around the needs of the crop.
+              The BioCube combines stacked growing space, nutrient misting,
+              crop lighting, climate management and monitoring around a crop plan.
             </Body>
           </Reveal>
           <div className="biocube-subsystems">
-            {SUBSYSTEMS.map(({ name, image, alt, body, detail }, index) => (
+            {SUBSYSTEMS.map(({ name, image, alt, source, body, detail }, index) => (
               <Reveal key={name} delay={index * 90}>
                 <article className="biocube-system-card">
-                  <img src={image} alt={alt} loading="lazy" decoding="async" />
+                  <figure>
+                    <img src={image} alt={alt} loading="lazy" decoding="async" />
+                    <figcaption>{source}</figcaption>
+                  </figure>
                   <div className="!p-4 md:!p-8">
                     <span className="biocube-card-index">0{index + 1}</span>
                     <h3>{name}</h3>
@@ -363,7 +377,7 @@ export default function BioCubePage() {
               <figcaption>Catalogue interface concept</figcaption>
             </figure>
             <div>
-              <span className="biocube-card-index">04 / MONITORING</span>
+              <span className="biocube-card-index">05 / MONITORING</span>
               <h3>A clearer view of the grow.</h3>
               <Body dark>
                 Digital monitoring and preset growing strategies support
@@ -379,8 +393,8 @@ export default function BioCubePage() {
             </div>
           </Reveal>
           <p className="biocube-note biocube-dark-note">
-            Equipment and interface images are catalogue illustrations, not
-            verified installation photography.
+            On-site footage shows one installation. Equipment and interface
+            illustrations show a proposed configuration; final details vary by project.
           </p>
         </Section>
 

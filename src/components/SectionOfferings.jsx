@@ -77,8 +77,8 @@ export default function SectionOfferings() {
               <p className="offering-label">For operators & site partners</p>
               <h3>BioCube growing systems</h3>
               <p>
-                A proposed modular system combining stacked racks, aeroponic
-                misting, lighting and climate control.
+                A proposed modular indoor vertical farm combining stacked
+                growing tiers, aeroponic misting, lighting and climate control.
               </p>
               <dl className="offering-specs">
                 <div>

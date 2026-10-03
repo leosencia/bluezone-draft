@@ -203,7 +203,7 @@
 
 .biocube-subsystems {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin-top: 36px;
 }
@@ -217,12 +217,24 @@
   color: #071b2b;
 }
 
-.biocube-system-card > img {
+.biocube-system-card > figure { position: relative; overflow: hidden; border-radius: 20px; }
+
+.biocube-system-card > figure img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 20px;
+}
+
+.biocube-system-card > figure figcaption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 6px 9px;
+  border-radius: 6px;
+  background: rgb(7 27 43 / 88%);
+  color: #f4f7f7;
+  font-size: .65rem;
 }
 
 .biocube-system-card > div { padding: 18px 12px 14px; }
@@ -362,9 +374,10 @@
   .biocube-specifications { margin-top: 30px; padding-top: 24px; }
   .biocube-specifications-heading h3 { max-width: none; }
   .biocube-subsystems { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
-  .biocube-system-card { display: grid; grid-template-columns: 36% minmax(0, 1fr); align-items: start; gap: 12px; padding: 10px; }
-  .biocube-system-card > img { height: 155px; aspect-ratio: auto; }
-  .biocube-system-card > div { padding: 6px 4px 8px; }
+  .biocube-system-card { display: grid; grid-template-columns: 36% minmax(0, 1fr); align-items: stretch; gap: 0; overflow: hidden; }
+  .biocube-system-card > figure { border-radius: 24px 16px 16px 24px; }
+  .biocube-system-card > figure img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+  .biocube-system-card > div { padding: 16px 12px; }
   .biocube-system-card p { font-size: .8rem; margin-top: 8px; }
   .biocube-system-card p.biocube-card-detail { margin-top: 12px; padding-top: 9px; }
   .biocube-monitoring { margin-top: 28px; }
@@ -378,7 +391,6 @@
   .biocube-configuration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .biocube-configuration-grid dd { font-size: 2.5rem; }
   .biocube-system-card { grid-template-columns: 100px minmax(0, 1fr); gap: 12px; }
-  .biocube-system-card > img { height: 140px; }
   .biocube-system-card h3 { font-size: 1.4rem; }
   .biocube-clips { gap: 16px; }
   .biocube-clip h3 { font-size: 1.25rem; }

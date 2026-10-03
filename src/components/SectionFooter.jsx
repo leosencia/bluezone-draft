@@ -1,12 +1,7 @@
+import { Mail, Phone } from "lucide-react";
 import logo from "../assets/bluezone-light.png";
 import footerImage from "../assets/footer-image.png";
-import {
-  BentoTile,
-  Body,
-  IconBadge,
-  Reveal,
-  Section,
-} from "./primitives";
+import { BentoTile, Body, IconBadge, Reveal, Section } from "./primitives";
 
 const NAV = [
   {
@@ -82,10 +77,10 @@ export default function SectionFooter({
             />
           </div>
 
-          <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16 py-10 md:py-14">
-            <div className="grid lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] gap-10 lg:gap-0">
+          <div className="mx-auto max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] px-6 md:px-12 lg:px-16 py-10 md:py-14">
+            <div className="grid lg:grid-cols-[minmax(440px,0.9fr)_minmax(0,1.1fr)] gap-10 lg:gap-0">
               {/* Brand */}
-              <div className="lg:pr-12">
+              <div className="lg:pr-16">
                 <img
                   src={logo}
                   alt="BlueZone Aeroponics"
@@ -97,13 +92,25 @@ export default function SectionFooter({
                   united by the Zero-Mile Produce idea.
                 </Body>
 
-                <a
-                  href="mailto:johnny@bluezoneaeroponicfarming.com"
-                  className="group inline-flex max-w-full items-center gap-3 mt-8 text-white text-xs sm:text-sm font-medium break-all hover:text-bz-lime transition-colors duration-200"
-                >
-                  johnny@bluezoneaeroponicfarming.com
-                  <IconBadge dark />
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href="mailto:johnny@bluezoneaeroponicfarming.com"
+                    className="group inline-flex max-w-full items-center gap-3 mt-8 text-white text-xs sm:text-sm font-medium break-all lg:w-max lg:max-w-none lg:whitespace-nowrap lg:break-normal hover:text-bz-lime transition-colors duration-200"
+                  >
+                    <Mail size={16} />
+                    johnny@bluezoneaeroponicfarming.com
+                    <IconBadge dark />
+                  </a>
+
+                  <a
+                    href="mailto:johnny@bluezoneaeroponicfarming.com"
+                    className="group inline-flex max-w-full items-center gap-3 text-white text-xs sm:text-sm font-medium break-all hover:text-bz-lime transition-colors duration-200"
+                  >
+                    <Phone size={16} />
+                    +447792839406
+                    <IconBadge dark />
+                  </a>
+                </div>
 
                 {social.length > 0 ? (
                   <div className="flex flex-wrap items-center gap-2 mt-8">
@@ -124,9 +131,9 @@ export default function SectionFooter({
               </div>
 
               {/* Link columns */}
-              <div className="grid sm:grid-cols-2 gap-8 lg:px-12 lg:border-l lg:border-white/10">
+              <div className="grid sm:grid-cols-2 gap-8 lg:flex lg:justify-between lg:px-16 xl:px-20 lg:border-l lg:border-white/10">
                 {NAV.map(({ heading, links }) => (
-                  <div key={heading}>
+                  <div key={heading} className="lg:shrink-0">
                     <p className="text-bz-lime text-xs uppercase tracking-[0.18em]">
                       {heading}
                     </p>

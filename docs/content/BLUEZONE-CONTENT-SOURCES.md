@@ -50,6 +50,7 @@ catalogue specifications or validated production output.
 | BC-SUB-3 | Proposed microgreens container | CAT pp.6,8 | Source-stated design / Use with qualification | Climate and airflow: Integrated climate equipment and air distribution manage conditions within the growing area. | SectionBioCube.jsx |
 | BC-SUB-4 | Proposed microgreens container | CAT pp.10–11 | Source-stated design / Use with qualification | LED lighting: Grow lighting supports a planned crop cycle inside the container. | SectionBioCube.jsx |
 | BC-SUB-5 | Proposed microgreens container | CAT p.13 | Source-stated design / Use with qualification | Monitoring: Digital monitoring and preset growing strategies support day-to-day operation. | SectionBioCube.jsx |
+
 | TECH-1 | Proposed microgreens container | CAT p.5 | Source-stated design / Use with qualification | Timed nutrient mist delivered to roots in an enclosed chamber. | SectionTechnology.jsx |
 | TECH-2 | Proposed microgreens container | CAT p.9 | Source-stated design / Use with qualification | Automated dosing and irrigation support the crop plan. | SectionTechnology.jsx |
 | TECH-3 | Proposed microgreens container | CAT pp.6,8 | Source-stated design / Use with qualification | Climate equipment and airflow manage conditions in the growing area. | SectionTechnology.jsx |
@@ -96,6 +97,10 @@ catalogue specifications or validated production output.
 | HOLD-ECONOMICS | Model/business context | FARM pp.8–14; PILOT pp.10–12 | Unconfirmed or internal commercial / Hold | None | Not published: Pricing, returns, financing and project economics remain internal |
 | HOLD-SOMERSET | Model/business context | No confirmation in four PDFs | Unconfirmed or internal commercial / Hold | None | Not published: Unsupported location removed |
 | HOLD-CONTACT | Model/business context | CAT p.15; existing site | Unconfirmed or internal commercial / Hold | None | Not published: Different named contact/domain; preserve site inbox pending confirmation |
+
+## Indoor vertical farming presentation
+
+The landing page's indoor vertical farming section explains stacked growing tiers as the layout, aeroponic mist as the root-delivery method, and BioCube as BlueZone's proposed containerised system. The large BioCube cutaway and climate/lighting images are labelled catalogue illustrations (CAT pp.4–11); the root-zone image is a concept illustration. The chamber still comes from actual on-site phone footage and shows one installation, not necessarily the proposed catalogue configuration. The BioCube page's Working Together cards separate stacked growing space, nutrient delivery, crop lighting and climate/airflow (BC-SUB-1 through BC-SUB-4); monitoring remains a separate image feature (BC-SUB-5). None of these descriptions establishes yield, water savings, crop availability or turnkey operation.
 
 ## Comparison update, 2026-10-03
 

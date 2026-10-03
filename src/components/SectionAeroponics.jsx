@@ -7,88 +7,103 @@ import {
   SectionHeading,
   SectionKicker,
 } from "./primitives";
+import cutaway from "../assets/biocube/catalogue-cutaway.webp";
+import chamber from "../assets/biocube/chamber-poster.webp";
 import rootZone from "../assets/root-zone.png";
+import climate from "../assets/biocube/catalogue-climate.webp";
 
-const CONTROLS = [
-  [
-    "Mist at the roots",
-    "Water and nutrients reach roots suspended in an enclosed air chamber.",
-  ],
-  [
-    "Water in circulation",
-    "A recirculating configuration captures unused solution for reuse.",
-  ],
-  [
-    "A planned growing climate",
-    "Light, temperature, humidity and airflow are managed around the crop.",
-  ],
+const LAYERS = [
+  {
+    title: "Vertical growing space",
+    body: "Stacked tiers organise crops indoors while leaving access for the growing team.",
+    image: chamber,
+    alt: "On-site view down a BioCube aisle between stacked growing tiers.",
+    source: "On-site footage",
+  },
+  {
+    title: "Aeroponic root zone",
+    body: "Roots suspended in air receive water and dissolved nutrients as a timed mist.",
+    image: rootZone,
+    alt: "Concept illustration of nutrient mist reaching suspended plant roots.",
+    source: "Concept illustration",
+  },
+  {
+    title: "Managed conditions",
+    body: "Lighting, temperature, humidity and airflow are planned around the crop.",
+    image: climate,
+    alt: "Catalogue illustration of the climate equipment in a proposed BioCube.",
+    source: "Catalogue illustration",
+  },
 ];
 
 export default function SectionAeroponics() {
   return (
     <Section id="technology" surface="white" className="compact-section">
-      <div className="aeroponics-layout">
-        <Reveal className="aeroponics-intro sequence-reveal">
-          <SectionKicker>Aeroponics</SectionKicker>
+      <Reveal className="section-intro sequence-reveal">
+        <div>
+          <SectionKicker>Indoor Vertical Farming</SectionKicker>
           <SectionHeading>
-            Aeroponics. <Accent>Growing with control.</Accent>
+            Grow upward. <Accent>Feed the roots with mist.</Accent>
           </SectionHeading>
-          <Body className="mt-5">
-            Aeroponics grows plants without soil, feeding their roots with a
-            timed nutrient mist. Indoors, it supports planned crop cycles with
-            less exposure to outdoor seasons.
-          </Body>
-        </Reveal>
-        <Reveal className="aeroponics-details controls-reveal">
-          <dl className="growing-controls">
-            {CONTROLS.map(([title, body], index) => (
-              <div key={title}>
-                <span aria-hidden="true">0{index + 1}</span>
-                <div>
-                  <dt>{title}</dt>
-                  <dd>{body}</dd>
-                </div>
+        </div>
+        <Body>
+          Indoor vertical farming grows crops on stacked tiers within a managed
+          environment. BlueZone pairs this layout with aeroponics, which
+          delivers water and nutrients to suspended roots as a mist.
+        </Body>
+      </Reveal>
+
+      <Reveal className="vertical-system-reveal" delay={80}>
+        <figure className="vertical-system-figure">
+          <img
+            src={cutaway}
+            alt="Catalogue cutaway of a proposed BioCube with stacked growing racks and equipment compartments."
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            Proposed microgreens configuration. Catalogue illustration.
+          </figcaption>
+        </figure>
+      </Reveal>
+
+      <div className="vertical-layers">
+        {LAYERS.map(({ title, body, image, alt, source }, index) => (
+          <Reveal
+            key={title}
+            delay={index * 90}
+            className="vertical-layer-reveal"
+          >
+            <article className="vertical-layer">
+              <img src={image} alt={alt} loading="lazy" decoding="async" />
+              <div className="vertical-layer-copy">
+                <span className="vertical-layer-index">
+                  0{index + 1} / {source}
+                </span>
+                <h3>{title}</h3>
+                <p>{body}</p>
               </div>
-            ))}
-          </dl>
-          <Body className="mt-5">
-            Both aeroponics and other hydroponic methods grow without soil. The
-            difference is how water, nutrients and oxygen reach the roots.
-          </Body>
-          <PrimaryButton href="/aeroponics-vs-hydroponics/" className="mt-6">
+            </article>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal className="vertical-system-outro">
+        <Body>
+          BioCube brings the growing space, aeroponic delivery, lighting,
+          climate management and monitoring into one proposed modular system.
+          Crop selection and final configuration are agreed for each project.
+        </Body>
+        <div className="vertical-system-actions">
+          <PrimaryButton href="/biocube/">Explore BioCube</PrimaryButton>
+          <PrimaryButton
+            href="/aeroponics-vs-hydroponics/"
+            className="!bg-bz-teal hover:!text-bz-navy hover:!bg-bz-lime !text-white"
+          >
             Aeroponics vs hydroponics
           </PrimaryButton>
-        </Reveal>
-        <Reveal delay={80} className="aeroponics-visual root-zone-reveal">
-          <figure>
-            <img
-              src={rootZone}
-              alt="Concept illustration of nutrient mist reaching exposed roots in an aeroponic chamber."
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>Illustration of the aeroponic root zone.</figcaption>
-          </figure>
-          <div className="research-result">
-            <p className="research-number">+114%</p>
-            <div>
-              <h3>Higher irrigation water-use efficiency</h3>
-              <p>
-                High-pressure aeroponics versus ebb-and-flow in a University of
-                Bologna lettuce trial.
-              </p>
-              <a
-                href="https://doi.org/10.1016/j.agwat.2023.108365"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Carotti et al., 2023
-              </a>
-              {/* <p className="research-context">Published study result, not measured BlueZone performance. This metric excludes climate-control and management water.</p> */}
-            </div>
-          </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </Section>
   );
 }
