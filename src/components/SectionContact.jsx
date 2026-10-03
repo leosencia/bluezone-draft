@@ -12,18 +12,32 @@ const FIELD = "w-full rounded-lg border border-bz-navy/20 bg-white px-4 py-3 tex
 
 export default function SectionContact({ enquiryType, onEnquiryTypeChange }) {
   const [fields, setFields] = useState({ name: "", email: "", organisation: "", location: "", message: "" });
-  const [draftOpened, setDraftOpened] = useState(false);
-  const update = (event) => setFields((previous) => ({ ...previous, [event.target.name]: event.target.value }));
-  const submit = (event) => {
+  const [submission, setSubmission] = useState({ state: "idle", message: "" });
+  const update = (event) => {
+    setFields((previous) => ({ ...previous, [event.target.name]: event.target.value }));
+    if (submission.state === "error") setSubmission({ state: "idle", message: "" });
+  };
+  const submit = async (event) => {
     event.preventDefault();
-    const topic = TYPES.find(([value]) => value === enquiryType)?.[1] || "Produce supply";
-    const body = [
-      `Name: ${fields.name}`, `Email: ${fields.email}`,
-      `Organisation: ${fields.organisation}`, `Location: ${fields.location}`,
-      "", fields.message,
-    ].join("\n");
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("BlueZone enquiry: " + topic)}&body=${encodeURIComponent(body)}`;
-    setDraftOpened(true);
+    setSubmission({ state: "submitting", message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...fields, enquiryType }),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || "We could not send your enquiry. Please try again.");
+
+      setFields({ name: "", email: "", organisation: "", location: "", message: "" });
+      setSubmission({ state: "success", message: "Thank you. Your enquiry has been received and our team will be in touch." });
+    } catch (error) {
+      setSubmission({
+        state: "error",
+        message: error instanceof Error ? error.message : "We could not send your enquiry. Please try again or email us directly.",
+      });
+    }
   };
 
   return (
@@ -48,7 +62,7 @@ export default function SectionContact({ enquiryType, onEnquiryTypeChange }) {
                 {TYPES.map(([value, label]) => (
                   <label key={value} className="cursor-pointer">
                     <input type="radio" name="enquiryType" value={value} checked={enquiryType === value}
-                      onChange={() => { onEnquiryTypeChange(value); setDraftOpened(false); }} className="peer sr-only" />
+                      onChange={() => { onEnquiryTypeChange(value); setSubmission({ state: "idle", message: "" }); }} className="peer sr-only" />
                     <span className="block rounded-full border border-bz-navy/25 px-4 py-2.5 text-sm peer-checked:border-bz-navy peer-checked:bg-bz-navy peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-4 peer-focus-visible:outline-bz-blue">{label}</span>
                   </label>
                 ))}
@@ -74,15 +88,18 @@ export default function SectionContact({ enquiryType, onEnquiryTypeChange }) {
                 value={fields.message} onChange={update} className={FIELD}
                 placeholder={enquiryType === "produce" ? "Crops, quantities and delivery needs" : "Your site, crop interests and project stage"} />
             </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <button type="submit" className="inline-flex min-h-11 items-center gap-4 rounded-full bg-bz-navy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-bz-ocean">
-                Open email draft <ArrowUpRight size={18} aria-hidden="true" />
-              </button>
-              <p id="contact-delivery" className="max-w-xs text-xs leading-relaxed text-bz-navy/70">Enquiries are sent through your email app.</p>
+            <div className="absolute h-px w-px overflow-hidden whitespace-nowrap" aria-hidden="true">
+              <label htmlFor="contact-website">Website</label>
+              <input id="contact-website" name="website" type="text" tabIndex="-1" autoComplete="off" value={fields.website || ""} onChange={update} />
             </div>
-            {draftOpened && <p role="status" className="text-sm leading-relaxed text-bz-navy/80">
-              Your email app was requested. Your enquiry is only sent when you send the draft.
-              You can also contact us directly at the email address shown.
+            <div className="flex flex-wrap items-center gap-4">
+              <button type="submit" disabled={submission.state === "submitting"} className="inline-flex min-h-11 items-center gap-4 rounded-full bg-bz-navy px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-bz-ocean disabled:cursor-wait disabled:opacity-70">
+                {submission.state === "submitting" ? "Sending enquiry..." : "Send enquiry"} <ArrowUpRight size={18} aria-hidden="true" />
+              </button>
+              <p id="contact-delivery" className="max-w-xs text-xs leading-relaxed text-bz-navy/70">Your details are sent securely to the BlueZone team.</p>
+            </div>
+            {submission.state !== "idle" && submission.state !== "submitting" && <p role="status" className={`text-sm leading-relaxed ${submission.state === "error" ? "text-red-700" : "text-bz-navy/80"}`}>
+              {submission.message}
             </p>}
           </form>
         </Reveal>

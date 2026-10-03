@@ -11,6 +11,17 @@ npm install
 npm run dev
 ```
 
+To test Vercel Functions such as the contact form locally, use:
+
+```bash
+npm run dev:vercel
+```
+
+This runs the Vite site and `/api/contact` together. On its first run, link the
+directory to the Vercel project if prompted. Set `BASEROW_TOKEN` and `TABLE_ID`
+for Vercel's Development environment, then run `vercel pull` to refresh the
+local Vercel configuration when those values change.
+
 ## What came from where
 
 Motion Sites spec, unchanged: layout (`w-full h-screen overflow-hidden`,
