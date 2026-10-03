@@ -173,3 +173,7 @@ Buttons, nav links and the hamburger are the entire component vocabulary. Every 
 - **Don't** add `box-shadow` anywhere. Depth comes from opacity and blur only.
 - **Don't** introduce a second accent color casually. The achromatic palette is a current gap, not a locked rule — but any color addition needs a deliberate decision recorded here, not a one-off utility class.
 - **Don't** let Instrument Serif appear at body or label size, or Inter appear above headline size — the two-voice pairing breaks if they blend.
+
+## Content sections and comparison page
+
+Reuse landing-page primitives for Section, SectionKicker, SectionHeading, Accent, Body, Footnote, buttons, Reveal and ImagePlaceholder; reuse SectionFooter with home-prefix links. Preserve the existing BlueZone content palette and typography. The supplied agricultural and logistics references guide asymmetric columns, generous spacing, broad image areas and occasional navy panels. They do not supply public claims or new branding. Missing visuals use the existing image placeholder component. No AI-generated graphics, new diagrams, canvas illustrations or fabricated engineering visuals. The hero remains its existing composition. Short or narrow viewports use the existing static pilot layout to expose all eight measures.

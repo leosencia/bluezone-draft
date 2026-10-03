@@ -1,118 +1,135 @@
-import { Flower2, Leaf, Salad, Sprout } from "lucide-react";
-import fiveXUrl from "../assets/5x.png";
-
+import { ArrowUpRight } from "lucide-react";
 import {
   Accent,
-  BentoTile,
   Body,
-  ImagePlaceholder,
   Reveal,
   Section,
   SectionHeading,
   SectionKicker,
-  SourceLink,
-  Stat,
 } from "./primitives";
-
-const MICROGREENS_SOURCE_URL = "https://pubs.acs.org/doi/10.1021/jf300459b";
+import mixedGreens from "../assets/microgreens/mixed-microgreens-concept.png";
+import peaShoots from "../assets/microgreens/pea-shoots-concept.png";
 
 const CROPS = [
   {
-    icon: Sprout,
     name: "Microgreens",
-    body: "Harvested young, at peak nutrient density. Days from seed to cut.",
-    image: { label: "Microgreens", hint: "Tray at harvest, top-down." },
-    span: "lg:col-span-2",
+    detail: "Young leaves. A considered finishing touch.",
+    body: "Explore tender greens for salads, sandwiches and plated dishes. Discuss the varieties and quantities that work for your menu or wholesale range.",
   },
   {
-    icon: Leaf,
     name: "Micro herbs",
-    body: "High-value garnish and flavour, consistent year-round.",
-    image: {
-      label: "Micro herbs",
-      hint: "Close crop, shallow depth of field.",
-    },
-    span: "",
+    detail: "Small leaves. Distinctive flavour.",
+    body: "Bring aroma and detail to the plate. Share your preferred herbs, presentation requirements and supply needs with our team.",
   },
   {
-    icon: Salad,
-    name: "Leafy greens",
-    body: "The volume staple, grown to a repeatable cycle.",
-    image: { label: "Leafy greens", hint: "Mature heads in the growing tier." },
-    span: "",
-  },
-  {
-    icon: Flower2,
-    name: "Edible flowers",
-    body: "Specialty presentation for hospitality and fine dining.",
-    image: { label: "Edible flowers", hint: "Plated detail or harvest tray." },
-    span: "lg:col-span-2",
+    name: "Pea shoots",
+    detail: "Delicate tendrils. Fresh possibilities.",
+    body: "Discuss pea shoots and microgreens, including the pack formats and quantities your kitchen or customers need.",
   },
 ];
 
 export default function SectionProduce() {
   return (
-    <Section id="produce" surface="mist">
-      <Reveal>
-        <SectionKicker>Produce</SectionKicker>
-        <SectionHeading>
-          Grow <Accent>what the market needs</Accent>
-        </SectionHeading>
-        <Body className="mt-6">
-          Crop selection follows location, demand, production requirements and
-          economics.
-        </Body>
-      </Reveal>
-
-      {/* Bento: the volume staple takes the tall tile, the rest sit beside it. */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-fr gap-4 md:gap-5 mt-14">
-        {CROPS.map(({ icon: Icon, name, body, image, span }, i) => (
-          <Reveal key={name} delay={i * 80} className={`h-full ${span}`}>
-            <BentoTile innerClassName="p-0 overflow-hidden">
-              <ImagePlaceholder
-                flat
-                ratio="aspect-[4/3]"
-                label={image.label}
-                hint={image.hint}
-                className="border-0 border-b border-dashed border-bz-navy/20"
-              />
-              <div className="p-6 flex-1 flex flex-col">
-                <Icon size={18} className="text-bz-field" aria-hidden="true" />
-                <h3 className="font-instrument-serif text-bz-navy text-2xl md:text-[1.75rem] mt-4">
-                  {name}
-                </h3>
-                <Body className="mt-2 max-w-none text-sm flex-1">{body}</Body>
-              </div>
-            </BentoTile>
-          </Reveal>
-        ))}
+    <Section id="produce" surface="white">
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <Reveal className="lg:col-span-5">
+          <SectionKicker>BlueZone Microgreens</SectionKicker>
+          <SectionHeading>
+            Premium microgreens and micro herbs,{" "}
+            <Accent>grown with control.</Accent>
+          </SectionHeading>
+          <Body className="mt-6">
+            Our produce proposition brings together aeroponic growing and a
+            controlled indoor environment, designed for year-round production.
+          </Body>
+          <Body className="mt-4">
+            For wholesalers, foodservice distributors, restaurants and
+            hospitality buyers who want to discuss a more local source of fresh
+            greens.
+          </Body>
+          <a
+            href="#get-in-touch"
+            data-enquiry="produce"
+            className="group inline-flex items-center gap-4 rounded-full bg-bz-navy text-white px-6 py-3.5 mt-8 text-sm font-medium hover:bg-bz-ocean transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue"
+          >
+            Discuss produce supply <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        </Reveal>
+        <Reveal delay={80} className="lg:col-span-7">
+          <figure>
+            <img
+              src={mixedGreens}
+              alt="Illustrative mixed microgreens and micro herbs on a blue-grey ceramic dish."
+              width={1536}
+              height={1024}
+              loading="lazy"
+              decoding="async"
+              className="w-full aspect-[6/5] sm:aspect-[3/2] lg:aspect-[6/5] object-cover rounded-2xl"
+            />
+            {/* <figcaption className="mt-3 text-xs text-bz-slate">Illustrative imagery.</figcaption> */}
+          </figure>
+        </Reveal>
       </div>
-
-      {/* Nutrient callout */}
-      <Reveal>
-        <BentoTile
-          className="mt-4 md:mt-5"
-          innerClassName="p-8 md:p-12 grid lg:grid-cols-[minmax(0,240px)_1fr] gap-2 lg:gap-4 items-center"
-        >
-          <div>
-            <img src={fiveXUrl} width={200} alt="5x" />
-          </div>
-          <div>
-            <h3 className="text-bz-navy text-lg md:text-xl font-sans font-medium">
-              5x more nutrients in the fraction of the space
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 mt-16 md:mt-24 items-start">
+        <Reveal className="lg:col-span-4 order-2 lg:order-1">
+          <figure>
+            <img
+              src={peaShoots}
+              alt="Illustrative pea shoots with curled tendrils on cool stone and navy linen."
+              width={1122}
+              height={1402}
+              loading="lazy"
+              decoding="async"
+              className="w-full aspect-[4/3] lg:aspect-[4/5] object-cover rounded-2xl"
+            />
+            {/* <figcaption className="mt-3 text-xs text-bz-slate">Illustrative imagery.</figcaption> */}
+          </figure>
+        </Reveal>
+        <div className="lg:col-span-8 order-1 lg:order-2">
+          <Reveal>
+            <h3 className="font-instrument-serif text-bz-navy text-3xl md:text-4xl">
+              A small crop. <Accent>A place on your menu.</Accent>
             </h3>
-            <Body className="mt-3 max-w-2xl">
-              USDA researchers measured 25 microgreen varieties for vitamin C,
-              vitamin E, vitamin K and carotenoids and found levels about five
-              times those of the mature leaves of the same plants. Red cabbage,
-              cilantro, garnet amaranth and green daikon radish led the
-              individual nutrient measures.
-            </Body>
-            <div className="mt-4">
-              <SourceLink href={MICROGREENS_SOURCE_URL} />
-            </div>
+          </Reveal>
+          <div className="mt-7 divide-y divide-bz-navy/15 border-y border-bz-navy/15">
+            {CROPS.map((crop, i) => (
+              <Reveal key={crop.name} delay={i * 50}>
+                <article className="grid sm:grid-cols-[0.8fr_1.2fr] gap-3 sm:gap-8 py-7">
+                  <h4 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">
+                    {crop.name}
+                  </h4>
+                  <div>
+                    <p className="text-sm text-bz-navy font-medium">
+                      {crop.detail}
+                    </p>
+                    <Body className="mt-2 text-sm max-w-none">{crop.body}</Body>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
-        </BentoTile>
+        </div>
+      </div>
+      <Reveal>
+        <div className="mt-14 md:mt-20 bg-bz-mist rounded-2xl p-7 md:p-10 grid md:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <h3 className="font-instrument-serif text-bz-navy text-3xl md:text-4xl">
+              Start with what <Accent>your buyers need.</Accent>
+            </h3>
+            <Body className="mt-4 max-w-2xl">
+              Tell us your preferred crops, approximate weekly quantities, pack
+              requirements and delivery location. We’ll discuss availability and
+              a possible supply arrangement with you.
+            </Body>
+          </div>
+          <a
+            href="#get-in-touch"
+            data-enquiry="produce"
+            className="inline-flex items-center justify-center gap-3 rounded-full border border-bz-navy/30 px-6 py-3.5 text-bz-navy text-sm font-medium hover:bg-bz-navy hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue"
+          >
+            Discuss produce supply <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        </div>
       </Reveal>
     </Section>
   );

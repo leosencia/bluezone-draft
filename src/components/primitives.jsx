@@ -21,7 +21,7 @@ export function usePrefersReducedMotion() {
 }
 
 // Reveals its children once, when they scroll into view.
-export function Reveal({ children, delay = 0, className = "" }) {
+export function Reveal({ children, delay = 0, id, className = "" }) {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
   const reduced = usePrefersReducedMotion();
@@ -51,17 +51,22 @@ export function Reveal({ children, delay = 0, className = "" }) {
   return (
     <div
       ref={ref}
+      id={id}
+      data-revealed={shown || reduced ? "true" : "false"}
       style={
         reduced
           ? undefined
-          : { transitionTimingFunction: EASE, transitionDelay: `${delay}ms` }
+          : {
+              transitionProperty: "opacity, transform",
+              transitionDuration: "700ms",
+              transitionTimingFunction: EASE,
+              transitionDelay: `${delay}ms`,
+            }
       }
       className={`${
         reduced
           ? ""
-          : `transition-all duration-700 ${
-              shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`
+          : `${shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`
       } ${className}`}
     >
       {children}
@@ -74,6 +79,7 @@ const SURFACES = {
   mist: "bg-bz-mist",
   navy: "bg-bz-navy",
   ocean: "bg-bz-ocean",
+  teal: "bg-bz-teal",
 };
 
 // Colour each surface fades to, for the soft bottom edge.
@@ -82,6 +88,7 @@ const FADE_TO = {
   mist: ["rgba(244,247,247,0)", "rgba(244,247,247,0.7)", "#F4F7F7"],
   navy: ["rgba(7,27,43,0)", "rgba(7,27,43,0.7)", "#071B2B"],
   ocean: ["rgba(13,59,92,0)", "rgba(13,59,92,0.7)", "#0D3B5C"],
+  teal: ["rgba(24,166,166,0)", "rgba(24,166,166,0.7)", "#18A6A6"],
 };
 
 export function Section({
@@ -93,10 +100,11 @@ export function Section({
   containerClassName = "",
 }) {
   const [from, mid, to] = FADE_TO[surface];
+  const textured = surface === "navy" ? "noise-overlay" : "";
   return (
     <section
       id={id}
-      className={`relative w-full scroll-mt-4 px-6 md:px-12 lg:px-16 ${SURFACES[surface]} ${className}`}
+      className={`relative w-full scroll-mt-4 px-6 md:px-12 lg:px-16 ${SURFACES[surface]} ${textured} ${className}`}
     >
       <div
         className={`max-w-7xl mx-auto py-20 md:py-28 lg:py-32 ${containerClassName}`}
@@ -128,18 +136,19 @@ export function Section({
 export function BentoTile({
   children,
   dark = false,
-  noise = false,
+  noise,
   fill,
   span = "",
   className = "",
   innerClassName = "p-6 md:p-7",
 }) {
   const surface = fill ?? (dark ? "bg-bz-navy" : "bg-white/70");
+  const textured = noise ?? (dark || fill === "bg-bz-navy");
   return (
     <div
-      className={`rounded-2xl h-full ${surface} ${
+      className={`rounded-3xl h-full ${surface} ${
         dark ? "liquid-glass" : "liquid-glass-light"
-      } ${noise ? "noise-overlay" : ""} ${span} ${className}`}
+      } ${textured ? "noise-overlay" : ""} ${span} ${className}`}
     >
       <div className={`relative z-10 h-full flex flex-col ${innerClassName}`}>
         {children}
@@ -204,21 +213,31 @@ export function SectionKicker({ children, onNavy = false, className = "" }) {
       className={`relative overflow-hidden flex w-fit flex-row gap-3 items-center ${onNavy ? "text-white" : "text-bz-navy"} text-xs font-medium uppercase tracking-[0.18em] px-4 py-2 mb-4 md:mb-5 ${className}
         ${onNavy ? "bg-white/10" : "bg-bz-teal/10"} rounded-2xl`}
     >
-      <img src={onNavy ? bzLogoWhite : bzLogo} width={18} />
+      <img
+        src={onNavy ? bzLogoWhite : bzLogo}
+        alt=""
+        aria-hidden="true"
+        width={18}
+      />
       <span className="">{children}</span>
     </span>
   );
 }
 
-export function SectionHeading({ children, dark = false, className = "" }) {
+export function SectionHeading({
+  children,
+  dark = false,
+  className = "",
+  as: Tag = "h2",
+}) {
   return (
-    <h2
+    <Tag
       className={`font-instrument-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] max-w-4xl ${
         dark ? "text-white" : "text-bz-navy"
       } ${className}`}
     >
       {children}
-    </h2>
+    </Tag>
   );
 }
 
@@ -260,17 +279,20 @@ export function Footnote({ children, dark = false, className = "" }) {
 }
 
 // Pill button with the small circular icon badge from the reference layout.
-export function PrimaryButton({ href, children, className = "" }) {
+export function PrimaryButton({ href, children, className = "", ...props }) {
   return (
     <a
       href={href}
+      {...props}
       className={`group inline-flex items-center gap-3 bg-bz-navy text-white rounded-full pl-6 pr-2 py-2 text-sm font-medium hover:bg-bz-ocean transition-colors duration-200 ${className}`}
     >
       {children}
-      <span className="flex items-center justify-center w-7 h-7 rounded-full bg-bz-blue text-white">
+      <span
+        className={`flex items-center justify-center w-7 h-7 rounded-full bg-bz-blue text-white ${props.light ? "group-hover:!bg-bz-mist" : ""}`}
+      >
         <ArrowRight
           size={14}
-          className="transition-transform duration-200 group-hover:translate-x-0.5"
+          className={`transition-transform duration-200 group-hover:translate-x-0.5 ${props.light ? "group-hover:text-bz-teal" : ""}`}
         />
       </span>
     </a>
@@ -448,11 +470,22 @@ export function SourceNote({ source, href, dark = false, className = "" }) {
  * Plain colour is kept for anything under ~2rem, where a gradient fill
  * thins the serif strokes too far to stay legible.
  */
-export function Stat({ children, dark = false, className = "" }) {
+export function Stat({
+  children,
+  dark = false,
+  solid = false,
+  className = "",
+}) {
   return (
     <span
       className={`font-instrument-serif leading-none ${
-        dark ? "stat-gradient-dark" : "stat-gradient"
+        solid
+          ? dark
+            ? "text-bz-lime"
+            : "text-bz-blue"
+          : dark
+            ? "stat-gradient-dark"
+            : "stat-gradient"
       } ${className}`}
     >
       {children}

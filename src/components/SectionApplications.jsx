@@ -32,8 +32,7 @@ const SECTORS = [
   {
     icon: Plane,
     title: "Airports and airline catering",
-    body: "Volume, schedule reliability and presentation standards, at a site where fresh inventory has to land daily.",
-    href: "/applications/airline-catering",
+    body: "Grow selected crops near the catering kitchen, against its procurement specification. Assess one unit before considering a wider rollout.",
     image: {
       src: airportImage,
       label: "Airline catering",
@@ -42,8 +41,7 @@ const SECTORS = [
   {
     icon: Waves,
     title: "Islands and remote locations",
-    body: "Freight dependence, long lead times and arrival quality.",
-    href: "/applications/islands",
+    body: "A local operator can supply resort kitchens or distributors. Assess demand, utilities, staffing and the cost of imported produce together.",
     image: {
       src: islandImage,
       label: "Island supply",
@@ -52,8 +50,7 @@ const SECTORS = [
   {
     icon: ShieldCheck,
     title: "Government and institutions",
-    body: "Local production capacity as part of food security planning.",
-    href: "/applications/food-security",
+    body: "Local production with a defined operator and buyer for the harvest. Public or development support depends on programme eligibility.",
     image: {
       src: institutionImage,
       label: "Institutional site",
@@ -62,8 +59,7 @@ const SECTORS = [
   {
     icon: Building2,
     title: "Hotels and resorts",
-    body: "Year-round menu consistency, guest-facing quality, and a visible on-property growing story.",
-    href: "/applications/hotels-resorts",
+    body: "Explore produce supply, an on-property system or a local operator serving several kitchens. Operating teams and crop demand shape the model.",
     image: {
       src: resortImage,
       label: "Resort property",
@@ -72,8 +68,7 @@ const SECTORS = [
   {
     icon: Package,
     title: "Foodservice and distribution",
-    body: "Predictable supply and shelf life against a variable import market.",
-    href: "/applications/foodservice",
+    body: "Discuss microgreen supply for your customers, or assess selected production at your own depot against volumes, quality and landed cost.",
     image: {
       src: foodserviceImage,
       label: "Distribution",
@@ -82,8 +77,7 @@ const SECTORS = [
   {
     icon: Tractor,
     title: "Commercial growers",
-    body: "Added controlled-environment capacity alongside existing field operations.",
-    href: "/applications/commercial-growers",
+    body: "An additional indoor crop enterprise alongside field operations, run by trained staff. Judge the opportunity using real labour, energy and yield data.",
     image: {
       src: growerImage,
       label: "Grower operation",
@@ -91,10 +85,10 @@ const SECTORS = [
   },
 ];
 
-function SectorLink({ children, href }) {
+function SectorLink({ children }) {
   return (
     <BentoTile className="group" innerClassName="p-0">
-      <a href={href} className="relative block h-full">
+      <a href="#get-in-touch" data-enquiry="systems" className="relative block h-full rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-bz-blue">
         {children}
         <ArrowUpRight
           size={16}
@@ -158,7 +152,9 @@ export default function SectionApplications() {
           Where could production <Accent>move closer?</Accent>
         </SectionHeading>
         <Body className="mt-6">
-          Anywhere fresh produce arrives late, expensive, or not at all.
+          Strong candidates combine recurring demand, costly or fragile supply,
+          and a practical site, operator and funding route. We assess the crop
+          and commercial case before defining a pilot.
         </Body>
       </Reveal>
 
@@ -197,13 +193,13 @@ export default function SectionApplications() {
           }}
           className="flex gap-4 md:gap-5 transition-transform duration-500 pr-6 md:pr-12 lg:pr-16"
         >
-          {SECTORS.map(({ icon: Icon, title, body, href, image }, i) => (
+          {SECTORS.map(({ icon: Icon, title, body, image }, i) => (
             <div
               key={title}
               ref={i === 0 ? cardRef : undefined}
               className="shrink-0 w-[85vw] sm:w-[460px] lg:w-[560px]"
             >
-              <SectorLink href={href}>
+              <SectorLink>
                 <img
                   src={image.src}
                   alt={image.label}
@@ -223,6 +219,12 @@ export default function SectionApplications() {
           ))}
         </div>
       </div>
+      <Reveal>
+        <div className="mt-12 rounded-2xl bg-bz-mist p-7 md:p-10 grid md:grid-cols-2 gap-8">
+          <div><h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">System crop planning</h3><Body className="mt-3">Leafy greens, culinary herbs, microgreens and edible flowers are crop targets for site-specific evaluation. Crop cycles, configuration and economics need to be established for each project.</Body></div>
+          <div><h3 className="font-instrument-serif text-bz-navy text-2xl md:text-3xl">A market for every harvest</h3><Body className="mt-3">Airline kitchens, resort clusters, distributors and institutional caterers can provide recurring demand. Water, land, climate and logistics constraints help identify where local production may be useful.</Body><p className="mt-4 text-sm text-bz-slate">These system crop possibilities are separate from the BlueZone Microgreens supply range.</p></div>
+        </div>
+      </Reveal>
     </Section>
   );
 }

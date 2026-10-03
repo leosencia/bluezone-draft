@@ -33,7 +33,7 @@ const TABS = [
     caption: "of freshwater withdrawals go to agriculture",
     paragraphs: [
       "Agriculture is the largest single draw on global freshwater, and renewable water available per person has fallen 7% in a decade. Field irrigation loses water to soil, runoff and evaporation before it reaches a root.",
-      "An enclosed root zone changes what happens to the water that is not taken up. It is captured and recirculated instead of drained.",
+      "In a recirculating system, water not taken up by the crop can be captured and reused. Actual consumption depends on crop, climate settings, maintenance and system performance.",
     ],
     source: "FAO AQUASTAT, 2025 data release",
     sourceUrl: "https://www.fao.org/aquastat/en/",
@@ -49,7 +49,7 @@ const TABS = [
     caption: "of habitable land is already farmed",
     paragraphs: [
       "Almost half the world's habitable land is in agricultural use, and most of it supports livestock rather than crops for people. Expanding field production means competing for what is left.",
-      "Vertical tiers multiply canopy area inside a fixed footprint, so capacity is added by stacking rather than by clearing.",
+      "Vertical tiers can add canopy area within a fixed building footprint. The practical capacity still depends on crop spacing, access, services and operating design.",
     ],
     source: "FAO, via Our World in Data, 2024",
     sourceUrl: "https://ourworldindata.org/land-use",
@@ -64,8 +64,8 @@ const TABS = [
     figure: "19%",
     caption: "of food-system emissions come from transport",
     paragraphs: [
-      "Moving food generates roughly 3 billion tonnes of CO₂e a year, close to a fifth of all food-system emissions. Fruit and vegetables account for over a third of that, because they travel refrigerated.",
-      "Production sited next to demand removes the freight leg and the cold chain that goes with it.",
+      "Moving food generates roughly 3 billion tonnes of CO₂e a year, close to a fifth of all food-system emissions. Fruit and vegetable transport accounts for more than a third of food-mile emissions in the study.",
+      "Supply or production closer to demand can shorten produce freight. Refrigeration and local delivery still depend on the crop, route and buyer requirements, while controlled growing also uses energy.",
     ],
     source: "Li et al., Nature Food, 2022",
     sourceUrl: "https://www.nature.com/articles/s43016-022-00531-w",
@@ -80,8 +80,8 @@ const TABS = [
     figure: "25.4%",
     caption: "of fruit and vegetables lost before retail",
     paragraphs: [
-      "A quarter of the world's fruit and vegetable harvest is lost between the field and the shelf, and the figure has risen since 2015. Perishable crops lose the most, because they have the furthest to travel.",
-      "Harvesting into the market that consumes it removes most of the journey where that loss happens.",
+      "A quarter of the world's fruit and vegetable harvest is lost between the field and the shelf, and the figure has risen since 2015. Causes differ by crop and market, including handling, storage and transport conditions.",
+      "Harvesting closer to the market can reduce time and handoffs, but measured waste performance must be established for the actual supply route.",
     ],
     source: "FAO, SDG indicator 12.3.1a, 2023 data",
     sourceUrl:
@@ -132,9 +132,11 @@ export default function SectionImpact() {
           make it <Accent>more resilient</Accent>
         </SectionHeading>
         <Body className="mt-6 max-w-2xl">
-          Local production does not solve food security on its own. It adds a
-          layer of supply that does not depend on freight, weather or a single
-          growing region. The case for it should be measured, not assumed.
+          Local production does not solve food security on its own. It can add
+          a layer of supply with less exposure to long-distance freight,
+          outdoor weather and a single growing region. It still depends on
+          energy, inputs, people and local delivery, so the case should be
+          measured rather than assumed.
         </Body>
       </Reveal>
 
@@ -196,7 +198,7 @@ export default function SectionImpact() {
               ))}
             </div>
             <div className="mt-6">
-              <SourceLink href={panel.sourceUrl} />
+              <SourceLink href={panel.sourceUrl} label={panel.source} />
             </div>
           </div>
 
